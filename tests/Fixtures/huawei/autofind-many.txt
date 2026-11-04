@@ -1,0 +1,185 @@
+display ont autofind all
+  ----------------------------------------------------------------------------
+  Number              : 14
+  F/S/P               : 0/0/13
+  Ont SN              : 46485454A000000E (FHTT-A000000E)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : FHTT
+  Ont Version         : V3.0
+  Ont SoftwareVersion : RP2521
+  Ont EquipmentID     : HG6145F
+  Ont autofind time   : 2026-10-22 09:30:14+07:00
+  ----------------------------------------------------------------------------
+  Number              : 1
+  F/S/P               : 0/0/0
+  Ont SN              : 48575443A0000001 (HWTC-A0000001)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : HWTC
+  Ont Version         : 140D.A
+  Ont SoftwareVersion : V5R019C10S125
+  Ont EquipmentID     : EG8145V5
+  Ont autofind time   : 2026-10-22 09:01:02+07:00
+  ----------------------------------------------------------------------------
+  Number              : 2
+  F/S/P               : 0/0/1
+  Ont SN              : FHTTA0000002
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : FHTT
+  Ont Version         : V3.0
+  Ont SoftwareVersion : RP2521
+  Ont EquipmentID     : HG6145F
+  Ont autofind time   : 2026-10-22 09:02:03+07:00
+  ----------------------------------------------------------------------------
+  Number              : 3
+  F/S/P               : 0/0/2
+  Ont SN              : 414C434CA0000003 (ALCL-A0000003)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : ALCL
+  Ont Version         : 3FE
+  Ont SoftwareVersion : 3FE49000AOCB
+  Ont EquipmentID     : G-140W-C
+  Ont autofind time   : 2026-10-22 09:03:04+07:00
+  ----------------------------------------------------------------------------
+  Number              : 4
+  F/S/P               : 0/0/3
+  Ont SN              : 5A544547A0000004 (ZTEG-A0000004)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : ZTEG
+  Ont Version         : V6.0
+  Ont SoftwareVersion : V6.0.10P1T4
+  Ont EquipmentID     : F660
+  Ont autofind time   : 2026-10-22 09:04:05+07:00
+  ----------------------------------------------------------------------------
+  Number              : 5
+  F/S/P               : 0/0/4
+  Ont SN              : 48575443A0000005 (HWTC-A0000005)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : HWTC
+  Ont Version         : 140D.A
+  Ont SoftwareVersion : V5R019C10S125
+  Ont EquipmentID     : EG8145V5
+  Ont autofind time   : 2026-10-22 09:05:06+07:00
+  ----------------------------------------------------------------------------
+  Number              : 6
+  F/S/P               : 0/0/5
+  Ont SN              : FHTTA0000006
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : FHTT
+  Ont Version         : V3.0
+  Ont SoftwareVersion : RP2521
+  Ont EquipmentID     : HG6145F
+  Ont autofind time   : 2026-10-22 09:06:07+07:00
+  ----------------------------------------------------------------------------
+  Number              : 7
+  F/S/P               : 0/0/6
+  Ont SN              : 414C434CA0000007 (ALCL-A0000007)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : ALCL
+  Ont Version         : 3FE
+  Ont SoftwareVersion : 3FE49000AOCB
+  Ont EquipmentID     : G-140W-C
+  Ont autofind time   : 2026-10-22 09:07:08+07:00
+  ---- More ( Press 'Q' to break ) ----{ESC}[37D                                     {ESC}[37D
+  ----------------------------------------------------------------------------
+  Number              : 8
+  F/S/P               : 0/0/7
+  Ont SN              : 5A544547A0000008 (ZTEG-A0000008)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : ZTEG
+  Ont Version         : V6.0
+  Ont SoftwareVersion : V6.0.10P1T4
+  Ont EquipmentID     : F660
+  Ont autofind time   : 2026-10-22 09:08:09+07:00
+  ----------------------------------------------------------------------------
+  Number              : 9
+  F/S/P               : 0/0/8
+  Ont SN              : 48575443A0000009 (HWTC-A0000009)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : HWTC
+  Ont Version         : 140D.A
+  Ont SoftwareVersion : V5R019C10S125
+  Ont EquipmentID     : EG8145V5
+  Ont autofind time   : 2026-10-22 09:09:10+07:00
+  ----------------------------------------------------------------------------
+  Number              : 10
+  F/S/P               : 0/0/9
+  Ont SN              : 46485454A000000A (FHTT-A000000A)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : FHTT
+  Ont Version         : V3.0
+  Ont SoftwareVersion : RP2521
+  Ont EquipmentID     : HG6145F
+  Ont autofind time   : 2026-10-22 09:10:11+07:00
+  ----------------------------------------------------------------------------
+  Number              : 11
+  F/S/P               : 0/0/10
+  Ont SN              : 414C434CA000000B (ALCL-A000000B)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : ALCL
+  Ont Version         : 3FE
+  Ont SoftwareVersion : 3FE49000AOCB
+  Ont EquipmentID     : G-140W-C
+  Ont autofind time   : 2026-10-22 09:11:12+07:00
+  ----------------------------------------------------------------------------
+  Number              : 12
+  F/S/P               : 0/0/11
+  Ont SN              : 5A544547A000000C (ZTEG-A000000C)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : ZTEG
+  Ont Version         : V6.0
+  Ont SoftwareVersion : V6.0.10P1T4
+  Ont EquipmentID     : F660
+  Ont autofind time   : 2026-10-22 09:12:13+07:00
+  ----------------------------------------------------------------------------
+  Number              : 13
+  F/S/P               : 0/0/12
+  Ont SN              : 48575443A000000D (HWTC-A000000D)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : HWTC
+  Ont Version         : 140D.A
+  Ont SoftwareVersion : V5R019C10S125
+  Ont EquipmentID     : EG8145V5
+  Ont autofind time   : 2026-10-22 09:13:14+07:00
+  ----------------------------------------------------------------------------
+  Number              : 3
+  F/S/P               : 0/0/2
+  Ont SN              : 414C434CA0000003 (ALCL-A0000003)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : ALCL
+  Ont Version         : 3FE
+  Ont SoftwareVersion : 3FE49000AOCB
+  Ont EquipmentID     : G-140W-C
+  Ont autofind time   : 2026-10-22 09:03:04+07:00
+  ----------------------------------------------------------------------------
+  The number of GPON autofind ONT is 14
+MA5608T#

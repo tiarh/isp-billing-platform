@@ -1,0 +1,1456 @@
+{
+    "cases": {
+        "01-ktp-then-sn": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "ktp-a",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                },
+                {
+                    "image": "sn-a",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 0,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "DRAFTE CO SANTOSO",
+                "nik": "3507120110000005",
+                "rt": "1",
+                "rw": "2",
+                "sn": "FHTTC0FFEE01",
+                "ktp_photo_path": "psb/<ym>/ktp_<rand>.jpg",
+                "router_photo_path": "psb/<ym>/sn_<rand>.jpg",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 2,
+                        "sha256": [
+                            "ktp-a",
+                            "sn-a"
+                        ],
+                        "sn_idx": 1,
+                        "status": "completed",
+                        "ktp_idx": 0,
+                        "sn_path": "psb/<ym>/sn_<rand>.jpg",
+                        "ktp_path": "psb/<ym>/ktp_<rand>.jpg",
+                        "sn_score": 90,
+                        "fast_path": true,
+                        "ktp_score": 100,
+                        "hard_guard": false,
+                        "ocr_status": [
+                            "ok",
+                            "ok"
+                        ],
+                        "odp_scores": [
+                            0,
+                            0
+                        ],
+                        "unknown_count": 0,
+                        "degraded_count": 0,
+                        "slow_unreadable": false,
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "ktp-a",
+                            "sn_score": 0,
+                            "ktp_score": 100,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        },
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-2.jpg",
+                            "sender": null,
+                            "sha256": "sn-a",
+                            "sn_score": 90,
+                            "ktp_score": 0,
+                            "odp_score": 0,
+                            "classifier": "sn",
+                            "message_id": "FAKE-IMG-2",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "02-sn-then-ktp": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "sn-a",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                },
+                {
+                    "image": "ktp-a",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 0,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "DRAFTE CO SANTOSO",
+                "nik": "3507120110000005",
+                "rt": "1",
+                "rw": "2",
+                "sn": "FHTTC0FFEE01",
+                "ktp_photo_path": "psb/<ym>/ktp_<rand>.jpg",
+                "router_photo_path": "psb/<ym>/sn_<rand>.jpg",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 2,
+                        "sha256": [
+                            "sn-a",
+                            "ktp-a"
+                        ],
+                        "sn_idx": 0,
+                        "status": "completed",
+                        "ktp_idx": 1,
+                        "sn_path": "psb/<ym>/sn_<rand>.jpg",
+                        "ktp_path": "psb/<ym>/ktp_<rand>.jpg",
+                        "sn_score": 90,
+                        "fast_path": true,
+                        "ktp_score": 100,
+                        "hard_guard": false,
+                        "ocr_status": [
+                            "ok",
+                            "ok"
+                        ],
+                        "odp_scores": [
+                            0,
+                            0
+                        ],
+                        "unknown_count": 0,
+                        "degraded_count": 0,
+                        "slow_unreadable": false,
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "sn-a",
+                            "sn_score": 90,
+                            "ktp_score": 0,
+                            "odp_score": 0,
+                            "classifier": "sn",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        },
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-2.jpg",
+                            "sender": null,
+                            "sha256": "ktp-a",
+                            "sn_score": 0,
+                            "ktp_score": 100,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-2",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "03-labels-only-ktp-paddle-ok": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "ktp-labels",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 1,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "DRAFTE CO SANTOSO",
+                "nik": "3507120110000005",
+                "rt": "1",
+                "rw": "2",
+                "sn": "",
+                "ktp_photo_path": "psb/<ym>/ktp_<rand>.jpg",
+                "router_photo_path": "",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 1,
+                        "sha256": [
+                            "ktp-labels"
+                        ],
+                        "sn_idx": null,
+                        "status": "completed",
+                        "ktp_idx": 0,
+                        "sn_path": null,
+                        "ktp_path": "psb/<ym>/ktp_<rand>.jpg",
+                        "sn_score": null,
+                        "fast_path": true,
+                        "ktp_score": 100,
+                        "hard_guard": false,
+                        "ocr_status": [
+                            "ok"
+                        ],
+                        "odp_scores": [
+                            0
+                        ],
+                        "unknown_count": 0,
+                        "degraded_count": 0,
+                        "slow_unreadable": false,
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "ktp-labels",
+                            "sn_score": 0,
+                            "ktp_score": 100,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "04-empty-tesseract-paddle-error": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "ktp-empty",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                },
+                {
+                    "image": "ktp-empty",
+                    "language": "ind+eng",
+                    "psm": 6,
+                    "timeout": 45
+                },
+                {
+                    "image": "ktp-empty",
+                    "language": "ind+eng",
+                    "psm": 11,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 1,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, server lambat. Dicek ulang otomatis.",
+                "full_name": "",
+                "nik": null,
+                "rt": "",
+                "rw": "",
+                "sn": "",
+                "ktp_photo_path": "",
+                "router_photo_path": "",
+                "meta": {
+                    "photo_class": {
+                        "retry": {
+                            "until": "<ts>",
+                            "due_at": "<ts>",
+                            "reason": "paddle_busy"
+                        },
+                        "status": "retry_pending",
+                        "ocr_status": [
+                            "paddle_busy"
+                        ],
+                        "degraded_count": 1
+                    },
+                    "document_gate": {
+                        "reason": "ocr_retry_scheduled",
+                        "status": "ocr_pending",
+                        "updated_at": "<ts>"
+                    },
+                    "ocr_batch_key": "FAKE-BATCH-1",
+                    "waiting_photo": true
+                }
+            }
+        },
+        "05-ktp-timeout-retry-pending": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "ktp-slow",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 0,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, server lambat. Dicek ulang otomatis.",
+                "full_name": "",
+                "nik": null,
+                "rt": "",
+                "rw": "",
+                "sn": "",
+                "ktp_photo_path": "",
+                "router_photo_path": "",
+                "meta": {
+                    "photo_class": {
+                        "retry": {
+                            "until": "<ts>",
+                            "due_at": "<ts>",
+                            "reason": "timeout"
+                        },
+                        "status": "retry_pending",
+                        "ocr_status": [
+                            "timeout"
+                        ],
+                        "degraded_count": 1
+                    },
+                    "document_gate": {
+                        "reason": "ocr_retry_scheduled",
+                        "status": "ocr_pending",
+                        "updated_at": "<ts>"
+                    },
+                    "ocr_batch_key": "FAKE-BATCH-1",
+                    "waiting_photo": true
+                }
+            }
+        },
+        "06-ktp-timeout-second-pass-slow-unreadable": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "ktp-slow",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 0,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "",
+                "nik": null,
+                "rt": "",
+                "rw": "",
+                "sn": "",
+                "ktp_photo_path": "",
+                "router_photo_path": "",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 1,
+                        "sha256": [
+                            "ktp-slow"
+                        ],
+                        "sn_idx": null,
+                        "status": "completed",
+                        "ktp_idx": null,
+                        "sn_path": null,
+                        "ktp_path": null,
+                        "sn_score": null,
+                        "fast_path": true,
+                        "ktp_score": null,
+                        "hard_guard": false,
+                        "ocr_status": [
+                            "timeout"
+                        ],
+                        "odp_scores": [
+                            0
+                        ],
+                        "unknown_count": 1,
+                        "degraded_count": 1,
+                        "slow_unreadable": true,
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "ktp-slow",
+                            "sn_score": 0,
+                            "ktp_score": 25,
+                            "odp_score": 0,
+                            "classifier": "unknown",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "07-invalid-nik": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "ktp-bad-nik",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 0,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "DRAFTE CO SANTOSO",
+                "nik": null,
+                "rt": "1",
+                "rw": "2",
+                "sn": "",
+                "ktp_photo_path": "psb/<ym>/ktp_<rand>.jpg",
+                "router_photo_path": "",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 1,
+                        "sha256": [
+                            "ktp-bad-nik"
+                        ],
+                        "sn_idx": null,
+                        "status": "completed",
+                        "ktp_idx": 0,
+                        "sn_path": null,
+                        "ktp_path": "psb/<ym>/ktp_<rand>.jpg",
+                        "sn_score": null,
+                        "fast_path": true,
+                        "ktp_score": 100,
+                        "hard_guard": false,
+                        "ocr_status": [
+                            "ok"
+                        ],
+                        "odp_scores": [
+                            0
+                        ],
+                        "unknown_count": 0,
+                        "degraded_count": 0,
+                        "slow_unreadable": false,
+                        "ktp_nik_unverified": "0001",
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "ktp-bad-nik",
+                            "sn_score": 0,
+                            "ktp_score": 100,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "08-odp-and-ktp": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "odp-a",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                },
+                {
+                    "image": "odp-a",
+                    "language": "ind+eng",
+                    "psm": 6,
+                    "timeout": 45
+                },
+                {
+                    "image": "odp-a",
+                    "language": "ind+eng",
+                    "psm": 11,
+                    "timeout": 45
+                },
+                {
+                    "image": "ktp-a",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 0,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "DRAFTE CO SANTOSO",
+                "nik": "3507120110000005",
+                "rt": "1",
+                "rw": "2",
+                "sn": "",
+                "ktp_photo_path": "psb/<ym>/ktp_<rand>.jpg",
+                "router_photo_path": "",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 2,
+                        "sha256": [
+                            "odp-a",
+                            "ktp-a"
+                        ],
+                        "sn_idx": null,
+                        "status": "completed",
+                        "ktp_idx": 1,
+                        "sn_path": null,
+                        "ktp_path": "psb/<ym>/ktp_<rand>.jpg",
+                        "sn_score": null,
+                        "fast_path": true,
+                        "ktp_score": 100,
+                        "hard_guard": false,
+                        "ocr_status": [
+                            "ok",
+                            "ok"
+                        ],
+                        "odp_scores": [
+                            85,
+                            0
+                        ],
+                        "unknown_count": 0,
+                        "degraded_count": 0,
+                        "slow_unreadable": false,
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "odp-a",
+                            "sn_score": 0,
+                            "ktp_score": 15,
+                            "odp_score": 85,
+                            "classifier": "odp",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        },
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-2.jpg",
+                            "sender": null,
+                            "sha256": "ktp-a",
+                            "sn_score": 0,
+                            "ktp_score": 100,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-2",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "09-three-ktp-candidates-paddle-cap-2": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "ktp-c1",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                },
+                {
+                    "image": "ktp-c2",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                },
+                {
+                    "image": "ktp-c3",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 2,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "",
+                "nik": null,
+                "rt": "",
+                "rw": "",
+                "sn": "",
+                "ktp_photo_path": "psb/<ym>/ktp_<rand>.jpg",
+                "router_photo_path": "",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 3,
+                        "sha256": [
+                            "ktp-c1",
+                            "ktp-c2",
+                            "ktp-c3"
+                        ],
+                        "sn_idx": null,
+                        "status": "completed",
+                        "ktp_idx": 0,
+                        "sn_path": null,
+                        "ktp_path": "psb/<ym>/ktp_<rand>.jpg",
+                        "sn_score": null,
+                        "fast_path": true,
+                        "ktp_score": 70,
+                        "hard_guard": false,
+                        "ocr_status": [
+                            "ok",
+                            "ok",
+                            "ok"
+                        ],
+                        "odp_scores": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "unknown_count": 0,
+                        "degraded_count": 0,
+                        "slow_unreadable": false,
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "ktp-c1",
+                            "sn_score": 0,
+                            "ktp_score": 70,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        },
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-2.jpg",
+                            "sender": null,
+                            "sha256": "ktp-c2",
+                            "sn_score": 0,
+                            "ktp_score": 70,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-2",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        },
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-3.jpg",
+                            "sender": null,
+                            "sha256": "ktp-c3",
+                            "sn_score": 0,
+                            "ktp_score": 70,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-3",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "09b-three-ktp-candidates-nik-found-first": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "ktp-c1",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                },
+                {
+                    "image": "ktp-c2",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                },
+                {
+                    "image": "ktp-c3",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 1,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "DRAFTE CO SANTOSO",
+                "nik": "3507120110000005",
+                "rt": "1",
+                "rw": "2",
+                "sn": "",
+                "ktp_photo_path": "psb/<ym>/ktp_<rand>.jpg",
+                "router_photo_path": "",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 3,
+                        "sha256": [
+                            "ktp-c1",
+                            "ktp-c2",
+                            "ktp-c3"
+                        ],
+                        "sn_idx": null,
+                        "status": "completed",
+                        "ktp_idx": 0,
+                        "sn_path": null,
+                        "ktp_path": "psb/<ym>/ktp_<rand>.jpg",
+                        "sn_score": null,
+                        "fast_path": true,
+                        "ktp_score": 100,
+                        "hard_guard": false,
+                        "ocr_status": [
+                            "ok",
+                            "ok",
+                            "ok"
+                        ],
+                        "odp_scores": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "unknown_count": 0,
+                        "degraded_count": 0,
+                        "slow_unreadable": false,
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "ktp-c1",
+                            "sn_score": 0,
+                            "ktp_score": 100,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        },
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-2.jpg",
+                            "sender": null,
+                            "sha256": "ktp-c2",
+                            "sn_score": 0,
+                            "ktp_score": 70,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-2",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        },
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-3.jpg",
+                            "sender": null,
+                            "sha256": "ktp-c3",
+                            "sn_score": 0,
+                            "ktp_score": 70,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-3",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "15-paddle-connection-timeout": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "ktp-labels",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 1,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "",
+                "nik": null,
+                "rt": "",
+                "rw": "",
+                "sn": "",
+                "ktp_photo_path": "psb/<ym>/ktp_<rand>.jpg",
+                "router_photo_path": "",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 1,
+                        "sha256": [
+                            "ktp-labels"
+                        ],
+                        "sn_idx": null,
+                        "status": "completed",
+                        "ktp_idx": 0,
+                        "sn_path": null,
+                        "ktp_path": "psb/<ym>/ktp_<rand>.jpg",
+                        "sn_score": null,
+                        "fast_path": true,
+                        "ktp_score": 70,
+                        "hard_guard": false,
+                        "ocr_status": [
+                            "paddle_busy"
+                        ],
+                        "odp_scores": [
+                            0
+                        ],
+                        "unknown_count": 0,
+                        "degraded_count": 1,
+                        "slow_unreadable": false,
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "ktp-labels",
+                            "sn_score": 0,
+                            "ktp_score": 70,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "10-media-hard-guard-on": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "ktp-a",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                },
+                {
+                    "image": "sn-a",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                },
+                {
+                    "image": "other-a",
+                    "language": "ind+eng",
+                    "psm": 3,
+                    "timeout": 45
+                },
+                {
+                    "image": "other-a",
+                    "language": "ind+eng",
+                    "psm": 6,
+                    "timeout": 45
+                },
+                {
+                    "image": "other-a",
+                    "language": "ind+eng",
+                    "psm": 11,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 0,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "DRAFTE CO SANTOSO",
+                "nik": "3507120110000005",
+                "rt": "1",
+                "rw": "2",
+                "sn": "FHTTC0FFEE01",
+                "ktp_photo_path": "psb/<ym>/ktp_<rand>.jpg",
+                "router_photo_path": "psb/<ym>/sn_<rand>.jpg",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 3,
+                        "sha256": [
+                            "ktp-a",
+                            "sn-a",
+                            "other-a"
+                        ],
+                        "sn_idx": 1,
+                        "status": "completed",
+                        "ktp_idx": 0,
+                        "sn_path": "psb/<ym>/sn_<rand>.jpg",
+                        "ktp_path": "psb/<ym>/ktp_<rand>.jpg",
+                        "sn_score": 90,
+                        "fast_path": true,
+                        "ktp_score": 100,
+                        "hard_guard": true,
+                        "ocr_status": [
+                            "ok",
+                            "ok",
+                            "ok"
+                        ],
+                        "odp_scores": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "unknown_count": 1,
+                        "degraded_count": 0,
+                        "slow_unreadable": false,
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "ktp-a",
+                            "sn_score": 0,
+                            "ktp_score": 100,
+                            "odp_score": 0,
+                            "classifier": "ktp",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        },
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-2.jpg",
+                            "sender": null,
+                            "sha256": "sn-a",
+                            "sn_score": 90,
+                            "ktp_score": 0,
+                            "odp_score": 0,
+                            "classifier": "sn",
+                            "message_id": "FAKE-IMG-2",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        },
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-3.jpg",
+                            "sender": null,
+                            "sha256": "other-a",
+                            "sn_score": 0,
+                            "ktp_score": 20,
+                            "odp_score": 0,
+                            "classifier": "unknown",
+                            "message_id": "FAKE-IMG-3",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "11-run-cap-sync-vs-async": {
+            "sync": {
+                "thrown": null,
+                "tesseract": [
+                    {
+                        "image": "ktp-a",
+                        "language": "ind+eng",
+                        "psm": 3,
+                        "timeout": 15
+                    }
+                ],
+                "paddle_calls": 0,
+                "draft": {
+                    "status": "received",
+                    "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                    "full_name": "",
+                    "nik": null,
+                    "rt": "",
+                    "rw": "",
+                    "sn": "",
+                    "ktp_photo_path": "psb/<ym>/ktp_<rand>.jpg",
+                    "router_photo_path": "",
+                    "meta": {
+                        "photo_class": {
+                            "queue": "ocr-media",
+                            "images": 1,
+                            "sha256": [
+                                "ktp-a"
+                            ],
+                            "sn_idx": null,
+                            "status": "completed",
+                            "ktp_idx": 0,
+                            "sn_path": null,
+                            "ktp_path": "psb/<ym>/ktp_<rand>.jpg",
+                            "sn_score": null,
+                            "fast_path": true,
+                            "ktp_score": 70,
+                            "hard_guard": false,
+                            "ocr_status": [
+                                "ok"
+                            ],
+                            "odp_scores": [
+                                0
+                            ],
+                            "unknown_count": 0,
+                            "degraded_count": 0,
+                            "slow_unreadable": false,
+                            "ocr_batch_completed": "FAKE-BATCH-1"
+                        },
+                        "document_gate": {
+                            "status": "classified"
+                        },
+                        "waiting_photo": true,
+                        "photo_attachments": [
+                            {
+                                "mime": "image/jpeg",
+                                "path": "psb/inbox/image-1.jpg",
+                                "sender": null,
+                                "sha256": "ktp-a",
+                                "sn_score": 0,
+                                "ktp_score": 70,
+                                "odp_score": 0,
+                                "classifier": "ktp",
+                                "message_id": "FAKE-IMG-1",
+                                "received_at": null,
+                                "classification_status": "terminal"
+                            }
+                        ]
+                    }
+                }
+            },
+            "async": {
+                "thrown": null,
+                "tesseract": [
+                    {
+                        "image": "ktp-a",
+                        "language": "ind+eng",
+                        "psm": 3,
+                        "timeout": 45
+                    }
+                ],
+                "paddle_calls": 0,
+                "draft": {
+                    "status": "received",
+                    "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                    "full_name": "",
+                    "nik": null,
+                    "rt": "",
+                    "rw": "",
+                    "sn": "",
+                    "ktp_photo_path": "psb/<ym>/ktp_<rand>.jpg",
+                    "router_photo_path": "",
+                    "meta": {
+                        "photo_class": {
+                            "queue": "ocr-media",
+                            "images": 1,
+                            "sha256": [
+                                "ktp-a"
+                            ],
+                            "sn_idx": null,
+                            "status": "completed",
+                            "ktp_idx": 0,
+                            "sn_path": null,
+                            "ktp_path": "psb/<ym>/ktp_<rand>.jpg",
+                            "sn_score": null,
+                            "fast_path": true,
+                            "ktp_score": 70,
+                            "hard_guard": false,
+                            "ocr_status": [
+                                "ok"
+                            ],
+                            "odp_scores": [
+                                0
+                            ],
+                            "unknown_count": 0,
+                            "degraded_count": 0,
+                            "slow_unreadable": false,
+                            "ocr_batch_completed": "FAKE-BATCH-1"
+                        },
+                        "document_gate": {
+                            "status": "classified"
+                        },
+                        "waiting_photo": true,
+                        "photo_attachments": [
+                            {
+                                "mime": "image/jpeg",
+                                "path": "psb/inbox/image-1.jpg",
+                                "sender": null,
+                                "sha256": "ktp-a",
+                                "sn_score": 0,
+                                "ktp_score": 70,
+                                "odp_score": 0,
+                                "classifier": "ktp",
+                                "message_id": "FAKE-IMG-1",
+                                "received_at": null,
+                                "classification_status": "terminal"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "12-worker-english-pack-only": {
+            "thrown": null,
+            "tesseract": [
+                {
+                    "image": "sn-a",
+                    "language": "eng",
+                    "psm": 3,
+                    "timeout": 45
+                }
+            ],
+            "paddle_calls": 0,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "",
+                "nik": null,
+                "rt": "",
+                "rw": "",
+                "sn": "FHTTC0FFEE01",
+                "ktp_photo_path": "",
+                "router_photo_path": "psb/<ym>/sn_<rand>.jpg",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 1,
+                        "sha256": [
+                            "sn-a"
+                        ],
+                        "sn_idx": 0,
+                        "status": "completed",
+                        "ktp_idx": null,
+                        "sn_path": "psb/<ym>/sn_<rand>.jpg",
+                        "ktp_path": null,
+                        "sn_score": 90,
+                        "fast_path": true,
+                        "ktp_score": null,
+                        "hard_guard": false,
+                        "ocr_status": [
+                            "ok"
+                        ],
+                        "odp_scores": [
+                            0
+                        ],
+                        "unknown_count": 0,
+                        "degraded_count": 0,
+                        "slow_unreadable": false,
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "sn-a",
+                            "sn_score": 90,
+                            "ktp_score": 0,
+                            "odp_score": 0,
+                            "classifier": "sn",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "13-no-language-pack": {
+            "thrown": null,
+            "tesseract": [],
+            "paddle_calls": 0,
+            "draft": {
+                "status": "received",
+                "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                "full_name": "",
+                "nik": null,
+                "rt": "",
+                "rw": "",
+                "sn": "",
+                "ktp_photo_path": "",
+                "router_photo_path": "",
+                "meta": {
+                    "photo_class": {
+                        "queue": "ocr-media",
+                        "images": 1,
+                        "sha256": [
+                            "sn-a"
+                        ],
+                        "sn_idx": null,
+                        "status": "completed",
+                        "ktp_idx": null,
+                        "sn_path": null,
+                        "ktp_path": null,
+                        "sn_score": null,
+                        "fast_path": true,
+                        "ktp_score": null,
+                        "hard_guard": false,
+                        "ocr_status": [
+                            "no_text"
+                        ],
+                        "odp_scores": [
+                            0
+                        ],
+                        "unknown_count": 1,
+                        "degraded_count": 0,
+                        "slow_unreadable": false,
+                        "ocr_batch_completed": "FAKE-BATCH-1"
+                    },
+                    "document_gate": {
+                        "status": "classified"
+                    },
+                    "waiting_photo": true,
+                    "photo_attachments": [
+                        {
+                            "mime": "image/jpeg",
+                            "path": "psb/inbox/image-1.jpg",
+                            "sender": null,
+                            "sha256": "sn-a",
+                            "sn_score": 0,
+                            "ktp_score": 25,
+                            "odp_score": 0,
+                            "classifier": "unknown",
+                            "message_id": "FAKE-IMG-1",
+                            "received_at": null,
+                            "classification_status": "terminal"
+                        }
+                    ]
+                }
+            }
+        },
+        "14-huawei-aware-and-migration-classifier": {
+            "no_batch": {
+                "ktp": {
+                    "result": {
+                        "type": "ktp",
+                        "sn": null,
+                        "ktp_ocr": {
+                            "success": true,
+                            "nik": "3507120110000005",
+                            "nik_valid": true,
+                            "name": "DRAFTE CO SANTOSO",
+                            "address": "JL. CONTOH NO. 12",
+                            "rt": "1",
+                            "rw": "2",
+                            "place_of_birth": "MALANG, 01-01-1990",
+                            "gender": "LAKI-LAKI",
+                            "raw_text": "PROVINSI JAWA TIMUR\nKABUPATEN MALANG\nNIK\nNama\nTempat/Tgl Lahir\nJenis Kelamin\nAlamat\nRT/RW\nKel/Desa\nKecamatan\nAgama\nStatus Perkawinan\nPekerjaan\nKewarganegaraan\nBerlaku Hingga\n3507120110000005\n: DRAFTE CO SANTOSO\n: MALANG, 01-01-1990\n: LAKI-LAKI Gol. Darah : O\n: JL. CONTOH NO. 12\n: 001/002\n: KRIAN\n: KRIAN\n: ISLAM\n: BELUM KAWIN\n: WIRASWASTA\n: WNI\n: SEUMUR HIDUP",
+                            "engine": "tesseract_local",
+                            "confidence": 1,
+                            "note": null,
+                            "error": null,
+                            "paddle_outcome": "skipped",
+                            "paddle_timeout_s": 0,
+                            "ocr_degraded": false
+                        },
+                        "ktp_score": 100,
+                        "sn_score": 0,
+                        "odp_score": 0,
+                        "ktp_text": true,
+                        "sn_text": false,
+                        "classification_status": "terminal",
+                        "ocr_degraded": false
+                    },
+                    "tesseract": [
+                        {
+                            "image": "ktp-a",
+                            "language": "eng+ind",
+                            "psm": 3,
+                            "timeout": 45
+                        }
+                    ]
+                },
+                "sn": {
+                    "result": {
+                        "type": "sn",
+                        "sn": "FHTTC0FFEE01",
+                        "ktp_ocr": [],
+                        "ktp_score": 0,
+                        "sn_score": 90,
+                        "odp_score": 0,
+                        "ktp_text": false,
+                        "sn_text": true,
+                        "classification_status": "terminal",
+                        "ocr_degraded": false
+                    },
+                    "tesseract": [
+                        {
+                            "image": "sn-a",
+                            "language": "eng+ind",
+                            "psm": 3,
+                            "timeout": 45
+                        }
+                    ]
+                },
+                "invalid_media": {
+                    "result": {
+                        "type": "unknown",
+                        "sn": null,
+                        "ktp_ocr": [],
+                        "ktp_score": 0,
+                        "sn_score": 0,
+                        "classification_status": "terminal",
+                        "classification_error": "invalid_media"
+                    },
+                    "tesseract": []
+                }
+            },
+            "with_batch": {
+                "ktp": {
+                    "result": {
+                        "type": "ktp",
+                        "sn": null,
+                        "ktp_ocr": {
+                            "success": true,
+                            "nik": "3507120110000005",
+                            "nik_valid": true,
+                            "name": "DRAFTE CO SANTOSO",
+                            "address": "JL. CONTOH NO. 12",
+                            "rt": "1",
+                            "rw": "2",
+                            "place_of_birth": "MALANG, 01-01-1990",
+                            "gender": "LAKI-LAKI",
+                            "raw_text": "PROVINSI JAWA TIMUR\nKABUPATEN MALANG\nNIK\nNama\nTempat/Tgl Lahir\nJenis Kelamin\nAlamat\nRT/RW\nKel/Desa\nKecamatan\nAgama\nStatus Perkawinan\nPekerjaan\nKewarganegaraan\nBerlaku Hingga\n3507120110000005\n: DRAFTE CO SANTOSO\n: MALANG, 01-01-1990\n: LAKI-LAKI Gol. Darah : O\n: JL. CONTOH NO. 12\n: 001/002\n: KRIAN\n: KRIAN\n: ISLAM\n: BELUM KAWIN\n: WIRASWASTA\n: WNI\n: SEUMUR HIDUP",
+                            "engine": "tesseract_local",
+                            "confidence": 1,
+                            "note": null,
+                            "error": null,
+                            "paddle_outcome": "skipped",
+                            "paddle_timeout_s": 0,
+                            "ocr_degraded": false
+                        },
+                        "ktp_score": 100,
+                        "sn_score": 0,
+                        "odp_score": 0,
+                        "ktp_text": true,
+                        "sn_text": false,
+                        "classification_status": "terminal",
+                        "ocr_degraded": false
+                    },
+                    "tesseract": [
+                        {
+                            "image": "ktp-a",
+                            "language": "eng+ind",
+                            "psm": 3,
+                            "timeout": 45
+                        }
+                    ]
+                },
+                "sn": {
+                    "result": {
+                        "type": "sn",
+                        "sn": "FHTTC0FFEE01",
+                        "ktp_ocr": [],
+                        "ktp_score": 0,
+                        "sn_score": 90,
+                        "odp_score": 0,
+                        "ktp_text": false,
+                        "sn_text": true,
+                        "classification_status": "terminal",
+                        "ocr_degraded": false
+                    },
+                    "tesseract": [
+                        {
+                            "image": "sn-a",
+                            "language": "eng+ind",
+                            "psm": 3,
+                            "timeout": 45
+                        }
+                    ]
+                },
+                "invalid_media": {
+                    "result": {
+                        "type": "unknown",
+                        "sn": null,
+                        "ktp_ocr": [],
+                        "ktp_score": 0,
+                        "sn_score": 0,
+                        "classification_status": "terminal",
+                        "classification_error": "invalid_media"
+                    },
+                    "tesseract": []
+                }
+            }
+        }
+    }
+}

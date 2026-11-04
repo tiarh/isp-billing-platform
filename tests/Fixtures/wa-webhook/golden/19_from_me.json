@@ -1,0 +1,53 @@
+{
+    "scenario": "19_from_me",
+    "steps": [
+        {
+            "label": "fromMe #psb",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "fromMe #migrasi",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "fromMe #pppoe cari in report group",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        }
+    ]
+}

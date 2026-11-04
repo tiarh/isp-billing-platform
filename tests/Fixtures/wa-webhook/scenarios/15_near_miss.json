@@ -1,0 +1,35 @@
+{
+  "description": "text that looks like #psb without the hash: near-miss reply; plain chatter gets nothing",
+  "steps": [
+    {
+      "label": "near-miss text",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S15-T1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "psb: Nama Budi Uji, ODP-UJI-01"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "plain chatter",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S15-T2", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "siap, otw lokasi"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "near-miss text with photo",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S15-P1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/1", "mimetype": "image/jpeg", "caption": "psb nama Budi Uji sn FHTT00000015"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

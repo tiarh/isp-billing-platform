@@ -1,0 +1,18 @@
+{
+  "description": "#psb ktp #ID + photo for an already completed draft (explicit ack)",
+  "drafts": [
+    {"ref": "d1", "status": "olt_ok", "meta": {}}
+  ],
+  "steps": [
+    {
+      "label": "#psb ktp #ID photo",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S06-K1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/k", "mimetype": "image/jpeg", "caption": "#psb ktp #{{d1}}"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

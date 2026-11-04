@@ -1,0 +1,21 @@
+{
+  "widget": "cpe",
+  "range": null,
+  "status": "ok",
+  "fetched_at": "__now__",
+  "reason": null,
+  "partial": false,
+  "step_seconds": null,
+  "grafana_dashboard_url": null,
+  "data": {
+    "devices": { "total": 480, "online": 432, "offline": 48, "online_pct": 90, "last_inform_at": "__now__", "last_sync_at": "__now__" },
+    "rx_power": { "measured": 400, "good": 340, "fair": 45, "poor": 15 },
+    "top_offline_areas": [
+      { "area": "Area Contoh A", "offline": 14, "total": 90 },
+      { "area": "Area Contoh B", "offline": 11, "total": 120 },
+      { "area": "Area Contoh C", "offline": 9, "total": 60 },
+      { "area": "Area Contoh D", "offline": 6, "total": 80 },
+      { "area": "Area Contoh E", "offline": 4, "total": 50 }
+    ]
+  }
+}

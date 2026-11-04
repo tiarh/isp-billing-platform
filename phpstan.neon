@@ -1,0 +1,16 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+    level: 2
+    paths:
+        - app
+        - routes
+    tmpDir: storage/phpstan
+    parallel:
+        maximumNumberOfProcesses: 2
+        processTimeout: 300.0
+    # Run with: vendor/bin/phpstan analyse --memory-limit=1G --no-progress
+    # Update the baseline (only when errors were fixed or an old error moved):
+    #   vendor/bin/phpstan analyse --memory-limit=1G --generate-baseline phpstan-baseline.neon

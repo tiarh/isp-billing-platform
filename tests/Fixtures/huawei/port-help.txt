@@ -1,0 +1,5 @@
+display ont info 0 0 5
+  { all<K> }:
+  Command:
+          display ont info 0 0 5
+MA5608T#

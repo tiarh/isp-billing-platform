@@ -1,0 +1,797 @@
+{
+    "scenario": "s14-guards-before-any-device-call",
+    "steps": [
+        {
+            "label": "psb_writes_enabled=0: complete #psb stops before any device call",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*PSB diterima*\nDraft: *#<draft1>*\nPelanggan: *DRAFTE SANTOSO*\nStatus: cek SN OLT.\nCek: *#psb cek #<draft1>*",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ PSB write ke MT/OLT sedang *dimatikan* (mode aman).\nNOC: set `psb_writes_enabled` di settings.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "(none)",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "activation_mode": null,
+                        "area": "klampok",
+                        "customer": null,
+                        "daerah": "Klampok",
+                        "full_name": "DRAFTE SANTOSO",
+                        "ktp_photo": "<file:ktp-a>",
+                        "last_error": "PSB write disabled (psb_writes_enabled=0)",
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": "area:klampok",
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": "klampok",
+                                "source": "alias",
+                                "status": "resolved"
+                            },
+                            "document_context": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-a>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "forced_router_id": "SKYNET-RA-OLT",
+                            "forced_site_key": "ra",
+                            "package_hint": "200M",
+                            "photo_attachments": [
+                                {
+                                    "classifier": "ktp",
+                                    "ktp_score": 100,
+                                    "odp_score": 0,
+                                    "path": "<file:ktp-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 0
+                                },
+                                {
+                                    "classifier": "sn",
+                                    "ktp_score": 0,
+                                    "odp_score": 0,
+                                    "path": "<file:sn-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 90
+                                }
+                            ],
+                            "photo_class": {
+                                "degraded_count": 0,
+                                "fast_path": true,
+                                "hard_guard": false,
+                                "images": 2,
+                                "ktp_idx": 0,
+                                "ktp_path": "<file:ktp-a>",
+                                "ktp_score": 100,
+                                "ocr_status": [
+                                    "ok",
+                                    "ok"
+                                ],
+                                "odp_scores": [
+                                    0,
+                                    0
+                                ],
+                                "sha256": "<hash x2>",
+                                "slow_unreadable": false,
+                                "sn_idx": 1,
+                                "sn_path": "<file:sn-a>",
+                                "sn_score": 90,
+                                "unknown_count": 0
+                            },
+                            "router_alias": "ra",
+                            "sender_jid_pn": "6281200000011@s.whatsapp.net"
+                        },
+                        "mikrotik_profile": "200M",
+                        "nik_set": true,
+                        "odp": "ODP-KLAMPOK-3",
+                        "olt": null,
+                        "olt_at": null,
+                        "onu_id": null,
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "phone": "081200000021",
+                        "pon_port": null,
+                        "pppoe_local_address": null,
+                        "pppoe_remote_address": null,
+                        "pppoe_user": null,
+                        "router": "SKYNET-RA-OLT",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "site_profile_key": null,
+                        "sn": "FHTTC0FFEE40",
+                        "sn_photo": "<file:sn-a>",
+                        "sn_wait_until": null,
+                        "status": "received",
+                        "tr069_vlan": 69,
+                        "vlan": null
+                    }
+                ],
+                "customers": [],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "daerah without an area: \"Perlu area\" before any device call",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*PSB diterima*\nDraft: *#<draft2>*\nPelanggan: *USERSI AMINAH*\nStatus: cek SN OLT.\nCek: *#psb cek #<draft2>*",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Perlu area - PSB #<draft2> belum diproses*\nDaerah *Kunci* belum terdaftar sebagai area.\nTidak ada perubahan ke router/OLT.\nAdmin: buka eBilling > Aktivasi > PSB WA, pilih area untuk draft ini lalu Retry, atau tambahkan alias daerah di menu Area.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 2,
+                    "from": "(none)",
+                    "to": "failed"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "activation_mode": null,
+                        "area": "klampok",
+                        "customer": null,
+                        "daerah": "Klampok",
+                        "full_name": "DRAFTE SANTOSO",
+                        "ktp_photo": "<file:ktp-a>",
+                        "last_error": "PSB write disabled (psb_writes_enabled=0)",
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": "area:klampok",
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": "klampok",
+                                "source": "alias",
+                                "status": "resolved"
+                            },
+                            "document_context": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-a>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "forced_router_id": "SKYNET-RA-OLT",
+                            "forced_site_key": "ra",
+                            "package_hint": "200M",
+                            "photo_attachments": [
+                                {
+                                    "classifier": "ktp",
+                                    "ktp_score": 100,
+                                    "odp_score": 0,
+                                    "path": "<file:ktp-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 0
+                                },
+                                {
+                                    "classifier": "sn",
+                                    "ktp_score": 0,
+                                    "odp_score": 0,
+                                    "path": "<file:sn-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 90
+                                }
+                            ],
+                            "photo_class": {
+                                "degraded_count": 0,
+                                "fast_path": true,
+                                "hard_guard": false,
+                                "images": 2,
+                                "ktp_idx": 0,
+                                "ktp_path": "<file:ktp-a>",
+                                "ktp_score": 100,
+                                "ocr_status": [
+                                    "ok",
+                                    "ok"
+                                ],
+                                "odp_scores": [
+                                    0,
+                                    0
+                                ],
+                                "sha256": "<hash x2>",
+                                "slow_unreadable": false,
+                                "sn_idx": 1,
+                                "sn_path": "<file:sn-a>",
+                                "sn_score": 90,
+                                "unknown_count": 0
+                            },
+                            "router_alias": "ra",
+                            "sender_jid_pn": "6281200000011@s.whatsapp.net"
+                        },
+                        "mikrotik_profile": "200M",
+                        "nik_set": true,
+                        "odp": "ODP-KLAMPOK-3",
+                        "olt": null,
+                        "olt_at": null,
+                        "onu_id": null,
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "phone": "081200000021",
+                        "pon_port": null,
+                        "pppoe_local_address": null,
+                        "pppoe_remote_address": null,
+                        "pppoe_user": null,
+                        "router": "SKYNET-RA-OLT",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "site_profile_key": null,
+                        "sn": "FHTTC0FFEE40",
+                        "sn_photo": "<file:sn-a>",
+                        "sn_wait_until": null,
+                        "status": "received",
+                        "tr069_vlan": 69,
+                        "vlan": null
+                    },
+                    {
+                        "activation_mode": "full_olt",
+                        "area": null,
+                        "customer": null,
+                        "daerah": "Kunci",
+                        "full_name": "USERSI AMINAH",
+                        "ktp_photo": "<file:ktp-b>",
+                        "last_error": "Perlu area: daerah `Kunci` belum punya area.",
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": null,
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": null,
+                                "source": "none",
+                                "status": "unmatched"
+                            },
+                            "document_context": {
+                                "actor": "6281200000012@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-008",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "actor": "6281200000012@s.whatsapp.net",
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-b>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": "FAKE-PSB-008",
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "forced_router_id": "SKYNET-RA-OLT",
+                            "forced_site_key": "ra",
+                            "package_hint": "200M",
+                            "photo_attachments": [
+                                {
+                                    "classifier": "ktp",
+                                    "ktp_score": 100,
+                                    "odp_score": 0,
+                                    "path": "<file:ktp-b>",
+                                    "sender": "6281200000012@s.whatsapp.net",
+                                    "sn_score": 0
+                                },
+                                {
+                                    "classifier": "sn",
+                                    "ktp_score": 0,
+                                    "odp_score": 0,
+                                    "path": "<file:sn-b>",
+                                    "sender": "6281200000012@s.whatsapp.net",
+                                    "sn_score": 90
+                                }
+                            ],
+                            "photo_class": {
+                                "degraded_count": 0,
+                                "fast_path": true,
+                                "hard_guard": false,
+                                "images": 2,
+                                "ktp_idx": 0,
+                                "ktp_path": "<file:ktp-b>",
+                                "ktp_score": 100,
+                                "ocr_status": [
+                                    "ok",
+                                    "ok"
+                                ],
+                                "odp_scores": [
+                                    0,
+                                    0
+                                ],
+                                "sha256": "<hash x2>",
+                                "slow_unreadable": false,
+                                "sn_idx": 1,
+                                "sn_path": "<file:sn-b>",
+                                "sn_score": 90,
+                                "unknown_count": 0
+                            },
+                            "router_alias": "ra",
+                            "sender_jid_pn": "6281200000012@s.whatsapp.net",
+                            "site_resolve": {
+                                "at": "<ts>",
+                                "key": "ra",
+                                "mode": "full_olt",
+                                "olt_id": "OLT-1",
+                                "router_id": "SKYNET-RA-OLT",
+                                "tr069_vlan": 69,
+                                "vlan": null
+                            }
+                        },
+                        "mikrotik_profile": "200M",
+                        "nik_set": true,
+                        "odp": "ODP-KLAMPOK-3",
+                        "olt": "OLT-1",
+                        "olt_at": null,
+                        "onu_id": null,
+                        "ord": 2,
+                        "package": "RA-200M",
+                        "phone": "081200000022",
+                        "pon_port": null,
+                        "pppoe_local_address": null,
+                        "pppoe_remote_address": null,
+                        "pppoe_user": null,
+                        "router": "SKYNET-RA-OLT",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": null,
+                        "sender": "6281200000012@s.whatsapp.net",
+                        "site_profile_key": "ra",
+                        "sn": "FHTTC0FFEE41",
+                        "sn_photo": "<file:sn-b>",
+                        "sn_wait_until": null,
+                        "status": "failed",
+                        "tr069_vlan": 69,
+                        "vlan": null
+                    }
+                ],
+                "customers": [],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "#psb lanjut on a draft whose daerah is in no site and has no Router: blocked",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft3>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "❌ Daerah `Ngawi` belum terdaftar di sistem, jadi TIDAK diproses otomatis (mencegah secret dibuat di router salah).\n\nCara lanjut:\n1. Tambahkan baris `Router: <alias>` di pesan #psb (contoh alias: ra, krian, bumiayu, gadang, gadang_huawei, martopuro) lalu kirim ulang, ATAU\n2. Minta NOC daftarkan site/daerah baru ini dulu di eBilling.\n\nSetelah itu balas: #psb lanjut #<draft3>",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "activation_mode": null,
+                        "area": "klampok",
+                        "customer": null,
+                        "daerah": "Klampok",
+                        "full_name": "DRAFTE SANTOSO",
+                        "ktp_photo": "<file:ktp-a>",
+                        "last_error": "PSB write disabled (psb_writes_enabled=0)",
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": "area:klampok",
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": "klampok",
+                                "source": "alias",
+                                "status": "resolved"
+                            },
+                            "document_context": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-a>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "forced_router_id": "SKYNET-RA-OLT",
+                            "forced_site_key": "ra",
+                            "package_hint": "200M",
+                            "photo_attachments": [
+                                {
+                                    "classifier": "ktp",
+                                    "ktp_score": 100,
+                                    "odp_score": 0,
+                                    "path": "<file:ktp-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 0
+                                },
+                                {
+                                    "classifier": "sn",
+                                    "ktp_score": 0,
+                                    "odp_score": 0,
+                                    "path": "<file:sn-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 90
+                                }
+                            ],
+                            "photo_class": {
+                                "degraded_count": 0,
+                                "fast_path": true,
+                                "hard_guard": false,
+                                "images": 2,
+                                "ktp_idx": 0,
+                                "ktp_path": "<file:ktp-a>",
+                                "ktp_score": 100,
+                                "ocr_status": [
+                                    "ok",
+                                    "ok"
+                                ],
+                                "odp_scores": [
+                                    0,
+                                    0
+                                ],
+                                "sha256": "<hash x2>",
+                                "slow_unreadable": false,
+                                "sn_idx": 1,
+                                "sn_path": "<file:sn-a>",
+                                "sn_score": 90,
+                                "unknown_count": 0
+                            },
+                            "router_alias": "ra",
+                            "sender_jid_pn": "6281200000011@s.whatsapp.net"
+                        },
+                        "mikrotik_profile": "200M",
+                        "nik_set": true,
+                        "odp": "ODP-KLAMPOK-3",
+                        "olt": null,
+                        "olt_at": null,
+                        "onu_id": null,
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "phone": "081200000021",
+                        "pon_port": null,
+                        "pppoe_local_address": null,
+                        "pppoe_remote_address": null,
+                        "pppoe_user": null,
+                        "router": "SKYNET-RA-OLT",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "site_profile_key": null,
+                        "sn": "FHTTC0FFEE40",
+                        "sn_photo": "<file:sn-a>",
+                        "sn_wait_until": null,
+                        "status": "received",
+                        "tr069_vlan": 69,
+                        "vlan": null
+                    },
+                    {
+                        "activation_mode": "full_olt",
+                        "area": null,
+                        "customer": null,
+                        "daerah": "Kunci",
+                        "full_name": "USERSI AMINAH",
+                        "ktp_photo": "<file:ktp-b>",
+                        "last_error": "Perlu area: daerah `Kunci` belum punya area.",
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": null,
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": null,
+                                "source": "none",
+                                "status": "unmatched"
+                            },
+                            "document_context": {
+                                "actor": "6281200000012@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-008",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "actor": "6281200000012@s.whatsapp.net",
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-b>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": "FAKE-PSB-008",
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "forced_router_id": "SKYNET-RA-OLT",
+                            "forced_site_key": "ra",
+                            "package_hint": "200M",
+                            "photo_attachments": [
+                                {
+                                    "classifier": "ktp",
+                                    "ktp_score": 100,
+                                    "odp_score": 0,
+                                    "path": "<file:ktp-b>",
+                                    "sender": "6281200000012@s.whatsapp.net",
+                                    "sn_score": 0
+                                },
+                                {
+                                    "classifier": "sn",
+                                    "ktp_score": 0,
+                                    "odp_score": 0,
+                                    "path": "<file:sn-b>",
+                                    "sender": "6281200000012@s.whatsapp.net",
+                                    "sn_score": 90
+                                }
+                            ],
+                            "photo_class": {
+                                "degraded_count": 0,
+                                "fast_path": true,
+                                "hard_guard": false,
+                                "images": 2,
+                                "ktp_idx": 0,
+                                "ktp_path": "<file:ktp-b>",
+                                "ktp_score": 100,
+                                "ocr_status": [
+                                    "ok",
+                                    "ok"
+                                ],
+                                "odp_scores": [
+                                    0,
+                                    0
+                                ],
+                                "sha256": "<hash x2>",
+                                "slow_unreadable": false,
+                                "sn_idx": 1,
+                                "sn_path": "<file:sn-b>",
+                                "sn_score": 90,
+                                "unknown_count": 0
+                            },
+                            "router_alias": "ra",
+                            "sender_jid_pn": "6281200000012@s.whatsapp.net",
+                            "site_resolve": {
+                                "at": "<ts>",
+                                "key": "ra",
+                                "mode": "full_olt",
+                                "olt_id": "OLT-1",
+                                "router_id": "SKYNET-RA-OLT",
+                                "tr069_vlan": 69,
+                                "vlan": null
+                            }
+                        },
+                        "mikrotik_profile": "200M",
+                        "nik_set": true,
+                        "odp": "ODP-KLAMPOK-3",
+                        "olt": "OLT-1",
+                        "olt_at": null,
+                        "onu_id": null,
+                        "ord": 2,
+                        "package": "RA-200M",
+                        "phone": "081200000022",
+                        "pon_port": null,
+                        "pppoe_local_address": null,
+                        "pppoe_remote_address": null,
+                        "pppoe_user": null,
+                        "router": "SKYNET-RA-OLT",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": null,
+                        "sender": "6281200000012@s.whatsapp.net",
+                        "site_profile_key": "ra",
+                        "sn": "FHTTC0FFEE41",
+                        "sn_photo": "<file:sn-b>",
+                        "sn_wait_until": null,
+                        "status": "failed",
+                        "tr069_vlan": 69,
+                        "vlan": null
+                    },
+                    {
+                        "activation_mode": "full_olt",
+                        "area": null,
+                        "customer": null,
+                        "daerah": "Ngawi",
+                        "full_name": "DRAFTC WIJAYA",
+                        "ktp_photo": "<file:ktp-a>",
+                        "last_error": "Daerah `Ngawi` belum terdaftar di registry site PSB (anti salah router).",
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": null,
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": null,
+                                "source": "none",
+                                "status": "unmatched"
+                            },
+                            "document_gate": {
+                                "actor": null,
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-a>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": null,
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "site_resolve": {
+                                "at": "<ts>",
+                                "key": "default_full_olt",
+                                "mode": "full_olt",
+                                "olt_id": "OLT-1",
+                                "router_id": "SKYNET-RANDUAGUNG-CCR",
+                                "tr069_vlan": 69,
+                                "vlan": null
+                            }
+                        },
+                        "mikrotik_profile": null,
+                        "nik_set": false,
+                        "odp": "ODP-NGW-1",
+                        "olt": "OLT-1",
+                        "olt_at": null,
+                        "onu_id": null,
+                        "ord": 3,
+                        "package": "RA-200M",
+                        "phone": null,
+                        "pon_port": null,
+                        "pppoe_local_address": null,
+                        "pppoe_remote_address": null,
+                        "pppoe_user": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "site_profile_key": "ra",
+                        "sn": "FHTTC0FFEE42",
+                        "sn_photo": null,
+                        "sn_wait_until": null,
+                        "status": "failed",
+                        "tr069_vlan": 69,
+                        "vlan": null
+                    }
+                ],
+                "customers": [],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        }
+    ],
+    "transitions": [
+        [
+            "(none)",
+            "received",
+            "psb_text"
+        ],
+        [
+            "(none)",
+            "failed",
+            "psb_text"
+        ]
+    ]
+}

@@ -1,0 +1,27 @@
+{
+  "widget": "summary",
+  "range": "1h",
+  "status": "ok",
+  "fetched_at": "__now__",
+  "reason": null,
+  "partial": false,
+  "step_seconds": 60,
+  "grafana_dashboard_url": "https://grafana.example.test/d/skynet-mikrotik-overview?orgId=1&from=now-1h&to=now",
+  "data": {
+    "routers": { "online": 3, "total": 4, "scraped": 3 },
+    "pppoe": { "total": 852, "source": "grafana" },
+    "traffic": { "rx_mbps": 1184.6, "tx_mbps": 212.3 },
+    "upstream": {
+      "rx_mbps": 1180.2,
+      "tx_mbps": 208.9,
+      "capacity_mbps": 1800,
+      "capacity_complete": false,
+      "utilization_pct": 65.6
+    },
+    "collectors": [
+      { "job": "mktxp", "up": true },
+      { "job": "blackbox", "up": true },
+      { "job": "skynet-exporter", "up": false }
+    ]
+  }
+}

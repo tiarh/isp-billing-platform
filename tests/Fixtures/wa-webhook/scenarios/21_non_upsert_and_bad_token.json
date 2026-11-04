@@ -1,0 +1,46 @@
+{
+  "description": "non-upsert events are acknowledged and ignored; missing or wrong token gets 401 and nothing is processed; the alias route works",
+  "steps": [
+    {
+      "label": "connection.update",
+      "event": "connection.update",
+      "msg": {"instance": "skynet-ebilling", "state": "open", "statusReason": 200}
+    },
+    {
+      "label": "messages.update",
+      "event": "messages.update",
+      "msg": {"keyId": "FAKE-S21-U1", "remoteJid": "120363000000000001@g.us", "status": "READ"}
+    },
+    {
+      "label": "no token",
+      "headers": {},
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S21-T1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb\nNama: Budi Uji"},
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "wrong token",
+      "headers": {"apikey": "wrong-token"},
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S21-T2", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb\nNama: Budi Uji"},
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "bearer token on the other route",
+      "path": "/webhooks/attendance/evolution",
+      "headers": {"Authorization": "Bearer canary-pw"},
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S21-T3", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb\nNama: Budi Uji\nSN: FHTT00000021"},
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,649 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^PHPDoc tag @param references unknown parameter\: \$customer$#'
+			identifier: parameter.notFound
+			count: 1
+			path: app/Console/Commands/AuditLegacyAreaMapping.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$customer\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Console/Commands/FixVelvinAugustInvoice.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Console/Commands/FixVelvinAugustInvoice.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:isSettled\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Console/Commands/FixVelvinAugustInvoice.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$genieAcsDevice\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Console/Commands/MonitoringShadowCompare.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Console/Commands/MonitoringShadowCompare.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$status\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Console/Commands/MonitoringShadowCompare.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$code\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Console/Commands/NormalizeStarliteCustomerProfiles.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Console/Commands/NormalizeStarliteCustomerProfiles.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$mikrotik_profile\.$#'
+			identifier: property.notFound
+			count: 4
+			path: app/Console/Commands/NormalizeStarliteCustomerProfiles.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Console/Commands/NormalizeStarliteCustomerProfiles.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$package_id\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Console/Commands/NormalizeStarliteCustomerProfiles.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$pppoe_user\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Console/Commands/NormalizeStarliteCustomerProfiles.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$router_id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Console/Commands/NormalizeStarliteCustomerProfiles.php
+
+		-
+			message: '#^Cannot access property \$olt_id on array\|object\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Console/Commands/OltDuplicateSerials.php
+
+		-
+			message: '#^Cannot access property \$state_collected_at on array\|object\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Console/Commands/OltDuplicateSerials.php
+
+		-
+			message: '#^Cannot access property \$phase_state on array\|object\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Console/Commands/ReconcileActivationStatus.php
+
+		-
+			message: '#^Cannot access property \$state on array\|object\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Console/Commands/ReconcileActivationStatus.php
+
+		-
+			message: '#^Cannot call method lt\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Console/Commands/ReportDailyWaCommand.php
+
+		-
+			message: '#^Cannot call method toDateString\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Console/Commands/ReportDailyWaCommand.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\:\:\$active_count\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Console/Commands/TicketSummaryWa.php
+
+		-
+			message: '#^Relation ''customers'' is not found in App\\Models\\Area model\.$#'
+			identifier: larastan.relationExistence
+			count: 3
+			path: app/Http/Controllers/AreaController.php
+
+		-
+			message: '#^Relation ''olts'' is not found in App\\Models\\Area model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/AreaController.php
+
+		-
+			message: '#^Relation ''users'' is not found in App\\Models\\Area model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/AreaController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Customer\:\:\$unpaid_periods_count\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/CustomerController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\CustomerCredit\:\:\$total\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/CustomerCreditController.php
+
+		-
+			message: '#^Cannot call method timezone\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 6
+			path: app/Http/Controllers/CustomerMigrationController.php
+
+		-
+			message: '#^Relation ''customers'' is not found in App\\Models\\Router model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/CustomerTrafficController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Invoice\:\:\$area_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/DashboardController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Kabel\:\:\$area\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/InventarisController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\OdpOdc\:\:\$area\.$#'
+			identifier: property.notFound
+			count: 4
+			path: app/Http/Controllers/InventarisController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Splitter\:\:\$area\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/InventarisController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Splitter\:\:\$parentOdpOdc\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/InventarisController.php
+
+		-
+			message: '#^Relation ''area'' is not found in App\\Models\\Kabel model\.$#'
+			identifier: larastan.relationExistence
+			count: 3
+			path: app/Http/Controllers/InventarisController.php
+
+		-
+			message: '#^Relation ''area'' is not found in App\\Models\\OdpOdc model\.$#'
+			identifier: larastan.relationExistence
+			count: 4
+			path: app/Http/Controllers/InventarisController.php
+
+		-
+			message: '#^Relation ''area'' is not found in App\\Models\\Splitter model\.$#'
+			identifier: larastan.relationExistence
+			count: 3
+			path: app/Http/Controllers/InventarisController.php
+
+		-
+			message: '#^Relation ''parentOdpOdc'' is not found in App\\Models\\Splitter model\.$#'
+			identifier: larastan.relationExistence
+			count: 3
+			path: app/Http/Controllers/InventarisController.php
+
+		-
+			message: '#^Relation ''customers'' is not found in App\\Models\\Area model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/MapsController.php
+
+		-
+			message: '#^Relation ''odpOdc'' is not found in App\\Models\\Area model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/MapsController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/OltC300Controller.php
+
+		-
+			message: '#^Variable \$onuId on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.variable
+			count: 1
+			path: app/Http/Controllers/OltC300Controller.php
+
+		-
+			message: '#^Variable \$port on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.variable
+			count: 1
+			path: app/Http/Controllers/OltC300Controller.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/OltController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/OltController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$olt_port_label\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/OltController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Relations\\HasMany\:\:ebilling\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: app/Http/Controllers/PackageController.php
+
+		-
+			message: '#^Relation ''router'' is not found in App\\Models\\Package model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/PackageController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\PaymentGatewayTransaction\:\:\$amount\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/PaymentGatewayTransactionController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\PaymentGatewayTransaction\:\:\$total\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/PaymentGatewayTransactionController.php
+
+		-
+			message: '#^Cannot call method timezone\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Http/Controllers/PsbDraftController.php
+
+		-
+			message: '#^Relation ''customers'' is not found in App\\Models\\Router model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/RouterController.php
+
+		-
+			message: '#^Relation ''profiles'' is not found in App\\Models\\Router model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/RouterController.php
+
+		-
+			message: '#^Relation ''stagedCustomers'' is not found in App\\Models\\Router model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/RouterController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/SalesLeadController.php
+
+		-
+			message: '#^Relation ''targetArea'' is not found in App\\Models\\WaCampaign model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/WaCampaignController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Requests/AreaRequest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\WaCampaignRecipient\:\:\$campaign\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Jobs/SendWaCampaignMessage.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\WaCampaignRecipient\:\:\$customer\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Jobs/SendWaCampaignMessage.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\WaCampaignRecipient\:\:\$customer_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Jobs/SendWaCampaignMessage.php
+
+		-
+			message: '#^Call to an undefined method Psr\\Log\\LoggerInterface\:\:pushProcessor\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Logging/RedactSensitiveData.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/AreaAlias.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\:\:ponOffline\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Models/Customer.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Customer\:\:dispatchCurrentInvoice\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/Customer.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Customer\:\:guardStatusWrite\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/Customer.php
+
+		-
+			message: '#^Cannot call method isFuture\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Models/CustomerPortalAccount.php
+
+		-
+			message: '#^Variable \$approval might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: app/Services/CustomerMigrationService.php
+
+		-
+			message: '#^Method Redis\:\:pipeline\(\) invoked with 1 parameter, 0 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: app/Services/CustomerTrafficIngestService.php
+
+		-
+			message: '#^PHPDoc tag @param references unknown parameter\: \$redis$#'
+			identifier: parameter.notFound
+			count: 1
+			path: app/Services/CustomerTrafficIngestService.php
+
+		-
+			message: '#^Call to an undefined method DateTimeInterface\:\:setTimezone\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/DeviceRecoveryReconciliationService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/FhttEnrollmentService.php
+
+		-
+			message: '#^Offset decimal\-int\-string on array\<string, array\<string, mixed\>\> on left side of \?\? does not exist\.$#'
+			identifier: nullCoalesce.offset
+			count: 5
+			path: app/Services/Grafana/MonitoringWidgets.php
+
+		-
+			message: '#^Offset decimal\-int\-string on array\<string, array\{rx\?\: float, tx\?\: float\}\> on left side of \?\? does not exist\.$#'
+			identifier: nullCoalesce.offset
+			count: 2
+			path: app/Services/Grafana/MonitoringWidgets.php
+
+		-
+			message: '#^Anonymous function has an unused use \$ctx\.$#'
+			identifier: closure.unusedUse
+			count: 1
+			path: app/Services/Migration/MigrationAutoReconcileService.php
+
+		-
+			message: '#^Anonymous function has an unused use \$m\.$#'
+			identifier: closure.unusedUse
+			count: 1
+			path: app/Services/Migration/MigrationAutoReconcileService.php
+
+		-
+			message: '#^Anonymous function has an unused use \$meta\.$#'
+			identifier: closure.unusedUse
+			count: 1
+			path: app/Services/Migration/MigrationAutoReconcileService.php
+
+		-
+			message: '#^Anonymous function has an unused use \$pppoeCut\.$#'
+			identifier: closure.unusedUse
+			count: 1
+			path: app/Services/Migration/MigrationAutoReconcileService.php
+
+		-
+			message: '#^Cannot access property \$router_id on null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Services/Migration/MigrationAutoReconcileService.php
+
+		-
+			message: '#^Comparison operation "\>" between \*NEVER\* and 0 results in an error\.$#'
+			identifier: greater.invalid
+			count: 1
+			path: app/Services/MtPlanCTierService.php
+
+		-
+			message: '#^Variable \$flagMode on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.variable
+			count: 1
+			path: app/Services/MtPlanCTierService.php
+
+		-
+			message: '#^Variable \$names on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.variable
+			count: 2
+			path: app/Services/MtPlanCTierService.php
+
+		-
+			message: '#^Variable \$secret on left side of \?\? always exists and is always null\.$#'
+			identifier: nullCoalesce.variable
+			count: 1
+			path: app/Services/MtPlanCTierService.php
+
+		-
+			message: '#^Variable \$snmpOnus on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.variable
+			count: 1
+			path: app/Services/OltCollectorService.php
+
+		-
+			message: '#^Anonymous function has an unused use \$port\.$#'
+			identifier: closure.unusedUse
+			count: 1
+			path: app/Services/OltHuaweiMa5608tService.php
+
+		-
+			message: '#^Anonymous function has an unused use \$rows\.$#'
+			identifier: closure.unusedUse
+			count: 1
+			path: app/Services/OltHuaweiMa5608tService.php
+
+		-
+			message: '#^Variable \$meta on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.variable
+			count: 1
+			path: app/Services/OltZteC300Service.php
+
+		-
+			message: '#^Cannot call method timezone\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Services/OperationalAreaDashboardService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\RouterMtSnapshot\:\:\$good_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Outage/RouterHealthReadModel.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/PppoeSearchService.php
+
+		-
+			message: '#^Cannot access property \$timestamp on string\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Services/PsbStarliteReportService.php
+
+		-
+			message: '#^Cannot call method format\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Services/PsbStarliteReportService.php
+
+		-
+			message: '#^Cannot call method timezone\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Services/PsbStarliteReportService.php
+
+		-
+			message: '#^Offset ''source_counts'' on array\{label\: string, total\: int, olt_ok\: int, secret_ok\: int, wait_sn\: int, pend_vlan\: int, failed\: int, applied\: int, \.\.\.\} on left side of \?\? does not exist\.$#'
+			identifier: nullCoalesce.offset
+			count: 2
+			path: app/Services/PsbWaMessages.php
+
+		-
+			message: '#^Variable \$lastError on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.variable
+			count: 2
+			path: app/Services/RouterSyncService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\SupportTicket\:\:\$dkey\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/TicketMonitoringEvidenceService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$c\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/TicketMonitoringEvidenceService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$g_count\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/TicketMonitoringEvidenceService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$g_odp\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Services/TicketMonitoringEvidenceService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$g_pon\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Services/TicketMonitoringEvidenceService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$g_sev\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/TicketMonitoringEvidenceService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$issue\.$#'
+			identifier: property.notFound
+			count: 5
+			path: app/Services/TicketMonitoringEvidenceService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$last_seen_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/TicketMonitoringEvidenceService.php
+
+		-
+			message: '#^Called ''count'' on Laravel collection, but could have been retrieved as a query\.$#'
+			identifier: larastan.noUnnecessaryCollectionCall
+			count: 1
+			path: app/Services/TicketMonitoringEvidenceService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\WaChatSignal\:\:\$activation\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/WaChatIntelligenceService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\WaChatSignal\:\:\$last_30_days\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/WaChatIntelligenceService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\WaChatSignal\:\:\$last_7_days\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/WaChatIntelligenceService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\WaChatSignal\:\:\$ticketing\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/WaChatIntelligenceService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\WaChatSignal\:\:\$total\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/WaChatIntelligenceService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:withTrashed\(\)\.$#'
+			identifier: method.notFound
+			count: 4
+			path: app/Support/AreaScope.php

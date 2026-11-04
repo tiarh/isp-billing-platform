@@ -1,0 +1,35 @@
+{
+  "description": "messages sent by the bot account itself (fromMe) are ignored in PSB, migration and report paths",
+  "steps": [
+    {
+      "label": "fromMe #psb",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": true, "id": "FAKE-S19-T1"},
+        "pushName": "Bot",
+        "message": {"conversation": "#psb\nNama: Budi Uji"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "fromMe #migrasi",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": true, "id": "FAKE-S19-T2"},
+        "pushName": "Bot",
+        "message": {"conversation": "#migrasi\nNama: Budi Uji"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "fromMe #pppoe cari in report group",
+      "msg": {
+        "key": {"remoteJid": "120363000000000002@g.us", "fromMe": true, "id": "FAKE-S19-T3"},
+        "pushName": "Bot",
+        "message": {"conversation": "#pppoe cari budi.uji"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+    "scenario": "15_near_miss",
+    "steps": [
+        {
+            "label": "near-miss text",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [
+                {
+                    "path": "POST /message/sendText/skynet-ebilling",
+                    "number": "120363000000000001@g.us",
+                    "text": "ℹ️ *Pakai *#psb* (ada pagar #)*\nBot tidak memproses `psb` atau `psb:` tanpa `#`.\nJangan edit pesan lama. Kirim ulang sebagai pesan baru.\nContoh baris pertama: `#psb`\nFormat lengkap: *#psb bantu*"
+                }
+            ],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "activation_signal",
+                        "message_id": "FAKE-S15-T1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "psb: Nama Budi Uji, ODP-UJI-01",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Activation Signal: psb: Nama Budi Uji, ODP-UJI-01"
+                    }
+                ]
+            }
+        },
+        {
+            "label": "plain chatter",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "activation_signal",
+                        "message_id": "FAKE-S15-T1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "psb: Nama Budi Uji, ODP-UJI-01",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Activation Signal: psb: Nama Budi Uji, ODP-UJI-01"
+                    },
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "noise",
+                        "message_id": "FAKE-S15-T2",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "siap, otw lokasi",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Noise: siap, otw lokasi"
+                    }
+                ]
+            }
+        },
+        {
+            "label": "near-miss text with photo",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [
+                {
+                    "path": "POST /chat/getBase64FromMediaMessage/ops",
+                    "id": "FAKE-S15-P1"
+                }
+            ],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "activation_signal",
+                        "message_id": "FAKE-S15-T1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "psb: Nama Budi Uji, ODP-UJI-01",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Activation Signal: psb: Nama Budi Uji, ODP-UJI-01"
+                    },
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "noise",
+                        "message_id": "FAKE-S15-T2",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "siap, otw lokasi",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Noise: siap, otw lokasi"
+                    },
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "activation_signal",
+                        "message_id": "FAKE-S15-P1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": true,
+                            "read_only": true
+                        },
+                        "redacted_text": "psb nama Budi Uji sn FHTT00000015",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Activation Signal: psb nama Budi Uji sn FHTT00000015"
+                    }
+                ]
+            }
+        }
+    ]
+}

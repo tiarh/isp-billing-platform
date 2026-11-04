@@ -1,0 +1,1704 @@
+{
+    "scenario": "s12-merge-matrix",
+    "steps": [
+        {
+            "label": "open received: same SN other name",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "*Draft di-update*\nDraft: *#<draft1>* - USERSI AMINAH\nBukan data PSB baru.\nCek: *#psb cek #<draft1>*\n\n*PSB butuh KTP*\nDraft: *#<draft1>* - USERSI AMINAH\nKirim foto KTP dengan caption: *#psb ktp #<draft1>*\nCSR: tulis `KTP: CSR`. Menyusul: wajib alasan+tenggat.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "USERSI AMINAH",
+                        "group": "120363000000000101@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 1,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000A01",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "open failed: same SN other name",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000102@g.us",
+                    "mentions": [],
+                    "text": "*Draft di-update*\nDraft: *#<draft2>* - USERSI AMINAH\nBukan data PSB baru.\nCek: *#psb cek #<draft2>*\n\n*PSB butuh KTP*\nDraft: *#<draft2>* - USERSI AMINAH\nKirim foto KTP dengan caption: *#psb ktp #<draft2>*\nCSR: tulis `KTP: CSR`. Menyusul: wajib alasan+tenggat.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 2,
+                    "from": "failed",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "USERSI AMINAH",
+                        "group": "120363000000000102@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 2,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000A01",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "open waiting_sn: same SN other name",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000103@g.us",
+                    "mentions": [],
+                    "text": "*Draft di-update*\nDraft: *#<draft3>* - USERSI AMINAH\nBukan data PSB baru.\nCek: *#psb cek #<draft3>*\n\n*PSB butuh KTP*\nDraft: *#<draft3>* - USERSI AMINAH\nKirim foto KTP dengan caption: *#psb ktp #<draft3>*\nCSR: tulis `KTP: CSR`. Menyusul: wajib alasan+tenggat.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 3,
+                    "from": "waiting_sn",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "USERSI AMINAH",
+                        "group": "120363000000000103@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 3,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000A01",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "open timeout: same SN other name",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000104@g.us",
+                    "mentions": [],
+                    "text": "*Draft di-update*\nDraft: *#<draft4>* - USERSI AMINAH\nBukan data PSB baru.\nCek: *#psb cek #<draft4>*\n\n*PSB butuh KTP*\nDraft: *#<draft4>* - USERSI AMINAH\nKirim foto KTP dengan caption: *#psb ktp #<draft4>*\nCSR: tulis `KTP: CSR`. Menyusul: wajib alasan+tenggat.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 4,
+                    "from": "timeout",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "USERSI AMINAH",
+                        "group": "120363000000000104@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 4,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000A01",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "open pending_vlan: same SN other name",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000105@g.us",
+                    "mentions": [],
+                    "text": "*Draft di-update*\nDraft: *#<draft5>* - USERSI AMINAH\nBukan data PSB baru.\nCek: *#psb cek #<draft5>*\n\n*PSB butuh KTP*\nDraft: *#<draft5>* - USERSI AMINAH\nKirim foto KTP dengan caption: *#psb ktp #<draft5>*\nCSR: tulis `KTP: CSR`. Menyusul: wajib alasan+tenggat.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 5,
+                    "from": "pending_vlan",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "USERSI AMINAH",
+                        "group": "120363000000000105@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 5,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000A01",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "open received: exact name, other SN",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000106@g.us",
+                    "mentions": [],
+                    "text": "*Draft di-update*\nDraft: *#<draft6>* - DRAFTE SANTOSO\nBukan data PSB baru.\nSN diganti; proses lanjut dari draft ini.\nCek: *#psb cek #<draft6>*\n\n*PSB butuh KTP*\nDraft: *#<draft6>* - DRAFTE SANTOSO\nKirim foto KTP dengan caption: *#psb ktp #<draft6>*\nCSR: tulis `KTP: CSR`. Menyusul: wajib alasan+tenggat.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000106@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 6,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000B02",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "open received: name typo (distance 1)",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000107@g.us",
+                    "mentions": [],
+                    "text": "*Draft di-update*\nDraft: *#<draft7>* - DRAFTE SANTOSA\nBukan data PSB baru.\nSN diganti; proses lanjut dari draft ini.\nCek: *#psb cek #<draft7>*\n\n*PSB butuh KTP*\nDraft: *#<draft7>* - DRAFTE SANTOSA\nKirim foto KTP dengan caption: *#psb ktp #<draft7>*\nCSR: tulis `KTP: CSR`. Menyusul: wajib alasan+tenggat.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSA",
+                        "group": "120363000000000107@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 7,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000B03",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "open received: same first word",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000108@g.us",
+                    "mentions": [],
+                    "text": "*Draft di-update*\nDraft: *#<draft8>* - DRAFTE RAHARJO\nBukan data PSB baru.\nSN diganti; proses lanjut dari draft ini.\nCek: *#psb cek #<draft8>*\n\n*PSB butuh KTP*\nDraft: *#<draft8>* - DRAFTE RAHARJO\nKirim foto KTP dengan caption: *#psb ktp #<draft8>*\nCSR: tulis `KTP: CSR`. Menyusul: wajib alasan+tenggat.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE RAHARJO",
+                        "group": "120363000000000108@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 8,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000B04",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "open received: other name, other SN",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000109@g.us",
+                    "mentions": [],
+                    "text": "*Foto KTP belum ada*\nDraft: *#<draft10>* - USERSI AMINAH\nKirim foto KTP dengan caption: *#psb ktp #<draft10>*\nBelum ada perubahan di MikroTik/OLT.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 10,
+                    "from": "(none)",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000109@g.us",
+                        "last_error": null,
+                        "ord": 9,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000A05",
+                        "status": "received"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "USERSI AMINAH",
+                        "group": "120363000000000109@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 10,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000B05",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "open received: other sender",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000110@g.us",
+                    "mentions": [],
+                    "text": "*Foto KTP belum ada*\nDraft: *#<draft12>* - DRAFTE SANTOSO\nKirim foto KTP dengan caption: *#psb ktp #<draft12>*\nBelum ada perubahan di MikroTik/OLT.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 12,
+                    "from": "(none)",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000110@g.us",
+                        "last_error": null,
+                        "ord": 11,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000A06",
+                        "status": "received"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000110@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 12,
+                        "pppoe_user": null,
+                        "sender": "6281200000012@s.whatsapp.net",
+                        "sn": "FHTTC0000A06",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "open received: older than the 60 minute window",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000111@g.us",
+                    "mentions": [],
+                    "text": "*Foto KTP belum ada*\nDraft: *#<draft14>* - DRAFTE SANTOSO\nKirim foto KTP dengan caption: *#psb ktp #<draft14>*\nBelum ada perubahan di MikroTik/OLT.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 14,
+                    "from": "(none)",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000111@g.us",
+                        "last_error": null,
+                        "ord": 13,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000A07",
+                        "status": "received"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000111@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 14,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000A07",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "cancelled: same SN and name",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000112@g.us",
+                    "mentions": [],
+                    "text": "*Foto KTP belum ada*\nDraft: *#<draft16>* - DRAFTE SANTOSO\nKirim foto KTP dengan caption: *#psb ktp #<draft16>*\nBelum ada perubahan di MikroTik/OLT.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 16,
+                    "from": "(none)",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000112@g.us",
+                        "last_error": null,
+                        "ord": 15,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000A08",
+                        "status": "cancelled"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000112@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 16,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000A08",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live secret_ok: same SN, name typo",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 4
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSA_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getActiveConnections",
+                    "withMeta": true
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000113@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft17>* · DRAFTE SANTOSA\n*Perubahan terdeteksi:*\nNama: `DRAFTE SANTOSO` -> `DRAFTE SANTOSA`\nPPPoE: `DRAFTESANTOSO_RT01_RW02_3` -> `DRAFTESANTOSA_RT01_RW02_3`\n*Preflight read-only:*\nMikroTik: old missing / new missing / offline\nOLT snapshot: not_found\nGenieACS snapshot: not_found\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft17>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft17>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 17,
+                    "from": "secret_ok",
+                    "to": "correction_pending_review"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": {
+                            "full_name": {
+                                "new": "DRAFTE SANTOSA",
+                                "old": "DRAFTE SANTOSO"
+                            },
+                            "pppoe_user": {
+                                "new": "DRAFTESANTOSA_RT01_RW02_3",
+                                "old": "DRAFTESANTOSO_RT01_RW02_3"
+                            }
+                        },
+                        "full_name": "DRAFTE SANTOSA",
+                        "group": "120363000000000113@g.us",
+                        "last_error": "Koreksi provisioning menunggu approval; perangkat/customer belum diubah.",
+                        "ord": 17,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C01",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live secret_ok: same SN, other name, other phone",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000114@g.us",
+                    "mentions": [],
+                    "text": "SN `FHTTC0000C02` sudah dipakai draft *#<draft18>* (DRAFTE SANTOSO). Kalau ini pelanggan lain, cek lagi SN di modem lalu kirim ulang #psb.\nKalau SN sudah benar, berarti SN di draft *#<draft18>* yang salah. Hubungi admin.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000114@g.us",
+                        "last_error": null,
+                        "ord": 18,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C02",
+                        "status": "secret_ok"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live secret_ok: exact name, other SN",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 4
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getActiveConnections",
+                    "withMeta": true
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000115@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft19>* · DRAFTE SANTOSO\n*Perubahan terdeteksi:*\nSN: `FHTTC0000C03` -> `FHTTC0000D03`\n*Preflight read-only:*\nMikroTik: old missing / new missing / offline\nOLT snapshot: not_found\nGenieACS snapshot: not_found\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft19>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft19>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 19,
+                    "from": "secret_ok",
+                    "to": "correction_pending_review"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": {
+                            "sn": {
+                                "new": "FHTTC0000D03",
+                                "old": "FHTTC0000C03"
+                            }
+                        },
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000115@g.us",
+                        "last_error": "Koreksi provisioning menunggu approval; perangkat/customer belum diubah.",
+                        "ord": 19,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000D03",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live secret_ok: name typo, other SN (strict, no fuzzy)",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000116@g.us",
+                    "mentions": [],
+                    "text": "*Foto KTP belum ada*\nDraft: *#<draft21>* - DRAFTE SANTOSA\nKirim foto KTP dengan caption: *#psb ktp #<draft21>*\nBelum ada perubahan di MikroTik/OLT.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 21,
+                    "from": "(none)",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000116@g.us",
+                        "last_error": null,
+                        "ord": 20,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C04",
+                        "status": "secret_ok"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSA",
+                        "group": "120363000000000116@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 21,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000D04",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live olt_ok: same SN, name typo",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 4
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSA_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getActiveConnections",
+                    "withMeta": true
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000117@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft22>* · DRAFTE SANTOSA\n*Perubahan terdeteksi:*\nNama: `DRAFTE SANTOSO` -> `DRAFTE SANTOSA`\nPPPoE: `DRAFTESANTOSO_RT01_RW02_3` -> `DRAFTESANTOSA_RT01_RW02_3`\n*Preflight read-only:*\nMikroTik: old missing / new missing / offline\nOLT snapshot: not_found\nGenieACS snapshot: not_found\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft22>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft22>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 22,
+                    "from": "olt_ok",
+                    "to": "correction_pending_review"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": {
+                            "full_name": {
+                                "new": "DRAFTE SANTOSA",
+                                "old": "DRAFTE SANTOSO"
+                            },
+                            "pppoe_user": {
+                                "new": "DRAFTESANTOSA_RT01_RW02_3",
+                                "old": "DRAFTESANTOSO_RT01_RW02_3"
+                            }
+                        },
+                        "full_name": "DRAFTE SANTOSA",
+                        "group": "120363000000000117@g.us",
+                        "last_error": "Koreksi provisioning menunggu approval; perangkat/customer belum diubah.",
+                        "ord": 22,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C01",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live olt_ok: same SN, other name, other phone",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000118@g.us",
+                    "mentions": [],
+                    "text": "SN `FHTTC0000C02` sudah dipakai draft *#<draft23>* (DRAFTE SANTOSO). Kalau ini pelanggan lain, cek lagi SN di modem lalu kirim ulang #psb.\nKalau SN sudah benar, berarti SN di draft *#<draft23>* yang salah. Hubungi admin.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000118@g.us",
+                        "last_error": null,
+                        "ord": 23,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C02",
+                        "status": "olt_ok"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live olt_ok: exact name, other SN",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 4
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getActiveConnections",
+                    "withMeta": true
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000119@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft24>* · DRAFTE SANTOSO\n*Perubahan terdeteksi:*\nSN: `FHTTC0000C03` -> `FHTTC0000D03`\n*Preflight read-only:*\nMikroTik: old missing / new missing / offline\nOLT snapshot: not_found\nGenieACS snapshot: not_found\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft24>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft24>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 24,
+                    "from": "olt_ok",
+                    "to": "correction_pending_review"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": {
+                            "sn": {
+                                "new": "FHTTC0000D03",
+                                "old": "FHTTC0000C03"
+                            }
+                        },
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000119@g.us",
+                        "last_error": "Koreksi provisioning menunggu approval; perangkat/customer belum diubah.",
+                        "ord": 24,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000D03",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live olt_ok: name typo, other SN (strict, no fuzzy)",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000120@g.us",
+                    "mentions": [],
+                    "text": "*Foto KTP belum ada*\nDraft: *#<draft26>* - DRAFTE SANTOSA\nKirim foto KTP dengan caption: *#psb ktp #<draft26>*\nBelum ada perubahan di MikroTik/OLT.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 26,
+                    "from": "(none)",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000120@g.us",
+                        "last_error": null,
+                        "ord": 25,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C04",
+                        "status": "olt_ok"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSA",
+                        "group": "120363000000000120@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 26,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000D04",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live applied: same SN, name typo",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 4
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSA_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getActiveConnections",
+                    "withMeta": true
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000121@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft27>* · DRAFTE SANTOSA\n*Perubahan terdeteksi:*\nNama: `DRAFTE SANTOSO` -> `DRAFTE SANTOSA`\nPPPoE: `DRAFTESANTOSO_RT01_RW02_3` -> `DRAFTESANTOSA_RT01_RW02_3`\n*Preflight read-only:*\nMikroTik: old missing / new missing / offline\nOLT snapshot: not_found\nGenieACS snapshot: not_found\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft27>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft27>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 27,
+                    "from": "applied",
+                    "to": "correction_pending_review"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": {
+                            "full_name": {
+                                "new": "DRAFTE SANTOSA",
+                                "old": "DRAFTE SANTOSO"
+                            },
+                            "pppoe_user": {
+                                "new": "DRAFTESANTOSA_RT01_RW02_3",
+                                "old": "DRAFTESANTOSO_RT01_RW02_3"
+                            }
+                        },
+                        "full_name": "DRAFTE SANTOSA",
+                        "group": "120363000000000121@g.us",
+                        "last_error": "Koreksi provisioning menunggu approval; perangkat/customer belum diubah.",
+                        "ord": 27,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C01",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live applied: same SN, other name, other phone",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000122@g.us",
+                    "mentions": [],
+                    "text": "SN `FHTTC0000C02` sudah dipakai draft *#<draft28>* (DRAFTE SANTOSO). Kalau ini pelanggan lain, cek lagi SN di modem lalu kirim ulang #psb.\nKalau SN sudah benar, berarti SN di draft *#<draft28>* yang salah. Hubungi admin.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000122@g.us",
+                        "last_error": null,
+                        "ord": 28,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C02",
+                        "status": "applied"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live applied: exact name, other SN",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 4
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getActiveConnections",
+                    "withMeta": true
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000123@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft29>* · DRAFTE SANTOSO\n*Perubahan terdeteksi:*\nSN: `FHTTC0000C03` -> `FHTTC0000D03`\n*Preflight read-only:*\nMikroTik: old missing / new missing / offline\nOLT snapshot: not_found\nGenieACS snapshot: not_found\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft29>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft29>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 29,
+                    "from": "applied",
+                    "to": "correction_pending_review"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": {
+                            "sn": {
+                                "new": "FHTTC0000D03",
+                                "old": "FHTTC0000C03"
+                            }
+                        },
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000123@g.us",
+                        "last_error": "Koreksi provisioning menunggu approval; perangkat/customer belum diubah.",
+                        "ord": 29,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000D03",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live applied: name typo, other SN (strict, no fuzzy)",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000124@g.us",
+                    "mentions": [],
+                    "text": "*Foto KTP belum ada*\nDraft: *#<draft31>* - DRAFTE SANTOSA\nKirim foto KTP dengan caption: *#psb ktp #<draft31>*\nBelum ada perubahan di MikroTik/OLT.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 31,
+                    "from": "(none)",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000124@g.us",
+                        "last_error": null,
+                        "ord": 30,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C04",
+                        "status": "applied"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSA",
+                        "group": "120363000000000124@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 31,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000D04",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live correction_pending_review: same SN, name typo",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 4
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSA_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getActiveConnections",
+                    "withMeta": true
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000125@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft32>* · DRAFTE SANTOSA\n*Perubahan terdeteksi:*\nNama: `DRAFTE SANTOSO` -> `DRAFTE SANTOSA`\nODP: `-` -> `ODP-KLAMPOK-3`\nRT: `-` -> `01`\nRW: `-` -> `02`\nArea: `-` -> `Klampok`\nPPPoE: `DRAFTESANTOSO_RT01_RW02_3` -> `DRAFTESANTOSA_RT01_RW02_3`\n*Preflight read-only:*\nMikroTik: old missing / new missing / offline\nOLT snapshot: not_found\nGenieACS snapshot: not_found\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft32>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft32>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": {
+                            "daerah": {
+                                "new": "Klampok",
+                                "old": ""
+                            },
+                            "full_name": {
+                                "new": "DRAFTE SANTOSA",
+                                "old": "DRAFTE SANTOSO"
+                            },
+                            "odp": {
+                                "new": "ODP-KLAMPOK-3",
+                                "old": ""
+                            },
+                            "olt_id": {
+                                "new": "1",
+                                "old": ""
+                            },
+                            "package_id": {
+                                "new": "package:RA-200M",
+                                "old": ""
+                            },
+                            "pppoe_user": {
+                                "new": "DRAFTESANTOSA_RT01_RW02_3",
+                                "old": "DRAFTESANTOSO_RT01_RW02_3"
+                            },
+                            "router_id": {
+                                "new": "513",
+                                "old": ""
+                            },
+                            "rt": {
+                                "new": "01",
+                                "old": ""
+                            },
+                            "rw": {
+                                "new": "02",
+                                "old": ""
+                            }
+                        },
+                        "full_name": "DRAFTE SANTOSA",
+                        "group": "120363000000000125@g.us",
+                        "last_error": "Koreksi provisioning menunggu approval; perangkat/customer belum diubah.",
+                        "ord": 32,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C01",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live correction_pending_review: same SN, other name, other phone",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000126@g.us",
+                    "mentions": [],
+                    "text": "SN `FHTTC0000C02` sudah dipakai draft *#<draft33>* (DRAFTE SANTOSO). Kalau ini pelanggan lain, cek lagi SN di modem lalu kirim ulang #psb.\nKalau SN sudah benar, berarti SN di draft *#<draft33>* yang salah. Hubungi admin.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": [],
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000126@g.us",
+                        "last_error": null,
+                        "ord": 33,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C02",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live correction_pending_review: exact name, other SN",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 4
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getActiveConnections",
+                    "withMeta": true
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000127@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft34>* · DRAFTE SANTOSO\n*Perubahan terdeteksi:*\nODP: `-` -> `ODP-KLAMPOK-3`\nRT: `-` -> `01`\nRW: `-` -> `02`\nArea: `-` -> `Klampok`\nSN: `FHTTC0000C03` -> `FHTTC0000D03`\n*Preflight read-only:*\nMikroTik: old missing / new missing / offline\nOLT snapshot: not_found\nGenieACS snapshot: not_found\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft34>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft34>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": {
+                            "daerah": {
+                                "new": "Klampok",
+                                "old": ""
+                            },
+                            "odp": {
+                                "new": "ODP-KLAMPOK-3",
+                                "old": ""
+                            },
+                            "olt_id": {
+                                "new": "1",
+                                "old": ""
+                            },
+                            "package_id": {
+                                "new": "package:RA-200M",
+                                "old": ""
+                            },
+                            "router_id": {
+                                "new": "513",
+                                "old": ""
+                            },
+                            "rt": {
+                                "new": "01",
+                                "old": ""
+                            },
+                            "rw": {
+                                "new": "02",
+                                "old": ""
+                            },
+                            "sn": {
+                                "new": "FHTTC0000D03",
+                                "old": "FHTTC0000C03"
+                            }
+                        },
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000127@g.us",
+                        "last_error": "Koreksi provisioning menunggu approval; perangkat/customer belum diubah.",
+                        "ord": 34,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000D03",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live correction_pending_review: name typo, other SN (strict, no fuzzy)",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000128@g.us",
+                    "mentions": [],
+                    "text": "*Foto KTP belum ada*\nDraft: *#<draft36>* - DRAFTE SANTOSA\nKirim foto KTP dengan caption: *#psb ktp #<draft36>*\nBelum ada perubahan di MikroTik/OLT.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 36,
+                    "from": "(none)",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": [],
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000128@g.us",
+                        "last_error": null,
+                        "ord": 35,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C04",
+                        "status": "correction_pending_review"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSA",
+                        "group": "120363000000000128@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 36,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000D04",
+                        "status": "received"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live secret_ok: exact name, other SN, other phone",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000129@g.us",
+                    "mentions": [],
+                    "text": "Nama sama dengan draft #<draft37> tapi SN dan HP beda. Kalau ini pelanggan lain, kirim ulang dengan nama yang dibedakan.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000129@g.us",
+                        "last_error": null,
+                        "ord": 37,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C05",
+                        "status": "secret_ok"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live olt_ok: exact name, other SN, other phone",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000130@g.us",
+                    "mentions": [],
+                    "text": "Nama sama dengan draft #<draft38> tapi SN dan HP beda. Kalau ini pelanggan lain, kirim ulang dengan nama yang dibedakan.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000130@g.us",
+                        "last_error": null,
+                        "ord": 38,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C05",
+                        "status": "olt_ok"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live applied: exact name, other SN, other phone",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000131@g.us",
+                    "mentions": [],
+                    "text": "Nama sama dengan draft #<draft39> tapi SN dan HP beda. Kalau ini pelanggan lain, kirim ulang dengan nama yang dibedakan.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000131@g.us",
+                        "last_error": null,
+                        "ord": 39,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C05",
+                        "status": "applied"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live correction_pending_review: exact name, other SN, other phone",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000132@g.us",
+                    "mentions": [],
+                    "text": "Nama sama dengan draft #<draft40> tapi SN dan HP beda. Kalau ini pelanggan lain, kirim ulang dengan nama yang dibedakan.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": [],
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000132@g.us",
+                        "last_error": null,
+                        "ord": 40,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000C05",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "live olt_ok: exact name, other SN, no phone in message",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 4
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getActiveConnections",
+                    "withMeta": true
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000133@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft41>* · DRAFTE SANTOSO\n*Perubahan terdeteksi:*\nSN: `FHTTC0000C06` -> `FHTTC0000D06`\n*Preflight read-only:*\nMikroTik: old missing / new missing / offline\nOLT snapshot: not_found\nGenieACS snapshot: not_found\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft41>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft41>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 41,
+                    "from": "olt_ok",
+                    "to": "correction_pending_review"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": {
+                            "sn": {
+                                "new": "FHTTC0000D06",
+                                "old": "FHTTC0000C06"
+                            }
+                        },
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000133@g.us",
+                        "last_error": "Koreksi provisioning menunggu approval; perangkat/customer belum diubah.",
+                        "ord": 41,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0000D06",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        }
+    ],
+    "transitions": [
+        [
+            "failed",
+            "received",
+            "psb_text"
+        ],
+        [
+            "waiting_sn",
+            "received",
+            "psb_text"
+        ],
+        [
+            "timeout",
+            "received",
+            "psb_text"
+        ],
+        [
+            "pending_vlan",
+            "received",
+            "psb_text"
+        ],
+        [
+            "(none)",
+            "received",
+            "psb_text"
+        ],
+        [
+            "secret_ok",
+            "correction_pending_review",
+            "psb_text"
+        ],
+        [
+            "olt_ok",
+            "correction_pending_review",
+            "psb_text"
+        ],
+        [
+            "applied",
+            "correction_pending_review",
+            "psb_text"
+        ]
+    ]
+}

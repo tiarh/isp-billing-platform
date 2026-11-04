@@ -1,0 +1,35 @@
+{
+  "description": "#psb text, then two plain photos (anchor follow-ups)",
+  "steps": [
+    {
+      "label": "#psb text",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S02-T1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb\nNama: Budi Uji\nSN: FHTT00000002"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "photo 1",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S02-P1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/1", "mimetype": "image/jpeg", "fileLength": "12345", "height": 1280, "width": 720, "jpegThumbnail": "/9j/fake"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "photo 2",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S02-P2", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/2", "mimetype": "image/jpeg", "fileLength": "12346", "height": 1280, "width": 720, "jpegThumbnail": "/9j/fake"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

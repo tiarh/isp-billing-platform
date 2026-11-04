@@ -1,0 +1,4421 @@
+{
+    "scenario": "s19-conductor-full-olt-edges",
+    "steps": [
+        {
+            "label": "uncfg read error: waiting_sn with the hint, no router call",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft1>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Menunggu SN di OLT*\nDraft: *#<draft1>*\nPelanggan: DRAFTE SANTOSO\nSN: `FHTTC0FFEE91`\nSN belum muncul di daftar unconfigured OLT.\nPastikan kabel FO terpasang dan ONT menyala, lalu tunggu 1-2 menit.\nCoba lagi: *#psb lanjut #<draft1>*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "received",
+                    "to": "waiting_sn"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "PON without a VLAN mapping: pending_vlan, no router call",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft2>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Menunggu VLAN*\nDraft: *#<draft2>*\nPelanggan: USERSI AMINAH\nSN: `FHTTC0FFEE92`\nPON: *1/1/9*\nSN terdeteksi, tetapi VLAN internet untuk PON ini belum tersedia.\nNOC isi mapping VLAN di eBilling, lalu lanjutkan:\n*#psb lanjut #<draft2>*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 2,
+                    "from": "received",
+                    "to": "pending_vlan"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "router address table reads empty: IP_POOL_FULL reply, status failed, no secret",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft3>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "count": 0,
+                    "type": "mt.getPPPSecretsWithAddresses"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "❌ *IP pool penuh*\nDetail: IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).\n*NOC:* tambah/aktifkan block di master address pool router/site, atau rapikan secret nonaktif dengan hati-hati.\nBot tidak auto-create block baru di MikroTik.\nSetelah ada IP free: *#psb lanjut #ID*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 3,
+                    "from": "received",
+                    "to": "failed"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "addPPPSecret fails: pppoeFailed reply, status failed, allocator pointer released",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft4>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "count": 2,
+                    "type": "mt.getPPPSecretsWithAddresses"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.43.1",
+                    "password": "<pw len=7>",
+                    "profile": "200M",
+                    "remote": "198.19.43.2",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTGLESTARI_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Gagal buat PPPoE*\nDetail: failure: profile not found\nCek: profile, router, IP block, atau username dobel.\nRetry: *#psb lanjut #ID*\nCari: *#pppoe cari <nama/user/telp>*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 4,
+                    "from": "received",
+                    "to": "failed"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "allocator block pointer after the failed write",
+            "trigger": "probe",
+            "events": [
+                {
+                    "last_remote": null,
+                    "source": "rollback_failed_write",
+                    "type": "allocator.block"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "router says the secret already exists: secretAlreadyExists reply, then the OLT step succeeds",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft5>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "count": 2,
+                    "type": "mt.getPPPSecretsWithAddresses"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=7>",
+                    "profile": "200M",
+                    "remote": "198.19.42.12",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTAPRASETYO_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTAPRASETYO_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\nℹ️ *PPPoE sudah ada (SKYNET-RA-OLT)*\nDraft: *#<draft5>* · DRAFTA PRASETYO\n• User: `DRAFTAPRASETYO_RT01_RW02_3`\n• Kredensial PPPoE: tidak terbaca dari MikroTik; jangan gunakan tebakan/database.\n• VLAN: *100*\nSecret di MikroTik *di-update/idempotent* — tidak membuat junk baru.\nLanjut aktivasi OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "approval_present": true,
+                    "input": {
+                        "dry_run": false,
+                        "name": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "olt_id": 1,
+                        "onu_type": "ALL",
+                        "paket": "200M",
+                        "port": "1/1/1",
+                        "purpose": "psb_wa",
+                        "router_id": 513,
+                        "sn": "FHTTC0FFEE95"
+                    },
+                    "type": "olt.provisionFiberhome"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTAPRASETYO_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n✅ *Aktivasi OLT selesai*\nDraft: *#<draft5>*\nPelanggan: DRAFTA PRASETYO\nSN: FHTTC0FFEE95\nPON: 1/1/1 · VLAN: *100*\n────────────\n*Setting manual di ONT pelanggan*\n*1) Internet (PPPoE)*\n• Mode: PPPoE\n• Username: DRAFTAPRASETYO_RT01_RW02_3\n• Kredensial PPPoE: tidak terbaca dari MikroTik; jangan gunakan tebakan/database.\n• VLAN internet: *100*\n*2) Management / ACS (TR-069)*\n• Mode: DHCP\n• VLAN: *69*\n• ACS URL: http://acs.test:7547\n────────────\nFoto KTP & router tersimpan di draft (menu *PSB WA*).\nAdmin apply pelanggan aktif belakangan dari eBilling.\nStatus *live PPPoE* & *redaman* → cek di eBilling (bukan di grup, biar tidak spam).\nSelesai. Uji internet + cek ACS jika perlu.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 5,
+                    "from": "received",
+                    "to": "olt_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 5,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE95",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "router reads the password back masked: verify_failed, status failed",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft6>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=7>",
+                    "profile": "200M",
+                    "remote": "198.19.42.13",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTMWULANDARI_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTMWULANDARI_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Gagal buat PPPoE*\nDetail: Secret [REDACTED] belum terverifikasi live setelah write.\nCek: profile, router, IP block, atau username dobel.\nRetry: *#psb lanjut #ID*\nCari: *#pppoe cari <nama/user/telp>*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 6,
+                    "from": "received",
+                    "to": "failed"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 5,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE95",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Secret [REDACTED] belum terverifikasi live setelah write.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 7,
+                        "ord": 6,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE96",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTMWULANDARI_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "807 class: the PPPoE user belongs to another live customer: failed, no secret write, customer untouched",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft7>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Gagal buat PPPoE*\nDetail: PPPoE user `DRAFTIKUSUMA_RT01_RW02_3` sudah dipakai pelanggan #<customer2> (status active). Jangan overwrite — ganti nama/ODP atau hubungi NOC.\nCek: profile, router, IP block, atau username dobel.\nRetry: *#psb lanjut #ID*\nCari: *#pppoe cari <nama/user/telp>*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 7,
+                    "from": "received",
+                    "to": "failed"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 5,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE95",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Secret [REDACTED] belum terverifikasi live setelah write.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 7,
+                        "ord": 6,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE96",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "PPPoE user `DRAFTIKUSUMA_RT01_RW02_3` sudah dipakai pelanggan #<customer2> (status active). Jangan overwrite — ganti nama/ODP atau hubungi NOC.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 8,
+                        "ord": 7,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE97",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": null,
+                        "name": "PEMILIK LAMA",
+                        "ord": 2,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTIKUSUMA_RT01_RW02_3",
+                        "profile": null,
+                        "remote": null,
+                        "status": "active",
+                        "sync": "unknown"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTMWULANDARI_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "PPPoE user belongs to the draft's own customer: reused and updated, secret written",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft8>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=7>",
+                    "profile": "200M",
+                    "remote": "198.19.42.13",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTKMARLINA_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTKMARLINA_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTKMARLINA_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n*PPPoE siap*\nDraft: *#<draft8>* - Paket *RA-200M [200M]*\nPelanggan: DRAFTK MARLINA\nMikroTik: *SKYNET-RA-OLT*\nUser: `DRAFTKMARLINA_RT01_RW02_3`\nPassword: <pw>\nProfile: *200M*\nVLAN: *100*\nSN: `FHTTC0FFEE98`\nLanjut aktivasi OLT...",
+                    "type": "wa.send"
+                },
+                {
+                    "approval_present": true,
+                    "input": {
+                        "dry_run": false,
+                        "name": "DRAFTKMARLINA_RT01_RW02_3",
+                        "olt_id": 1,
+                        "onu_type": "ALL",
+                        "paket": "200M",
+                        "port": "1/1/1",
+                        "purpose": "psb_wa",
+                        "router_id": 513,
+                        "sn": "FHTTC0FFEE98"
+                    },
+                    "type": "olt.provisionFiberhome"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTKMARLINA_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n✅ *Aktivasi OLT selesai*\nDraft: *#<draft8>*\nPelanggan: DRAFTK MARLINA\nSN: FHTTC0FFEE98\nPON: 1/1/1 · VLAN: *100*\n────────────\n*Setting manual di ONT pelanggan*\n*1) Internet (PPPoE)*\n• Mode: PPPoE\n• Username: DRAFTKMARLINA_RT01_RW02_3\n• Password: <pw>\n• VLAN internet: *100*\n*2) Management / ACS (TR-069)*\n• Mode: DHCP\n• VLAN: *69*\n• ACS URL: http://acs.test:7547\n────────────\nFoto KTP & router tersimpan di draft (menu *PSB WA*).\nAdmin apply pelanggan aktif belakangan dari eBilling.\nStatus *live PPPoE* & *redaman* → cek di eBilling (bukan di grup, biar tidak spam).\nSelesai. Uji internet + cek ACS jika perlu.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 8,
+                    "from": "received",
+                    "to": "olt_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 5,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE95",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Secret [REDACTED] belum terverifikasi live setelah write.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 7,
+                        "ord": 6,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE96",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "PPPoE user `DRAFTIKUSUMA_RT01_RW02_3` sudah dipakai pelanggan #<customer2> (status active). Jangan overwrite — ganti nama/ODP atau hubungi NOC.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 8,
+                        "ord": 7,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE97",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer3",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 8,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE98",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": null,
+                        "name": "PEMILIK LAMA",
+                        "ord": 2,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTIKUSUMA_RT01_RW02_3",
+                        "profile": null,
+                        "remote": null,
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTK MARLINA",
+                        "ord": 3,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.13",
+                        "status": "active",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTKMARLINA_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "DRAFTMWULANDARI_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "secret_at already set and the secret is live: no secret step, OLT step only",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft9>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "approval_present": true,
+                    "input": {
+                        "dry_run": false,
+                        "name": "USERTOHARTONO_RT01_RW02_3",
+                        "olt_id": 1,
+                        "onu_type": "ALL",
+                        "paket": "200M",
+                        "port": "1/1/1",
+                        "purpose": "psb_wa",
+                        "router_id": 513,
+                        "sn": "FHTTC0FFEE99"
+                    },
+                    "type": "olt.provisionFiberhome"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERTOHARTONO_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n✅ *Aktivasi OLT selesai*\nDraft: *#<draft9>*\nPelanggan: USERTO HARTONO\nSN: FHTTC0FFEE99\nPON: 1/1/1 · VLAN: *100*\n────────────\n*Setting manual di ONT pelanggan*\n*1) Internet (PPPoE)*\n• Mode: PPPoE\n• Username: USERTOHARTONO_RT01_RW02_3\n• Password: <pw>\n• VLAN internet: *100*\n*2) Management / ACS (TR-069)*\n• Mode: DHCP\n• VLAN: *69*\n• ACS URL: http://acs.test:7547\n────────────\nFoto KTP & router tersimpan di draft (menu *PSB WA*).\nAdmin apply pelanggan aktif belakangan dari eBilling.\nStatus *live PPPoE* & *redaman* → cek di eBilling (bukan di grup, biar tidak spam).\nSelesai. Uji internet + cek ACS jika perlu.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 9,
+                    "from": "received",
+                    "to": "olt_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 5,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE95",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Secret [REDACTED] belum terverifikasi live setelah write.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 7,
+                        "ord": 6,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE96",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "PPPoE user `DRAFTIKUSUMA_RT01_RW02_3` sudah dipakai pelanggan #<customer2> (status active). Jangan overwrite — ganti nama/ODP atau hubungi NOC.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 8,
+                        "ord": 7,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE97",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer3",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 8,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE98",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 9,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERTOHARTONO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE99",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": null,
+                        "name": "PEMILIK LAMA",
+                        "ord": 2,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTIKUSUMA_RT01_RW02_3",
+                        "profile": null,
+                        "remote": null,
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTK MARLINA",
+                        "ord": 3,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.13",
+                        "status": "active",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTKMARLINA_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "DRAFTMWULANDARI_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERTOHARTONO_RT01_RW02_3": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.40"
+                    }
+                }
+            }
+        },
+        {
+            "label": "secret_at already set, secret missing on the router: the conductor does not look (OLT step only)",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft10>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "approval_present": true,
+                    "input": {
+                        "dry_run": false,
+                        "name": "USERWANUGROHO_RT01_RW02_3",
+                        "olt_id": 1,
+                        "onu_type": "ALL",
+                        "paket": "200M",
+                        "port": "1/1/1",
+                        "purpose": "psb_wa",
+                        "router_id": 513,
+                        "sn": "FHTTC0FFEEA1"
+                    },
+                    "type": "olt.provisionFiberhome"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERWANUGROHO_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n✅ *Aktivasi OLT selesai*\nDraft: *#<draft10>*\nPelanggan: USERWA NUGROHO\nSN: FHTTC0FFEEA1\nPON: 1/1/1 · VLAN: *100*\n────────────\n*Setting manual di ONT pelanggan*\n*1) Internet (PPPoE)*\n• Mode: PPPoE\n• Username: USERWANUGROHO_RT01_RW02_3\n• Kredensial PPPoE: tidak terbaca dari MikroTik; jangan gunakan tebakan/database.\n• VLAN internet: *100*\n*2) Management / ACS (TR-069)*\n• Mode: DHCP\n• VLAN: *69*\n• ACS URL: http://acs.test:7547\n────────────\nFoto KTP & router tersimpan di draft (menu *PSB WA*).\nAdmin apply pelanggan aktif belakangan dari eBilling.\nStatus *live PPPoE* & *redaman* → cek di eBilling (bukan di grup, biar tidak spam).\nSelesai. Uji internet + cek ACS jika perlu.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 10,
+                    "from": "received",
+                    "to": "olt_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 5,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE95",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Secret [REDACTED] belum terverifikasi live setelah write.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 7,
+                        "ord": 6,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE96",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "PPPoE user `DRAFTIKUSUMA_RT01_RW02_3` sudah dipakai pelanggan #<customer2> (status active). Jangan overwrite — ganti nama/ODP atau hubungi NOC.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 8,
+                        "ord": 7,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE97",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer3",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 8,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE98",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 9,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERTOHARTONO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE99",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 10,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERWANUGROHO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEA1",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": null,
+                        "name": "PEMILIK LAMA",
+                        "ord": 2,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTIKUSUMA_RT01_RW02_3",
+                        "profile": null,
+                        "remote": null,
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTK MARLINA",
+                        "ord": 3,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.13",
+                        "status": "active",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTKMARLINA_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "DRAFTMWULANDARI_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERTOHARTONO_RT01_RW02_3": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.40"
+                    }
+                }
+            }
+        },
+        {
+            "label": "OLT answers 422 after the secret gives oltFailedAfterSecret, status secret_ok",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft11>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=7>",
+                    "profile": "200M",
+                    "remote": "198.19.42.14",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "USERYUSETIAWAN_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERYUSETIAWAN_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "USERYUSETIAWAN_RT01_RW02_3",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERYUSETIAWAN_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n*PPPoE siap*\nDraft: *#<draft11>* - Paket *RA-200M [200M]*\nPelanggan: USERYU SETIAWAN\nMikroTik: *SKYNET-RA-OLT*\nUser: `USERYUSETIAWAN_RT01_RW02_3`\nPassword: <pw>\nProfile: *200M*\nVLAN: *100*\nSN: `FHTTC0FFEEA2`\nLanjut aktivasi OLT...",
+                    "type": "wa.send"
+                },
+                {
+                    "approval_present": true,
+                    "input": {
+                        "dry_run": false,
+                        "name": "USERYUSETIAWAN_RT01_RW02_3",
+                        "olt_id": 1,
+                        "onu_type": "ALL",
+                        "paket": "200M",
+                        "port": "1/1/1",
+                        "purpose": "psb_wa",
+                        "router_id": 513,
+                        "sn": "FHTTC0FFEEA2"
+                    },
+                    "type": "olt.provisionFiberhome"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*PPPoE OK, OLT gagal*\nDetail: ONU sudah terdaftar\nCek uncfg/PON/koneksi OLT.\nRetry: *#psb lanjut #ID*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 11,
+                    "from": "received",
+                    "to": "secret_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 5,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE95",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Secret [REDACTED] belum terverifikasi live setelah write.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 7,
+                        "ord": 6,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE96",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "PPPoE user `DRAFTIKUSUMA_RT01_RW02_3` sudah dipakai pelanggan #<customer2> (status active). Jangan overwrite — ganti nama/ODP atau hubungi NOC.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 8,
+                        "ord": 7,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE97",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer3",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 8,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE98",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 9,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERTOHARTONO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE99",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 10,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERWANUGROHO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEA1",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer4",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT: ONU sudah terdaftar",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 12,
+                        "ord": 11,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERYUSETIAWAN_RT01_RW02_3",
+                        "remote": "198.19.42.14",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEA2",
+                        "status": "secret_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": null,
+                        "name": "PEMILIK LAMA",
+                        "ord": 2,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTIKUSUMA_RT01_RW02_3",
+                        "profile": null,
+                        "remote": null,
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTK MARLINA",
+                        "ord": 3,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.13",
+                        "status": "active",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERYU SETIAWAN",
+                        "ord": 4,
+                        "package": "RA-200M",
+                        "pppoe_user": "USERYUSETIAWAN_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.14",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTKMARLINA_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "DRAFTMWULANDARI_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERTOHARTONO_RT01_RW02_3": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.40"
+                    },
+                    "USERYUSETIAWAN_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.14"
+                    }
+                }
+            }
+        },
+        {
+            "label": "package hint 15M does not match profile 200M: failed before any device call",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft12>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Data PSB belum lengkap*\n- Mapping paket `15M` tidak cocok dengan profile MikroTik `200M`; proses dihentikan (tanpa default 200M).\nWajib: Nama, ODP, RT, RW, Tikor, Daerah, Router, Paket, SN, KTP.\nBantuan: *#psb bantu*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 12,
+                    "from": "received",
+                    "to": "failed"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 5,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE95",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Secret [REDACTED] belum terverifikasi live setelah write.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 7,
+                        "ord": 6,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE96",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "PPPoE user `DRAFTIKUSUMA_RT01_RW02_3` sudah dipakai pelanggan #<customer2> (status active). Jangan overwrite — ganti nama/ODP atau hubungi NOC.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 8,
+                        "ord": 7,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE97",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer3",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 8,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE98",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 9,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERTOHARTONO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE99",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 10,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERWANUGROHO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEA1",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer4",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT: ONU sudah terdaftar",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 12,
+                        "ord": 11,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERYUSETIAWAN_RT01_RW02_3",
+                        "remote": "198.19.42.14",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEA2",
+                        "status": "secret_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Mapping paket `15M` tidak cocok dengan profile MikroTik `200M`; proses dihentikan (tanpa default 200M).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 12,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEA3",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": null,
+                        "name": "PEMILIK LAMA",
+                        "ord": 2,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTIKUSUMA_RT01_RW02_3",
+                        "profile": null,
+                        "remote": null,
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTK MARLINA",
+                        "ord": 3,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.13",
+                        "status": "active",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERYU SETIAWAN",
+                        "ord": 4,
+                        "package": "RA-200M",
+                        "pppoe_user": "USERYUSETIAWAN_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.14",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTKMARLINA_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "DRAFTMWULANDARI_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERTOHARTONO_RT01_RW02_3": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.40"
+                    },
+                    "USERYUSETIAWAN_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.14"
+                    }
+                }
+            }
+        },
+        {
+            "label": "draft without a package: \"Config PSB belum lengkap\", failed before any device call",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft13>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Data PSB belum lengkap*\n- Paket (contoh: 200M / STARTLITE / 100M)\nWajib: Nama, ODP, RT, RW, Tikor, Daerah, Router, Paket, SN, KTP.\nBantuan: *#psb bantu*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 13,
+                    "from": "received",
+                    "to": "failed"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 5,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE95",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Secret [REDACTED] belum terverifikasi live setelah write.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 7,
+                        "ord": 6,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE96",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "PPPoE user `DRAFTIKUSUMA_RT01_RW02_3` sudah dipakai pelanggan #<customer2> (status active). Jangan overwrite — ganti nama/ODP atau hubungi NOC.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 8,
+                        "ord": 7,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE97",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer3",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 8,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE98",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 9,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERTOHARTONO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE99",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 10,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERWANUGROHO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEA1",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer4",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT: ONU sudah terdaftar",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 12,
+                        "ord": 11,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERYUSETIAWAN_RT01_RW02_3",
+                        "remote": "198.19.42.14",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEA2",
+                        "status": "secret_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Mapping paket `15M` tidak cocok dengan profile MikroTik `200M`; proses dihentikan (tanpa default 200M).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 12,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEA3",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Config PSB belum lengkap: Paket (contoh: 200M / STARTLITE / 100M)",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 13,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEA4",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": null,
+                        "name": "PEMILIK LAMA",
+                        "ord": 2,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTIKUSUMA_RT01_RW02_3",
+                        "profile": null,
+                        "remote": null,
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTK MARLINA",
+                        "ord": 3,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.13",
+                        "status": "active",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERYU SETIAWAN",
+                        "ord": 4,
+                        "package": "RA-200M",
+                        "pppoe_user": "USERYUSETIAWAN_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.14",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTKMARLINA_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "DRAFTMWULANDARI_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERTOHARTONO_RT01_RW02_3": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.40"
+                    },
+                    "USERYUSETIAWAN_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.14"
+                    }
+                }
+            }
+        },
+        {
+            "label": "full_olt site without any OLT row: \"OLT belum di-set\", failed before any device call",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft14>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Konfigurasi PSB kurang*\nIsi setting grup WA, OLT default, Router, dan Paket.\nKirim ulang data dengan *#psb* setelah setting OK.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 14,
+                    "from": "received",
+                    "to": "failed"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "IP_POOL_FULL: Tidak ada IP remote free di MikroTik SKYNET-RA-OLT (pool penuh / tidak terbaca).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 4,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 5,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE95",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Secret [REDACTED] belum terverifikasi live setelah write.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 7,
+                        "ord": 6,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE96",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "PPPoE user `DRAFTIKUSUMA_RT01_RW02_3` sudah dipakai pelanggan #<customer2> (status active). Jangan overwrite — ganti nama/ODP atau hubungi NOC.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 8,
+                        "ord": 7,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE97",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer3",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 8,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE98",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 9,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERTOHARTONO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE99",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 10,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERWANUGROHO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEA1",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer4",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT: ONU sudah terdaftar",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 12,
+                        "ord": 11,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERYUSETIAWAN_RT01_RW02_3",
+                        "remote": "198.19.42.14",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEA2",
+                        "status": "secret_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Mapping paket `15M` tidak cocok dengan profile MikroTik `200M`; proses dihentikan (tanpa default 200M).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 12,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEA3",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Config PSB belum lengkap: Paket (contoh: 200M / STARTLITE / 100M)",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 13,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEA4",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Config PSB full_olt: OLT belum di-set.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 14,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEA5",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": null,
+                        "name": "PEMILIK LAMA",
+                        "ord": 2,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTIKUSUMA_RT01_RW02_3",
+                        "profile": null,
+                        "remote": null,
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTK MARLINA",
+                        "ord": 3,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.13",
+                        "status": "active",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERYU SETIAWAN",
+                        "ord": 4,
+                        "package": "RA-200M",
+                        "pppoe_user": "USERYUSETIAWAN_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.14",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTKMARLINA_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "DRAFTMWULANDARI_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERTOHARTONO_RT01_RW02_3": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.40"
+                    },
+                    "USERYUSETIAWAN_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.14"
+                    }
+                }
+            }
+        },
+        {
+            "label": "admin HTTP retry of the pool-full draft (router has addresses again)",
+            "trigger": "admin:retry",
+            "events": [
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=7>",
+                    "profile": "200M",
+                    "remote": "198.19.42.15",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTCWIJAYA_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTCWIJAYA_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "DRAFTCWIJAYA_RT01_RW02_3",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTCWIJAYA_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n*PPPoE siap*\nDraft: *#<draft3>* - Paket *RA-200M [200M]*\nPelanggan: DRAFTC WIJAYA\nMikroTik: *SKYNET-RA-OLT*\nUser: `DRAFTCWIJAYA_RT01_RW02_3`\nPassword: <pw>\nProfile: *200M*\nVLAN: *100*\nSN: `FHTTC0FFEE93`\nLanjut aktivasi OLT...",
+                    "type": "wa.send"
+                },
+                {
+                    "approval_present": true,
+                    "input": {
+                        "dry_run": false,
+                        "name": "DRAFTCWIJAYA_RT01_RW02_3",
+                        "olt_id": 1,
+                        "onu_type": "ALL",
+                        "paket": "200M",
+                        "port": "1/1/1",
+                        "purpose": "psb_wa",
+                        "router_id": 513,
+                        "sn": "FHTTC0FFEE93"
+                    },
+                    "type": "olt.provisionFiberhome"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTCWIJAYA_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n✅ *Aktivasi OLT selesai*\nDraft: *#<draft3>*\nPelanggan: DRAFTC WIJAYA\nSN: FHTTC0FFEE93\nPON: 1/1/1 · VLAN: *100*\n────────────\n*Setting manual di ONT pelanggan*\n*1) Internet (PPPoE)*\n• Mode: PPPoE\n• Username: DRAFTCWIJAYA_RT01_RW02_3\n• Password: <pw>\n• VLAN internet: *100*\n*2) Management / ACS (TR-069)*\n• Mode: DHCP\n• VLAN: *69*\n• ACS URL: http://acs.test:7547\n────────────\nFoto KTP & router tersimpan di draft (menu *PSB WA*).\nAdmin apply pelanggan aktif belakangan dari eBilling.\nStatus *live PPPoE* & *redaman* → cek di eBilling (bukan di grup, biar tidak spam).\nSelesai. Uji internet + cek ACS jika perlu.",
+                    "type": "wa.send"
+                },
+                {
+                    "message": "Draft #<draft3> di-retry.",
+                    "status": 200,
+                    "type": "http.response"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 3,
+                    "from": "failed",
+                    "to": "olt_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT belum bisa dibaca, coba lagi sebentar.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE91",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "VLAN mapping belum diisi untuk PON 1/1/9 di OLT OLT RA. Isi di Aktivasi → VLAN Mapping OLT (tanpa fallback).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": "1/1/9",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE92",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer5",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 3,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTCWIJAYA_RT01_RW02_3",
+                        "remote": "198.19.42.15",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE93",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 5,
+                        "ord": 4,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE94",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 5,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE95",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Secret [REDACTED] belum terverifikasi live setelah write.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 7,
+                        "ord": 6,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE96",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "PPPoE user `DRAFTIKUSUMA_RT01_RW02_3` sudah dipakai pelanggan #<customer2> (status active). Jangan overwrite — ganti nama/ODP atau hubungi NOC.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 8,
+                        "ord": 7,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEE97",
+                        "status": "failed",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer3",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 8,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE98",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 9,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERTOHARTONO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEE99",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 7,
+                        "ord": 10,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERWANUGROHO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEA1",
+                        "status": "olt_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer4",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT: ONU sudah terdaftar",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 12,
+                        "ord": 11,
+                        "pon_port": "1/1/1",
+                        "pppoe_user": "USERYUSETIAWAN_RT01_RW02_3",
+                        "remote": "198.19.42.14",
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEA2",
+                        "status": "secret_ok",
+                        "vlan": 100,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Mapping paket `15M` tidak cocok dengan profile MikroTik `200M`; proses dihentikan (tanpa default 200M).",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 12,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEA3",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Config PSB belum lengkap: Paket (contoh: 200M / STARTLITE / 100M)",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 13,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEA4",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Config PSB full_olt: OLT belum di-set.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 14,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEA5",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": null,
+                        "name": "PEMILIK LAMA",
+                        "ord": 2,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTIKUSUMA_RT01_RW02_3",
+                        "profile": null,
+                        "remote": null,
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTK MARLINA",
+                        "ord": 3,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTKMARLINA_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.13",
+                        "status": "active",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERYU SETIAWAN",
+                        "ord": 4,
+                        "package": "RA-200M",
+                        "pppoe_user": "USERYUSETIAWAN_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.14",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTC WIJAYA",
+                        "ord": 5,
+                        "package": "RA-200M",
+                        "pppoe_user": "DRAFTCWIJAYA_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.15",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTCWIJAYA_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.15"
+                    },
+                    "DRAFTKMARLINA_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "DRAFTMWULANDARI_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.13"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERTOHARTONO_RT01_RW02_3": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.40"
+                    },
+                    "USERYUSETIAWAN_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.14"
+                    }
+                }
+            }
+        },
+        {
+            "label": "locks-free probe: no PSB lock is left held",
+            "trigger": "probe",
+            "events": [
+                {
+                    "busy": [],
+                    "checked": 48,
+                    "type": "locks.probe"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        }
+    ],
+    "transitions": [
+        [
+            "received",
+            "waiting_sn",
+            "cmd:lanjut"
+        ],
+        [
+            "received",
+            "pending_vlan",
+            "cmd:lanjut"
+        ],
+        [
+            "received",
+            "failed",
+            "cmd:lanjut"
+        ],
+        [
+            "received",
+            "olt_ok",
+            "cmd:lanjut"
+        ],
+        [
+            "received",
+            "secret_ok",
+            "cmd:lanjut"
+        ],
+        [
+            "failed",
+            "olt_ok",
+            "admin:retry"
+        ]
+    ]
+}

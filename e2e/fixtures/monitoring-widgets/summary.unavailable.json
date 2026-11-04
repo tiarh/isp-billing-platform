@@ -1,0 +1,17 @@
+{
+  "widget": "summary",
+  "range": "1h",
+  "status": "unavailable",
+  "fetched_at": null,
+  "reason": "Grafana tidak menjawab (timeout).",
+  "partial": true,
+  "step_seconds": 60,
+  "grafana_dashboard_url": "https://grafana.example.test/d/skynet-mikrotik-overview?orgId=1&from=now-1h&to=now",
+  "data": {
+    "routers": { "online": null, "total": 4, "scraped": null },
+    "pppoe": { "total": 852, "source": "db" },
+    "traffic": { "rx_mbps": null, "tx_mbps": null },
+    "upstream": { "rx_mbps": null, "tx_mbps": null, "capacity_mbps": 1800, "capacity_complete": false, "utilization_pct": null },
+    "collectors": null
+  }
+}

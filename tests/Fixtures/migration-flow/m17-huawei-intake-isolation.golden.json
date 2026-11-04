@@ -1,0 +1,1665 @@
+{
+    "scenario": "m17-huawei-intake-isolation",
+    "steps": [
+        {
+            "label": "Huawei intake without PPPoE: PPPoE resolved from the old SN, draft with the read-only preflight",
+            "trigger": "intake",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Data migrasi diterima (ref MIG001). Sedang dicocokkan; tunggu hasil bot dan jangan kirim ulang.",
+                    "type": "wa.send"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.getPPPSecretWithPassword",
+                    "user": "USERRUDI_USERGDG_RT01_RW02"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/1",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Draft Huawei OLT-only #<migration1>\nPPPoE: USERRUDI_USERGDG_RT01_RW02\nSN baru: HWTCC0FFEE61\nRouter target: SKYNET-GADANG\nOLT target: OLT GADANG 3\nPassword tidak diminta dari teknisi; hanya diverifikasi read-only dari secret router target.\nCustomer/KTP tidak diperlukan untuk mode ini; ONU lama tidak disentuh.\nHasil discovery: 0/0/1:0\nVLAN internet/TR-069: 102 / 69\nKonfirmasi: #migrasi konfirmasi #<migration1>\nEksekusi hanya setelah review: #migrasi eksekusi #<migration1>",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "migration": 1,
+                    "from": "(none)",
+                    "to": "needs_review"
+                }
+            ],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "new": true,
+                        "customer": null,
+                        "full_name": "RUDI HARTONO",
+                        "group": "120363000000000101@g.us",
+                        "ktp_photo": null,
+                        "last_error": "Huawei OLT-only preflight siap; menunggu konfirmasi teknisi.",
+                        "meta": {
+                            "cross_router": false,
+                            "device_write": false,
+                            "guided_wa_confirmation": {
+                                "expires_at": "<ts>",
+                                "selected_by_sender_keys": [
+                                    "6281200000101"
+                                ],
+                                "status": "pending"
+                            },
+                            "guided_wa_selection": {
+                                "candidate_number": 1,
+                                "selected_at": "<ts>",
+                                "selected_by_sender": "6281200000101@s.whatsapp.net",
+                                "selected_by_sender_keys": [
+                                    "6281200000101"
+                                ]
+                            },
+                            "huawei_olt_only": {
+                                "preflight": {
+                                    "checked_at": "<ts>",
+                                    "cross_router": false,
+                                    "eligible": true,
+                                    "migration": {
+                                        "id": null,
+                                        "status": "needs_review"
+                                    },
+                                    "mode": "olt_only_huawei",
+                                    "olt": {
+                                        "id": 11,
+                                        "management_ip": "198.19.41.11",
+                                        "name": "OLT GADANG 3",
+                                        "vendor": "huawei_ma5608t"
+                                    },
+                                    "placement": {
+                                        "autofind_command": "display ont autofind all",
+                                        "onu_id": 0,
+                                        "onu_ref": "0/0/1:0",
+                                        "pon_port": "0/0/1",
+                                        "serial_number": "HWTCC0FFEE61",
+                                        "source": "autofind",
+                                        "vendor_id": "HWTC"
+                                    },
+                                    "plan": {
+                                        "already_registered": false,
+                                        "command_hash": "<hash>",
+                                        "commands": [
+                                            "config",
+                                            "interface gpon 0/0",
+                                            "ont add 1 0 sn-auth \"HWTCC0FFEE61\" omci ont-lineprofile-id 20 ont-srvprofile-id 10 desc \"USERRUDI_USERGDG_RT01_RW02\"",
+                                            "quit",
+                                            "display ont info by-sn HWTCC0FFEE61",
+                                            "display ont info 0 0 1 0",
+                                            "service-port vlan 102 gpon 0/0/1 ont 0 gemport 1 multi-service user-vlan 102 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                                            "service-port vlan 69 gpon 0/0/1 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                                            "quit",
+                                            "display service-port port 0/0/1 ont 0",
+                                            "save",
+                                            "config",
+                                            "interface gpon 0/0",
+                                            "ont tr069-server-config 1 0 profile-id 1",
+                                            "quit",
+                                            "quit",
+                                            "save"
+                                        ],
+                                        "core_commands": [
+                                            "config",
+                                            "interface gpon 0/0",
+                                            "ont add 1 0 sn-auth \"HWTCC0FFEE61\" omci ont-lineprofile-id 20 ont-srvprofile-id 10 desc \"USERRUDI_USERGDG_RT01_RW02\"",
+                                            "quit",
+                                            "display ont info by-sn HWTCC0FFEE61",
+                                            "display ont info 0 0 1 0",
+                                            "service-port vlan 102 gpon 0/0/1 ont 0 gemport 1 multi-service user-vlan 102 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                                            "service-port vlan 69 gpon 0/0/1 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                                            "quit",
+                                            "display service-port port 0/0/1 ont 0",
+                                            "save"
+                                        ],
+                                        "internet_vlan": 102,
+                                        "line_profile": 20,
+                                        "mode": "olt_only_huawei",
+                                        "onu_id": 0,
+                                        "onu_ref": "0/0/1:0",
+                                        "optional_command_indexes": [
+                                            12,
+                                            13,
+                                            14,
+                                            15,
+                                            16,
+                                            17
+                                        ],
+                                        "optional_commands": [
+                                            "config",
+                                            "interface gpon 0/0",
+                                            "ont tr069-server-config 1 0 profile-id 1",
+                                            "quit",
+                                            "quit",
+                                            "save"
+                                        ],
+                                        "pon_port": "0/0/1",
+                                        "pppoe_user": "USERRUDI_USERGDG_RT01_RW02",
+                                        "serial_number": "HWTCC0FFEE61",
+                                        "srv_profile": 10,
+                                        "tr069_vlan": 69,
+                                        "traffic_table": "200M",
+                                        "vendor_id": "HWTC"
+                                    },
+                                    "reasons": [],
+                                    "router": {
+                                        "id": 511,
+                                        "name": "SKYNET-GADANG"
+                                    },
+                                    "router_secret": {
+                                        "found": true,
+                                        "router_id": 511,
+                                        "source": "target_router_local_pppoe_secret",
+                                        "username": "USERRUDI_USERGDG_RT01_RW02"
+                                    },
+                                    "source_router": null,
+                                    "warnings": []
+                                },
+                                "requested_onu_ref_hint": null,
+                                "updated_at": "<ts>"
+                            },
+                            "migration_operation_mode": "olt_only_huawei",
+                            "no_customer_lookup": true,
+                            "pppoe_resolution": {
+                                "customer_id": "<customer7>",
+                                "pppoe": "USERRUDI_USERGDG_RT01_RW02",
+                                "source": "old_sn"
+                            },
+                            "pw_source": "target_router_read_only",
+                            "timeline": [
+                                {
+                                    "at": "<ts>",
+                                    "data": {
+                                        "mode": "olt_only_huawei",
+                                        "preflight_reasons": []
+                                    },
+                                    "status": "pending_review",
+                                    "step": "huawei_olt_only_draft_received"
+                                }
+                            ],
+                            "wa_origin_sender_keys": [
+                                "6281200000101"
+                            ]
+                        },
+                        "new_olt": "OLT-GADANG-3",
+                        "new_onu_ref": "0/0/1:0",
+                        "new_pon_port": "0/0/1",
+                        "new_sn": "HWTCC0FFEE61",
+                        "old_olt": null,
+                        "old_onu_deleted_at": null,
+                        "old_onu_ref": null,
+                        "old_router": null,
+                        "old_sn": "ZTEGA0000051",
+                        "olt_at": null,
+                        "phone": "",
+                        "pppoe_user": "USERRUDI_USERGDG_RT01_RW02",
+                        "router": "SKYNET-GADANG",
+                        "sender": "6281200000101@s.whatsapp.net",
+                        "source": "guided_lookup_wa",
+                        "status": "needs_review",
+                        "synced_at": null,
+                        "tr069_vlan": 69,
+                        "vlan": 102
+                    }
+                ],
+                "customers": [
+                    {
+                        "row": "1",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": "/storage/customers/ktp/budi.jpg",
+                        "local": null,
+                        "name": "DRAFTE SANTOSO",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:5",
+                        "onu_serial": "ZTEGA0000011",
+                        "package": "KRIAN-10",
+                        "phone": "081200000011",
+                        "pppoe_user": "USERBUDI_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "2",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": "/storage/customers/ktp/siti.jpg",
+                        "local": null,
+                        "name": "USERSI AMINAH",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:6",
+                        "onu_serial": "ZTEGA0000012",
+                        "package": "KRIAN-10",
+                        "phone": "081200000012",
+                        "pppoe_user": "USERSITI_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "3",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": "/storage/customers/ktp/dewi.jpg",
+                        "local": null,
+                        "name": "DRAFTG LESTARI",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:7",
+                        "onu_serial": "ZTEGA0000013",
+                        "package": "KRIAN-10",
+                        "phone": "081200000013",
+                        "pppoe_user": "USERDEWI_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "4",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": "/storage/customers/ktp/agus.jpg",
+                        "local": null,
+                        "name": "DRAFTA PRASETYO",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:8",
+                        "onu_serial": "ZTEGA0000014",
+                        "package": "KRIAN-10",
+                        "phone": "081200000014",
+                        "pppoe_user": "USERAGUS_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "5",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": "/storage/customers/ktp/andi.jpg",
+                        "local": null,
+                        "name": "DRAFTC WIJAYA",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:9",
+                        "onu_serial": "ZTEGA0000015",
+                        "package": "KRIAN-10",
+                        "phone": "081200000015",
+                        "pppoe_user": "USERANDI_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "6",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": "/storage/customers/ktp/toni.jpg",
+                        "local": null,
+                        "name": "USERTO HARTONO",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:10",
+                        "onu_serial": "ZTEGA0000016",
+                        "package": "KRIAN-10",
+                        "phone": "081200000016",
+                        "pppoe_user": "USERTONI_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "7",
+                        "new": true,
+                        "address": "RT 1 RW 2 Gadang",
+                        "ktp_photo": null,
+                        "local": null,
+                        "name": "RUDI HARTONO",
+                        "odp_name": null,
+                        "olt": null,
+                        "olt_port_label": null,
+                        "onu_serial": "ZTEGA0000051",
+                        "package": "GADANG-200M",
+                        "phone": "081200000051",
+                        "pppoe_user": "USERRUDI_USERGDG_RT01_RW02",
+                        "profile": "GADANG-200M",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "SKYNET-GADANG",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "8",
+                        "new": true,
+                        "address": "RT 1 RW 2 Gadang",
+                        "ktp_photo": null,
+                        "local": null,
+                        "name": "WATI LESTARI",
+                        "odp_name": null,
+                        "olt": null,
+                        "olt_port_label": null,
+                        "onu_serial": null,
+                        "package": "GADANG-200M",
+                        "phone": "081200000052",
+                        "pppoe_user": "USERWATI_USERGDG_RT01_RW02",
+                        "profile": "GADANG-200M",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "SKYNET-GADANG",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "9",
+                        "new": true,
+                        "address": "RT 1 RW 2 Gadang",
+                        "ktp_photo": null,
+                        "local": null,
+                        "name": "YANI SAPUTRI",
+                        "odp_name": null,
+                        "olt": null,
+                        "olt_port_label": null,
+                        "onu_serial": null,
+                        "package": "GADANG-200M",
+                        "phone": "081200000053",
+                        "pppoe_user": "USERYANI_USERGDG_RT01_RW02",
+                        "profile": "GADANG-200M",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "SKYNET-GADANG",
+                        "status": "active",
+                        "sync": "unknown"
+                    }
+                ],
+                "ledgers": "unchanged",
+                "olt_onus": [
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:10",
+                        "new": true,
+                        "name": "USERTONI_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:10",
+                        "serial": "ZTEGA0000016",
+                        "state": "online"
+                    },
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:5",
+                        "new": true,
+                        "name": "USERBUDI_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:5",
+                        "serial": "ZTEGA0000011",
+                        "state": "online"
+                    },
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:6",
+                        "new": true,
+                        "name": "USERSITI_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:6",
+                        "serial": "ZTEGA0000012",
+                        "state": "online"
+                    },
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:7",
+                        "new": true,
+                        "name": "USERDEWI_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:7",
+                        "serial": "ZTEGA0000013",
+                        "state": "online"
+                    },
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:8",
+                        "new": true,
+                        "name": "USERAGUS_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:8",
+                        "serial": "ZTEGA0000014",
+                        "state": "online"
+                    },
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:9",
+                        "new": true,
+                        "name": "USERANDI_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:9",
+                        "serial": "ZTEGA0000015",
+                        "state": "online"
+                    }
+                ],
+                "mikrotik": {
+                    "Krian": {
+                        "USERAGUS_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.13"
+                        },
+                        "USERANDI_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.14"
+                        },
+                        "USERBUDI_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.10"
+                        },
+                        "USERDEWI_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.12"
+                        },
+                        "USERSITI_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.11"
+                        },
+                        "USERTONI_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.15"
+                        }
+                    },
+                    "SKYNET-GADANG": {
+                        "USERRUDI_USERGDG_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "GADANG-200M",
+                            "pw_len": "9",
+                            "remote": "198.19.44.10",
+                            "same_as_source": "no_source_row"
+                        },
+                        "USERWATI_USERGDG_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "GADANG-200M",
+                            "pw_len": "9",
+                            "remote": "198.19.44.11",
+                            "same_as_source": "no_source_row"
+                        },
+                        "USERYANI_USERGDG_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "GADANG-200M",
+                            "pw_len": "9",
+                            "remote": "198.19.44.12",
+                            "same_as_source": "no_source_row"
+                        }
+                    }
+                },
+                "psb_drafts": 0
+            }
+        },
+        {
+            "label": "pilih 1 on the Huawei draft: no candidate list exists",
+            "trigger": "cmd:pilih",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Kandidat #1 tidak tersedia. Kirim ulang #migrasi untuk memperbarui kandidat.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "sn on the Huawei draft: refused, send the Huawei format again",
+            "trigger": "cmd:sn",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Data migrasi diterima (ref MIG003). Sedang dicocokkan; tunggu hasil bot dan jangan kirim ulang.",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Migrasi #<migration1> mode Huawei OLT-only: kirim ulang format Huawei dengan SN baru.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "web Retry on the Huawei draft: not used",
+            "trigger": "http:customer-migrations.retry",
+            "events": [
+                {
+                    "error": null,
+                    "errors": [],
+                    "route": "customer-migrations.retry",
+                    "status": 302,
+                    "success": "Migrasi #<migration1> mode Huawei dari WA: Retry web tidak dipakai. Lanjut di WA: #migrasi konfirmasi #<migration1>.",
+                    "type": "http.response"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "follow-up photo on the Huawei draft (status needs_review): the photo is kept, no review runs",
+            "trigger": "public:attachFollowUpImages",
+            "events": [
+                {
+                    "result": {
+                        "migration_id": "<migration1>",
+                        "status": "needs_review"
+                    },
+                    "type": "call.result"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "customer": "customer7",
+                        "ktp_photo": "<file:ktp-a>",
+                        "meta": {
+                            "photo_class": [
+                                {
+                                    "at": "<ts>",
+                                    "detected_type": "ktp",
+                                    "hint": "#migrasi ktp #<migration1>",
+                                    "ktp_score": 100,
+                                    "label": "ktp",
+                                    "path": "<file:ktp-a>",
+                                    "sn": null,
+                                    "sn_score": 0
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "fixture: the Huawei draft is marked failed (same DB change in both arms)",
+            "trigger": "fixture:db",
+            "events": [],
+            "status_changes": [
+                {
+                    "migration": 1,
+                    "from": "needs_review",
+                    "to": "failed"
+                }
+            ],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "status": "failed"
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "follow-up photo on the failed Huawei draft: processMigration, review guard answers \"mode Huawei\", no candidate list",
+            "trigger": "public:attachFollowUpImages",
+            "events": [
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Migrasi #<migration1> mode Huawei. Lanjut: #migrasi konfirmasi #<migration1>, atau kirim ulang format Huawei.",
+                    "type": "wa.send"
+                },
+                {
+                    "result": {
+                        "migration_id": "<migration1>",
+                        "status": "failed"
+                    },
+                    "type": "call.result"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "meta": {
+                            "photo_class": [
+                                {
+                                    "at": "<ts>",
+                                    "detected_type": "ktp",
+                                    "hint": "#migrasi ktp #<migration1>",
+                                    "ktp_score": 100,
+                                    "label": "ktp",
+                                    "path": "<file:ktp-a>",
+                                    "sn": null,
+                                    "sn_score": 0
+                                },
+                                {
+                                    "at": "<ts>",
+                                    "detected_type": "ktp",
+                                    "hint": "#migrasi ktp #<migration1>",
+                                    "ktp_score": 100,
+                                    "label": "ktp",
+                                    "path": "<file:ktp-a>",
+                                    "sn": null,
+                                    "sn_score": 0
+                                }
+                            ],
+                            "timeline": {
+                                "added": [
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "manual_continue": true
+                                        },
+                                        "status": "pending_review",
+                                        "step": "review_skipped_huawei_olt_only"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "fixture: the Huawei draft is put back to needs_review (same DB change in both arms)",
+            "trigger": "fixture:db",
+            "events": [],
+            "status_changes": [
+                {
+                    "migration": 1,
+                    "from": "failed",
+                    "to": "needs_review"
+                }
+            ],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "status": "needs_review"
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "the same text re-sent: same draft row (same huawei-olt-only-wa key), preflight run again (no draft reply: it equals the first one and the 15 s reply dedupe drops it)",
+            "trigger": "intake",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Data migrasi diterima (ref MIG005). Sedang dicocokkan; tunggu hasil bot dan jangan kirim ulang.",
+                    "type": "wa.send"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.getPPPSecretWithPassword",
+                    "user": "USERRUDI_USERGDG_RT01_RW02"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/1",
+                    "type": "huawei.collectPortOnus"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "meta": {
+                            "huawei_olt_only": {
+                                "preflight": {
+                                    "checked_at": "<ts>",
+                                    "cross_router": false,
+                                    "eligible": true,
+                                    "migration": {
+                                        "id": "<migration1>",
+                                        "status": "needs_review"
+                                    },
+                                    "mode": "olt_only_huawei",
+                                    "olt": {
+                                        "id": 11,
+                                        "management_ip": "198.19.41.11",
+                                        "name": "OLT GADANG 3",
+                                        "vendor": "huawei_ma5608t"
+                                    },
+                                    "placement": {
+                                        "autofind_command": "display ont autofind all",
+                                        "onu_id": 0,
+                                        "onu_ref": "0/0/1:0",
+                                        "pon_port": "0/0/1",
+                                        "serial_number": "HWTCC0FFEE61",
+                                        "source": "autofind",
+                                        "vendor_id": "HWTC"
+                                    },
+                                    "plan": {
+                                        "already_registered": false,
+                                        "command_hash": "<hash>",
+                                        "commands": [
+                                            "config",
+                                            "interface gpon 0/0",
+                                            "ont add 1 0 sn-auth \"HWTCC0FFEE61\" omci ont-lineprofile-id 20 ont-srvprofile-id 10 desc \"USERRUDI_USERGDG_RT01_RW02\"",
+                                            "quit",
+                                            "display ont info by-sn HWTCC0FFEE61",
+                                            "display ont info 0 0 1 0",
+                                            "service-port vlan 102 gpon 0/0/1 ont 0 gemport 1 multi-service user-vlan 102 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                                            "service-port vlan 69 gpon 0/0/1 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                                            "quit",
+                                            "display service-port port 0/0/1 ont 0",
+                                            "save",
+                                            "config",
+                                            "interface gpon 0/0",
+                                            "ont tr069-server-config 1 0 profile-id 1",
+                                            "quit",
+                                            "quit",
+                                            "save"
+                                        ],
+                                        "core_commands": [
+                                            "config",
+                                            "interface gpon 0/0",
+                                            "ont add 1 0 sn-auth \"HWTCC0FFEE61\" omci ont-lineprofile-id 20 ont-srvprofile-id 10 desc \"USERRUDI_USERGDG_RT01_RW02\"",
+                                            "quit",
+                                            "display ont info by-sn HWTCC0FFEE61",
+                                            "display ont info 0 0 1 0",
+                                            "service-port vlan 102 gpon 0/0/1 ont 0 gemport 1 multi-service user-vlan 102 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                                            "service-port vlan 69 gpon 0/0/1 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                                            "quit",
+                                            "display service-port port 0/0/1 ont 0",
+                                            "save"
+                                        ],
+                                        "internet_vlan": 102,
+                                        "line_profile": 20,
+                                        "mode": "olt_only_huawei",
+                                        "onu_id": 0,
+                                        "onu_ref": "0/0/1:0",
+                                        "optional_command_indexes": [
+                                            12,
+                                            13,
+                                            14,
+                                            15,
+                                            16,
+                                            17
+                                        ],
+                                        "optional_commands": [
+                                            "config",
+                                            "interface gpon 0/0",
+                                            "ont tr069-server-config 1 0 profile-id 1",
+                                            "quit",
+                                            "quit",
+                                            "save"
+                                        ],
+                                        "pon_port": "0/0/1",
+                                        "pppoe_user": "USERRUDI_USERGDG_RT01_RW02",
+                                        "serial_number": "HWTCC0FFEE61",
+                                        "srv_profile": 10,
+                                        "tr069_vlan": 69,
+                                        "traffic_table": "200M",
+                                        "vendor_id": "HWTC"
+                                    },
+                                    "reasons": [],
+                                    "router": {
+                                        "id": 511,
+                                        "name": "SKYNET-GADANG"
+                                    },
+                                    "router_secret": {
+                                        "found": true,
+                                        "router_id": 511,
+                                        "source": "target_router_local_pppoe_secret",
+                                        "username": "USERRUDI_USERGDG_RT01_RW02"
+                                    },
+                                    "source_router": null,
+                                    "warnings": []
+                                },
+                                "requested_onu_ref_hint": null,
+                                "updated_at": "<ts>"
+                            },
+                            "timeline": {
+                                "added": [
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "mode": "olt_only_huawei",
+                                            "preflight_reasons": []
+                                        },
+                                        "status": "pending_review",
+                                        "step": "huawei_olt_only_draft_received"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "Huawei intake with the OLT session busy: draft kept, olt_session_busy",
+            "trigger": "intake",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Data migrasi diterima (ref MIG006). Sedang dicocokkan; tunggu hasil bot dan jangan kirim ulang.",
+                    "type": "wa.send"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.getPPPSecretWithPassword",
+                    "user": "USERYANI_USERGDG_RT01_RW02"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Draft Huawei OLT-only #<migration2>\nPPPoE: USERYANI_USERGDG_RT01_RW02\nSN baru: HWTCC0FFEE63\nRouter target: -\nOLT target: Gadang\nPassword tidak diminta dari teknisi; hanya diverifikasi read-only dari secret router target.\nCustomer/KTP tidak diperlukan untuk mode ini; ONU lama tidak disentuh.\nBelum siap: olt_session_busy\nPastikan ONT menyala, SN terdeteksi autofind, dan target tidak ambigu; lalu kirim ulang format yang sama.\nEksekusi hanya setelah review: #migrasi eksekusi #<migration2>",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "migration": 2,
+                    "from": "(none)",
+                    "to": "needs_review"
+                }
+            ],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "2",
+                        "new": true,
+                        "customer": null,
+                        "full_name": "",
+                        "group": "120363000000000101@g.us",
+                        "ktp_photo": null,
+                        "last_error": "Huawei OLT-only belum siap: olt_session_busy",
+                        "meta": {
+                            "cross_router": false,
+                            "device_write": false,
+                            "guided_wa_confirmation": {
+                                "expires_at": "<ts>",
+                                "selected_by_sender_keys": [
+                                    "6281200000101"
+                                ],
+                                "status": "pending"
+                            },
+                            "guided_wa_selection": {
+                                "candidate_number": 1,
+                                "selected_at": "<ts>",
+                                "selected_by_sender": "6281200000101@s.whatsapp.net",
+                                "selected_by_sender_keys": [
+                                    "6281200000101"
+                                ]
+                            },
+                            "huawei_olt_only": {
+                                "preflight": {
+                                    "checked_at": "<ts>",
+                                    "eligible": false,
+                                    "mode": "olt_only_huawei",
+                                    "reasons": [
+                                        "olt_session_busy"
+                                    ],
+                                    "warnings": [
+                                        "OLT Huawei sedang dipakai sesi lain. Belum ada perintah dikirim; coba lagi +-1 menit."
+                                    ]
+                                },
+                                "requested_onu_ref_hint": null,
+                                "updated_at": "<ts>"
+                            },
+                            "migration_operation_mode": "olt_only_huawei",
+                            "no_customer_lookup": true,
+                            "pw_source": "target_router_read_only",
+                            "timeline": [
+                                {
+                                    "at": "<ts>",
+                                    "data": {
+                                        "mode": "olt_only_huawei",
+                                        "preflight_reasons": [
+                                            "olt_session_busy"
+                                        ]
+                                    },
+                                    "status": "pending_review",
+                                    "step": "huawei_olt_only_draft_received"
+                                }
+                            ],
+                            "wa_origin_sender_keys": [
+                                "6281200000101"
+                            ]
+                        },
+                        "new_olt": null,
+                        "new_onu_ref": null,
+                        "new_pon_port": null,
+                        "new_sn": "HWTCC0FFEE63",
+                        "old_olt": null,
+                        "old_onu_deleted_at": null,
+                        "old_onu_ref": null,
+                        "old_router": null,
+                        "old_sn": "",
+                        "olt_at": null,
+                        "phone": "",
+                        "pppoe_user": "USERYANI_USERGDG_RT01_RW02",
+                        "router": null,
+                        "sender": "6281200000101@s.whatsapp.net",
+                        "source": "guided_lookup_wa",
+                        "status": "needs_review",
+                        "synced_at": null,
+                        "tr069_vlan": null,
+                        "vlan": null
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "OTHER_SENDER konfirmasi: refused, not the sender of the draft",
+            "trigger": "cmd:konfirmasi",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Konfirmasi #<migration1> ditolak. Kandidat harus dikonfirmasi oleh teknisi yang memilihnya.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "konfirmasi 31 minutes later: the pending choice has expired",
+            "trigger": "cmd:konfirmasi",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Pilihan migrasi #<migration1> sudah kedaluwarsa. Pilih ulang: #migrasi pilih #<migration1> <nomor>",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "konfirmasi with the device lock held: busy text, last_error restored",
+            "trigger": "cmd:konfirmasi",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Migrasi #<migration1> sedang diproses perangkat. Data aman, tidak ada yang diubah. Ulangi #migrasi konfirmasi #<migration1> +-1 menit lagi.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "meta": {
+                            "guided_wa_confirmation": {
+                                "confirmed_at": "<ts>",
+                                "confirmed_by_sender_keys": [
+                                    "6281200000101"
+                                ],
+                                "expires_at": "<ts>",
+                                "selected_by_sender_keys": [
+                                    "6281200000101"
+                                ],
+                                "status": "confirmed"
+                            },
+                            "timeline": {
+                                "added": [
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "mode": "olt_only_huawei"
+                                        },
+                                        "status": "pending_review",
+                                        "step": "huawei_olt_only_confirmed"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "konfirmasi: Huawei dry-run",
+            "trigger": "cmd:konfirmasi",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.getPPPSecretWithPassword",
+                    "user": "USERRUDI_USERGDG_RT01_RW02"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/1",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Huawei OLT-only #<migration1> sudah dry-run. Password hanya dibaca dari router target secara read-only; tidak ada input password teknisi, customer/KTP, MikroTik write, atau ONU lama. Kirim #migrasi eksekusi #<migration1> setelah review.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "last_error": "Huawei OLT-only dry-run siap. Belum ada OLT/GenieACS/customer write.",
+                        "meta": {
+                            "device_action_approval": {
+                                "idempotency_key": "migration-device:<migration1>:HWTCC0FFEE61:olt_only_huawei:v1",
+                                "ledger_id": "<ledger1>",
+                                "reason": "Teknisi konfirmasi Huawei OLT-only",
+                                "requested_at": "<ts>",
+                                "requested_by": null,
+                                "rollback_hint": "Huawei OLT-only: disable new ONU/service-port only after a separately approved incident rollback; ONU lama tidak disentuh.",
+                                "status": "dry_run_ready",
+                                "write_flags": {
+                                    "genieacs": true,
+                                    "global_read_only": false,
+                                    "migration_actions": true,
+                                    "mikrotik": false,
+                                    "olt": true
+                                }
+                            },
+                            "device_action_preflight": {
+                                "cross_router": false,
+                                "eligible": true,
+                                "migration": {
+                                    "id": "<migration1>",
+                                    "status": "needs_review"
+                                },
+                                "mode": "olt_only_huawei",
+                                "olt": {
+                                    "id": 11,
+                                    "management_ip": "198.19.41.11",
+                                    "name": "OLT GADANG 3",
+                                    "vendor": "huawei_ma5608t"
+                                },
+                                "placement": {
+                                    "autofind_command": "display ont autofind all",
+                                    "onu_id": 0,
+                                    "onu_ref": "0/0/1:0",
+                                    "pon_port": "0/0/1",
+                                    "serial_number": "HWTCC0FFEE61",
+                                    "source": "autofind",
+                                    "vendor_id": "HWTC"
+                                },
+                                "plan": {
+                                    "already_registered": false,
+                                    "command_hash": "<hash>",
+                                    "commands": [
+                                        "config",
+                                        "interface gpon 0/0",
+                                        "ont add 1 0 sn-auth \"HWTCC0FFEE61\" omci ont-lineprofile-id 20 ont-srvprofile-id 10 desc \"USERRUDI_USERGDG_RT01_RW02\"",
+                                        "quit",
+                                        "display ont info by-sn HWTCC0FFEE61",
+                                        "display ont info 0 0 1 0",
+                                        "service-port vlan 102 gpon 0/0/1 ont 0 gemport 1 multi-service user-vlan 102 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                                        "service-port vlan 69 gpon 0/0/1 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                                        "quit",
+                                        "display service-port port 0/0/1 ont 0",
+                                        "save",
+                                        "config",
+                                        "interface gpon 0/0",
+                                        "ont tr069-server-config 1 0 profile-id 1",
+                                        "quit",
+                                        "quit",
+                                        "save"
+                                    ],
+                                    "core_commands": [
+                                        "config",
+                                        "interface gpon 0/0",
+                                        "ont add 1 0 sn-auth \"HWTCC0FFEE61\" omci ont-lineprofile-id 20 ont-srvprofile-id 10 desc \"USERRUDI_USERGDG_RT01_RW02\"",
+                                        "quit",
+                                        "display ont info by-sn HWTCC0FFEE61",
+                                        "display ont info 0 0 1 0",
+                                        "service-port vlan 102 gpon 0/0/1 ont 0 gemport 1 multi-service user-vlan 102 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                                        "service-port vlan 69 gpon 0/0/1 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                                        "quit",
+                                        "display service-port port 0/0/1 ont 0",
+                                        "save"
+                                    ],
+                                    "internet_vlan": 102,
+                                    "line_profile": 20,
+                                    "mode": "olt_only_huawei",
+                                    "onu_id": 0,
+                                    "onu_ref": "0/0/1:0",
+                                    "optional_command_indexes": [
+                                        12,
+                                        13,
+                                        14,
+                                        15,
+                                        16,
+                                        17
+                                    ],
+                                    "optional_commands": [
+                                        "config",
+                                        "interface gpon 0/0",
+                                        "ont tr069-server-config 1 0 profile-id 1",
+                                        "quit",
+                                        "quit",
+                                        "save"
+                                    ],
+                                    "pon_port": "0/0/1",
+                                    "pppoe_user": "USERRUDI_USERGDG_RT01_RW02",
+                                    "serial_number": "HWTCC0FFEE61",
+                                    "srv_profile": 10,
+                                    "tr069_vlan": 69,
+                                    "traffic_table": "200M",
+                                    "vendor_id": "HWTC"
+                                },
+                                "reasons": [],
+                                "router": {
+                                    "id": 511,
+                                    "name": "SKYNET-GADANG"
+                                },
+                                "router_secret": {
+                                    "found": true,
+                                    "router_id": 511,
+                                    "source": "target_router_local_pppoe_secret",
+                                    "username": "USERRUDI_USERGDG_RT01_RW02"
+                                },
+                                "source_router": null,
+                                "warnings": []
+                            },
+                            "timeline": {
+                                "added": [
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "mode": "olt_only_huawei"
+                                        },
+                                        "status": "pending_review",
+                                        "step": "huawei_olt_only_confirmed"
+                                    },
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "command_hash": "<hash>",
+                                            "ledger_id": "<ledger1>",
+                                            "write_flags": {
+                                                "genieacs": true,
+                                                "global_read_only": false,
+                                                "migration_actions": true,
+                                                "mikrotik": false,
+                                                "olt": true
+                                            }
+                                        },
+                                        "status": "pending_review",
+                                        "step": "huawei_olt_only_dry_run_prepared"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": [
+                    {
+                        "row": "1",
+                        "new": true,
+                        "action": "migration-device-action-dry-run",
+                        "executed": false,
+                        "idempotency_key": "migration-device:<migration1>:HWTCC0FFEE61:olt_only_huawei:v1",
+                        "migration": 1,
+                        "payload": {
+                            "customer_write": false,
+                            "device_write": false,
+                            "migration_id": "<migration1>",
+                            "mode": "dry_run",
+                            "new_olt_id": 11,
+                            "new_onu_ref": "0/0/1:0",
+                            "new_sn": "HWTCC0FFEE61",
+                            "operation_mode": "olt_only_huawei",
+                            "plan": {
+                                "command_hash": "<hash>",
+                                "commands": [
+                                    "config",
+                                    "interface gpon 0/0",
+                                    "ont add 1 0 sn-auth \"HWTCC0FFEE61\" omci ont-lineprofile-id 20 ont-srvprofile-id 10 desc \"USERRUDI_USERGDG_RT01_RW02\"",
+                                    "quit",
+                                    "display ont info by-sn HWTCC0FFEE61",
+                                    "display ont info 0 0 1 0",
+                                    "service-port vlan 102 gpon 0/0/1 ont 0 gemport 1 multi-service user-vlan 102 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                                    "service-port vlan 69 gpon 0/0/1 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                                    "quit",
+                                    "display service-port port 0/0/1 ont 0",
+                                    "save",
+                                    "config",
+                                    "interface gpon 0/0",
+                                    "ont tr069-server-config 1 0 profile-id 1",
+                                    "quit",
+                                    "quit",
+                                    "save"
+                                ],
+                                "internet_vlan": 102,
+                                "line_profile": 20,
+                                "onu_id": 0,
+                                "pon_port": "0/0/1",
+                                "tr069_vlan": 69
+                            },
+                            "pppoe_user": "USERRUDI_USERGDG_RT01_RW02",
+                            "reason": "Teknisi konfirmasi Huawei OLT-only",
+                            "steps": [
+                                {
+                                    "action": "read_target_pppoe_secret",
+                                    "domain": "mikrotik",
+                                    "mode": "read_only"
+                                },
+                                {
+                                    "action": "provision_huawei_ma5608t_ont_and_service_ports",
+                                    "domain": "olt",
+                                    "mode": "planned_only"
+                                },
+                                {
+                                    "action": "tag_after_cpe_inform",
+                                    "domain": "genieacs",
+                                    "mode": "planned_only"
+                                },
+                                {
+                                    "action": "old_onu",
+                                    "domain": "olt",
+                                    "mode": "not_touched"
+                                },
+                                {
+                                    "action": "customer_link",
+                                    "domain": "customer",
+                                    "mode": "not_touched"
+                                }
+                            ]
+                        },
+                        "result": {
+                            "customer_write": false,
+                            "device_write": false,
+                            "execute_allowed": false,
+                            "mode": "dry_run",
+                            "prepared_at": "<ts>",
+                            "reason": "Teknisi konfirmasi Huawei OLT-only"
+                        },
+                        "rollback_hint": "Huawei OLT-only: disable new ONU/service-port only after a separately approved incident rollback; ONU lama tidak disentuh.",
+                        "status": "dry_run",
+                        "verified": false
+                    }
+                ],
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "Huawei short form from STRANGER in OTHER_GROUP: Excel review path, recorded as is",
+            "trigger": "intake",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000199@g.us",
+                    "mentions": [],
+                    "text": "Data migrasi diterima (ref MIG010). Sedang dicocokkan; tunggu hasil bot dan jangan kirim ulang.",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000199@g.us",
+                    "mentions": [],
+                    "text": "*Draft migrasi #<migration3> menunggu review*\nPPPoE: USERWATI_USERGDG_RT01_RW02\nPelanggan: WATI LESTARI\nSN lama: - / ONU lama: -\nSN baru: HWTCC0FFEE64\nOperasi: PENDING_TECHNICIAN_CONFIRMATION (SAME_TARGET_NEW_SN_NO_CONFIRMATION)\nReference: MIG-<ref>\nKTP: customer lama masih kosong. Kirim foto sebagai gambar dengan caption #migrasi ktp #<migration3>.\nExcel starlite-akuisisi match: 0\nAlasan: excel_confirm_missing, SAME_TARGET_NEW_SN_NO_CONFIRMATION\nBelum ada action OLT/MikroTik/PPPoE/customer. NOC cek di menu Migrasi lalu approve/manual action sprint berikutnya.\nCek ulang: #migrasi cek #<migration3>",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "migration": 3,
+                    "from": "(none)",
+                    "to": "needs_review"
+                }
+            ],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "3",
+                        "new": true,
+                        "customer": "customer8",
+                        "full_name": "WATI LESTARI",
+                        "group": "120363000000000199@g.us",
+                        "ktp_photo": null,
+                        "last_error": "Draft migrasi perlu review: excel_confirm_missing. Tidak ada action perangkat.",
+                        "meta": {
+                            "before_snapshot": {
+                                "area_id": null,
+                                "id": "<customer8>",
+                                "ktp_photo_url": null,
+                                "mikrotik_profile": "GADANG-200M",
+                                "name": "WATI LESTARI",
+                                "odp_name": null,
+                                "olt_id": null,
+                                "olt_port_label": null,
+                                "onu_serial": null,
+                                "package_id": "package:GADANG-200M",
+                                "phone": "081200000052",
+                                "pppoe_user": "USERWATI_USERGDG_RT01_RW02",
+                                "router_id": 511
+                            },
+                            "device_write": false,
+                            "device_write_blocked_reason": "Sprint 4B-D WA migration is pending review only.",
+                            "input_identity": {
+                                "pppoe_user": "USERWATI_USERGDG_RT01_RW02"
+                            },
+                            "migration_operation": {
+                                "classified_at": "<ts>",
+                                "customer_id": "<customer8>",
+                                "operation_key": "<hash>",
+                                "operation_reference": "MIG-<ref>",
+                                "operation_type": "PENDING_TECHNICIAN_CONFIRMATION",
+                                "reason_code": "SAME_TARGET_NEW_SN_NO_CONFIRMATION",
+                                "requires_confirmation": true,
+                                "target_router_id": 511,
+                                "warnings": []
+                            },
+                            "migration_review": {
+                                "confirmed_evidence": [],
+                                "ktp_policy": {
+                                    "migration_photo": null,
+                                    "preserve_existing": false
+                                },
+                                "match_status": "pending_technician_confirmation",
+                                "message": "Draft migrasi perlu review: excel_confirm_missing. Tidak ada action perangkat.",
+                                "operation": {
+                                    "classified_at": "<ts>",
+                                    "customer_id": "<customer8>",
+                                    "operation_key": "<hash>",
+                                    "operation_reference": "MIG-<ref>",
+                                    "operation_type": "PENDING_TECHNICIAN_CONFIRMATION",
+                                    "reason_code": "SAME_TARGET_NEW_SN_NO_CONFIRMATION",
+                                    "requires_confirmation": true,
+                                    "target_router_id": 511,
+                                    "warnings": []
+                                },
+                                "psb_overlap": [],
+                                "reasons": [
+                                    "excel_confirm_missing",
+                                    "SAME_TARGET_NEW_SN_NO_CONFIRMATION"
+                                ]
+                            },
+                            "photo_class": [],
+                            "proposed_after_snapshot": {
+                                "customer_id": "<customer8>",
+                                "device_write": false,
+                                "name": "WATI LESTARI",
+                                "olt_id": 11,
+                                "onu_serial": "HWTCC0FFEE64",
+                                "phone": "081200000052",
+                                "pppoe_user": "USERWATI_USERGDG_RT01_RW02",
+                                "router_id": 511
+                            },
+                            "timeline": [
+                                {
+                                    "at": "<ts>",
+                                    "data": {
+                                        "manual_continue": false,
+                                        "match_status": "pending_technician_confirmation",
+                                        "reasons": [
+                                            "excel_confirm_missing",
+                                            "SAME_TARGET_NEW_SN_NO_CONFIRMATION"
+                                        ]
+                                    },
+                                    "status": "pending_review",
+                                    "step": "draft_pending_review"
+                                }
+                            ],
+                            "wa_origin_sender_keys": [
+                                "6281200000199"
+                            ]
+                        },
+                        "new_olt": null,
+                        "new_onu_ref": null,
+                        "new_pon_port": null,
+                        "new_sn": "HWTCC0FFEE64",
+                        "old_olt": null,
+                        "old_onu_deleted_at": null,
+                        "old_onu_ref": null,
+                        "old_router": "SKYNET-GADANG",
+                        "old_sn": null,
+                        "olt_at": null,
+                        "phone": "081200000052",
+                        "pppoe_user": "USERWATI_USERGDG_RT01_RW02",
+                        "router": "SKYNET-GADANG",
+                        "sender": "6281200000199@s.whatsapp.net",
+                        "source": "wa",
+                        "status": "needs_review",
+                        "synced_at": null,
+                        "tr069_vlan": null,
+                        "vlan": null
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "locks-free probe: no migration lock is left held",
+            "trigger": "probe",
+            "events": [
+                {
+                    "busy": [],
+                    "checked": 11,
+                    "type": "locks.probe"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        }
+    ],
+    "transitions": [
+        [
+            "(none)",
+            "needs_review",
+            "intake"
+        ],
+        [
+            "needs_review",
+            "failed",
+            "fixture:db"
+        ],
+        [
+            "failed",
+            "needs_review",
+            "fixture:db"
+        ]
+    ]
+}

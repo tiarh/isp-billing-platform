@@ -1,0 +1,2193 @@
+{
+    "App\\Services\\PsbOrchestratorService": {
+        "final": false,
+        "methods": {
+            "__construct": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Services\\EvolutionApiService $evolution",
+                    "App\\Services\\MikrotikService $mikrotik",
+                    "App\\Services\\PsbMessageParser $parser",
+                    "App\\Services\\PsbWaMessages $messages",
+                    "App\\Services\\KtpOcrService $ktpOcr",
+                    "App\\Services\\RadiusUserService $radius",
+                    "App\\Services\\PsbDocumentGateService $documentGate",
+                    "?App\\Contracts\\PsbPppoePasswordPolicy $psbPasswordPolicy = NULL"
+                ],
+                "returns": null
+            },
+            "acsUrl": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "string"
+            },
+            "allowedGroupJids": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "array"
+            },
+            "anotherBatchAlreadyAnswered": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "bool"
+            },
+            "applyDocumentPolicy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $parsed",
+                    "array $payload"
+                ],
+                "returns": "void"
+            },
+            "applyDraft": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "App\\Models\\Customer"
+            },
+            "applyPsbCorrection": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "applyRouterAndPackageFromParsed": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $parsed"
+                ],
+                "returns": "array"
+            },
+            "applySiteToDraft": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "array"
+            },
+            "attachFollowUpImages": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $newImageBytes",
+                    "array $context = array (\n)"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "blockIfAreaMissing": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid",
+                    "array $resolution"
+                ],
+                "returns": "bool"
+            },
+            "cancelPsbCorrection": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "mixed $actor = NULL"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "classifyWaActivationPhoto": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $bytes",
+                    "?App\\Support\\OcrBudget $batch = NULL"
+                ],
+                "returns": "array"
+            },
+            "cleanupSupersededRetryFiles": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $stagedPaths"
+                ],
+                "returns": "void"
+            },
+            "clearOltBusyMarker": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "void"
+            },
+            "continueAfterMediaOcr": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $continuation"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "correctionBusyMessage": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "int $draftId"
+                ],
+                "returns": "string"
+            },
+            "createSecretAndDraftCustomer": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "App\\Models\\Router $router",
+                    "App\\Models\\Package $package",
+                    "?App\\Models\\Olt $olt"
+                ],
+                "returns": "bool"
+            },
+            "deferOltAfterBusyLock": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid",
+                    "App\\Exceptions\\PsbOltLockBusyException $e"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "draftLockBusyOutcome": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "draftLockWasBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            },
+            "draftProcessor": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "self"
+            },
+            "finishFollowUpAfterMedia": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $continuation"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "finishInboundAfterMedia": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $parsed",
+                    "array $payload",
+                    "bool $isUpdate",
+                    "array $beforeUpdate = array (\n)",
+                    "string $oldSn = ''"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "formatTodayReport": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "string"
+            },
+            "giveUpOltBusyResume": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "int $draftId",
+                    "string $token",
+                    "string $reason"
+                ],
+                "returns": "bool"
+            },
+            "handleInbound": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "array $payload"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "handlePppoeQuery": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "?string $query"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "hasMinPhoto": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "bool"
+            },
+            "hasReplyDeliveryFailure": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            },
+            "hourlyReport": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "int"
+            },
+            "inPollerRun": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            },
+            "isAllowedGroup": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $jid"
+                ],
+                "returns": "bool"
+            },
+            "ktpUnreadableText": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "string"
+            },
+            "markMediaOcrCompleted": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $batchKey"
+                ],
+                "returns": "void"
+            },
+            "markMediaOcrTerminal": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $batchKey",
+                    "string $reason"
+                ],
+                "returns": "void"
+            },
+            "normalizeGroupJid": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $jid"
+                ],
+                "returns": "string"
+            },
+            "ocrReaders": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "App\\Services\\Psb\\PsbOcrReaders"
+            },
+            "oltResumeTokenStale": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "bool"
+            },
+            "packageMappingError": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $hint",
+                    "App\\Models\\Package $package"
+                ],
+                "returns": "?string"
+            },
+            "pollWaitingSn": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "int"
+            },
+            "postOcrBlockedReply": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $defaultText",
+                    "?string $groupJid = NULL"
+                ],
+                "returns": "void"
+            },
+            "processDraft": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "processStagedMediaOcr": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $stagedPaths",
+                    "array $contexts",
+                    "array $continuation = array (\n)"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "readVerifiedPppoePassword": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "?string"
+            },
+            "recapSchedule": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": true,
+                "final": false,
+                "params": [],
+                "returns": "array"
+            },
+            "recapSendHours": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": true,
+                "final": false,
+                "params": [
+                    "array $schedule"
+                ],
+                "returns": "array"
+            },
+            "refusedAnchorKey": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "string $messageId"
+                ],
+                "returns": "string"
+            },
+            "reply": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "string $text",
+                    "array $mentionJids = array (\n)"
+                ],
+                "returns": "bool"
+            },
+            "replyNearMiss": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "?string $senderJid = NULL"
+                ],
+                "returns": "void"
+            },
+            "resolveArea": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "?App\\Models\\Olt $siteOlt = NULL"
+                ],
+                "returns": "array"
+            },
+            "resolveOlt": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "?App\\Models\\Olt"
+            },
+            "resolvePackage": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "?App\\Models\\Package"
+            },
+            "resolvePackageFromHint": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $hint",
+                    "?int $routerId = NULL"
+                ],
+                "returns": "?App\\Models\\Package"
+            },
+            "resolveRouter": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "?App\\Models\\Router"
+            },
+            "resumeDraftAfterOltBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "int $draftId",
+                    "string $token"
+                ],
+                "returns": "?App\\Models\\PsbDraft"
+            },
+            "secretQueueBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid",
+                    "App\\Models\\Router $router"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "sendGroupPinNotice": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "?string $groupJid = NULL"
+                ],
+                "returns": "bool"
+            },
+            "sendOcrTerminalOnce": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $batchKey",
+                    "string $text",
+                    "?string $groupJid = NULL"
+                ],
+                "returns": "void"
+            },
+            "siteResolver": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "App\\Services\\PsbSiteResolver"
+            },
+            "waitForOtherPhotoBatches": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "void"
+            },
+            "writesEnabled": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            }
+        },
+        "properties": {
+            "documentGate": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\PsbDocumentGateService"
+            },
+            "draftLockBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "bool"
+            },
+            "evolution": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\EvolutionApiService"
+            },
+            "ktpOcr": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\KtpOcrService"
+            },
+            "messages": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\PsbWaMessages"
+            },
+            "mikrotik": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\MikrotikService"
+            },
+            "parser": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\PsbMessageParser"
+            },
+            "postOcr": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "?array"
+            },
+            "psbPasswordPolicy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "?App\\Contracts\\PsbPppoePasswordPolicy"
+            },
+            "radius": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\RadiusUserService"
+            }
+        },
+        "constants": {
+            "OLT_BUSY_BACKOFF": [
+                60,
+                90,
+                120,
+                180,
+                240
+            ],
+            "OLT_BUSY_CHAIN_MINUTES": 30,
+            "OLT_BUSY_MAX_ATTEMPTS": 5
+        }
+    },
+    "App\\Services\\HuaweiAwarePsbOrchestratorService": {
+        "final": true,
+        "methods": {
+            "__construct": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Services\\EvolutionApiService $evolution",
+                    "App\\Services\\MikrotikService $mikrotik",
+                    "App\\Services\\PsbMessageParser $parser",
+                    "App\\Services\\PsbWaMessages $messages",
+                    "App\\Services\\KtpOcrService $ktpOcr",
+                    "App\\Services\\RadiusUserService $radius",
+                    "App\\Services\\PsbDocumentGateService $documentGate",
+                    "?App\\Contracts\\PsbPppoePasswordPolicy $psbPasswordPolicy = NULL"
+                ],
+                "returns": null
+            },
+            "acsUrl": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "string"
+            },
+            "allowedGroupJids": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "array"
+            },
+            "anotherBatchAlreadyAnswered": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "bool"
+            },
+            "applyDocumentPolicy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $parsed",
+                    "array $payload"
+                ],
+                "returns": "void"
+            },
+            "applyDraft": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "App\\Models\\Customer"
+            },
+            "applyPsbCorrection": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "applyRouterAndPackageFromParsed": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $parsed"
+                ],
+                "returns": "array"
+            },
+            "applySiteToDraft": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "array"
+            },
+            "attachFollowUpImages": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $newImageBytes",
+                    "array $context = array (\n)"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "blockIfAreaMissing": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid",
+                    "array $resolution"
+                ],
+                "returns": "bool"
+            },
+            "cancelPsbCorrection": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "mixed $actor = NULL"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "classifyWaActivationPhoto": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $bytes",
+                    "?App\\Support\\OcrBudget $batch = NULL"
+                ],
+                "returns": "array"
+            },
+            "cleanupSupersededRetryFiles": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $stagedPaths"
+                ],
+                "returns": "void"
+            },
+            "clearOltBusyMarker": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "void"
+            },
+            "continueAfterMediaOcr": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $continuation"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "correctionBusyMessage": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "int $draftId"
+                ],
+                "returns": "string"
+            },
+            "createSecretAndDraftCustomer": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "App\\Models\\Router $router",
+                    "App\\Models\\Package $package",
+                    "?App\\Models\\Olt $olt"
+                ],
+                "returns": "bool"
+            },
+            "deferOltAfterBusyLock": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid",
+                    "App\\Exceptions\\PsbOltLockBusyException $e"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "draftLockBusyOutcome": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "draftLockWasBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            },
+            "draftProcessor": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "self"
+            },
+            "finishFollowUpAfterMedia": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $continuation"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "finishInboundAfterMedia": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $parsed",
+                    "array $payload",
+                    "bool $isUpdate",
+                    "array $beforeUpdate = array (\n)",
+                    "string $oldSn = ''"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "formatTodayReport": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "string"
+            },
+            "giveUpOltBusyResume": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "int $draftId",
+                    "string $token",
+                    "string $reason"
+                ],
+                "returns": "bool"
+            },
+            "handleInbound": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "array $payload"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "handlePppoeQuery": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "?string $query"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "hasMinPhoto": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "bool"
+            },
+            "hasReplyDeliveryFailure": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            },
+            "hourlyReport": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "int"
+            },
+            "inPollerRun": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            },
+            "isAllowedGroup": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $jid"
+                ],
+                "returns": "bool"
+            },
+            "ktpUnreadableText": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "string"
+            },
+            "markMediaOcrCompleted": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $batchKey"
+                ],
+                "returns": "void"
+            },
+            "markMediaOcrTerminal": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $batchKey",
+                    "string $reason"
+                ],
+                "returns": "void"
+            },
+            "normalizeGroupJid": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $jid"
+                ],
+                "returns": "string"
+            },
+            "ocrReaders": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "App\\Services\\Psb\\PsbOcrReaders"
+            },
+            "oltResumeTokenStale": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "bool"
+            },
+            "packageMappingError": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $hint",
+                    "App\\Models\\Package $package"
+                ],
+                "returns": "?string"
+            },
+            "pollWaitingSn": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "int"
+            },
+            "postOcrBlockedReply": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $defaultText",
+                    "?string $groupJid = NULL"
+                ],
+                "returns": "void"
+            },
+            "processDraft": {
+                "declaring": "HuaweiAwarePsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "processStagedMediaOcr": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $stagedPaths",
+                    "array $contexts",
+                    "array $continuation = array (\n)"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "readVerifiedPppoePassword": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "?string"
+            },
+            "recapSchedule": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": true,
+                "final": false,
+                "params": [],
+                "returns": "array"
+            },
+            "recapSendHours": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": true,
+                "final": false,
+                "params": [
+                    "array $schedule"
+                ],
+                "returns": "array"
+            },
+            "refusedAnchorKey": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "string $messageId"
+                ],
+                "returns": "string"
+            },
+            "reply": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "string $text",
+                    "array $mentionJids = array (\n)"
+                ],
+                "returns": "bool"
+            },
+            "replyNearMiss": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "?string $senderJid = NULL"
+                ],
+                "returns": "void"
+            },
+            "resolveArea": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "?App\\Models\\Olt $siteOlt = NULL"
+                ],
+                "returns": "array"
+            },
+            "resolveOlt": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "?App\\Models\\Olt"
+            },
+            "resolvePackage": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "?App\\Models\\Package"
+            },
+            "resolvePackageFromHint": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $hint",
+                    "?int $routerId = NULL"
+                ],
+                "returns": "?App\\Models\\Package"
+            },
+            "resolveRouter": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "?App\\Models\\Router"
+            },
+            "resumeDraftAfterOltBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "int $draftId",
+                    "string $token"
+                ],
+                "returns": "?App\\Models\\PsbDraft"
+            },
+            "secretQueueBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid",
+                    "App\\Models\\Router $router"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "sendGroupPinNotice": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "?string $groupJid = NULL"
+                ],
+                "returns": "bool"
+            },
+            "sendOcrTerminalOnce": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $batchKey",
+                    "string $text",
+                    "?string $groupJid = NULL"
+                ],
+                "returns": "void"
+            },
+            "siteResolver": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "App\\Services\\PsbSiteResolver"
+            },
+            "supportsHuaweiGadang": {
+                "declaring": "HuaweiAwarePsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "bool"
+            },
+            "waitForOtherPhotoBatches": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "void"
+            },
+            "writesEnabled": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            }
+        },
+        "properties": {
+            "documentGate": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\PsbDocumentGateService"
+            },
+            "draftLockBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "bool"
+            },
+            "evolution": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\EvolutionApiService"
+            },
+            "ktpOcr": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\KtpOcrService"
+            },
+            "messages": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\PsbWaMessages"
+            },
+            "mikrotik": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\MikrotikService"
+            },
+            "parser": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\PsbMessageParser"
+            },
+            "postOcr": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "?array"
+            },
+            "psbPasswordPolicy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "?App\\Contracts\\PsbPppoePasswordPolicy"
+            },
+            "radius": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\RadiusUserService"
+            }
+        },
+        "constants": {
+            "OLT_BUSY_BACKOFF": [
+                60,
+                90,
+                120,
+                180,
+                240
+            ],
+            "OLT_BUSY_CHAIN_MINUTES": 30,
+            "OLT_BUSY_MAX_ATTEMPTS": 5
+        }
+    },
+    "App\\Services\\PsbMediaOcrOrchestrator": {
+        "final": false,
+        "methods": {
+            "__construct": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Services\\EvolutionApiService $evolution",
+                    "App\\Services\\MikrotikService $mikrotik",
+                    "App\\Services\\PsbMessageParser $parser",
+                    "App\\Services\\PsbWaMessages $messages",
+                    "App\\Services\\KtpOcrService $ktpOcr",
+                    "App\\Services\\RadiusUserService $radius",
+                    "App\\Services\\PsbDocumentGateService $documentGate",
+                    "?App\\Contracts\\PsbPppoePasswordPolicy $psbPasswordPolicy = NULL"
+                ],
+                "returns": null
+            },
+            "acsUrl": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "string"
+            },
+            "allowedGroupJids": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "array"
+            },
+            "anotherBatchAlreadyAnswered": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "bool"
+            },
+            "applyDocumentPolicy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $parsed",
+                    "array $payload"
+                ],
+                "returns": "void"
+            },
+            "applyDraft": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "App\\Models\\Customer"
+            },
+            "applyPsbCorrection": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "applyRouterAndPackageFromParsed": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $parsed"
+                ],
+                "returns": "array"
+            },
+            "applySiteToDraft": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "array"
+            },
+            "attachFollowUpImages": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $newImageBytes",
+                    "array $context = array (\n)"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "blockIfAreaMissing": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid",
+                    "array $resolution"
+                ],
+                "returns": "bool"
+            },
+            "cancelPsbCorrection": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "mixed $actor = NULL"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "classifyWaActivationPhoto": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $bytes",
+                    "?App\\Support\\OcrBudget $batch = NULL"
+                ],
+                "returns": "array"
+            },
+            "cleanupSupersededRetryFiles": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $stagedPaths"
+                ],
+                "returns": "void"
+            },
+            "clearOltBusyMarker": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "void"
+            },
+            "continueAfterMediaOcr": {
+                "declaring": "PsbMediaOcrOrchestrator",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $continuation"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "correctionBusyMessage": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "int $draftId"
+                ],
+                "returns": "string"
+            },
+            "createSecretAndDraftCustomer": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "App\\Models\\Router $router",
+                    "App\\Models\\Package $package",
+                    "?App\\Models\\Olt $olt"
+                ],
+                "returns": "bool"
+            },
+            "deferOltAfterBusyLock": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid",
+                    "App\\Exceptions\\PsbOltLockBusyException $e"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "draftLockBusyOutcome": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "draftLockWasBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            },
+            "draftProcessor": {
+                "declaring": "PsbMediaOcrOrchestrator",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "App\\Services\\PsbOrchestratorService"
+            },
+            "finishFollowUpAfterMedia": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $continuation"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "finishInboundAfterMedia": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $parsed",
+                    "array $payload",
+                    "bool $isUpdate",
+                    "array $beforeUpdate = array (\n)",
+                    "string $oldSn = ''"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "formatTodayReport": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "string"
+            },
+            "giveUpOltBusyResume": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "int $draftId",
+                    "string $token",
+                    "string $reason"
+                ],
+                "returns": "bool"
+            },
+            "handleInbound": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "array $payload"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "handlePppoeQuery": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "?string $query"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "hasMinPhoto": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "bool"
+            },
+            "hasReplyDeliveryFailure": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            },
+            "hourlyReport": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "int"
+            },
+            "inPollerRun": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            },
+            "isAllowedGroup": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $jid"
+                ],
+                "returns": "bool"
+            },
+            "ktpUnreadableText": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "string"
+            },
+            "markMediaOcrCompleted": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $batchKey"
+                ],
+                "returns": "void"
+            },
+            "markMediaOcrTerminal": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $batchKey",
+                    "string $reason"
+                ],
+                "returns": "void"
+            },
+            "normalizeGroupJid": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $jid"
+                ],
+                "returns": "string"
+            },
+            "ocrReaders": {
+                "declaring": "PsbMediaOcrOrchestrator",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "App\\Services\\Psb\\PsbOcrReaders"
+            },
+            "oltResumeTokenStale": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "bool"
+            },
+            "packageMappingError": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $hint",
+                    "App\\Models\\Package $package"
+                ],
+                "returns": "?string"
+            },
+            "pollWaitingSn": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "int"
+            },
+            "postOcrBlockedReply": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $defaultText",
+                    "?string $groupJid = NULL"
+                ],
+                "returns": "void"
+            },
+            "processDraft": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "processStagedMediaOcr": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $stagedPaths",
+                    "array $contexts",
+                    "array $continuation = array (\n)"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "readVerifiedPppoePassword": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "?string"
+            },
+            "recapSchedule": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": true,
+                "final": false,
+                "params": [],
+                "returns": "array"
+            },
+            "recapSendHours": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": true,
+                "final": false,
+                "params": [
+                    "array $schedule"
+                ],
+                "returns": "array"
+            },
+            "refusedAnchorKey": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "string $messageId"
+                ],
+                "returns": "string"
+            },
+            "reply": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "string $text",
+                    "array $mentionJids = array (\n)"
+                ],
+                "returns": "bool"
+            },
+            "replyNearMiss": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $groupJid",
+                    "?string $senderJid = NULL"
+                ],
+                "returns": "void"
+            },
+            "resolveArea": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "?App\\Models\\Olt $siteOlt = NULL"
+                ],
+                "returns": "array"
+            },
+            "resolveOlt": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "?App\\Models\\Olt"
+            },
+            "resolvePackage": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "?App\\Models\\Package"
+            },
+            "resolvePackageFromHint": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "string $hint",
+                    "?int $routerId = NULL"
+                ],
+                "returns": "?App\\Models\\Package"
+            },
+            "resolveRouter": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "?App\\Models\\Router"
+            },
+            "resumeAfterMediaOcr": {
+                "declaring": "PsbMediaOcrOrchestrator",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "array $continuation"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "resumeDraftAfterOltBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "int $draftId",
+                    "string $token"
+                ],
+                "returns": "?App\\Models\\PsbDraft"
+            },
+            "secretQueueBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $groupJid",
+                    "App\\Models\\Router $router"
+                ],
+                "returns": "App\\Models\\PsbDraft"
+            },
+            "sendGroupPinNotice": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "public",
+                "static": false,
+                "final": false,
+                "params": [
+                    "?string $groupJid = NULL"
+                ],
+                "returns": "bool"
+            },
+            "sendOcrTerminalOnce": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft",
+                    "string $batchKey",
+                    "string $text",
+                    "?string $groupJid = NULL"
+                ],
+                "returns": "void"
+            },
+            "siteResolver": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "App\\Services\\PsbSiteResolver"
+            },
+            "tesseractLanguageOption": {
+                "declaring": "PsbMediaOcrOrchestrator",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "?array $available = NULL"
+                ],
+                "returns": "?string"
+            },
+            "waitForOtherPhotoBatches": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [
+                    "App\\Models\\PsbDraft $draft"
+                ],
+                "returns": "void"
+            },
+            "writesEnabled": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "final": false,
+                "params": [],
+                "returns": "bool"
+            }
+        },
+        "properties": {
+            "documentGate": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\PsbDocumentGateService"
+            },
+            "draftLockBusy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "bool"
+            },
+            "evolution": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\EvolutionApiService"
+            },
+            "ktpOcr": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\KtpOcrService"
+            },
+            "messages": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\PsbWaMessages"
+            },
+            "mikrotik": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\MikrotikService"
+            },
+            "parser": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\PsbMessageParser"
+            },
+            "postOcr": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "?array"
+            },
+            "psbPasswordPolicy": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "?App\\Contracts\\PsbPppoePasswordPolicy"
+            },
+            "radius": {
+                "declaring": "PsbOrchestratorService",
+                "visibility": "protected",
+                "static": false,
+                "type": "App\\Services\\RadiusUserService"
+            }
+        },
+        "constants": {
+            "OLT_BUSY_BACKOFF": [
+                60,
+                90,
+                120,
+                180,
+                240
+            ],
+            "OLT_BUSY_CHAIN_MINUTES": 30,
+            "OLT_BUSY_MAX_ATTEMPTS": 5
+        }
+    }
+}

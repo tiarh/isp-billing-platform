@@ -1,0 +1,45 @@
+{
+  "description": "Evolution retry: the exact same #psb text and the same photo delivered twice",
+  "steps": [
+    {
+      "label": "#psb text",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S22-T1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb\nNama: Budi Uji\nSN: FHTT00000022"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "#psb text again (same id)",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S22-T1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb\nNama: Budi Uji\nSN: FHTT00000022"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "photo",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S22-P1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/1", "mimetype": "image/jpeg"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "photo again (same id)",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S22-P1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/1", "mimetype": "image/jpeg"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

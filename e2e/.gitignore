@@ -1,0 +1,7 @@
+.env.local
+.auth/
+e2e-report/
+test-results/
+playwright-report/
+blob-report/
+redesign-screenshots/output/

@@ -1,0 +1,48 @@
+{
+    "scenario": "07_psb_ktp_draft_missing",
+    "steps": [
+        {
+            "label": "#psb ktp #999999 photo",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [
+                {
+                    "path": "POST /message/sendText/skynet-ebilling",
+                    "number": "120363000000000001@g.us",
+                    "text": "⚠️ *Draft tidak ditemukan*\nDraft *#999999* tidak ada di grup ini.\nCek nomor di rekap: */psb*"
+                }
+            ],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": "#psb",
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "psb_command",
+                        "message_id": "FAKE-S07-K1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": true,
+                            "read_only": true
+                        },
+                        "redacted_text": "#psb ktp #999999",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Psb Command: #psb ktp #999999"
+                    }
+                ]
+            }
+        }
+    ]
+}

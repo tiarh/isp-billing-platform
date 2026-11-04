@@ -1,0 +1,11 @@
+{
+  "description": "malformed bodies: not json, data not an array, message item without key/message, empty messages list",
+  "steps": [
+    {"label": "not json", "raw": "this is {not json"},
+    {"label": "data is a string", "body": {"event": "messages.upsert", "instance": "skynet-ebilling", "data": "oops"}},
+    {"label": "no data", "body": {"event": "messages.upsert", "instance": "skynet-ebilling"}},
+    {"label": "item without key", "body": {"event": "messages.upsert", "data": {"messages": ["x", {"pushName": "Teknisi Satu"}]}}},
+    {"label": "empty messages", "body": {"event": "messages.upsert", "data": {"messages": []}}},
+    {"label": "event in upper case with underscore", "body": {"event": "MESSAGES_UPSERT", "data": {"key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S20-T1", "participant": "62812000001@s.whatsapp.net"}, "pushName": "Teknisi Satu", "message": {"conversation": "#psb\nNama: Budi Uji"}, "messageTimestamp": "{{ts}}"}}}
+  ]
+}

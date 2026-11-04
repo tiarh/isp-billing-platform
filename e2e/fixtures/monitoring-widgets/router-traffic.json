@@ -1,0 +1,17 @@
+{
+  "widget": "router-traffic",
+  "range": "1h",
+  "status": "ok",
+  "fetched_at": "__now__",
+  "reason": null,
+  "partial": false,
+  "step_seconds": 60,
+  "grafana_dashboard_url": "https://grafana.example.test/d/skynet-traffic?orgId=1&from=now-1h&to=now",
+  "data": {
+    "series": [
+      { "router_id": 1, "name": "RTR-SUKAMAJU-01", "rx": { "wave": { "count": 30, "stepMinutes": 2, "base": 500, "amp": 60, "period": 12, "phase": 0 } }, "tx": { "wave": { "count": 30, "stepMinutes": 2, "base": 95, "amp": 12, "period": 12, "phase": 1 } } },
+      { "router_id": 2, "name": "RTR-MEKARSARI-01", "rx": { "wave": { "count": 30, "stepMinutes": 2, "base": 380, "amp": 50, "period": 9, "phase": 2 } }, "tx": { "wave": { "count": 30, "stepMinutes": 2, "base": 70, "amp": 9, "period": 9, "phase": 3 } } },
+      { "router_id": 3, "name": "RTR-CEMPAKA-01", "rx": { "wave": { "count": 30, "stepMinutes": 2, "base": 280, "amp": 35, "period": 15, "phase": 4 } }, "tx": { "wave": { "count": 30, "stepMinutes": 2, "base": 44, "amp": 6, "period": 15, "phase": 5 } } }
+    ]
+  }
+}

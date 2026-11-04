@@ -1,0 +1,15 @@
+{
+  "description": "#migrasi text in the activation group",
+  "steps": [
+    {
+      "label": "#migrasi text",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S09-T1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#migrasi\nNama: Budi Uji\nPPPoE: budi.uji\nSN: FHTT00000009"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

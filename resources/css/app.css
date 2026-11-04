@@ -1,0 +1,303 @@
+@import "tailwindcss";
+
+/*
+  Tailwind v4 compiles `dark:` to @media (prefers-color-scheme: dark) by
+  default. The app toggles a `.dark` class on <html> (resources/js/lib/theme.ts
+  and the pre-paint script in app.blade.php), so without this line every
+  `dark:` utility followed the OS setting instead of the chosen theme: Light
+  chosen on a dark-OS laptop rendered dark:text-*-300 on light backgrounds
+  (unreadable), and Dark chosen on a light-OS laptop kept light-only colors.
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 
+  1. Define CSS Variables for all Colors.
+     This allows us to swap them out based on the .dark class.
+*/
+:root {
+  /* Native controls (date/time pickers, <select> option lists, scrollbars,
+     autofill) follow color-scheme, not our CSS variables. */
+  color-scheme: light;
+
+  /* Redesign A "Bersih & Tenang" - LIGHT. Hex in comments; values are oklch.
+     AA ratios are pinned by DesignTokenContrastContractTest. */
+  --bg: oklch(97.6% 0.003 106); /* #F7F7F5 */
+  --fg: oklch(22.6% 0.014 292); /* #1C1B22 */
+  --fg-2: oklch(34.9% 0.016 291); /* #3A3942 */
+
+  --card: oklch(100% 0 0);
+  --card-fg: oklch(22.6% 0.014 292);
+
+  --popover: oklch(100% 0 0);
+  --popover-fg: oklch(22.6% 0.014 292);
+
+  --sidebar: oklch(100% 0 0);
+
+  /* Primary: violet #6A43E0 (white on it 6.0:1). */
+  --primary: oklch(52.3% 0.223 287);
+  --primary-fg: oklch(100% 0 0);
+  --primary-soft: oklch(94.7% 0.026 298); /* #EFEAFD */
+  --primary-soft-fg: oklch(42.8% 0.205 284); /* #4B2BB8 */
+
+  --secondary: oklch(95.8% 0.004 91); /* #F2F1EE */
+  --secondary-fg: oklch(22.6% 0.014 292);
+
+  --muted: oklch(95.8% 0.004 91);
+  --muted-fg: oklch(48.6% 0.016 290); /* #5F5E68 */
+
+  --accent: oklch(95.8% 0.004 91);
+  --accent-fg: oklch(22.6% 0.014 292);
+
+  --destructive: oklch(50% 0.182 30); /* #B42318 */
+  --destructive-fg: oklch(100% 0 0);
+
+  /* --border is decorative (cards, dividers). --input is the form-control
+     outline and must reach 3:1 (WCAG 1.4.11): #8F8B84 = 3.39:1 on white. */
+  --border: oklch(92.2% 0.007 89); /* #E7E5E0 */
+  --input: oklch(63.8% 0.011 82); /* #8F8B84 */
+  --ring: oklch(52.3% 0.223 287 / 0.5);
+
+  --radius: 0.875rem; /* card 14px */
+  --radius-control: 0.625rem; /* buttons, inputs, selects 10px */
+  --radius-pill: 9999px;
+  --shadow-card: 0 1px 3px rgba(28, 27, 34, 0.06);
+
+  /* Font: Instrument Sans is self-hosted (@fontsource-variable, imported in
+     app.tsx) so it satisfies CSP font-src 'self' and works for isolated
+     customers who cannot reach third-party font CDNs. */
+  --font-mono-data: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", Consolas, "Liberation Mono", monospace;
+
+  /* Status: fg is used as text/icon colour, -bg as the pastel badge fill.
+     Every fg reaches >= 4.5:1 on white and on its own -bg. */
+  --status-up: #0f6b45;
+  --status-up-bg: #e4f3ea;
+  --status-down: #b42318;
+  --status-down-bg: #fdecea;
+  --status-degraded: #8a5300;
+  --status-degraded-bg: #fbf0dc;
+  --status-info: #2550b8;
+  --status-info-bg: #e8eefb;
+
+  /* Charts - Light */
+  --chart-1: oklch(61% 0.153 29);
+  --chart-2: oklch(39% 0.099 192);
+  --chart-3: oklch(24% 0.065 197);
+  --chart-4: oklch(66% 0.149 95);
+  --chart-5: oklch(67% 0.182 35);
+}
+
+.dark {
+  color-scheme: dark;
+  /* DARK: charcoal surfaces + lavender primary. */
+  --bg: oklch(18.4% 0.008 286); /* #121216 */
+  --fg: oklch(94.8% 0.007 286); /* #EDEDF2 */
+  --fg-2: oklch(83.7% 0.014 291); /* #C9C8D2 */
+
+  --card: oklch(22.5% 0.012 285); /* #1B1B21 */
+  --card-fg: oklch(94.8% 0.007 286);
+
+  --popover: oklch(22.5% 0.012 285);
+  --popover-fg: oklch(94.8% 0.007 286);
+
+  --sidebar: oklch(20.2% 0.01 285); /* #16161B */
+
+  --primary: oklch(70.6% 0.155 294); /* #A68BF7 */
+  --primary-fg: oklch(19.6% 0.024 296); /* #16131F */
+  --primary-soft: oklch(27.9% 0.053 294); /* #2A2340 */
+  --primary-soft-fg: oklch(83.5% 0.086 296); /* #CDBEFB */
+
+  --secondary: oklch(25.5% 0.015 285); /* #22222A */
+  --secondary-fg: oklch(94.8% 0.007 286);
+
+  --muted: oklch(25.5% 0.015 285);
+  --muted-fg: oklch(71.7% 0.017 290); /* #A3A2AE */
+
+  --accent: oklch(25.5% 0.015 285);
+  --accent-fg: oklch(94.8% 0.007 286);
+
+  --destructive: oklch(75.9% 0.144 26); /* #FF8A80 */
+  --destructive-fg: oklch(19.6% 0.024 296);
+
+  --border: oklch(29.7% 0.016 285); /* #2C2C35 */
+  --input: oklch(52.8% 0.014 291); /* #6B6A73 = 3.21:1 on card */
+  --ring: oklch(70.6% 0.155 294 / 0.5);
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  --status-up: #5fd3a0;
+  --status-up-bg: #15301f;
+  --status-down: #ff8a80;
+  --status-down-bg: #3a1a1a;
+  --status-degraded: #f5c26b;
+  --status-degraded-bg: #3a2a10;
+  --status-info: #8db4ff;
+  --status-info-bg: #1a2645;
+
+  /* Charts - Vibrant Dark */
+  --chart-1: oklch(60% 0.18 260);
+  /* Blue */
+  --chart-2: oklch(65% 0.20 150);
+  /* Green */
+  --chart-3: oklch(70% 0.18 30);
+  /* Orange */
+  --chart-4: oklch(65% 0.18 290);
+  /* Purple */
+  --chart-5: oklch(70% 0.15 80);
+  /* Yellow */
+}
+
+/* 
+  2. Map Tailwind Tokens to the CSS Variables 
+*/
+@theme {
+  /* Tailwind v4 reads --font-sans (the previous custom name was ignored). */
+  --font-sans: "Instrument Sans Variable", "Instrument Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: var(--font-mono-data);
+  --shadow-sm: var(--shadow-card);
+
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-fg);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-fg);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-fg);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-foreground: var(--primary-soft-fg);
+
+  --color-sidebar: var(--sidebar);
+  --color-foreground-2: var(--fg-2);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-fg);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-fg);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-fg);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-fg);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-status-up: var(--status-up);
+  --color-status-down: var(--status-down);
+  --color-status-degraded: var(--status-degraded);
+  --color-status-info: var(--status-info);
+  --color-status-up-bg: var(--status-up-bg);
+  --color-status-down-bg: var(--status-down-bg);
+  --color-status-degraded-bg: var(--status-degraded-bg);
+  --color-status-info-bg: var(--status-info-bg);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 2px); /* 16px: keep xl >= lg */
+  /* md = 10px (same as controls) so legacy rounded-md follows the new scale. */
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-sm: calc(var(--radius) - 6px);
+}
+
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border, currentColor);
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    /* Instrument Sans has a narrow space glyph; with tracking-tight headings
+       words visually fuse ("VoiceofOps"). Widen word gaps slightly. */
+    word-spacing: 0.08em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    word-spacing: 0.12em;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    border-radius: var(--radius-control);
+  }
+}
+
+@layer utilities {
+  .tracking-tight,
+  .tracking-tighter {
+    word-spacing: 0.12em;
+  }
+
+  .safe-area-pb {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  .font-data {
+    /* Numbers use the UI sans with tabular lining figures (direction A). */
+    font-family: var(--font-sans);
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  /* Thin, subtle scrollbar; thumb brightens on hover. Uses theme tokens (light/dark). */
+  .scrollbar-thin {
+    --sb-thumb: color-mix(in oklab, var(--muted-fg) 30%, transparent);
+    --sb-thumb-hover: color-mix(in oklab, var(--muted-fg) 55%, transparent);
+    scrollbar-width: thin;
+    scrollbar-color: var(--sb-thumb) transparent;
+  }
+
+  .scrollbar-thin:hover {
+    scrollbar-color: var(--sb-thumb-hover) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--sb-thumb);
+    border-radius: 9999px;
+  }
+
+  .scrollbar-thin:hover::-webkit-scrollbar-thumb {
+    background-color: var(--sb-thumb-hover);
+  }
+}
+
+/*
+  Leaflet popups (Peta). Leaflet's own CSS paints the popup wrapper white;
+  PetaMap builds dark-theme popup HTML (near-white text) when the dark tiles
+  are active, which was unreadable on that white wrapper.
+*/
+.peta-popup-dark .leaflet-popup-content-wrapper,
+.peta-popup-dark .leaflet-popup-tip {
+  background: #0f172a;
+  color: #f1f5f9;
+}
+
+.peta-popup-dark a.leaflet-popup-close-button {
+  color: #cbd5e1;
+}

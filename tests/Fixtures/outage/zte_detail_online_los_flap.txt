@@ -1,0 +1,26 @@
+ONU interface:            gpon-onu_1/2/11:9
+Name:                     PELANGGAN-UJI-A
+Type:                     F660
+State:                    ready
+Admin state:              enable
+Phase state:              working
+Config state:             success
+Authentication mode:      sn
+Serial number:            ZTEGC0000001
+Description:              PELANGGAN-UJI-A
+Vport mode:               gemport
+DBA Mode:                 Hybrid
+Online Duration:          697h 44m 36s
+ONU Distance:             1601m
+FEC actual mode:          disable
+Authpass Time             OfflineTime               Cause
+   1   2026-08-30 19:20:35    2026-09-16 05:02:41     LOS
+   2   2026-09-18 03:16:14    2026-09-18 03:16:39     LOS
+   3   2026-09-18 03:17:11    2026-09-18 03:17:15     LOS
+   4   2026-09-18 03:17:42    2026-09-18 03:22:16     LOS
+   5   2026-09-18 03:22:43    2026-09-18 03:29:20     LOS
+   6   2026-09-18 03:30:03    0000-00-00 00:00:00
+   7   0000-00-00 00:00:00    0000-00-00 00:00:00
+   8   0000-00-00 00:00:00    0000-00-00 00:00:00
+   9   0000-00-00 00:00:00    0000-00-00 00:00:00
+  10   0000-00-00 00:00:00    0000-00-00 00:00:00

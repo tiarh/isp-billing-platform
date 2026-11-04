@@ -1,0 +1,157 @@
+{
+    "scenario": "16_rekap_in_psb_group",
+    "steps": [
+        {
+            "label": "#rekap psb",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbRecapCommandJob",
+                    "queue": "wa",
+                    "unique": "psb-recap-msg:FAKE-S16-R1",
+                    "data": {
+                        "afterCommit": null,
+                        "chainCatchCallbacks": null,
+                        "chainConnection": null,
+                        "chainQueue": null,
+                        "chained": [],
+                        "connection": null,
+                        "deduplicator": null,
+                        "delay": null,
+                        "messageGroup": null,
+                        "middleware": [],
+                        "payload": {
+                            "group_jid": "120363000000000001@g.us",
+                            "message_id": "FAKE-S16-R1",
+                            "sender_jid": "62812000001@s.whatsapp.net",
+                            "sender_name": "Teknisi Satu",
+                            "text": "#rekap psb semua kemarin"
+                        },
+                        "queue": "wa",
+                        "timeout": 60,
+                        "tries": 2,
+                        "uniqueFor": 300
+                    }
+                }
+            ],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "activation_signal",
+                        "message_id": "FAKE-S16-R1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "#rekap psb semua kemarin",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Activation Signal: #rekap psb semua kemarin"
+                    }
+                ]
+            }
+        },
+        {
+            "label": "#rekap onu",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [
+                {
+                    "class": "App\\Jobs\\ProcessRecapTopicCommandJob",
+                    "queue": "wa",
+                    "unique": "recap-topic-msg:FAKE-S16-R2",
+                    "data": {
+                        "afterCommit": null,
+                        "chainCatchCallbacks": null,
+                        "chainConnection": null,
+                        "chainQueue": null,
+                        "chained": [],
+                        "connection": null,
+                        "deduplicator": null,
+                        "delay": null,
+                        "messageGroup": null,
+                        "middleware": [],
+                        "payload": {
+                            "group_jid": "120363000000000001@g.us",
+                            "message_id": "FAKE-S16-R2",
+                            "sender_jid": "62812000001@s.whatsapp.net",
+                            "sender_name": "Teknisi Satu",
+                            "text": "#rekap onu klampok"
+                        },
+                        "queue": "wa",
+                        "timeout": 120,
+                        "tries": 2,
+                        "uniqueFor": 300
+                    }
+                }
+            ],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "activation_signal",
+                        "message_id": "FAKE-S16-R1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "#rekap psb semua kemarin",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Activation Signal: #rekap psb semua kemarin"
+                    },
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "noise",
+                        "message_id": "FAKE-S16-R2",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "#rekap onu klampok",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Noise: #rekap onu klampok"
+                    }
+                ]
+            }
+        }
+    ]
+}

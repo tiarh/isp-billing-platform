@@ -1,0 +1,600 @@
+{
+    "scenario": "s08b-gadang-huawei-async-continuation",
+    "steps": [
+        {
+            "label": "#psb Gadang text + 2 photos (staged for OCR)",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "args": {
+                        "contexts": [
+                            {
+                                "message_id": "FAKE-PSB-004",
+                                "mime": "image/jpeg",
+                                "path": "<file:ktp-a>",
+                                "received_at": "<ts>",
+                                "sender": "6281200000011@s.whatsapp.net",
+                                "sha256": "<hash>"
+                            },
+                            {
+                                "message_id": "FAKE-PSB-005",
+                                "mime": "image/jpeg",
+                                "path": "<file:sn-a>",
+                                "received_at": "<ts>",
+                                "sender": "6281200000011@s.whatsapp.net",
+                                "sha256": "<hash>"
+                            }
+                        ],
+                        "continuation": {
+                            "batch_key": "<hash>",
+                            "before_update": [],
+                            "group_jid": "120363000000000001@g.us",
+                            "is_update": false,
+                            "mode": "inbound",
+                            "old_sn": "",
+                            "parsed": {
+                                "daerah": "Gadang Utara",
+                                "draft_id": null,
+                                "full_name": "USERSI AMINAH",
+                                "is_antri": false,
+                                "is_batal": false,
+                                "is_cek": false,
+                                "is_confirm_sn": false,
+                                "is_done": false,
+                                "is_help": false,
+                                "is_ktp_cmd": false,
+                                "is_lanjut": false,
+                                "is_near_miss": false,
+                                "is_pppoe_cmd": false,
+                                "is_psb": true,
+                                "is_resend": false,
+                                "is_router_cmd": false,
+                                "is_sn_cmd": false,
+                                "is_status": false,
+                                "is_vlan_cmd": false,
+                                "ktp_due_at": null,
+                                "ktp_policy": null,
+                                "ktp_reason": null,
+                                "odp": "ODP-GADANG-2",
+                                "package_field": "GADANG-200M",
+                                "phone": "081200000021",
+                                "pppoe_query": null,
+                                "raw": "#psb\nNama: USERSI AMINAH\nODP: ODP-GADANG-2\nRT: 01\nRW: 02\nTikor: -6.745468,111.601127\nDaerah: Gadang Utara\nRouter: gadang\nPaket: GADANG-200M\nSN: HWTCC0FFEE18\nHP: 081200000021",
+                                "router_alias": "gadang",
+                                "router_field": "gadang",
+                                "rt": "01",
+                                "rw": "02",
+                                "sn": "HWTCC0FFEE18",
+                                "tikor": "-6.745468,111.601127",
+                                "vlan_value": null
+                            },
+                            "payload": {
+                                "group_jid": "120363000000000001@g.us",
+                                "image_paths": [],
+                                "media_contexts": [],
+                                "message_id": "FAKE-PSB-003",
+                                "sender_jid": "6281200000011@s.whatsapp.net",
+                                "sender_jid_pn": "6281200000011@s.whatsapp.net",
+                                "sender_name": "Teknisi Satu",
+                                "text": "#psb\nNama: USERSI AMINAH\nODP: ODP-GADANG-2\nRT: 01\nRW: 02\nTikor: -6.745468,111.601127\nDaerah: Gadang Utara\nRouter: gadang\nPaket: GADANG-200M\nSN: HWTCC0FFEE18\nHP: 081200000021"
+                            }
+                        },
+                        "draftId": "<draft1>",
+                        "stagedPaths": [
+                            "psb/<ym>/ocr-pending/<hash>.bin",
+                            "psb/<ym>/ocr-pending/<hash>.bin"
+                        ]
+                    },
+                    "class": "App\\Jobs\\ProcessPsbMediaOcrJob",
+                    "delay": "none",
+                    "queue": "ocr-media",
+                    "type": "job.dispatch",
+                    "unique": "psb-media-ocr:<draft1>:<hash>"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Foto diterima, sedang validasi KTP dan SN.*\nDraft: *#<draft1>* - USERSI AMINAH\nBelum ada perubahan customer atau perangkat.\nBot akan memberi hasil setelah validasi selesai.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "(none)",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "activation_mode": null,
+                        "area": null,
+                        "customer": null,
+                        "daerah": "Gadang Utara",
+                        "full_name": "USERSI AMINAH",
+                        "ktp_photo": null,
+                        "last_error": "Foto diterima, validasi KTP/SN sedang diproses.",
+                        "meta": {
+                            "document_context": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "reason": "queued_ocr_media",
+                                "status": "ocr_pending",
+                                "updated_at": "<ts>"
+                            },
+                            "forced_router_id": "SKYNET-GADANG",
+                            "forced_site_key": "gadang_huawei",
+                            "ocr_batch_contexts": {
+                                "<hash>": {
+                                    "message_id": "FAKE-PSB-004",
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-a>",
+                                    "received_at": "<ts>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sha256": "<hash>"
+                                }
+                            },
+                            "ocr_batch_key": "<hash>",
+                            "ocr_batch_paths": [
+                                "psb/<ym>/ocr-pending/<hash>.bin",
+                                "psb/<ym>/ocr-pending/<hash>.bin"
+                            ],
+                            "package_hint": "GADANG-200M",
+                            "photo_class": {
+                                "queue": "ocr-media",
+                                "status": "pending"
+                            },
+                            "router_alias": "gadang",
+                            "sender_jid_pn": "6281200000011@s.whatsapp.net"
+                        },
+                        "mikrotik_profile": "GADANG-200M",
+                        "nik_set": false,
+                        "odp": "ODP-GADANG-2",
+                        "olt": null,
+                        "olt_at": null,
+                        "onu_id": null,
+                        "ord": 1,
+                        "package": "GADANG-200M",
+                        "phone": "081200000021",
+                        "pon_port": null,
+                        "pppoe_local_address": null,
+                        "pppoe_remote_address": null,
+                        "pppoe_user": null,
+                        "router": "SKYNET-GADANG",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "site_profile_key": null,
+                        "sn": "HWTCC0FFEE18",
+                        "sn_photo": null,
+                        "sn_wait_until": null,
+                        "status": "received",
+                        "tr069_vlan": 69,
+                        "vlan": null
+                    }
+                ],
+                "customers": [],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "OCR job, then the continuation provisions through Huawei",
+            "trigger": "job:ProcessPsbAfterMediaOcrJob+ProcessPsbMediaOcrJob",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbMediaOcrJob",
+                    "type": "job.run"
+                },
+                {
+                    "args": {
+                        "continuation": {
+                            "batch_key": "<hash>",
+                            "before_update": [],
+                            "group_jid": "120363000000000001@g.us",
+                            "is_update": false,
+                            "mode": "inbound",
+                            "old_sn": "",
+                            "parsed": {
+                                "daerah": "Gadang Utara",
+                                "draft_id": null,
+                                "full_name": "USERSI AMINAH",
+                                "is_antri": false,
+                                "is_batal": false,
+                                "is_cek": false,
+                                "is_confirm_sn": false,
+                                "is_done": false,
+                                "is_help": false,
+                                "is_ktp_cmd": false,
+                                "is_lanjut": false,
+                                "is_near_miss": false,
+                                "is_pppoe_cmd": false,
+                                "is_psb": true,
+                                "is_resend": false,
+                                "is_router_cmd": false,
+                                "is_sn_cmd": false,
+                                "is_status": false,
+                                "is_vlan_cmd": false,
+                                "ktp_due_at": null,
+                                "ktp_policy": null,
+                                "ktp_reason": null,
+                                "odp": "ODP-GADANG-2",
+                                "package_field": "GADANG-200M",
+                                "phone": "081200000021",
+                                "pppoe_query": null,
+                                "raw": "#psb\nNama: USERSI AMINAH\nODP: ODP-GADANG-2\nRT: 01\nRW: 02\nTikor: -6.745468,111.601127\nDaerah: Gadang Utara\nRouter: gadang\nPaket: GADANG-200M\nSN: HWTCC0FFEE18\nHP: 081200000021",
+                                "router_alias": "gadang",
+                                "router_field": "gadang",
+                                "rt": "01",
+                                "rw": "02",
+                                "sn": "HWTCC0FFEE18",
+                                "tikor": "-6.745468,111.601127",
+                                "vlan_value": null
+                            },
+                            "payload": {
+                                "group_jid": "120363000000000001@g.us",
+                                "image_paths": [],
+                                "media_contexts": [],
+                                "message_id": "FAKE-PSB-003",
+                                "sender_jid": "6281200000011@s.whatsapp.net",
+                                "sender_jid_pn": "6281200000011@s.whatsapp.net",
+                                "sender_name": "Teknisi Satu",
+                                "text": "#psb\nNama: USERSI AMINAH\nODP: ODP-GADANG-2\nRT: 01\nRW: 02\nTikor: -6.745468,111.601127\nDaerah: Gadang Utara\nRouter: gadang\nPaket: GADANG-200M\nSN: HWTCC0FFEE18\nHP: 081200000021"
+                            }
+                        },
+                        "draftId": "<draft1>"
+                    },
+                    "class": "App\\Jobs\\ProcessPsbAfterMediaOcrJob",
+                    "delay": "none",
+                    "queue": "psb",
+                    "type": "job.dispatch",
+                    "unique": "psb-media-continuation:<draft1>:<hash>"
+                },
+                {
+                    "class": "App\\Jobs\\ProcessPsbAfterMediaOcrJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*PSB diterima*\nDraft: *#<draft1>*\nPelanggan: *USERSI AMINAH*\nStatus: cek SN OLT.\nCek: *#psb cek #<draft1>*",
+                    "type": "wa.send"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/1",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "count": 2,
+                    "type": "mt.getPPPSecretsWithAddresses"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=6>",
+                    "profile": "GADANG-200M",
+                    "remote": "198.19.42.12",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_2"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_2"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/1",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "approval_present": true,
+                    "commands": [
+                        "config",
+                        "interface gpon 0/0",
+                        "ont add 1 0 sn-auth \"HWTCC0FFEE18\" omci ont-lineprofile-id 20 ont-srvprofile-id 10 desc \"USERSIAMINAH_RT01_RW02_2\"",
+                        "quit",
+                        "display ont info by-sn HWTCC0FFEE18",
+                        "display ont info 0 0 1 0",
+                        "service-port vlan 102 gpon 0/0/1 ont 0 gemport 1 multi-service user-vlan 102 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                        "service-port vlan 69 gpon 0/0/1 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                        "quit",
+                        "display service-port port 0/0/1 ont 0",
+                        "save",
+                        "config",
+                        "interface gpon 0/0",
+                        "ont tr069-server-config 1 0 profile-id 1",
+                        "quit",
+                        "quit",
+                        "save"
+                    ],
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.executePlan"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_2"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "PSB Huawei #<draft1> selesai pada 0/0/1:0.\nNama: USERSI AMINAH\nPPPoE: USERSIAMINAH_RT01_RW02_2\nPassword: <pw>\nVLAN internet/TR-069: 102/69.\nGenieACS: menunggu Inform CPE.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "received",
+                    "to": "olt_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "activation_mode": "huawei_olt",
+                        "area": "gadang",
+                        "customer": "customer1",
+                        "daerah": "Gadang Utara",
+                        "full_name": "USERSI AMINAH",
+                        "ktp_photo": "<file:ktp-a>",
+                        "last_error": null,
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": "area:gadang",
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": "gadang",
+                                "source": "alias",
+                                "status": "resolved"
+                            },
+                            "document_context": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-a>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "forced_router_id": "SKYNET-GADANG",
+                            "forced_site_key": "gadang_huawei",
+                            "huawei_psb_preflight": {
+                                "at": "<ts>",
+                                "line_profile": 20,
+                                "onu_id": 0,
+                                "pon_port": "0/0/1",
+                                "tr069_vlan": 69,
+                                "vlan": 102
+                            },
+                            "huawei_psb_provisioned_at": "<ts>",
+                            "ip_source": "heuristic_dominant24",
+                            "mt_comment": "20Oct2026",
+                            "mt_router_id": "SKYNET-GADANG",
+                            "mt_written_at": "<ts>",
+                            "package_hint": "GADANG-200M",
+                            "photo_attachments": [
+                                {
+                                    "classifier": "ktp",
+                                    "ktp_score": 100,
+                                    "odp_score": 0,
+                                    "path": "<file:ktp-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 0
+                                },
+                                {
+                                    "classifier": "sn",
+                                    "ktp_score": 0,
+                                    "odp_score": 0,
+                                    "path": "<file:sn-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 90
+                                }
+                            ],
+                            "photo_class": {
+                                "degraded_count": 0,
+                                "fast_path": true,
+                                "hard_guard": false,
+                                "images": 2,
+                                "ktp_idx": 0,
+                                "ktp_path": "<file:ktp-a>",
+                                "ktp_score": 100,
+                                "ocr_batch_completed": "<hash>",
+                                "ocr_status": [
+                                    "ok",
+                                    "ok"
+                                ],
+                                "odp_scores": [
+                                    0,
+                                    0
+                                ],
+                                "queue": "ocr-media",
+                                "sha256": "<hash x2>",
+                                "slow_unreadable": false,
+                                "sn_idx": 1,
+                                "sn_path": "<file:sn-a>",
+                                "sn_score": 90,
+                                "status": "completed",
+                                "unknown_count": 0
+                            },
+                            "psb_customer_sync": {
+                                "checked_at": "<ts>",
+                                "skipped": [],
+                                "status": "synced",
+                                "updated": [
+                                    "ktp_photo_url"
+                                ]
+                            },
+                            "router_alias": "gadang",
+                            "secret_existed": false,
+                            "sender_jid_pn": "6281200000011@s.whatsapp.net"
+                        },
+                        "mikrotik_profile": "GADANG-200M",
+                        "nik_set": true,
+                        "odp": "ODP-GADANG-2",
+                        "olt": "OLT-GADANG-3",
+                        "olt_at": "<ts>",
+                        "onu_id": 0,
+                        "ord": 1,
+                        "package": "GADANG-200M",
+                        "phone": "081200000021",
+                        "pon_port": "0/0/1",
+                        "pppoe_local_address": "198.19.42.1",
+                        "pppoe_remote_address": "198.19.42.12",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                        "router": "SKYNET-GADANG",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": "<ts>",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "site_profile_key": "gadang_huawei",
+                        "sn": "HWTCC0FFEE18",
+                        "sn_photo": "<file:sn-a>",
+                        "sn_wait_until": null,
+                        "status": "olt_ok",
+                        "tr069_vlan": 69,
+                        "vlan": 102
+                    }
+                ],
+                "customers": [
+                    {
+                        "address": "RT 01 / RW 02 - ODP ODP-GADANG-2 - Gadang Utara",
+                        "area": "gadang",
+                        "due_day": 20,
+                        "ktp_photo": "/storage/<file:ktp-a>",
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "odp_name": "ODP-GADANG-2",
+                        "olt": "OLT-GADANG-3",
+                        "onu_serial": "HWTCC0FFEE18",
+                        "ord": 1,
+                        "package": "GADANG-200M",
+                        "password_set": true,
+                        "phone": "081200000021",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-GADANG",
+                        "sn_photo": "<file:sn-a>",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.12"
+                    }
+                }
+            }
+        }
+    ],
+    "transitions": [
+        [
+            "(none)",
+            "received",
+            "psb_text"
+        ],
+        [
+            "received",
+            "olt_ok",
+            "job:ProcessPsbAfterMediaOcrJob+ProcessPsbMediaOcrJob"
+        ]
+    ]
+}

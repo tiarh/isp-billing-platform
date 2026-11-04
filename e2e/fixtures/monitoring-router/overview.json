@@ -1,0 +1,39 @@
+{
+  "widget": "routers",
+  "range": "1h",
+  "status": "ok",
+  "fetched_at": "__now__",
+  "reason": null,
+  "partial": false,
+  "step_seconds": 60,
+  "grafana_dashboard_url": "https://grafana.example.test/d/skynet-per-router?orgId=1&var-router=rtr-sukamaju-01&from=now-1h&to=now",
+  "data": {
+    "kpi": {
+      "pppoe_online": 412,
+      "pppoe_online_source": "grafana",
+      "pppoe_secrets": 452,
+      "download_now_mbps": 512.4,
+      "upload_now_mbps": 96.8,
+      "month_gb": 18420.6,
+      "month_has_invalid_days": false,
+      "month_history_partial": true
+    },
+    "uplink": {
+      "rx": { "wave": { "count": 60, "stepMinutes": 1, "base": 480, "amp": 70, "period": 14, "phase": 0 } },
+      "tx": { "wave": { "count": 60, "stepMinutes": 1, "base": 92, "amp": 18, "period": 11, "phase": 1.2 } }
+    },
+    "top": [
+      { "pppoe_user": "user001@example.test", "customer_id": 101, "name": "Pelanggan Contoh 01", "download_mbps": 48.2, "upload_mbps": 6.1 },
+      { "pppoe_user": "user002@example.test", "customer_id": 102, "name": "Pelanggan Contoh 02", "download_mbps": 41.7, "upload_mbps": 4.4 },
+      { "pppoe_user": "user003@example.test", "customer_id": 103, "name": "Pelanggan Contoh 03", "download_mbps": 36.0, "upload_mbps": 5.2 },
+      { "pppoe_user": "user004@example.test", "customer_id": 104, "name": "Pelanggan Contoh 04", "download_mbps": 29.5, "upload_mbps": 3.0 },
+      { "pppoe_user": "user005@example.test", "customer_id": null, "name": null, "download_mbps": 24.8, "upload_mbps": 2.7 },
+      { "pppoe_user": "user006@example.test", "customer_id": 106, "name": "Pelanggan Contoh 06", "download_mbps": 20.3, "upload_mbps": 2.2 },
+      { "pppoe_user": "user007@example.test", "customer_id": 107, "name": "Pelanggan Contoh 07", "download_mbps": 17.9, "upload_mbps": 1.9 },
+      { "pppoe_user": "user008@example.test", "customer_id": 108, "name": "Pelanggan Contoh 08", "download_mbps": 14.1, "upload_mbps": 1.4 },
+      { "pppoe_user": "user009@example.test", "customer_id": 109, "name": "Pelanggan Contoh 09", "download_mbps": 11.6, "upload_mbps": 1.1 },
+      { "pppoe_user": "user010@example.test", "customer_id": 110, "name": "Pelanggan Contoh 10", "download_mbps": 9.4, "upload_mbps": 0.9 }
+    ],
+    "daily": "__daily30__"
+  }
+}

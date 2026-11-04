@@ -1,0 +1,18 @@
+{
+  "widget": "resources",
+  "range": "1h",
+  "status": "ok",
+  "fetched_at": "__now__",
+  "reason": null,
+  "partial": false,
+  "step_seconds": 60,
+  "grafana_dashboard_url": "https://grafana.example.test/d/skynet-per-router?orgId=1&from=now-1h&to=now",
+  "data": {
+    "rows": [
+      { "router_id": 1, "name": "RTR-SUKAMAJU-01", "cpu_pct": 37, "memory_pct": 52.4, "disk_pct": 21.8, "uptime_seconds": 3456000, "board_temp_c": 41, "cpu_temp_c": 48, "voltage_v": 24.1, "matched_by": "router_id" },
+      { "router_id": 2, "name": "RTR-MEKARSARI-01", "cpu_pct": 74.3, "memory_pct": 83.7, "disk_pct": 46.2, "uptime_seconds": 1209600, "board_temp_c": 52, "cpu_temp_c": 58, "voltage_v": 23.9, "matched_by": "grafana_identity" },
+      { "router_id": 3, "name": "RTR-CEMPAKA-01", "cpu_pct": 18, "memory_pct": 34.1, "disk_pct": 12.5, "uptime_seconds": 864000, "board_temp_c": 38, "cpu_temp_c": 44, "voltage_v": 24.0, "matched_by": "name" },
+      { "router_id": 4, "name": "RTR-TANJUNG-01", "cpu_pct": null, "memory_pct": null, "disk_pct": null, "uptime_seconds": null, "board_temp_c": null, "cpu_temp_c": null, "voltage_v": null, "matched_by": null }
+    ]
+  }
+}

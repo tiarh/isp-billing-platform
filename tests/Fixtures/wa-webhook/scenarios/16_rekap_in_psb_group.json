@@ -1,0 +1,25 @@
+{
+  "description": "#rekap psb and #rekap onu commands in the PSB group",
+  "steps": [
+    {
+      "label": "#rekap psb",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S16-R1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#rekap psb semua kemarin"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "#rekap onu",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S16-R2", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#rekap onu klampok"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

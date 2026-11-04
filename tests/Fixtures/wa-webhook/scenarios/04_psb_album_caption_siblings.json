@@ -1,0 +1,44 @@
+{
+  "description": "WhatsApp album: first image carries the #psb caption, siblings have none (messageAssociation)",
+  "steps": [
+    {
+      "label": "album image 1 with #psb caption",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S04-A1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {
+          "imageMessage": {"url": "https://mmg.whatsapp.net/fake/1", "mimetype": "image/jpeg", "caption": "#psb\nNama: Budi Uji\nSN: FHTT00000004"},
+          "messageContextInfo": {"messageAssociation": {"associationType": "MEDIA_ALBUM", "parentMessageKey": {"id": "FAKE-S04-ALBUM", "remoteJid": "120363000000000001@g.us"}}}
+        },
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "album image 2",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S04-A2", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {
+          "imageMessage": {"url": "https://mmg.whatsapp.net/fake/2", "mimetype": "image/jpeg"},
+          "messageContextInfo": {"messageAssociation": {"associationType": "MEDIA_ALBUM", "parentMessageKey": {"id": "FAKE-S04-ALBUM", "remoteJid": "120363000000000001@g.us"}}}
+        },
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "album image 3",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S04-A3", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {
+          "imageMessage": {"url": "https://mmg.whatsapp.net/fake/3", "mimetype": "image/jpeg"},
+          "messageContextInfo": {"messageAssociation": {"associationType": "MEDIA_ALBUM", "parentMessageKey": {"id": "FAKE-S04-ALBUM", "remoteJid": "120363000000000001@g.us"}}}
+        },
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

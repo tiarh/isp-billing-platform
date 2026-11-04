@@ -1,0 +1,10 @@
+FROM python:3.12-slim
+
+RUN python -m pip install --no-cache-dir --disable-pip-version-check paramiko==3.5.1
+
+COPY fake_olt_ssh.py /opt/fake-olt/fake_olt_ssh.py
+
+RUN chmod 0555 /opt/fake-olt/fake_olt_ssh.py
+
+EXPOSE 2222
+ENTRYPOINT ["python", "/opt/fake-olt/fake_olt_ssh.py"]

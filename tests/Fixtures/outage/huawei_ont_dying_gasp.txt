@@ -1,0 +1,33 @@
+  -----------------------------------------------------------------------------
+  F/S/P                   : 0/0/1
+  ONT-ID                  : 24
+  Control flag            : active
+  Run state               : online
+  Config state            : normal
+  Match state             : match
+  DBA type                : SR
+  ONT distance(m)         : 1043
+  ONT last distance(m)    : 1043
+  ONT battery state       : -
+  Memory occupation       : 34%
+  CPU occupation          : 2%
+  Temperature             : 41(C)
+  Authentic type          : SN-auth
+  SN                      : 485754430000001A (HWTC-0000001A)
+  Management mode         : OMCI
+  Software work mode      : normal
+  Isolation state         : normal
+  ONT IP 0 address/mask   : -
+  Description             : PELANGGAN-UJI-C
+  Last down cause         : dying-gasp
+  Last up time            : 2026-10-17 09:56:50+08:00
+  Last down time          : 2026-10-17 09:53:17+08:00
+  Last dying gasp time    : 2026-10-17 09:53:17+08:00
+  ONT online duration     : 0 day(s), 2 hour(s), 44 minute(s), 46 second(s)
+  ONT system up duration  : 0 day(s), 2 hour(s), 45 minute(s), 39 second(s)
+  Type C support          : Not support
+  Interoperability-mode   : Unknown
+  Power reduction status  : Not support
+  -----------------------------------------------------------------------------
+  Last down cause         : LOS-should-not-be-read-here
+  Run state               : offline

@@ -1,0 +1,225 @@
+{
+    "scenario": "11_migration_open_plain_photo",
+    "steps": [
+        {
+            "label": "plain photo",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [
+                {
+                    "path": "POST /chat/getBase64FromMediaMessage/ops",
+                    "id": "FAKE-S11-P1"
+                }
+            ],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [
+                    {
+                        "area_id": null,
+                        "customer_id": null,
+                        "daerah": null,
+                        "full_name": "Migrasi Uji",
+                        "group_jid": "120363000000000001@g.us",
+                        "ktp_photo_path": "<file sha1:35b486b11434>",
+                        "last_error": null,
+                        "message_id": "SEED-m1",
+                        "meta": {
+                            "photo_class": [
+                                {
+                                    "at": "<ts>",
+                                    "detected_type": "ktp",
+                                    "hint": "",
+                                    "ktp_score": 100,
+                                    "label": "ktp",
+                                    "path": "<file sha1:35b486b11434>",
+                                    "sn": null,
+                                    "sn_score": 0
+                                }
+                            ]
+                        },
+                        "new_olt_id": null,
+                        "new_onu_id": null,
+                        "new_onu_ref": null,
+                        "new_pon_port": null,
+                        "new_sn": null,
+                        "nik": "3507120110000005",
+                        "odp": null,
+                        "old_olt_id": null,
+                        "old_onu_deleted_at": null,
+                        "old_onu_ref": null,
+                        "old_router_id": null,
+                        "old_sn": null,
+                        "olt_at": null,
+                        "phone": null,
+                        "pppoe_user": null,
+                        "raw_text": null,
+                        "router_id": null,
+                        "router_photo_path": null,
+                        "rt": "1",
+                        "rw": "2",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": null,
+                        "source": "wa",
+                        "status": "waiting_sn",
+                        "synced_at": null,
+                        "tikor": null,
+                        "tr069_vlan": null,
+                        "vlan": null
+                    }
+                ],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "noise",
+                        "message_id": "FAKE-S11-P1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": true,
+                            "read_only": true
+                        },
+                        "redacted_text": "",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Noise: (media tanpa caption)"
+                    }
+                ]
+            }
+        },
+        {
+            "label": "photo with #ktp hint",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [
+                {
+                    "path": "POST /chat/getBase64FromMediaMessage/ops",
+                    "id": "FAKE-S11-P2"
+                }
+            ],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [
+                    {
+                        "area_id": null,
+                        "customer_id": null,
+                        "daerah": null,
+                        "full_name": "Migrasi Uji",
+                        "group_jid": "120363000000000001@g.us",
+                        "ktp_photo_path": "<file sha1:12b687ea3773>",
+                        "last_error": null,
+                        "message_id": "SEED-m1",
+                        "meta": {
+                            "photo_class": [
+                                {
+                                    "at": "<ts>",
+                                    "detected_type": "ktp",
+                                    "hint": "",
+                                    "ktp_score": 100,
+                                    "label": "ktp",
+                                    "path": "<file sha1:35b486b11434>",
+                                    "sn": null,
+                                    "sn_score": 0
+                                },
+                                {
+                                    "at": "<ts>",
+                                    "detected_type": "ktp",
+                                    "hint": "#ktp",
+                                    "ktp_score": 100,
+                                    "label": "ktp",
+                                    "path": "<file sha1:12b687ea3773>",
+                                    "sn": null,
+                                    "sn_score": 0
+                                }
+                            ]
+                        },
+                        "new_olt_id": null,
+                        "new_onu_id": null,
+                        "new_onu_ref": null,
+                        "new_pon_port": null,
+                        "new_sn": null,
+                        "nik": "3507120110000005",
+                        "odp": null,
+                        "old_olt_id": null,
+                        "old_onu_deleted_at": null,
+                        "old_onu_ref": null,
+                        "old_router_id": null,
+                        "old_sn": null,
+                        "olt_at": null,
+                        "phone": null,
+                        "pppoe_user": null,
+                        "raw_text": null,
+                        "router_id": null,
+                        "router_photo_path": null,
+                        "rt": "1",
+                        "rw": "2",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": null,
+                        "source": "wa",
+                        "status": "waiting_sn",
+                        "synced_at": null,
+                        "tikor": null,
+                        "tr069_vlan": null,
+                        "vlan": null
+                    }
+                ],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "noise",
+                        "message_id": "FAKE-S11-P1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": true,
+                            "read_only": true
+                        },
+                        "redacted_text": "",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Noise: (media tanpa caption)"
+                    },
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "noise",
+                        "message_id": "FAKE-S11-P2",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": true,
+                            "read_only": true
+                        },
+                        "redacted_text": "#ktp",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Noise: #ktp"
+                    }
+                ]
+            }
+        }
+    ]
+}

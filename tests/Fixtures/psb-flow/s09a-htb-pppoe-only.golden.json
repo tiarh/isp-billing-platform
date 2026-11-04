@@ -1,0 +1,303 @@
+{
+    "scenario": "s09a-htb-pppoe-only",
+    "steps": [
+        {
+            "label": "#psb Router: rdg text + 2 photos",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*PSB diterima*\nDraft: *#<draft1>*\nPelanggan: *DRAFTE SANTOSO*\nStatus: cek SN OLT.\nCek: *#psb cek #<draft1>*",
+                    "type": "wa.send"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.connect"
+                },
+                {
+                    "count": 2,
+                    "type": "mt.getPPPSecretsWithAddresses"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=10>",
+                    "profile": "50M",
+                    "remote": "198.19.42.12",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_1"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_1"
+                },
+                {
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "DRAFTESANTOSO_RT01_RW02_1",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_1"
+                },
+                {
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 Teknisi Satu\n*PPPoE siap*\nDraft: *#<draft1>* - Paket *HTB-50M [50M]*\nPelanggan: DRAFTE SANTOSO\nMikroTik: *SKYNET-RANDUAGUNG-CCR*\nUser: `DRAFTESANTOSO_RT01_RW02_1`\nPassword: <pw>\nProfile: *50M*\nVLAN: *-*\nSN: `FHTTC0FFEE09`\nLanjut aktivasi OLT...",
+                    "type": "wa.send"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_1"
+                },
+                {
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 Teknisi Satu\n✅ *PSB HTB selesai (PPPoE)*\nDraft: *#<draft1>*\nPelanggan: DRAFTE SANTOSO\nMikroTik: *SKYNET-RANDUAGUNG-CCR*\nUser: `DRAFTESANTOSO_RT01_RW02_1`\nPassword: <pw>\nVLAN: tidak digunakan\nSN: `FHTTC0FFEE09`\nONU HTB tetap disetel manual oleh NOC.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "(none)",
+                    "to": "secret_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "activation_mode": "pppoe_only",
+                        "area": "rdgnew",
+                        "customer": "customer1",
+                        "daerah": "Randuagung",
+                        "full_name": "DRAFTE SANTOSO",
+                        "ktp_photo": "<file:ktp-a>",
+                        "last_error": null,
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": "area:rdgnew",
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": "randuagung",
+                                "source": "alias",
+                                "status": "resolved"
+                            },
+                            "document_context": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-a>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "forced_router_id": "SKYNET-RANDUAGUNG-CCR",
+                            "forced_site_key": "rdg",
+                            "htb_complete": true,
+                            "htb_completed_at": "<ts>",
+                            "htb_mode": "pppoe_only",
+                            "ip_source": "heuristic_dominant24",
+                            "mt_comment": "20Oct2026",
+                            "mt_router_id": "SKYNET-RANDUAGUNG-CCR",
+                            "mt_written_at": "<ts>",
+                            "package_hint": "50M",
+                            "photo_attachments": [
+                                {
+                                    "classifier": "ktp",
+                                    "ktp_score": 100,
+                                    "odp_score": 0,
+                                    "path": "<file:ktp-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 0
+                                },
+                                {
+                                    "classifier": "sn",
+                                    "ktp_score": 0,
+                                    "odp_score": 0,
+                                    "path": "<file:sn-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 90
+                                }
+                            ],
+                            "photo_class": {
+                                "degraded_count": 0,
+                                "fast_path": true,
+                                "hard_guard": false,
+                                "images": 2,
+                                "ktp_idx": 0,
+                                "ktp_path": "<file:ktp-a>",
+                                "ktp_score": 100,
+                                "ocr_status": [
+                                    "ok",
+                                    "ok"
+                                ],
+                                "odp_scores": [
+                                    0,
+                                    0
+                                ],
+                                "sha256": "<hash x2>",
+                                "slow_unreadable": false,
+                                "sn_idx": 1,
+                                "sn_path": "<file:sn-a>",
+                                "sn_score": 90,
+                                "unknown_count": 0
+                            },
+                            "psb_customer_sync": {
+                                "checked_at": "<ts>",
+                                "skipped": [],
+                                "status": "synced",
+                                "updated": [
+                                    "ktp_photo_url"
+                                ]
+                            },
+                            "router_alias": "rdg",
+                            "secret_existed": false,
+                            "sender_jid_pn": "6281200000011@s.whatsapp.net",
+                            "site_resolve": {
+                                "at": "<ts>",
+                                "key": "rdg",
+                                "mode": "pppoe_only",
+                                "olt_id": null,
+                                "router_id": "SKYNET-RANDUAGUNG-CCR",
+                                "tr069_vlan": null,
+                                "vlan": null
+                            }
+                        },
+                        "mikrotik_profile": "50M",
+                        "nik_set": true,
+                        "odp": "ODP-RDG-1",
+                        "olt": null,
+                        "olt_at": null,
+                        "onu_id": null,
+                        "ord": 1,
+                        "package": "HTB-50M",
+                        "phone": "081200000021",
+                        "pon_port": null,
+                        "pppoe_local_address": "198.19.42.1",
+                        "pppoe_remote_address": "198.19.42.12",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_1",
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": "<ts>",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "site_profile_key": "rdg",
+                        "sn": "FHTTC0FFEE09",
+                        "sn_photo": "<file:sn-a>",
+                        "sn_wait_until": null,
+                        "status": "secret_ok",
+                        "tr069_vlan": 69,
+                        "vlan": null
+                    }
+                ],
+                "customers": [
+                    {
+                        "address": "RT 01 / RW 02 - ODP ODP-RDG-1 - Randuagung",
+                        "area": "rdgnew",
+                        "due_day": 20,
+                        "ktp_photo": "/storage/<file:ktp-a>",
+                        "local": "198.19.42.1",
+                        "name": "DRAFTE SANTOSO",
+                        "odp_name": "ODP-RDG-1",
+                        "olt": null,
+                        "onu_serial": "FHTTC0FFEE09",
+                        "ord": 1,
+                        "package": "HTB-50M",
+                        "password_set": true,
+                        "phone": "081200000021",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_1",
+                        "profile": "50M",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "sn_photo": "<file:sn-a>",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTESANTOSO_RT01_RW02_1": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "50M",
+                        "pw_len": "10",
+                        "remote": "198.19.42.12"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        }
+    ],
+    "transitions": [
+        [
+            "(none)",
+            "secret_ok",
+            "psb_text"
+        ]
+    ]
+}

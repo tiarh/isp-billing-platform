@@ -1,0 +1,16 @@
+{
+  "name": "skynet-ebilling-e2e",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report e2e-report",
+    "faq:screenshots": "playwright test -c playwright.faq-screenshots.config.ts"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.52.0",
+    "sharp": "^0.34.3"
+  }
+}

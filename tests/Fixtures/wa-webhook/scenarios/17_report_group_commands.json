@@ -1,0 +1,45 @@
+{
+  "description": "report group: #pppoe cari, #rekap psb, #rekap onu; #psb there is only logged",
+  "steps": [
+    {
+      "label": "#pppoe cari",
+      "msg": {
+        "key": {"remoteJid": "120363000000000002@g.us", "fromMe": false, "id": "FAKE-S17-C1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#pppoe cari budi.uji"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "#rekap psb",
+      "msg": {
+        "key": {"remoteJid": "120363000000000002@g.us", "fromMe": false, "id": "FAKE-S17-C2", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#rekap psb semua kemarin"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "#rekap onu",
+      "msg": {
+        "key": {"remoteJid": "120363000000000002@g.us", "fromMe": false, "id": "FAKE-S17-C3", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#rekap onu klampok"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "#psb in the report group",
+      "msg": {
+        "key": {"remoteJid": "120363000000000002@g.us", "fromMe": false, "id": "FAKE-S17-C4", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb\nNama: Budi Uji"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

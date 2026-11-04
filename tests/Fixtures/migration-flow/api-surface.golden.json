@@ -1,0 +1,878 @@
+{
+    "class": {
+        "final": false,
+        "abstract": false,
+        "parent": null
+    },
+    "constructor": [
+        "promoted App\\Services\\CustomerMigrationMessageParser $parser",
+        "promoted App\\Services\\PsbOrchestratorService $psb",
+        "promoted App\\Services\\MikrotikService $mikrotik",
+        "promoted App\\Services\\OltZteC300Service $zte",
+        "promoted App\\Services\\GenieAcsService $genieAcs",
+        "promoted App\\Services\\ProductionControlPlaneService $controlPlane",
+        "promoted App\\Services\\GuidedMigrationLookupService $guidedLookup",
+        "promoted App\\Services\\MigrationOperationClassifier $operationClassifier",
+        "promoted App\\Services\\HuaweiOltOnlyProvisioningService $huaweiOltOnly"
+    ],
+    "public_methods": {
+        "__construct": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "promoted App\\Services\\CustomerMigrationMessageParser $parser",
+                "promoted App\\Services\\PsbOrchestratorService $psb",
+                "promoted App\\Services\\MikrotikService $mikrotik",
+                "promoted App\\Services\\OltZteC300Service $zte",
+                "promoted App\\Services\\GenieAcsService $genieAcs",
+                "promoted App\\Services\\ProductionControlPlaneService $controlPlane",
+                "promoted App\\Services\\GuidedMigrationLookupService $guidedLookup",
+                "promoted App\\Services\\MigrationOperationClassifier $operationClassifier",
+                "promoted App\\Services\\HuaweiOltOnlyProvisioningService $huaweiOltOnly"
+            ],
+            "returns": null
+        },
+        "applyManualProvisionLink": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "array $payload",
+                "?App\\Models\\PsbDraft $draft",
+                "string $matchedBy",
+                "?string $actor = NULL"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "attachFollowUpImages": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "array $newImageBytes",
+                "string $caption = ''"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "executeApprovedDeviceAction": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "?App\\Models\\User $actor",
+                "string $reason",
+                "bool $scopedWaCanary = false"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "executeWaMigration": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "int $id",
+                "array $payload"
+            ],
+            "returns": "?App\\Models\\CustomerMigration"
+        },
+        "handleInbound": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $payload"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "manualProvisionLinkConflicts": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "?App\\Models\\Customer $customer",
+                "string $sn",
+                "?App\\Models\\Olt $olt",
+                "?string $onuRef",
+                "?int $routerId"
+            ],
+            "returns": "array"
+        },
+        "markSyncedByAutoReconcile": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "int $id",
+                "array $verdictEvidence",
+                "string $runId",
+                "array $expect = array (\n)"
+            ],
+            "returns": "array"
+        },
+        "markSyncedManually": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "int $id",
+                "array $snapshot",
+                "string $reason",
+                "App\\Models\\User $actor"
+            ],
+            "returns": "array"
+        },
+        "markWaExecutionJobFailed": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "int $id",
+                "array $payload",
+                "?Throwable $exception"
+            ],
+            "returns": "void"
+        },
+        "normalizeSerialForMatch": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "string $value"
+            ],
+            "returns": "string"
+        },
+        "normalizeUsernameForMatch": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "string $value"
+            ],
+            "returns": "string"
+        },
+        "onuNameTokenForMatch": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "string $value"
+            ],
+            "returns": "string"
+        },
+        "partialExecutionState": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "?array"
+        },
+        "prepareDeviceActionApproval": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "?App\\Models\\User $actor",
+                "string $reason"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "prepareReviewDraft": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "bool $manualContinue = false"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "processMigration": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "recordManualFiberhomeProvision": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $payload"
+            ],
+            "returns": "?App\\Models\\CustomerMigration"
+        },
+        "reply": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "string $groupJid",
+                "string $text",
+                "array $mentionJids = array (\n)"
+            ],
+            "returns": "void"
+        },
+        "retryGuidedFromWeb": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "array"
+        },
+        "revertAutoReconcile": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "int $id"
+            ],
+            "returns": "array"
+        }
+    },
+    "contract_names": {
+        "applyMigrationPppoeSecret": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "App\\Models\\Customer $customer",
+                "App\\Models\\Router $router"
+            ],
+            "returns": "array"
+        },
+        "applyPayload": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "array $payload",
+                "array $parsed"
+            ],
+            "returns": "void"
+        },
+        "attachPhotoBytes": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "array $bytesList",
+                "string $hint = ''"
+            ],
+            "returns": "void"
+        },
+        "candidateSelectionPreviewMessage": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "?App\\Models\\CustomerMigration $migration",
+                "int $candidateNumber"
+            ],
+            "returns": "string"
+        },
+        "confirmGuidedWaCandidate": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "array $candidate",
+                "array $payload",
+                "int $number"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "confirmHuaweiOltOnlyFromWa": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "array $payload"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "confirmReplacementFromWa": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "array $payload",
+                "array $operation"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "customerSnapshot": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\Customer $customer"
+            ],
+            "returns": "array"
+        },
+        "deleteOldOnuIfSafe": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "void"
+        },
+        "deviceActionPreflight": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "array"
+        },
+        "dispatchWaExecution": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $payload",
+                "int $id",
+                "bool $automatic",
+                "string $authorizationMode = 'sender_allowlist'"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "executeMigration": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "findOrCreateMigration": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $payload",
+                "array $parsed"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "guidedPreviewMessage": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $preview",
+                "?App\\Models\\CustomerMigration $draft = NULL",
+                "?string $dryRunError = NULL"
+            ],
+            "returns": "string"
+        },
+        "helpMessage": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [],
+            "returns": "string"
+        },
+        "huaweiOltOnlySuccessMessage": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "array $tag",
+                "?string $routerCredential"
+            ],
+            "returns": "string"
+        },
+        "huaweiOltOnlyWriteFlags": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [],
+            "returns": "array"
+        },
+        "isHuaweiOltOnlyParsed": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $parsed"
+            ],
+            "returns": "bool"
+        },
+        "migrationOperationLockKey": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $payload",
+                "array $parsed"
+            ],
+            "returns": "string"
+        },
+        "migrationPreservesCustomerPackage": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "int $routerId",
+                "string $routerName = ''"
+            ],
+            "returns": "bool"
+        },
+        "migrationReasonHint": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $reasons"
+            ],
+            "returns": "string"
+        },
+        "migrationSecretComment": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "string"
+        },
+        "migrationTargetContract": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "array $preflight"
+            ],
+            "returns": "array"
+        },
+        "migrationWritesAllowed": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $flags",
+                "bool $scopedWaCanary"
+            ],
+            "returns": "bool"
+        },
+        "oltSnapshotForMigration": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "?App\\Models\\Olt $olt",
+                "?App\\Models\\Customer $customer = NULL"
+            ],
+            "returns": "array"
+        },
+        "photoBatchBudget": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "float $seconds"
+            ],
+            "returns": "App\\Support\\OcrBudget"
+        },
+        "photoLabelFromHint": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "string $hint",
+                "string $detected"
+            ],
+            "returns": "string"
+        },
+        "pppoeMigrationPlan": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "array $preflight"
+            ],
+            "returns": "array"
+        },
+        "primeMigrationFromCustomer": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "App\\Models\\Customer $customer"
+            ],
+            "returns": "void"
+        },
+        "processMigrationLocked": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "App\\Models\\CustomerMigration"
+        },
+        "proposedCustomerSnapshot": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "?App\\Models\\Customer $customer",
+                "?App\\Models\\Olt $targetOlt = NULL"
+            ],
+            "returns": "array"
+        },
+        "provisionNewOnu": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "App\\Models\\Olt $olt",
+                "App\\Models\\Router $router",
+                "App\\Models\\Customer $customer"
+            ],
+            "returns": "void"
+        },
+        "psbOverlapEvidence": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "array"
+        },
+        "purgeOldOnuLocal": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\Olt $olt",
+                "string $oldRef"
+            ],
+            "returns": "int"
+        },
+        "readVerifiedMigrationPassword": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "?string"
+        },
+        "reply": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "public",
+            "static": false,
+            "final": false,
+            "params": [
+                "string $groupJid",
+                "string $text",
+                "array $mentionJids = array (\n)"
+            ],
+            "returns": "void"
+        },
+        "replyIfWaitingForNewSn": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "void"
+        },
+        "resolveCustomer": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "?App\\Models\\Customer"
+        },
+        "resolveMigrationRouterAlias": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "string $alias"
+            ],
+            "returns": "?App\\Models\\Router"
+        },
+        "resolveMigrationTargetSite": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $parsed"
+            ],
+            "returns": "?array"
+        },
+        "resolveOltForMigration": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "App\\Models\\Customer $customer",
+                "?App\\Models\\Router $router"
+            ],
+            "returns": "?App\\Models\\Olt"
+        },
+        "resolveOltFromMigrationField": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration"
+            ],
+            "returns": "?App\\Models\\Olt"
+        },
+        "resolvePppoeForHuaweiDraft": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $parsed",
+                "string $oldSn",
+                "string $targetRouterField"
+            ],
+            "returns": "array"
+        },
+        "resolveRouterForMigration": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "App\\Models\\Customer $customer"
+            ],
+            "returns": "?App\\Models\\Router"
+        },
+        "resolveSourceRouterForMigration": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "App\\Models\\Customer $customer"
+            ],
+            "returns": "?App\\Models\\Router"
+        },
+        "shouldUseC300UncfgPath": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "array $parsed"
+            ],
+            "returns": "bool"
+        },
+        "snOwnershipConflicts": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "string $sn",
+                "?App\\Models\\Olt $olt",
+                "?App\\Models\\Customer $customer"
+            ],
+            "returns": "array"
+        },
+        "successMessage": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $m",
+                "?string $routerCredential = NULL"
+            ],
+            "returns": "string"
+        },
+        "syncCustomerAfterNewOnu": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "App\\Models\\Customer $customer",
+                "array $extra = array (\n)"
+            ],
+            "returns": "void"
+        },
+        "syncTr069Tag": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\CustomerMigration $migration",
+                "App\\Models\\Customer $customer"
+            ],
+            "returns": "void"
+        },
+        "verifyExistingPppoeSecret": {
+            "declaring": "CustomerMigrationService",
+            "visibility": "protected",
+            "static": false,
+            "final": false,
+            "params": [
+                "App\\Models\\Customer $customer",
+                "App\\Models\\Router $router"
+            ],
+            "returns": "array"
+        }
+    },
+    "protected_properties": {
+        "controlPlane": {
+            "visibility": "protected",
+            "static": false,
+            "type": "App\\Services\\ProductionControlPlaneService"
+        },
+        "genieAcs": {
+            "visibility": "protected",
+            "static": false,
+            "type": "App\\Services\\GenieAcsService"
+        },
+        "guidedLookup": {
+            "visibility": "protected",
+            "static": false,
+            "type": "App\\Services\\GuidedMigrationLookupService"
+        },
+        "huaweiOltOnly": {
+            "visibility": "protected",
+            "static": false,
+            "type": "App\\Services\\HuaweiOltOnlyProvisioningService"
+        },
+        "mikrotik": {
+            "visibility": "protected",
+            "static": false,
+            "type": "App\\Services\\MikrotikService"
+        },
+        "operationClassifier": {
+            "visibility": "protected",
+            "static": false,
+            "type": "App\\Services\\MigrationOperationClassifier"
+        },
+        "parser": {
+            "visibility": "protected",
+            "static": false,
+            "type": "App\\Services\\CustomerMigrationMessageParser"
+        },
+        "psb": {
+            "visibility": "protected",
+            "static": false,
+            "type": "App\\Services\\PsbOrchestratorService"
+        },
+        "uncfgCache": {
+            "visibility": "protected",
+            "static": false,
+            "type": "array"
+        },
+        "zte": {
+            "visibility": "protected",
+            "static": false,
+            "type": "App\\Services\\OltZteC300Service"
+        }
+    }
+}

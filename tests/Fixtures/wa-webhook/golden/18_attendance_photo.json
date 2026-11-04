@@ -1,0 +1,127 @@
+{
+    "scenario": "18_attendance_photo",
+    "steps": [
+        {
+            "label": "attendance photo",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [
+                {
+                    "path": "POST /chat/getBase64FromMediaMessage/ops",
+                    "id": "FAKE-S18-P1"
+                }
+            ],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [
+                    {
+                        "caption": "Absen masuk",
+                        "evidence_message_id": "FAKE-S18-P1",
+                        "message_id": "FAKE-S18-P1",
+                        "photo_url": "<file sha1:5fbf2f875017>",
+                        "review_status": "accepted",
+                        "sender_jid": "62812000005@s.whatsapp.net",
+                        "sender_name": "Teknisi Lima",
+                        "sender_number": "120363000000000003@g.us",
+                        "technician_id": null
+                    }
+                ],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "same delivery again",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [
+                    {
+                        "caption": "Absen masuk",
+                        "evidence_message_id": "FAKE-S18-P1",
+                        "message_id": "FAKE-S18-P1",
+                        "photo_url": "<file sha1:5fbf2f875017>",
+                        "review_status": "accepted",
+                        "sender_jid": "62812000005@s.whatsapp.net",
+                        "sender_name": "Teknisi Lima",
+                        "sender_number": "120363000000000003@g.us",
+                        "technician_id": null
+                    }
+                ],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "text in the attendance group",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [
+                    {
+                        "caption": "Absen masuk",
+                        "evidence_message_id": "FAKE-S18-P1",
+                        "message_id": "FAKE-S18-P1",
+                        "photo_url": "<file sha1:5fbf2f875017>",
+                        "review_status": "accepted",
+                        "sender_jid": "62812000005@s.whatsapp.net",
+                        "sender_name": "Teknisi Lima",
+                        "sender_number": "120363000000000003@g.us",
+                        "technician_id": null
+                    }
+                ],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "photo that cannot be downloaded",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [
+                {
+                    "path": "POST /chat/getBase64FromMediaMessage/ops",
+                    "id": "FAKE-S18-P2"
+                }
+            ],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [
+                    {
+                        "caption": "Absen masuk",
+                        "evidence_message_id": "FAKE-S18-P1",
+                        "message_id": "FAKE-S18-P1",
+                        "photo_url": "<file sha1:5fbf2f875017>",
+                        "review_status": "accepted",
+                        "sender_jid": "62812000005@s.whatsapp.net",
+                        "sender_name": "Teknisi Lima",
+                        "sender_number": "120363000000000003@g.us",
+                        "technician_id": null
+                    }
+                ],
+                "wa_chat_signals": []
+            }
+        }
+    ]
+}

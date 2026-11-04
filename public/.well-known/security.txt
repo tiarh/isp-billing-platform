@@ -1,0 +1,4 @@
+Contact: mailto:contact@example.test
+Preferred-Languages: id, en
+Canonical: https://billing.example.test/.well-known/security.txt
+Expires: 2027-12-31T00:00:00Z

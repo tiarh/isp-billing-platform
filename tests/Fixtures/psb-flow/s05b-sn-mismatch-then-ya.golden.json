@@ -1,0 +1,528 @@
+{
+    "scenario": "s05b-sn-mismatch-then-ya",
+    "steps": [
+        {
+            "label": "#psb text + 2 photos, uncfg shows another SN",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*PSB diterima*\nDraft: *#<draft1>*\nPelanggan: *USERSI AMINAH*\nStatus: cek SN OLT.\nCek: *#psb cek #<draft1>*",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *SN uncfg berbeda dari chat*\nDraft: *#<draft1>*\nSN di chat: `FHTTC0FFEE06`\nSN di uncfg OLT: `FHTTC0FFEE99`\nPON: *1/1/1*\n*Jangan kirim #psb full lagi.* Pilih satu (copy-paste):\n1️⃣ Pakai SN di OLT: `#psb ya #<draft1>`\n2️⃣ Ganti SN manual: `#psb sn FHTTC0FFEE99`\n3️⃣ Sudah colok ulang FO: `#psb lanjut`\n4️⃣ Batal: `#psb batal #<draft1>`\nBot *tidak* auto-lanjut sampai dikonfirmasi.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "(none)",
+                    "to": "waiting_sn"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "activation_mode": "full_olt",
+                        "area": "klampok",
+                        "customer": null,
+                        "daerah": "Klampok",
+                        "full_name": "USERSI AMINAH",
+                        "ktp_photo": "<file:ktp-a>",
+                        "last_error": "SN mismatch: chat=FHTTC0FFEE06 uncfg=FHTTC0FFEE99",
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": "area:klampok",
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": "klampok",
+                                "source": "alias",
+                                "status": "resolved"
+                            },
+                            "document_context": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-a>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "forced_router_id": "SKYNET-RA-OLT",
+                            "forced_site_key": "ra",
+                            "package_hint": "200M",
+                            "pending_uncfg_onu_id": 10,
+                            "pending_uncfg_port": "1/1/1",
+                            "pending_uncfg_sn": "FHTTC0FFEE99",
+                            "photo_attachments": [
+                                {
+                                    "classifier": "ktp",
+                                    "ktp_score": 100,
+                                    "odp_score": 0,
+                                    "path": "<file:ktp-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 0
+                                },
+                                {
+                                    "classifier": "sn",
+                                    "ktp_score": 0,
+                                    "odp_score": 0,
+                                    "path": "<file:sn-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 90
+                                }
+                            ],
+                            "photo_class": {
+                                "degraded_count": 0,
+                                "fast_path": true,
+                                "hard_guard": false,
+                                "images": 2,
+                                "ktp_idx": 0,
+                                "ktp_path": "<file:ktp-a>",
+                                "ktp_score": 100,
+                                "ocr_status": [
+                                    "ok",
+                                    "ok"
+                                ],
+                                "odp_scores": [
+                                    0,
+                                    0
+                                ],
+                                "sha256": "<hash x2>",
+                                "slow_unreadable": false,
+                                "sn_idx": 1,
+                                "sn_path": "<file:sn-a>",
+                                "sn_score": 90,
+                                "unknown_count": 0
+                            },
+                            "router_alias": "ra",
+                            "sender_jid_pn": "6281200000011@s.whatsapp.net",
+                            "site_resolve": {
+                                "at": "<ts>",
+                                "key": "ra",
+                                "mode": "full_olt",
+                                "olt_id": "OLT-1",
+                                "router_id": "SKYNET-RA-OLT",
+                                "tr069_vlan": 69,
+                                "vlan": null
+                            }
+                        },
+                        "mikrotik_profile": "200M",
+                        "nik_set": true,
+                        "odp": "ODP-KLAMPOK-3",
+                        "olt": "OLT-1",
+                        "olt_at": null,
+                        "onu_id": null,
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "phone": "081200000021",
+                        "pon_port": "1/1/1",
+                        "pppoe_local_address": null,
+                        "pppoe_remote_address": null,
+                        "pppoe_user": null,
+                        "router": "SKYNET-RA-OLT",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "site_profile_key": "ra",
+                        "sn": "FHTTC0FFEE06",
+                        "sn_photo": "<file:sn-a>",
+                        "sn_wait_until": "<ts>",
+                        "status": "waiting_sn",
+                        "tr069_vlan": 69,
+                        "vlan": null
+                    }
+                ],
+                "customers": [],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "#psb lanjut: mismatch again, reply is throttled",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft1>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb ya takes the uncfg SN",
+            "trigger": "cmd:ya",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "✏️ *SN diperbarui*\nDraft: *#<draft1>*\nSN lama: `FHTTC0FFEE06`\nSN baru: `FHTTC0FFEE99`\nMelanjutkan proses…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "count": 2,
+                    "type": "mt.getPPPSecretsWithAddresses"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=7>",
+                    "profile": "200M",
+                    "remote": "198.19.42.12",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "USERSIAMINAH_RT01_RW02_3",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 Teknisi Satu\n*PPPoE siap*\nDraft: *#<draft1>* - Paket *RA-200M [200M]*\nPelanggan: USERSI AMINAH\nMikroTik: *SKYNET-RA-OLT*\nUser: `USERSIAMINAH_RT01_RW02_3`\nPassword: <pw>\nProfile: *200M*\nVLAN: *100*\nSN: `FHTTC0FFEE99`\nLanjut aktivasi OLT...",
+                    "type": "wa.send"
+                },
+                {
+                    "approval_present": true,
+                    "input": {
+                        "dry_run": false,
+                        "name": "USERSIAMINAH_RT01_RW02_3",
+                        "olt_id": 1,
+                        "onu_type": "ALL",
+                        "paket": "200M",
+                        "port": "1/1/1",
+                        "purpose": "psb_wa",
+                        "router_id": 513,
+                        "sn": "FHTTC0FFEE99"
+                    },
+                    "type": "olt.provisionFiberhome"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 Teknisi Satu\n✅ *Aktivasi OLT selesai*\nDraft: *#<draft1>*\nPelanggan: USERSI AMINAH\nSN: FHTTC0FFEE99\nPON: 1/1/1 · VLAN: *100*\n────────────\n*Setting manual di ONT pelanggan*\n*1) Internet (PPPoE)*\n• Mode: PPPoE\n• Username: USERSIAMINAH_RT01_RW02_3\n• Password: <pw>\n• VLAN internet: *100*\n*2) Management / ACS (TR-069)*\n• Mode: DHCP\n• VLAN: *69*\n• ACS URL: http://acs.test:7547\n────────────\nFoto KTP & router tersimpan di draft (menu *PSB WA*).\nAdmin apply pelanggan aktif belakangan dari eBilling.\nStatus *live PPPoE* & *redaman* → cek di eBilling (bukan di grup, biar tidak spam).\nSelesai. Uji internet + cek ACS jika perlu.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "waiting_sn",
+                    "to": "olt_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "activation_mode": "full_olt",
+                        "area": "klampok",
+                        "customer": "customer1",
+                        "daerah": "Klampok",
+                        "full_name": "USERSI AMINAH",
+                        "ktp_photo": "<file:ktp-a>",
+                        "last_error": null,
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": "area:klampok",
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": "klampok",
+                                "source": "alias",
+                                "status": "resolved"
+                            },
+                            "document_context": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-a>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "forced_router_id": "SKYNET-RA-OLT",
+                            "forced_site_key": "ra",
+                            "ip_source": "heuristic_dominant24",
+                            "mt_comment": "20Oct2026",
+                            "mt_router_id": "SKYNET-RA-OLT",
+                            "mt_written_at": "<ts>",
+                            "olt_last_response": {
+                                "at": "<ts>",
+                                "ok": true,
+                                "onu_id": 7
+                            },
+                            "olt_provisioned_at": "<ts>",
+                            "package_hint": "200M",
+                            "photo_attachments": [
+                                {
+                                    "classifier": "ktp",
+                                    "ktp_score": 100,
+                                    "odp_score": 0,
+                                    "path": "<file:ktp-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 0
+                                },
+                                {
+                                    "classifier": "sn",
+                                    "ktp_score": 0,
+                                    "odp_score": 0,
+                                    "path": "<file:sn-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 90
+                                }
+                            ],
+                            "photo_class": {
+                                "degraded_count": 0,
+                                "fast_path": true,
+                                "hard_guard": false,
+                                "images": 2,
+                                "ktp_idx": 0,
+                                "ktp_path": "<file:ktp-a>",
+                                "ktp_score": 100,
+                                "ocr_status": [
+                                    "ok",
+                                    "ok"
+                                ],
+                                "odp_scores": [
+                                    0,
+                                    0
+                                ],
+                                "sha256": "<hash x2>",
+                                "slow_unreadable": false,
+                                "sn_idx": 1,
+                                "sn_path": "<file:sn-a>",
+                                "sn_score": 90,
+                                "unknown_count": 0
+                            },
+                            "psb_customer_sync": {
+                                "checked_at": "<ts>",
+                                "skipped": [],
+                                "status": "synced",
+                                "updated": [
+                                    "ktp_photo_url"
+                                ]
+                            },
+                            "router_alias": "ra",
+                            "secret_existed": false,
+                            "sender_jid_pn": "6281200000011@s.whatsapp.net",
+                            "site_resolve": {
+                                "at": "<ts>",
+                                "key": "ra",
+                                "mode": "full_olt",
+                                "olt_id": "OLT-1",
+                                "router_id": "SKYNET-RA-OLT",
+                                "tr069_vlan": 69,
+                                "vlan": null
+                            }
+                        },
+                        "mikrotik_profile": "200M",
+                        "nik_set": true,
+                        "odp": "ODP-KLAMPOK-3",
+                        "olt": "OLT-1",
+                        "olt_at": "<ts>",
+                        "onu_id": 7,
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "phone": "081200000021",
+                        "pon_port": "1/1/1",
+                        "pppoe_local_address": "198.19.42.1",
+                        "pppoe_remote_address": "198.19.42.12",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_3",
+                        "router": "SKYNET-RA-OLT",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": "<ts>",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "site_profile_key": "ra",
+                        "sn": "FHTTC0FFEE99",
+                        "sn_photo": "<file:sn-a>",
+                        "sn_wait_until": "<ts>",
+                        "status": "olt_ok",
+                        "tr069_vlan": 69,
+                        "vlan": 100
+                    }
+                ],
+                "customers": [
+                    {
+                        "address": "RT 01 / RW 02 - ODP ODP-KLAMPOK-3 - Klampok",
+                        "area": "klampok",
+                        "due_day": 25,
+                        "ktp_photo": "/storage/<file:ktp-a>",
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "odp_name": "ODP-KLAMPOK-3",
+                        "olt": "OLT-1",
+                        "onu_serial": "FHTTC0FFEE99",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "password_set": true,
+                        "phone": "081200000021",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "sn_photo": "<file:sn-a>",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.12"
+                    }
+                }
+            }
+        }
+    ],
+    "transitions": [
+        [
+            "(none)",
+            "waiting_sn",
+            "psb_text"
+        ],
+        [
+            "waiting_sn",
+            "olt_ok",
+            "cmd:ya"
+        ]
+    ]
+}

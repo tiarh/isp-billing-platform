@@ -1,0 +1,28 @@
+{
+  "description": "open migration + same sender sends #psb then a plain photo: the PSB intake marker keeps the photo with PSB",
+  "migrations": [
+    {"ref": "m1", "status": "waiting_sn", "minutes_ago": 5}
+  ],
+  "steps": [
+    {
+      "label": "#psb text",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S13-T1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb\nNama: Budi Uji\nSN: FHTT00000013"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "plain photo",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S13-P1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/p1", "mimetype": "image/jpeg"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

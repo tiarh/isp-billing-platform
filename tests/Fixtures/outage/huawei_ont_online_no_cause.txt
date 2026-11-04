@@ -1,0 +1,16 @@
+  -----------------------------------------------------------------------------
+  F/S/P                   : 0/0/7
+  ONT-ID                  : 26
+  Control flag            : active
+  Run state               : online
+  Config state            : normal
+  Match state             : match
+  ONT distance(m)         : 873
+  Description             : PELANGGAN-UJI-D
+  Last down cause         : -
+  Last up time            : 2026-10-12 06:47:50+08:00
+  Last down time          : -
+  Last dying gasp time    : -
+  ONT online duration     : 5 day(s), 6 hour(s), 1 minute(s), 3 second(s)
+  ONT system up duration  : 21 day(s), 2 hour(s), 10 minute(s), 9 second(s)
+  Power reduction status  : Not support

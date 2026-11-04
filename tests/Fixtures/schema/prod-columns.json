@@ -1,0 +1,10182 @@
+{
+ "captured_at": "2026-10-14",
+ "source": "prod information_schema.COLUMNS (structure only, no data; IP defaults redacted)",
+ "columns": [
+  {
+   "t": "activity_log",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "activity_log",
+   "c": "log_name",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "activity_log",
+   "c": "description",
+   "type": "text",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "activity_log",
+   "c": "subject_type",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "activity_log",
+   "c": "subject_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "activity_log",
+   "c": "event",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "activity_log",
+   "c": "batch_uuid",
+   "type": "char(36)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "activity_log",
+   "c": "causer_type",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "activity_log",
+   "c": "causer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "activity_log",
+   "c": "properties",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "activity_log",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "activity_log",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "area_aliases",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "area_aliases",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "area_aliases",
+   "c": "alias",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "area_aliases",
+   "c": "alias_key",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "area_aliases",
+   "c": "created_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "area_aliases",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "area_aliases",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "area_user",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "area_user",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "area_user",
+   "c": "user_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "area_user",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "area_user",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "areas",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "areas",
+   "c": "code",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "areas",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "areas",
+   "c": "portal_enabled",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "areas",
+   "c": "description",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "areas",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "areas",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendance_created_at_fixes",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "attendance_created_at_fixes",
+   "c": "attendance_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendance_created_at_fixes",
+   "c": "bucket",
+   "type": "varchar(8)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendance_created_at_fixes",
+   "c": "old_created_at",
+   "type": "datetime",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendance_created_at_fixes",
+   "c": "new_created_at",
+   "type": "datetime",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendance_created_at_fixes",
+   "c": "applied_at",
+   "type": "datetime",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendance_created_at_fixes",
+   "c": "restored_at",
+   "type": "datetime",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendances",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "attendances",
+   "c": "sender_number",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendances",
+   "c": "sender_jid",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendances",
+   "c": "sender_name",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendances",
+   "c": "technician_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendances",
+   "c": "caption",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendances",
+   "c": "photo_url",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendances",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "NO",
+   "def": "CURRENT_TIMESTAMP",
+   "extra": "DEFAULT_GENERATED"
+  },
+  {
+   "t": "attendances",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "NO",
+   "def": "CURRENT_TIMESTAMP",
+   "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP"
+  },
+  {
+   "t": "attendances",
+   "c": "message_id",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendances",
+   "c": "evidence_message_id",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "attendances",
+   "c": "review_status",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "accepted",
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "idempotency_key",
+   "type": "varchar(191)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "invoice_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "action",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "policy_version",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "status",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "pending",
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "metadata",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "error",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "started_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "completed_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_enforcement_actions",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "event",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "invoice_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "phone",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "message",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "status",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "pending",
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "error",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "dedupe_key",
+   "type": "varchar(191)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "sent_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "provider_message_id",
+   "type": "varchar(191)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "billing_wa_logs",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "cache",
+   "c": "key",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "cache",
+   "c": "value",
+   "type": "mediumtext",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "cache",
+   "c": "expiration",
+   "type": "int",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "cache_locks",
+   "c": "key",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "cache_locks",
+   "c": "owner",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "cache_locks",
+   "c": "expiration",
+   "type": "int",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "batch_key",
+   "type": "varchar(80)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "source_label",
+   "type": "varchar(160)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "row_number",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "classification",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "needs_review",
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "classification_source",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "excel_rule",
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "project",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "area",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "sub_area",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "rw",
+   "type": "varchar(20)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "rw_needs_review",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "full_name",
+   "type": "varchar(160)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "pppoe_user",
+   "type": "varchar(160)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "sn_lama",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "sn_baru",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "sn_baru_source",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "old_onu_ref",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "status",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "staged",
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "match_status",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": "needs_review",
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "match_notes",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "raw_data",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "override_reason",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "imported_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "imported_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "corrected_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "corrected_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "applied_target_type",
+   "type": "varchar(40)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "applied_target_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "applied_error",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "applied_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "applied_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migration_import_rows",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "customer_migrations",
+   "c": "status",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "received",
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "source",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "wa",
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "group_jid",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "sender_jid",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "sender_name",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "message_id",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "raw_text",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "pppoe_user",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "full_name",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "phone",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "nik",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "rt",
+   "type": "varchar(8)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "rw",
+   "type": "varchar(8)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "odp",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "tikor",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "daerah",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "old_router_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "old_olt_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "old_onu_ref",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "old_sn",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "new_olt_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "new_onu_ref",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "new_pon_port",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "new_onu_id",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "new_sn",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "vlan",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "tr069_vlan",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "ktp_photo_path",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "router_photo_path",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "last_error",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "olt_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "old_onu_deleted_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "synced_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_migrations",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "pppoe_key_hash",
+   "type": "char(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "online",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "session_hash",
+   "type": "char(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "download_bps",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "upload_bps",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "download_bytes_total",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "upload_bytes_total",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "quality",
+   "type": "varchar(16)",
+   "nul": "NO",
+   "def": "first_sample",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "source",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "mikrotik_pppoe",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "sampled_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_current",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "traffic_date_wib",
+   "type": "date",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "download_bytes",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "upload_bytes",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "sample_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "expected_sample_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "reset_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "gap_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "coverage_ratio",
+   "type": "decimal(6,4)",
+   "nul": "NO",
+   "def": "0.0000",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "quality",
+   "type": "varchar(16)",
+   "nul": "NO",
+   "def": "good",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "source",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "api_poll",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "first_sampled_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "last_sampled_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_daily",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "batch_id",
+   "type": "varchar(128)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "chunk_index",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "chunk_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "schema_version",
+   "type": "varchar(16)",
+   "nul": "NO",
+   "def": "1",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "source",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "collector_106",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "traffic_date_wib",
+   "type": "varchar(10)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "row_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "body_hash",
+   "type": "char(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "status",
+   "type": "varchar(16)",
+   "nul": "NO",
+   "def": "committed",
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "committed_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customer_traffic_ingest_batches",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "customers",
+   "c": "legacy_id",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "code",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "email",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "phone",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "address",
+   "type": "text",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "olt_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "olt_port_label",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "onu_serial",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "olt_status",
+   "type": "varchar(50)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "onu_rx_power_dbm",
+   "type": "decimal(6,2)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "onu_tx_power_dbm",
+   "type": "decimal(6,2)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "fiber_distance_m",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "olt_last_synced_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "mikrotik_profile",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "previous_profile",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "mikrotik_sync_status",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "unknown",
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "mikrotik_synced_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "mikrotik_sync_checked_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "package_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "pppoe_user",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "pppoe_password",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "pppoe_local_address",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "pppoe_remote_address",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "static_ip",
+   "type": "varchar(45)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "last_learned_ip",
+   "type": "varchar(45)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "status",
+   "type": "enum('active','suspended','inactive','isolated','terminated','pending_installation')",
+   "nul": "NO",
+   "def": "active",
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "nik",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "ktp_photo_url",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "odp_photo_url",
+   "type": "varchar(512)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "odp_name",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "odp_odc_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "ktp_external_url",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "geo_lat",
+   "type": "decimal(10,8)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "geo_long",
+   "type": "decimal(11,8)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "join_date",
+   "type": "date",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "is_online",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "pppoe_online_checked_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "service_online",
+   "type": "tinyint(1)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "service_online_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "service_online_reason",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "due_day",
+   "type": "int",
+   "nul": "NO",
+   "def": "20",
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "customers",
+   "c": "deleted_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "device_action_logs",
+   "c": "domain",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "target_type",
+   "type": "varchar(60)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "target_id",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "action",
+   "type": "varchar(80)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "status",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": "requested",
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "idempotency_key",
+   "type": "varchar(191)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "payload_hash",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "requested_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "payload",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "preflight",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "result",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "rollback_hint",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "requested_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "executed_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "verified_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_action_logs",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "ticket_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "status",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "keep_customer_active",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "assigned_to",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "created_by",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "updated_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "scheduled_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "started_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "received_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "exception_reason",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "version",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_cases",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "recovery_case_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "item_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "actor_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "event_type",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "from_status",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "to_status",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "reason",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "source",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "web",
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "idempotency_key",
+   "type": "varchar(191)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "metadata",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_events",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "NO",
+   "def": "CURRENT_TIMESTAMP",
+   "extra": "DEFAULT_GENERATED"
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "recovery_case_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "device_type",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "expected_serial_number",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "captured_serial_number",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "expected_source",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "status",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "condition",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "unknown",
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "captured_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "captured_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "verified_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "verified_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "photo_paths",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "notes",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "device_recovery_items",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "run_id",
+   "type": "char(36)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "pppoe_user",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "kind",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "severity",
+   "type": "varchar(16)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "db_status",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "router_profile",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "router_disabled",
+   "type": "tinyint(1)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "online",
+   "type": "tinyint(1)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "detail",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "enforcement_drift",
+   "c": "detected_at",
+   "type": "timestamp",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "failed_jobs",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "failed_jobs",
+   "c": "uuid",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "failed_jobs",
+   "c": "connection",
+   "type": "text",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "failed_jobs",
+   "c": "queue",
+   "type": "text",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "failed_jobs",
+   "c": "payload",
+   "type": "longtext",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "failed_jobs",
+   "c": "exception",
+   "type": "longtext",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "failed_jobs",
+   "c": "failed_at",
+   "type": "timestamp",
+   "nul": "NO",
+   "def": "CURRENT_TIMESTAMP",
+   "extra": "DEFAULT_GENERATED"
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "device_id",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "match_source",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "snapshot_status",
+   "type": "varchar(16)",
+   "nul": "NO",
+   "def": "active",
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "last_seen_sync_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "serial_number",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "oui",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "manufacturer",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "model",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "product_class",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "software_version",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "hardware_version",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "uptime_seconds",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "uptime_text",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "pppoe_uptime",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "wlan_enabled",
+   "type": "tinyint(1)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "wlan_channel",
+   "type": "varchar(16)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "ip_address",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "ip_tr069",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "mac_address",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "ssid",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "ssid_5g",
+   "type": "varchar(191)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "tags",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "pelanggan",
+   "type": "varchar(191)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "genieacs_customer_name",
+   "type": "varchar(191)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "pppoe_user",
+   "type": "varchar(191)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "wan_status",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "pon_mode",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "wifi_clients",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "last_inform_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "registered_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "last_ping_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "last_ping_success",
+   "type": "tinyint(1)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "last_ping_host",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "last_ping_success_count",
+   "type": "smallint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "last_ping_failure_count",
+   "type": "smallint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "last_ping_rtt_ms",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "last_ping_error",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "parameters",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "genieacs_devices",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "package_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "batch_code",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "username",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "password",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "profile",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "rate_limit",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "price",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "duration_minutes",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "quota_bytes",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "status",
+   "type": "enum('unused','active','used','expired','disabled')",
+   "nul": "NO",
+   "def": "unused",
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "activated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "expires_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "last_seen_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "hotspot_vouchers",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoice_broadcasts",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "invoice_broadcasts",
+   "c": "invoice_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoice_broadcasts",
+   "c": "type",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "invoice_created",
+   "extra": ""
+  },
+  {
+   "t": "invoice_broadcasts",
+   "c": "channel",
+   "type": "enum('whatsapp','email','sms')",
+   "nul": "NO",
+   "def": "whatsapp",
+   "extra": ""
+  },
+  {
+   "t": "invoice_broadcasts",
+   "c": "status",
+   "type": "enum('pending','sent','failed')",
+   "nul": "NO",
+   "def": "pending",
+   "extra": ""
+  },
+  {
+   "t": "invoice_broadcasts",
+   "c": "message",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoice_broadcasts",
+   "c": "message_id",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoice_broadcasts",
+   "c": "error_message",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoice_broadcasts",
+   "c": "sent_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoice_broadcasts",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoice_broadcasts",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "invoices",
+   "c": "legacy_id",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "uuid",
+   "type": "char(36)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "code",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "period",
+   "type": "date",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "amount",
+   "type": "decimal(10,2)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "status",
+   "type": "enum('unpaid','paid','overdue','void')",
+   "nul": "NO",
+   "def": "unpaid",
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "due_date",
+   "type": "date",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "generated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "last_synced_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "payment_link",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "invoices",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "job_batches",
+   "c": "id",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "job_batches",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "job_batches",
+   "c": "total_jobs",
+   "type": "int",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "job_batches",
+   "c": "pending_jobs",
+   "type": "int",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "job_batches",
+   "c": "failed_jobs",
+   "type": "int",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "job_batches",
+   "c": "failed_job_ids",
+   "type": "longtext",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "job_batches",
+   "c": "options",
+   "type": "mediumtext",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "job_batches",
+   "c": "cancelled_at",
+   "type": "int",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "job_batches",
+   "c": "created_at",
+   "type": "int",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "job_batches",
+   "c": "finished_at",
+   "type": "int",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "jobs",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "jobs",
+   "c": "queue",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "jobs",
+   "c": "payload",
+   "type": "longtext",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "jobs",
+   "c": "attempts",
+   "type": "tinyint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "jobs",
+   "c": "reserved_at",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "jobs",
+   "c": "available_at",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "jobs",
+   "c": "created_at",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "kabel",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "kabel",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "kabel",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "kabel",
+   "c": "type",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "kabel",
+   "c": "length_km",
+   "type": "decimal(8,3)",
+   "nul": "NO",
+   "def": "0.000",
+   "extra": ""
+  },
+  {
+   "t": "kabel",
+   "c": "status",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "active",
+   "extra": ""
+  },
+  {
+   "t": "kabel",
+   "c": "description",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "kabel",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "kabel",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "psb_draft_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "customer_migration_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "status",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "idempotency_key",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "source_type",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "source_locator",
+   "type": "text",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "target_path",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "source_size",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "source_mime",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "source_checksum",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "confidence",
+   "type": "tinyint unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "evidence",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "before_snapshot",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "requested_by",
+   "type": "varchar(120)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "reason",
+   "type": "text",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "attempts",
+   "type": "smallint unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "last_error",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "copied_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "verified_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ktp_media_recoveries",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "migrations",
+   "c": "id",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "migrations",
+   "c": "migration",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "migrations",
+   "c": "batch",
+   "type": "int",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "source",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "ebilling",
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "entity_type",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "entity_id",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "entity_name",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "issue",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "severity",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "warning",
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "status",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "active",
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "payload",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "first_seen_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "last_seen_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "last_sent_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "recovered_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "dedupe_key",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_alert_events",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshot_rows",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "monitoring_snapshot_rows",
+   "c": "monitoring_snapshot_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshot_rows",
+   "c": "row_key",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshot_rows",
+   "c": "status",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshot_rows",
+   "c": "payload",
+   "type": "json",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshot_rows",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshot_rows",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshots",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "monitoring_snapshots",
+   "c": "source_type",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshots",
+   "c": "source_id",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshots",
+   "c": "status",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "queued",
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshots",
+   "c": "started_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshots",
+   "c": "finished_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshots",
+   "c": "row_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshots",
+   "c": "error",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshots",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshots",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_snapshots",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_upstream_links",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "monitoring_upstream_links",
+   "c": "upstream_key",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_upstream_links",
+   "c": "display_name",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_upstream_links",
+   "c": "kind",
+   "type": "varchar(16)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_upstream_links",
+   "c": "router_label",
+   "type": "varchar(96)",
+   "nul": "NO",
+   "def": "Jakarta-Edge",
+   "extra": ""
+  },
+  {
+   "t": "monitoring_upstream_links",
+   "c": "interface_name",
+   "type": "varchar(128)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_upstream_links",
+   "c": "capacity_mbps",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_upstream_links",
+   "c": "sort",
+   "type": "smallint",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "monitoring_upstream_links",
+   "c": "is_active",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "1",
+   "extra": ""
+  },
+  {
+   "t": "monitoring_upstream_links",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "monitoring_upstream_links",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "nas",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "nas",
+   "c": "nasname",
+   "type": "varchar(128)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "nas",
+   "c": "shortname",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "nas",
+   "c": "type",
+   "type": "varchar(30)",
+   "nul": "NO",
+   "def": "other",
+   "extra": ""
+  },
+  {
+   "t": "nas",
+   "c": "ports",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "nas",
+   "c": "secret",
+   "type": "varchar(60)",
+   "nul": "NO",
+   "def": "secret",
+   "extra": ""
+  },
+  {
+   "t": "nas",
+   "c": "server",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "nas",
+   "c": "community",
+   "type": "varchar(50)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "nas",
+   "c": "description",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "odp_odc",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "parent_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "code",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "type",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "olt_port",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "total_ports",
+   "type": "int",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "description",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "status",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "active",
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "lat",
+   "type": "decimal(10,7)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "lng",
+   "type": "decimal(10,7)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "odp_odc",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "olt_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "tier",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "status",
+   "type": "varchar(24)",
+   "nul": "NO",
+   "def": "running",
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "onus_total",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "onus_updated",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "duration_ms",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "error",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "started_at",
+   "type": "timestamp",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "finished_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_collect_runs",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "olt_onus",
+   "c": "olt_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "onu_ref",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "snmp_index",
+   "type": "varchar(48)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "pon_port",
+   "type": "varchar(24)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "serial_number",
+   "type": "varchar(48)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "onu_name",
+   "type": "varchar(191)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "state",
+   "type": "varchar(24)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "phase_state",
+   "type": "varchar(24)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "rx_power_dbm",
+   "type": "decimal(7,2)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "distance_m",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "rx_source",
+   "type": "varchar(24)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "serial_source",
+   "type": "varchar(24)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "name_source",
+   "type": "varchar(24)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "state_collected_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "rx_collected_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "inventory_collected_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_onus",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_operation_logs",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "olt_operation_logs",
+   "c": "olt_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_operation_logs",
+   "c": "user_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_operation_logs",
+   "c": "operation",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_operation_logs",
+   "c": "onu_ref",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_operation_logs",
+   "c": "status",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "success",
+   "extra": ""
+  },
+  {
+   "t": "olt_operation_logs",
+   "c": "payload",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_operation_logs",
+   "c": "result",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_operation_logs",
+   "c": "error",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_operation_logs",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_operation_logs",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_vlan_mappings",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "olt_vlan_mappings",
+   "c": "olt_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_vlan_mappings",
+   "c": "pon_port",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_vlan_mappings",
+   "c": "service_type",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "internet",
+   "extra": ""
+  },
+  {
+   "t": "olt_vlan_mappings",
+   "c": "vlan",
+   "type": "smallint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_vlan_mappings",
+   "c": "description",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_vlan_mappings",
+   "c": "is_active",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "1",
+   "extra": ""
+  },
+  {
+   "t": "olt_vlan_mappings",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olt_vlan_mappings",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "olts",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "code",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "vendor",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "zte_c300",
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "management_ip",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "management_protocol",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "management_port",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "username",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "password",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "snmp_community",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "location",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "notes",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "last_gpon_snapshot",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "last_gpon_synced_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "sync_status",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "idle",
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "sync_started_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "last_sync_error",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "olts",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "onu_rejects",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "onu_rejects",
+   "c": "sn",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "onu_rejects",
+   "c": "reason",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "onu_rejects",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "onu_rejects",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "packages",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "packages",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "packages",
+   "c": "code",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "packages",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "packages",
+   "c": "description",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "packages",
+   "c": "price",
+   "type": "decimal(10,2)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "packages",
+   "c": "speed_mbps",
+   "type": "int",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "packages",
+   "c": "mikrotik_profile",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "packages",
+   "c": "rate_limit",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "packages",
+   "c": "is_active",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "1",
+   "extra": ""
+  },
+  {
+   "t": "packages",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "packages",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "password_reset_tokens",
+   "c": "email",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "password_reset_tokens",
+   "c": "token",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "password_reset_tokens",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "provider",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "external_id",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "reference",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "credit_key",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "invoice_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "amount",
+   "type": "decimal(12,2)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "credit_amount",
+   "type": "decimal(12,2)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "credit_method",
+   "type": "varchar(20)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "status",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "payload",
+   "type": "json",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "processed_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "held_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "released_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_events",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "provider",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "environment",
+   "type": "varchar(20)",
+   "nul": "NO",
+   "def": "sandbox",
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "invoice_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "merchant_order_id",
+   "type": "varchar(50)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "provider_reference",
+   "type": "varchar(100)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "payment_method",
+   "type": "varchar(20)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "method_group",
+   "type": "varchar(20)",
+   "nul": "NO",
+   "def": "other",
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "method_name",
+   "type": "varchar(100)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "kind",
+   "type": "varchar(20)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "amount_invoice",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "fee",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "fee_bearer",
+   "type": "varchar(20)",
+   "nul": "NO",
+   "def": "customer",
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "amount_charged",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "status",
+   "type": "varchar(20)",
+   "nul": "NO",
+   "def": "created",
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "payment_url",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "va_number",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "qr_string",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "expires_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "paid_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "transaction_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "status_check_count",
+   "type": "smallint unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "last_status_check_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "last_error",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "source",
+   "type": "varchar(20)",
+   "nul": "NO",
+   "def": "public",
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "created_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_gateway_transactions",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_reversals",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "payment_reversals",
+   "c": "transaction_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_reversals",
+   "c": "invoice_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_reversals",
+   "c": "amount",
+   "type": "decimal(10,2)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_reversals",
+   "c": "reversal_reference",
+   "type": "varchar(191)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_reversals",
+   "c": "idempotency_key",
+   "type": "varchar(191)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_reversals",
+   "c": "reason",
+   "type": "text",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_reversals",
+   "c": "reversed_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_reversals",
+   "c": "reversed_at",
+   "type": "timestamp",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_reversals",
+   "c": "metadata",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_reversals",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "payment_reversals",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "site_profile_key",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "pppoe_profile",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "customer_area",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "block_name",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "block_index",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "address_format",
+   "type": "varchar(24)",
+   "nul": "NO",
+   "def": "full_ipv4",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "prefix_template",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "local_address",
+   "type": "varchar(45)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "remote_start",
+   "type": "varchar(45)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "remote_end",
+   "type": "varchar(45)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "next_block_index",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "last_remote_address",
+   "type": "varchar(45)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "last_remote_source",
+   "type": "varchar(40)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "last_remote_synced_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "allocator_mode",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": "last_remote_pointer",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "priority",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "100",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "is_active",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "1",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "capacity",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "used_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "available_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "warning_threshold",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "10",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "last_synced_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_address_pool_blocks",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_usage_daily",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "pppoe_usage_daily",
+   "c": "usage_date_wib",
+   "type": "date",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_usage_daily",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_usage_daily",
+   "c": "pppoe_user",
+   "type": "varchar(128)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_usage_daily",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_usage_daily",
+   "c": "download_bytes",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_usage_daily",
+   "c": "upload_bytes",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_usage_daily",
+   "c": "is_final",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_usage_daily",
+   "c": "quality",
+   "type": "varchar(16)",
+   "nul": "NO",
+   "def": "ok",
+   "extra": ""
+  },
+  {
+   "t": "pppoe_usage_daily",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "pppoe_usage_daily",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "progress_reports",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "progress_reports",
+   "c": "month",
+   "type": "int",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "progress_reports",
+   "c": "year",
+   "type": "int",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "progress_reports",
+   "c": "sitac_data",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "progress_reports",
+   "c": "ftth_data",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "progress_reports",
+   "c": "project_data",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "progress_reports",
+   "c": "migrasi_data",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "progress_reports",
+   "c": "aktivasi_data",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "progress_reports",
+   "c": "highlights",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "progress_reports",
+   "c": "priorities",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "progress_reports",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "progress_reports",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "psb_drafts",
+   "c": "status",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "received",
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "activation_mode",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "site_profile_key",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "group_jid",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "sender_jid",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "sender_name",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "message_id",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "raw_text",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "full_name",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "rt",
+   "type": "varchar(8)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "rw",
+   "type": "varchar(8)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "odp",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "phone",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "tikor",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "daerah",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "nik",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "sn",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "pon_port",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "onu_id",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "vlan",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "tr069_vlan",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "69",
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "pppoe_user",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "pppoe_local_address",
+   "type": "varchar(45)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "pppoe_remote_address",
+   "type": "varchar(45)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "mikrotik_profile",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "olt_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "package_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "ktp_photo_path",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "router_photo_path",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "last_error",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "sn_wait_until",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "secret_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "olt_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "applied_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_drafts",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "source_file",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "customer_code",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "pppoe_user",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "address",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "area_name",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "phone",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "package_name",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "speed",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "price",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "status",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "staged",
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "matched_customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "matched_router_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "matched_router_staged_customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "resolved_area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "resolved_package_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "resolved_router_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "router_profile",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "match_status",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "unmatched",
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "match_notes",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "applied_customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "applied_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "raw_payload",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "imported_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_import_candidates",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_kpi_daily",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "psb_kpi_daily",
+   "c": "work_date",
+   "type": "date",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_kpi_daily",
+   "c": "site_key",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": "unknown",
+   "extra": ""
+  },
+  {
+   "t": "psb_kpi_daily",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_kpi_daily",
+   "c": "input_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "psb_kpi_daily",
+   "c": "success_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "psb_kpi_daily",
+   "c": "pending_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "psb_kpi_daily",
+   "c": "failed_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "psb_kpi_daily",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_kpi_daily",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "installed_on",
+   "type": "date",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "rw",
+   "type": "varchar(20)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "full_name",
+   "type": "varchar(160)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "pppoe_user",
+   "type": "varchar(160)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "sn",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "service_type",
+   "type": "varchar(40)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "install_status",
+   "type": "varchar(40)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "tikor",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "odp",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "kendala",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "pic",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "source",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": "excel",
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "source_key",
+   "type": "varchar(190)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "psb_starlite_entries",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "radacctid",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "radacct",
+   "c": "acctsessionid",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "acctuniqueid",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "username",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "realm",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "nasipaddress",
+   "type": "varchar(15)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "nasportid",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "nasporttype",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "acctstarttime",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "acctupdatetime",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "acctstoptime",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "acctinterval",
+   "type": "int",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "acctsessiontime",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "acctauthentic",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "connectinfo_start",
+   "type": "varchar(50)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "connectinfo_stop",
+   "type": "varchar(50)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "acctinputoctets",
+   "type": "bigint",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "acctoutputoctets",
+   "type": "bigint",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "calledstationid",
+   "type": "varchar(50)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "callingstationid",
+   "type": "varchar(50)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "acctterminatecause",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "servicetype",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "framedprotocol",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radacct",
+   "c": "framedipaddress",
+   "type": "varchar(15)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radcheck",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "radcheck",
+   "c": "username",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radcheck",
+   "c": "attribute",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radcheck",
+   "c": "op",
+   "type": "char(2)",
+   "nul": "NO",
+   "def": "==",
+   "extra": ""
+  },
+  {
+   "t": "radcheck",
+   "c": "value",
+   "type": "varchar(253)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radgroupcheck",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "radgroupcheck",
+   "c": "groupname",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radgroupcheck",
+   "c": "attribute",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radgroupcheck",
+   "c": "op",
+   "type": "char(2)",
+   "nul": "NO",
+   "def": "==",
+   "extra": ""
+  },
+  {
+   "t": "radgroupcheck",
+   "c": "value",
+   "type": "varchar(253)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radgroupreply",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "radgroupreply",
+   "c": "groupname",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radgroupreply",
+   "c": "attribute",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radgroupreply",
+   "c": "op",
+   "type": "char(2)",
+   "nul": "NO",
+   "def": "=",
+   "extra": ""
+  },
+  {
+   "t": "radgroupreply",
+   "c": "value",
+   "type": "varchar(253)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radpostauth",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "radpostauth",
+   "c": "username",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radpostauth",
+   "c": "pass",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radpostauth",
+   "c": "reply",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radpostauth",
+   "c": "authdate",
+   "type": "timestamp",
+   "nul": "NO",
+   "def": "CURRENT_TIMESTAMP",
+   "extra": "DEFAULT_GENERATED"
+  },
+  {
+   "t": "radreply",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "radreply",
+   "c": "username",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radreply",
+   "c": "attribute",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radreply",
+   "c": "op",
+   "type": "char(2)",
+   "nul": "NO",
+   "def": "=",
+   "extra": ""
+  },
+  {
+   "t": "radreply",
+   "c": "value",
+   "type": "varchar(253)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radusergroup",
+   "c": "username",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radusergroup",
+   "c": "groupname",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "radusergroup",
+   "c": "priority",
+   "type": "int",
+   "nul": "NO",
+   "def": "1",
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "reseller_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "invoice_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "transaction_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "period",
+   "type": "varchar(7)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "base_amount",
+   "type": "decimal(12,2)",
+   "nul": "NO",
+   "def": "0.00",
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "commission_amount",
+   "type": "decimal(12,2)",
+   "nul": "NO",
+   "def": "0.00",
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "status",
+   "type": "enum('pending','approved','paid','void')",
+   "nul": "NO",
+   "def": "pending",
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "paid_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "reseller_commissions",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_secret_states",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "router_mt_secret_states",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_secret_states",
+   "c": "secrets_hash",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_secret_states",
+   "c": "secret_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "router_mt_secret_states",
+   "c": "mapped_count",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_secret_states",
+   "c": "last_checked_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_secret_states",
+   "c": "last_full_sync_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_secret_states",
+   "c": "last_status",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_secret_states",
+   "c": "last_message",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_secret_states",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_secret_states",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "online_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "secret_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "multi_session",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "session_rows",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "tier",
+   "type": "varchar(8)",
+   "nul": "NO",
+   "def": "t0",
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "source",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "exporter",
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "quality",
+   "type": "varchar(16)",
+   "nul": "NO",
+   "def": "good",
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "scrape_ms",
+   "type": "int unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "message",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "collected_at",
+   "type": "timestamp",
+   "nul": "NO",
+   "def": "CURRENT_TIMESTAMP",
+   "extra": "DEFAULT_GENERATED"
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_mt_snapshots",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_profiles",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "router_profiles",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_profiles",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_profiles",
+   "c": "rate_limit",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_profiles",
+   "c": "bandwidth",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_profiles",
+   "c": "local_address",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_profiles",
+   "c": "remote_address",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_profiles",
+   "c": "only_one",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_profiles",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_profiles",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "matched_customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "pppoe_user",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "profile",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "comment",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "disabled",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "status",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "unmatched",
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "raw_payload",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "first_seen_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "last_seen_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_staged_customers",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_vlans",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "router_vlans",
+   "c": "router_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_vlans",
+   "c": "vlan",
+   "type": "smallint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_vlans",
+   "c": "label",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_vlans",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_vlans",
+   "c": "mikrotik_profile",
+   "type": "varchar(64)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_vlans",
+   "c": "is_default",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "router_vlans",
+   "c": "is_active",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "1",
+   "extra": ""
+  },
+  {
+   "t": "router_vlans",
+   "c": "notes",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_vlans",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "router_vlans",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "routers",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "ip_address",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "port",
+   "type": "int",
+   "nul": "NO",
+   "def": "8728",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "username",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "password",
+   "type": "text",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "is_active",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "1",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "monitoring_enabled",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "connection_status",
+   "type": "enum('unknown','online','offline')",
+   "nul": "NO",
+   "def": "unknown",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "isolation_profile",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "sync_status",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "idle",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "sync_started_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "sync_finished_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "sync_lock_until",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "sync_message",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "last_sync_stats",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "vpn_enabled",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "vpn_interface",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "wg-ebilling",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "vpn_address",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "vpn_server_address",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "<redacted-ip>",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "vpn_server_public_key",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "vpn_server_endpoint",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "vpn_server_port",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "51820",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "vpn_allowed_ips",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "<redacted-ip>",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "vpn_client_private_key",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "vpn_client_public_key",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "vpn_preshared_key",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "radius_enabled",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "radius_secret",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "radius_auth_port",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "1812",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "radius_acct_port",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "1813",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "last_radius_synced_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "last_scanned_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "last_health_check_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "last_scan_customers_count",
+   "type": "int",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "current_online_count",
+   "type": "int",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "total_pppoe_count",
+   "type": "int",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "cpu_load",
+   "type": "int",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "uptime",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "version",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "board_name",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "routers",
+   "c": "grafana_identity",
+   "type": "varchar(96)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "sales_leads",
+   "c": "code",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "name",
+   "type": "varchar(150)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "phone",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "address",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "daerah",
+   "type": "varchar(64)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "rt",
+   "type": "varchar(8)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "rw",
+   "type": "varchar(8)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "odp_name",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "source",
+   "type": "varchar(32)",
+   "nul": "NO",
+   "def": "manual",
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "status",
+   "type": "varchar(16)",
+   "nul": "NO",
+   "def": "calon",
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "reason_code",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "reason_note",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "notes",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "converted_customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "installed_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "created_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sales_leads",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sessions",
+   "c": "id",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sessions",
+   "c": "user_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sessions",
+   "c": "ip_address",
+   "type": "varchar(45)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sessions",
+   "c": "user_agent",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sessions",
+   "c": "payload",
+   "type": "longtext",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "sessions",
+   "c": "last_activity",
+   "type": "int",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "settings",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "settings",
+   "c": "key",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "settings",
+   "c": "value",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "settings",
+   "c": "type",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "string",
+   "extra": ""
+  },
+  {
+   "t": "settings",
+   "c": "group",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "general",
+   "extra": ""
+  },
+  {
+   "t": "settings",
+   "c": "label",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "settings",
+   "c": "description",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "settings",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "settings",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "splitter",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "splitter",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "splitter",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "splitter",
+   "c": "type",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "splitter",
+   "c": "total_ports",
+   "type": "int",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "splitter",
+   "c": "used_ports",
+   "type": "int",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "splitter",
+   "c": "status",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "active",
+   "extra": ""
+  },
+  {
+   "t": "splitter",
+   "c": "parent_odp_odc_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "splitter",
+   "c": "description",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "splitter",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "splitter",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "support_tickets",
+   "c": "code",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "report_id",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "customer_name",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "customer_phone",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "customer_coords",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "site",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "assigned_to",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "additional_technicians",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "created_by",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "type",
+   "type": "enum('installation','incident','billing','request','other','psb','dismantle','maintenance')",
+   "nul": "NO",
+   "def": "incident",
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "priority",
+   "type": "enum('low','normal','high','urgent')",
+   "nul": "NO",
+   "def": "normal",
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "status",
+   "type": "varchar(30)",
+   "nul": "NO",
+   "def": "open",
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "subject",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "description",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "gangguan",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "keterangan",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "kendala",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "action_taken",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "material",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "photos",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "due_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "assigned_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "resolved_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "dismantle_reason",
+   "type": "varchar(32)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "support_tickets",
+   "c": "dismantle_reason_note",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_schedules",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "technician_daily_schedules",
+   "c": "schedule_date",
+   "type": "date",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_schedules",
+   "c": "status",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": "draft",
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_schedules",
+   "c": "previewed_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_schedules",
+   "c": "approved_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_schedules",
+   "c": "sent_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_schedules",
+   "c": "sent_message_id",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_schedules",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_schedules",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_schedules",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "schedule_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "work_date",
+   "type": "date",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "team_no",
+   "type": "smallint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "team_label",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "technicians",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "site",
+   "type": "varchar(160)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "task_type",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": "manual",
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "task",
+   "type": "text",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "progress",
+   "type": "varchar(160)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "status",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": "draft",
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "priority",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": "normal",
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "source",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": "manual_wa",
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "source_ref",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "raw_text",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_daily_tasks",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_members",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "technician_members",
+   "c": "name",
+   "type": "varchar(80)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_members",
+   "c": "role",
+   "type": "varchar(40)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_members",
+   "c": "is_active",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "1",
+   "extra": ""
+  },
+  {
+   "t": "technician_members",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_members",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_members",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "report_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "task_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "work_date",
+   "type": "date",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "group_jid",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "sender_jid",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "sender_name",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "message_id",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "storage_disk",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": "local",
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "path",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "original_name",
+   "type": "varchar(180)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "mime_type",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "kind",
+   "type": "varchar(60)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_photos",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "task_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "work_date",
+   "type": "date",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "team_no",
+   "type": "smallint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "team_label",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "group_jid",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "sender_jid",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "sender_name",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "message_id",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "technicians",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "progress_items",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "sites",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "actions",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "photo_status",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "status",
+   "type": "varchar(60)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "constraints",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "materials",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "note",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "raw_text",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_progress_reports",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_team_members",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "technician_team_members",
+   "c": "team_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_team_members",
+   "c": "member_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_team_members",
+   "c": "name",
+   "type": "varchar(80)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_team_members",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_team_members",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_teams",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "technician_teams",
+   "c": "work_date",
+   "type": "date",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_teams",
+   "c": "team_no",
+   "type": "smallint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_teams",
+   "c": "label",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_teams",
+   "c": "site",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_teams",
+   "c": "status",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": "draft",
+   "extra": ""
+  },
+  {
+   "t": "technician_teams",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_teams",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_teams",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "work_date",
+   "type": "date",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "group_jid",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "sender_jid",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "sender_name",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "message_id",
+   "type": "varchar(128)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "command",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "action",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "is_dry_run",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "1",
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "handled",
+   "type": "tinyint(1)",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "response_preview",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "payload",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "raw_text",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "technician_wa_command_logs",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_activities",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "ticket_activities",
+   "c": "ticket_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_activities",
+   "c": "user_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_activities",
+   "c": "action",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_activities",
+   "c": "old_value",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_activities",
+   "c": "new_value",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_activities",
+   "c": "description",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_activities",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_activities",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_comments",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "ticket_comments",
+   "c": "ticket_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_comments",
+   "c": "user_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_comments",
+   "c": "body",
+   "type": "text",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_comments",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "ticket_comments",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "transactions",
+   "c": "legacy_id",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "legacy_customer_code",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "legacy_period",
+   "type": "date",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "reference",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "idempotency_key",
+   "type": "varchar(191)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "invoice_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "admin_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "amount",
+   "type": "decimal(10,2)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "channel",
+   "type": "enum('whatsapp','manual','gateway')",
+   "nul": "NO",
+   "def": "manual",
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "method",
+   "type": "enum('cash','transfer','qris','other','va','ewallet','retail','card')",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "status",
+   "type": "enum('pending','verified','rejected','paid','failed')",
+   "nul": "NO",
+   "def": "verified",
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "proof_url",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "paid_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "notes",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "transactions",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "users",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "email",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "phone",
+   "type": "varchar(30)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "telegram_chat_id",
+   "type": "varchar(100)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "email_verified_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "password",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "role",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "admin",
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "meta",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "remember_token",
+   "type": "varchar(100)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "totp_secret",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "totp_recovery_codes",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "totp_confirmed_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "users",
+   "c": "totp_last_used_counter",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaign_recipients",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "wa_campaign_recipients",
+   "c": "wa_campaign_id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaign_recipients",
+   "c": "customer_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaign_recipients",
+   "c": "customer_name",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaign_recipients",
+   "c": "phone_number",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaign_recipients",
+   "c": "status",
+   "type": "enum('pending','sent','failed','unconfirmed')",
+   "nul": "NO",
+   "def": "pending",
+   "extra": ""
+  },
+  {
+   "t": "wa_campaign_recipients",
+   "c": "error_message",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaign_recipients",
+   "c": "sent_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaign_recipients",
+   "c": "provider_message_id",
+   "type": "varchar(191)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaign_recipients",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaign_recipients",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "name",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "message_template",
+   "type": "text",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "image_path",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "status",
+   "type": "enum('draft','processing','completed','failed','paused')",
+   "nul": "NO",
+   "def": "draft",
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "target_type",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": "all",
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "target_area_id",
+   "type": "bigint unsigned",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "custom_recipients",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "scheduled_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "total_recipients",
+   "type": "int",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "sent_count",
+   "type": "int",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "failed_count",
+   "type": "int",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_campaigns",
+   "c": "unconfirmed_count",
+   "type": "int unsigned",
+   "nul": "NO",
+   "def": "0",
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "id",
+   "type": "bigint unsigned",
+   "nul": "NO",
+   "def": null,
+   "extra": "auto_increment"
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "channel",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "domain",
+   "type": "varchar(40)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "intent",
+   "type": "varchar(60)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "severity",
+   "type": "varchar(30)",
+   "nul": "NO",
+   "def": "normal",
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "command",
+   "type": "varchar(80)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "group_jid",
+   "type": "varchar(255)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "group_label",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "sender_jid",
+   "type": "varchar(255)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "sender_name",
+   "type": "varchar(120)",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "message_id",
+   "type": "varchar(160)",
+   "nul": "NO",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "summary",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "redacted_text",
+   "type": "text",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "payload",
+   "type": "json",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "occurred_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "created_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  },
+  {
+   "t": "wa_chat_signals",
+   "c": "updated_at",
+   "type": "timestamp",
+   "nul": "YES",
+   "def": null,
+   "extra": ""
+  }
+ ]
+}

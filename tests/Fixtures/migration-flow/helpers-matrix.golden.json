@@ -1,0 +1,413 @@
+{
+    "normalizers": {
+        "bool_setting": {
+            "m0_flag_missing": [
+                false,
+                true
+            ],
+            "m0_flag_off": [
+                false,
+                false
+            ],
+            "m0_flag_one": [
+                true,
+                true
+            ],
+            "m0_flag_true": [
+                true,
+                true
+            ],
+            "m0_flag_word": [
+                false,
+                false
+            ],
+            "m0_flag_zero": [
+                false,
+                false
+            ]
+        },
+        "bounded_error": {
+            "exception": "Router tidak terhubung",
+            "string_0": "plain error",
+            "string_1": "multi line error",
+            "string_2": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "odp_suffix": {
+            "": "",
+            "ODP": "",
+            "ODP-A12": "A12",
+            "ODP-KRN-01": "01",
+            "ODP-L3.1": "L3.1"
+        },
+        "olt_token": {
+            "": "",
+            "OLT-KRIAN": "oltkrian",
+            "kriAN": "krian"
+        },
+        "onu_name_token": {
+            "": "",
+            "USERX27_RT1_RW2": "USERX27",
+            "USERX7": "USERX7",
+            "a-b c": "A"
+        },
+        "onu_ref": {
+            "": null,
+            "1/2/2": null,
+            "1/2/2:3": "1/2/2:3",
+            "gpon-onu_1/2/2:3": "1/2/2:3",
+            "junk": null
+        },
+        "pon_port": {
+            "": null,
+            "1/2/2": "1/2/2",
+            "1/2/2:5": "1/2/2",
+            "gpon-olt_1/2/2": "1/2/2",
+            "x": null
+        },
+        "rw_number": {
+            "0": "00",
+            "12": "12",
+            "1234": "123",
+            "RW 4": "04",
+            "abc": null
+        },
+        "serial": {
+            "": "",
+            " tidak terbaca ": "",
+            "FHTTC0000A7F": "FHTTC0000A7F",
+            "TIDAKTERBACA": "",
+            "fhtt-c000 0a7f": "FHTTC0000A7F"
+        },
+        "site_token": {
+            "": "",
+            "Gadang": "gadang",
+            "OLT GADANG 3": "oltgadang3"
+        },
+        "text_compare": {
+            "": "",
+            " A b ": "ab",
+            "ODP-KRN 01.2": "odpkrn01.2"
+        },
+        "username": {
+            "": "",
+            "  x  ": "x",
+            "DRAFTE SANTOSO_RT01": "DRAFTESANTOSO_RT01",
+            "a b/c.d-e": "abc.d-e"
+        }
+    },
+    "plans": {
+        "kept_package_profile": {
+            "fallback": [
+                "10MB",
+                "customer_column_fallback",
+                "package_profile_fallback_customer_column: profil live secret PPPoE tidak terbaca; memakai customers.mikrotik_profile '10MB' (bisa usang), cek profil sebelum execute."
+            ],
+            "live": [
+                "20MB",
+                "live_pppoe_secret",
+                null
+            ],
+            "none": [
+                "",
+                "none",
+                null
+            ]
+        },
+        "photo_label": {
+            "#migrasi ktp #1|sn": "ktp",
+            "caption bebas|sn": "sn",
+            "foto stiker fiberhome|ktp": "sn",
+            "|ktp": "ktp",
+            "|unknown": "unknown"
+        },
+        "pppoe_plan": {
+            "new_odp_no_suffix": {
+                "current_username": "USERBUDI_RT01_RW02",
+                "new_odp": "ODP-BARU",
+                "new_odp_suffix": null,
+                "notes": [
+                    "odp_changed_but_username_suffix_needs_manual_review"
+                ],
+                "odp_changed": true,
+                "old_odp": "ODP-KRN-01",
+                "old_odp_suffix": "01",
+                "profile_action": "set_target_profile",
+                "pw_action": "preserve_existing",
+                "target_username": "USERBUDI_RT01_RW02",
+                "username_action": "rename_for_new_odp"
+            },
+            "new_odp_suffix": {
+                "current_username": "USERBUDI_RT01_RW02",
+                "new_odp": "ODP-KRN-02",
+                "new_odp_suffix": "02",
+                "notes": [],
+                "odp_changed": true,
+                "old_odp": "ODP-KRN-01",
+                "old_odp_suffix": "01",
+                "profile_action": "set_target_profile",
+                "pw_action": "preserve_existing",
+                "target_username": "USERBUDI_RT01_02",
+                "username_action": "rename_for_new_odp"
+            },
+            "no_odp": {
+                "current_username": "USERBUDI_RT01_RW02",
+                "new_odp": null,
+                "new_odp_suffix": null,
+                "notes": [
+                    "odp_same_or_unknown_keep_username_profile_only"
+                ],
+                "odp_changed": false,
+                "old_odp": "",
+                "old_odp_suffix": null,
+                "profile_action": "set_target_profile",
+                "pw_action": "preserve_existing",
+                "target_username": "USERBUDI_RT01_RW02",
+                "username_action": "keep_existing"
+            },
+            "same_odp": {
+                "current_username": "USERBUDI_RT01_RW02",
+                "new_odp": "ODP-KRN-01",
+                "new_odp_suffix": "01",
+                "notes": [
+                    "odp_same_or_unknown_keep_username_profile_only"
+                ],
+                "odp_changed": false,
+                "old_odp": "ODP-KRN-01",
+                "old_odp_suffix": "01",
+                "profile_action": "set_target_profile",
+                "pw_action": "preserve_existing",
+                "target_username": "USERBUDI_RT01_RW02",
+                "username_action": "keep_existing"
+            }
+        },
+        "preserves_package": {
+            "0|": false,
+            "15|Krian": true,
+            "511|": false,
+            "513|SKYNET-RA-OLT": false,
+            "514|Skynet-Krian-OLT": true
+        },
+        "reason_hint": {
+            "none": "",
+            "package_profile_missing:package_none": " — Paket tidak punya profil MikroTik — pilih paket atau isi profil.",
+            "pppoe_missing": ""
+        },
+        "secret_comment": {
+            "cross_router": "migrasi Krian->Skynet-Krian-OLT (pindah router) 20Oct2026",
+            "keterangan_in_text": "migrasi 20Oct2026 - migrasi",
+            "same_router": "migrasi 20Oct2026 - migrasi"
+        },
+        "target_profile": {
+            "DRAFTE SANTOSO": [
+                "STARTLITE/200M",
+                false
+            ],
+            "MI AL HIDAYAH": [
+                "CSR",
+                true
+            ],
+            "PONDOK PESANTREN X": [
+                "CSR",
+                true
+            ],
+            "SD NEGERI 1": [
+                "CSR",
+                true
+            ]
+        }
+    },
+    "routing": {
+        "cross_router_migration": {
+            "is_huawei_olt_only": false,
+            "is_olt_short_form": false,
+            "site": "ra",
+            "use_c300_uncfg_path": false
+        },
+        "fiberhome_replacement_same_target": {
+            "is_huawei_olt_only": false,
+            "is_olt_short_form": false,
+            "site": "ra",
+            "use_c300_uncfg_path": false
+        },
+        "huawei_mode_line": {
+            "is_huawei_olt_only": true,
+            "is_olt_short_form": true,
+            "site": null,
+            "use_c300_uncfg_path": false
+        },
+        "same_sn_retry": {
+            "is_huawei_olt_only": false,
+            "is_olt_short_form": true,
+            "site": "ra",
+            "use_c300_uncfg_path": true
+        },
+        "short_gadang_olt": {
+            "is_huawei_olt_only": true,
+            "is_olt_short_form": true,
+            "site": "gadang_huawei",
+            "use_c300_uncfg_path": false
+        },
+        "short_gadang_router": {
+            "is_huawei_olt_only": true,
+            "is_olt_short_form": true,
+            "site": "gadang_huawei",
+            "use_c300_uncfg_path": false
+        },
+        "short_krian": {
+            "is_huawei_olt_only": false,
+            "is_olt_short_form": true,
+            "site": "krian",
+            "use_c300_uncfg_path": true
+        },
+        "short_no_site": {
+            "is_huawei_olt_only": true,
+            "is_olt_short_form": true,
+            "site": null,
+            "use_c300_uncfg_path": false
+        },
+        "short_ra": {
+            "is_huawei_olt_only": false,
+            "is_olt_short_form": true,
+            "site": "ra",
+            "use_c300_uncfg_path": true
+        }
+    },
+    "texts": {
+        "blocked_message": [
+            "*Preview migrasi*\n#migrasi lanjut belum mengubah data.\nCek menu Migrasi atau kirim data lengkap.",
+            "*Preview migrasi*\n#migrasi batal belum mengubah data.\nCek menu Migrasi atau kirim data lengkap."
+        ],
+        "candidate_lines": [
+            "1. DRAFTE SANTOSO | USERBUDI_RT01_RW02 | skor 100",
+            "2. USERSI AMINAH | USERSITI_RT01_RW02 | skor 90 — PPPoE beda, SN lama beda",
+            "3. DRAFTG LESTARI | USERDEWI_RT01_RW02 | skor 70 — SN baru sudah tercatat di pelanggan lain"
+        ],
+        "conflict_text": {
+            "excel_new_sn_conflict": "SN baru beda dengan data akuisisi",
+            "new_sn_already_linked_to_other_customer": "SN baru sudah tercatat di pelanggan lain",
+            "new_sn_exists_in_other_psb_history": "SN baru sudah dipakai di PSB lain",
+            "old_sn_mismatch": "SN lama beda",
+            "old_sn_not_current_customer_sn": "SN lama bukan milik pelanggan ini",
+            "pppoe_mismatch": "PPPoE beda",
+            "something_else": "data belum cocok"
+        },
+        "conflicts_text": "PPPoE beda, SN lama beda",
+        "dropped_message": "Pilihan pelanggan #9007 dibatalkan: SN baru sudah tercatat di pelanggan lain.\nCek SN, lalu pilih lagi: #migrasi pilih #9007 <nomor>",
+        "help": "*Bantuan Migrasi*\nFormat utama:\n#migrasi\nNama pelanggan: ...\nSN Baru: FHTTxxxxxxxx\nPembeda: HP / PPPoE / SN lama / ODP / RT+RW\n\nContoh:\n#migrasi nama: BUDI sn baru: FHTT123 hp: 085xxx\n#migrasi pppoe: BUDI_RT1_RW4_01 sn baru: FHTT123 odp baru: ODP-L3.1\n\nHuawei OLT-only tanpa lookup customer/KTP:\nMode: OLT_ONLY_HUAWEI | PPPoE: USER | SN Baru: FHTTxxxxxxxx | OLT: GADANG | Router: Gadang\nVLAN/TR-069 opsional; password tidak dikirim, bot baca dari router target secara read-only.\n\nGanti router FiberHome Gadang (rusak / WLAN mati):\n#migrasi\nNama: NAMA PELANGGAN\nPPPoE: USER (opsional, bot cari dari SN lama/nama jika kosong)\nSN Baru: FHTTxxxxxxxx\nSN Lama: FHTTxxxxxxxx\nOLT: OLT GADANG 3\nDaerah: Gadang\nRT: 01\nRW: 02\nRouter: Gadang\nKeterangan: router fiberhome rusak / wlan mati\n\nPindah router (mis. Bumiayu -> Gadang):\nTambah baris \"Router Lama: Bumiayu\" dan \"Router Baru: Gadang\".\nPPPoE sama; password dibaca dari router lama lalu ditulis ke router baru dengan comment migrasi.\n\nJika kandidat ganda:\n#migrasi pilih #ID <nomor>\n#migrasi konfirmasi #ID\n\nData susulan:\n#migrasi ktp #ID\n#migrasi no hp #ID 085xxxx\nKoreksi SN (juga setelah eksekusi sebagian): #migrasi sn #ID FHTTxxxxxxxx\n\nCek: #migrasi cek #ID | Batal: #migrasi batal #ID\nSudah sebagian dieksekusi? Jangan batal/kirim draft baru: koreksi SN lalu #migrasi eksekusi #ID (lanjut langkah tersisa). Batal paksa: #migrasi batal paksa #ID (rollback manual NOC).\nEksekusi manual recovery: #migrasi eksekusi #ID (teknisi yang mengonfirmasi atau NOC/owner allowlisted).\n\nTidak ada auto-live. Draft wajib direview, dikonfirmasi teknisi, lalu dieksekusi eksplisit oleh teknisi yang sama atau NOC/owner allowlisted.\nTarget: reguler STARTLITE/200M, sekolah CSR.",
+        "list_message": [
+            "Daftar pelanggan #9007 diperbarui:\n1. DRAFTE SANTOSO | USERBUDI_RT01_RW02 | skor 100\n2. USERSI AMINAH | USERSITI_RT01_RW02 | skor 90 — PPPoE beda, SN lama beda\n3. DRAFTG LESTARI | USERDEWI_RT01_RW02 | skor 70 — SN baru sudah tercatat di pelanggan lain\nPilih: #migrasi pilih #9007 <nomor>",
+            "Pelanggan belum ketemu. Kirim ulang #migrasi dengan PPPoE atau HP."
+        ],
+        "mention_prefix": [
+            [
+                "@6281200000101\n",
+                [
+                    "6281200000101@s.whatsapp.net"
+                ]
+            ],
+            [
+                "@6281200000101\n",
+                [
+                    "6281200000101@s.whatsapp.net"
+                ]
+            ],
+            [
+                "Teknisi Dua\n",
+                [
+                    "123456789@lid"
+                ]
+            ],
+            [
+                "Teknisi Tiga\n",
+                []
+            ],
+            [
+                "",
+                []
+            ]
+        ],
+        "partial": {
+            "cancelled_force": {
+                "rollback_hint": "Rollback manual migrasi #9201 (NOC): enable lagi secret USERBUDI_RT01_RW02 di Krian; disable secret USERBUDI_RT01_RW02 di Skynet-Krian-OLT; kembalikan router pelanggan di eBilling ke Krian. Tidak ada rollback otomatis.",
+                "short": "Migrasi #9201 sebagian dieksekusi: MikroTik sudah dipindah ke Skynet-Krian-OLT (secret di Krian sudah disable); menunggu ONU/SN FHTTC0FFEE92 di OLT KRIAN.",
+                "status_message": "Migrasi #9201\nStatus: cancelled (sebagian dieksekusi)\nPPPoE: USERBUDI_RT01_RW02\nCustomer: DRAFTE SANTOSO\nONU baru: - / FHTTC0FFEE92\nSudah dilakukan:\n- MikroTik: secret USERBUDI_RT01_RW02 sudah aktif & terverifikasi di Skynet-Krian-OLT.\n- MikroTik: secret lama USERBUDI_RT01_RW02 di Krian sudah DISABLE.\nBelum selesai:\n- OLT: ONU baru SN FHTTC0FFEE92 belum terpasang/terhubung di OLT KRIAN.\n- GenieACS: tag belum.\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nKoreksi SN: #migrasi sn #9201 <SN_BENAR> | Lanjut: #migrasi eksekusi #9201\nDibatalkan paksa. Rollback manual migrasi #9201 (NOC): enable lagi secret USERBUDI_RT01_RW02 di Krian; disable secret USERBUDI_RT01_RW02 di Skynet-Krian-OLT; kembalikan router pelanggan di eBilling ke Krian. Tidak ada rollback otomatis.",
+                "wa_message": "*Migrasi #9201: SEBAGIAN DIEKSEKUSI*\nPPPoE: USERBUDI_RT01_RW02\nSudah dilakukan:\n- MikroTik: secret USERBUDI_RT01_RW02 sudah aktif & terverifikasi di Skynet-Krian-OLT.\n- MikroTik: secret lama USERBUDI_RT01_RW02 di Krian sudah DISABLE.\nBelum selesai:\n- OLT: ONU baru SN FHTTC0FFEE92 belum terpasang/terhubung di OLT KRIAN.\n- GenieACS: tag belum.\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nPelanggan bisa OFFLINE sampai ONU baru terhubung.\nCatatan tambahan\nKoreksi SN: #migrasi sn #9201 <SN_BENAR>\nLanjutkan (hanya langkah tersisa, MikroTik tidak diulang): #migrasi eksekusi #9201\nJangan kirim draft baru/batal. Cek: #migrasi cek #9201"
+            },
+            "continuation_ready": {
+                "rollback_hint": "Rollback manual migrasi #9201 (NOC): enable lagi secret USERBUDI_RT01_RW02 di Krian; disable secret USERBUDI_RT01_RW02 di Skynet-Krian-OLT; kembalikan router pelanggan di eBilling ke Krian. Tidak ada rollback otomatis.",
+                "short": "Migrasi #9201 sebagian dieksekusi: MikroTik sudah dipindah ke Skynet-Krian-OLT (secret di Krian sudah disable); menunggu ONU/SN FHTTC0FFEE92 di OLT KRIAN.",
+                "status_message": "Migrasi #9201\nStatus: needs_review (sebagian dieksekusi)\nPPPoE: USERBUDI_RT01_RW02\nCustomer: DRAFTE SANTOSO\nONU baru: - / FHTTC0FFEE92\nSudah dilakukan:\n- MikroTik: secret USERBUDI_RT01_RW02 sudah aktif & terverifikasi di Skynet-Krian-OLT.\n- MikroTik: secret lama USERBUDI_RT01_RW02 di Krian sudah DISABLE.\nBelum selesai:\n- OLT: ONU baru SN FHTTC0FFEE92 belum terpasang/terhubung di OLT KRIAN.\n- GenieACS: tag belum.\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nDry-run lanjutan siap (ledger #9055): kirim #migrasi eksekusi #9201",
+                "wa_message": "*Migrasi #9201: SEBAGIAN DIEKSEKUSI*\nPPPoE: USERBUDI_RT01_RW02\nSudah dilakukan:\n- MikroTik: secret USERBUDI_RT01_RW02 sudah aktif & terverifikasi di Skynet-Krian-OLT.\n- MikroTik: secret lama USERBUDI_RT01_RW02 di Krian sudah DISABLE.\nBelum selesai:\n- OLT: ONU baru SN FHTTC0FFEE92 belum terpasang/terhubung di OLT KRIAN.\n- GenieACS: tag belum.\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nPelanggan bisa OFFLINE sampai ONU baru terhubung.\nCatatan tambahan\nKoreksi SN: #migrasi sn #9201 <SN_BENAR>\nLanjutkan (hanya langkah tersisa, MikroTik tidak diulang): #migrasi eksekusi #9201\nJangan kirim draft baru/batal. Cek: #migrasi cek #9201"
+            },
+            "mikrotik_done": {
+                "rollback_hint": "Rollback manual migrasi #9201 (NOC): enable lagi secret USERBUDI_RT01_RW02 di Krian; disable secret USERBUDI_RT01_RW02 di Skynet-Krian-OLT; kembalikan router pelanggan di eBilling ke Krian. Tidak ada rollback otomatis.",
+                "short": "Migrasi #9201 sebagian dieksekusi: MikroTik sudah dipindah ke Skynet-Krian-OLT (secret di Krian sudah disable); menunggu ONU/SN FHTTC0FFEE92 di OLT KRIAN.",
+                "status_message": "Migrasi #9201\nStatus: needs_review (sebagian dieksekusi)\nPPPoE: USERBUDI_RT01_RW02\nCustomer: DRAFTE SANTOSO\nONU baru: - / FHTTC0FFEE92\nSudah dilakukan:\n- MikroTik: secret USERBUDI_RT01_RW02 sudah aktif & terverifikasi di Skynet-Krian-OLT.\n- MikroTik: secret lama USERBUDI_RT01_RW02 di Krian sudah DISABLE.\nBelum selesai:\n- OLT: ONU baru SN FHTTC0FFEE92 belum terpasang/terhubung di OLT KRIAN.\n- GenieACS: tag belum.\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nMaksud Anda FHTTC0FFEE93 (port 1/2/2:3)?\nKoreksi SN: #migrasi sn #9201 <SN_BENAR> | Lanjut: #migrasi eksekusi #9201",
+                "wa_message": "*Migrasi #9201: SEBAGIAN DIEKSEKUSI*\nPPPoE: USERBUDI_RT01_RW02\nSudah dilakukan:\n- MikroTik: secret USERBUDI_RT01_RW02 sudah aktif & terverifikasi di Skynet-Krian-OLT.\n- MikroTik: secret lama USERBUDI_RT01_RW02 di Krian sudah DISABLE.\nBelum selesai:\n- OLT: ONU baru SN FHTTC0FFEE92 belum terpasang/terhubung di OLT KRIAN.\n- GenieACS: tag belum.\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nPelanggan bisa OFFLINE sampai ONU baru terhubung.\nMaksud Anda FHTTC0FFEE93 (port 1/2/2:3)?\nCatatan tambahan\nKoreksi SN: #migrasi sn #9201 <SN_BENAR>\nLanjutkan (hanya langkah tersisa, MikroTik tidak diulang): #migrasi eksekusi #9201\nJangan kirim draft baru/batal. Cek: #migrasi cek #9201"
+            },
+            "olt_and_acs_done": {
+                "rollback_hint": "Rollback manual migrasi #9201 (NOC): enable lagi secret USERBUDI_RT01_RW02 di Krian; disable secret USERBUDI_RT01_RW02 di Skynet-Krian-OLT; kembalikan router pelanggan di eBilling ke Krian; hapus ONU baru 1/2/2:3 hanya jika belum dipakai pelanggan. Tidak ada rollback otomatis.",
+                "short": "Migrasi #9201 sebagian dieksekusi: MikroTik sudah dipindah ke Skynet-Krian-OLT (secret di Krian sudah disable); ONU baru sudah terpasang; menunggu sinkron customer/GenieACS.",
+                "status_message": "Migrasi #9201\nStatus: needs_review (sebagian dieksekusi)\nPPPoE: USERBUDI_RT01_RW02\nCustomer: DRAFTE SANTOSO\nONU baru: 1/2/2:3 / FHTTC0FFEE92\nSudah dilakukan:\n- MikroTik: secret USERBUDI_RT01_RW02 sudah aktif & terverifikasi di Skynet-Krian-OLT.\n- MikroTik: secret lama USERBUDI_RT01_RW02 di Krian sudah DISABLE.\n- OLT: ONU baru 1/2/2:3 / FHTTC0FFEE92 sudah terpasang.\n- GenieACS: tag sudah terpasang.\nBelum selesai:\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nKoreksi SN: #migrasi sn #9201 <SN_BENAR> | Lanjut: #migrasi eksekusi #9201",
+                "wa_message": "*Migrasi #9201: SEBAGIAN DIEKSEKUSI*\nPPPoE: USERBUDI_RT01_RW02\nSudah dilakukan:\n- MikroTik: secret USERBUDI_RT01_RW02 sudah aktif & terverifikasi di Skynet-Krian-OLT.\n- MikroTik: secret lama USERBUDI_RT01_RW02 di Krian sudah DISABLE.\n- OLT: ONU baru 1/2/2:3 / FHTTC0FFEE92 sudah terpasang.\n- GenieACS: tag sudah terpasang.\nBelum selesai:\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nCatatan tambahan\nKoreksi SN: #migrasi sn #9201 <SN_BENAR>\nLanjutkan (hanya langkah tersisa, MikroTik tidak diulang): #migrasi eksekusi #9201\nJangan kirim draft baru/batal. Cek: #migrasi cek #9201"
+            },
+            "same_router_done": {
+                "rollback_hint": "Rollback manual migrasi #9201 (NOC): rename balik secret NEWUSER_RT1 -> OLDUSER_RT1 di Skynet-Krian-OLT; kembalikan profile/paket lama pelanggan bila perlu. Tidak ada rollback otomatis.",
+                "short": "Migrasi #9201 sebagian dieksekusi: MikroTik sudah dipindah ke Skynet-Krian-OLT; menunggu ONU/SN FHTTC0FFEE92 di OLT KRIAN.",
+                "status_message": "Migrasi #9201\nStatus: needs_review (sebagian dieksekusi)\nPPPoE: USERBUDI_RT01_RW02\nCustomer: DRAFTE SANTOSO\nONU baru: - / FHTTC0FFEE92\nSudah dilakukan:\n- MikroTik: secret NEWUSER_RT1 sudah aktif & terverifikasi di Skynet-Krian-OLT.\nBelum selesai:\n- OLT: ONU baru SN FHTTC0FFEE92 belum terpasang/terhubung di OLT KRIAN.\n- GenieACS: tag belum.\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nKoreksi SN: #migrasi sn #9201 <SN_BENAR> | Lanjut: #migrasi eksekusi #9201",
+                "wa_message": "*Migrasi #9201: SEBAGIAN DIEKSEKUSI*\nPPPoE: USERBUDI_RT01_RW02\nSudah dilakukan:\n- MikroTik: secret NEWUSER_RT1 sudah aktif & terverifikasi di Skynet-Krian-OLT.\nBelum selesai:\n- OLT: ONU baru SN FHTTC0FFEE92 belum terpasang/terhubung di OLT KRIAN.\n- GenieACS: tag belum.\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nCatatan tambahan\nKoreksi SN: #migrasi sn #9201 <SN_BENAR>\nLanjutkan (hanya langkah tersisa, MikroTik tidak diulang): #migrasi eksekusi #9201\nJangan kirim draft baru/batal. Cek: #migrasi cek #9201"
+            },
+            "target_prepared_only": {
+                "rollback_hint": "Rollback manual migrasi #9201 (NOC): hapus/disable secret target yang belum dipakai di Skynet-Krian-OLT. Tidak ada rollback otomatis.",
+                "short": "Migrasi #9201 sebagian dieksekusi: Secret target di Skynet-Krian-OLT sudah dibuat, source belum dicutover; menunggu ONU/SN FHTTC0FFEE92 di OLT KRIAN.",
+                "status_message": "Migrasi #9201\nStatus: needs_review (sebagian dieksekusi)\nPPPoE: USERBUDI_RT01_RW02\nCustomer: DRAFTE SANTOSO\nONU baru: - / FHTTC0FFEE92\nSudah dilakukan:\n- MikroTik: secret target sudah dibuat di Skynet-Krian-OLT; source BELUM dicutover (NOC cek).\nBelum selesai:\n- OLT: ONU baru SN FHTTC0FFEE92 belum terpasang/terhubung di OLT KRIAN.\n- GenieACS: tag belum.\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nKoreksi SN: #migrasi sn #9201 <SN_BENAR> | Lanjut: #migrasi eksekusi #9201",
+                "wa_message": "*Migrasi #9201: SEBAGIAN DIEKSEKUSI*\nPPPoE: USERBUDI_RT01_RW02\nSudah dilakukan:\n- MikroTik: secret target sudah dibuat di Skynet-Krian-OLT; source BELUM dicutover (NOC cek).\nBelum selesai:\n- OLT: ONU baru SN FHTTC0FFEE92 belum terpasang/terhubung di OLT KRIAN.\n- GenieACS: tag belum.\n- Data pelanggan (ONU/OLT di eBilling): belum disinkron.\nCatatan tambahan\nKoreksi SN: #migrasi sn #9201 <SN_BENAR>\nLanjutkan (hanya langkah tersisa, MikroTik tidak diulang): #migrasi eksekusi #9201\nJangan kirim draft baru/batal. Cek: #migrasi cek #9201"
+            }
+        },
+        "pick_first_message": [
+            "Migrasi #9007: pilih pelanggan dulu.\n1. DRAFTE SANTOSO | USERBUDI_RT01_RW02 | skor 100\n2. USERSI AMINAH | USERSITI_RT01_RW02 | skor 90 — PPPoE beda, SN lama beda\n3. DRAFTG LESTARI | USERDEWI_RT01_RW02 | skor 70 — SN baru sudah tercatat di pelanggan lain\nKirim: #migrasi pilih #9007 <nomor>",
+            "Migrasi #9007: pilih pelanggan dulu.\nPelanggan belum ketemu. Kirim ulang #migrasi dengan PPPoE atau HP."
+        ],
+        "preview": {
+            "candidate_selection_preview_none": "Migrasi tidak ditemukan. Pakai: #migrasi cek #ID, atau kirim ulang format lengkap: #migrasi bantu",
+            "candidate_selection_preview_row": "Pilihan kandidat #1 tersimpan untuk migrasi #<migration1>.\nBelum ada update perangkat/customer.\nCek: #migrasi cek #<migration1>",
+            "incomplete": "*Preview migrasi*\nStatus: input_incomplete\nKurang: name_required, new_sn_required\nFormat: #migrasi nama: ... sn baru: FHTT... pembeda: HP/PPPoE/SN lama/ODP/RT+RW\nTarget: reguler STARTLITE/200M, sekolah CSR.\nNext: #migrasi pilih #ID <nomor>\nBelum ada update customer/PPPoE/OLT/MikroTik/GenieACS dari preview.",
+            "ready_draft_dry_run_ready": "*Preview migrasi*\nStatus: ready_for_selection\n1. DRAFTE SANTOSO | USERBUDI_RT01_RW02 | SN ZTEGA0000011 | ONU 1/1/1:5 | score 100\n2. USERSI AMINAH | USERSITI_RT01_RW02 | SN - | ONU - | score 90\n3. DRAFTG LESTARI | USERDEWI_RT01_RW02 | SN - | ONU - | score 70\nID: #<migration1>\nHP kurang: #migrasi no hp #<migration1> 085xxxx\nKTP kurang: kirim foto caption #migrasi ktp #<migration1>\nDry-run siap. Belum ada write perangkat.\nJika belum ada, kirim nomor HP: #migrasi no hp #<migration1> 085xxxx.\nJika belum ada, kirim foto KTP dengan caption #migrasi ktp #<migration1>.\nTarget: reguler STARTLITE/200M, sekolah CSR.\nNext: #migrasi eksekusi #<migration1> (teknisi yang mengonfirmasi atau NOC/owner allowlisted; wajib eksplisit)\nBelum ada update customer/PPPoE/OLT/MikroTik/GenieACS dari preview.",
+            "ready_draft_with_error": "*Preview migrasi*\nStatus: ready_for_selection\n1. DRAFTE SANTOSO | USERBUDI_RT01_RW02 | SN ZTEGA0000011 | ONU 1/1/1:5 | score 100\n2. USERSI AMINAH | USERSITI_RT01_RW02 | SN - | ONU - | score 90\n3. DRAFTG LESTARI | USERDEWI_RT01_RW02 | SN - | ONU - | score 70\nID: #<migration2>\nHP kurang: #migrasi no hp #<migration2> 085xxxx\nKTP kurang: kirim foto caption #migrasi ktp #<migration2>\nDry-run tertahan: SN belum muncul di uncfg\nTidak ada auto-live. Lengkapi identitas/konfirmasi teknisi lalu kirim perintah eksekusi eksplisit.\nTarget: reguler STARTLITE/200M, sekolah CSR.\nNext: #migrasi pilih #<migration2> <nomor kandidat>\nBelum ada update customer/PPPoE/OLT/MikroTik/GenieACS dari preview.",
+            "ready_no_draft": "*Preview migrasi*\nStatus: ready_for_selection\n1. DRAFTE SANTOSO | USERBUDI_RT01_RW02 | SN ZTEGA0000011 | ONU 1/1/1:5 | score 100\n2. USERSI AMINAH | USERSITI_RT01_RW02 | SN - | ONU - | score 90\n3. DRAFTG LESTARI | USERDEWI_RT01_RW02 | SN - | ONU - | score 70\nTarget: reguler STARTLITE/200M, sekolah CSR.\nNext: #migrasi pilih #ID <nomor kandidat>\nBelum ada update customer/PPPoE/OLT/MikroTik/GenieACS dari preview.",
+            "selection_confirmation_missing_data": "*Migrasi #<migration2>: kandidat #1 dipilih*\nPelanggan: DRAFTG LESTARI (ID <customer3>)\nPPPoE: USERDEWI_RT01_RW02\nODP: ODP-KRN-01\nSN: ZTEGA0000013 -> FHTTC0FFEE91\nKurang: HP, KTP. Lengkapi dulu.\nCatatan: SN lama input berbeda; cek sebelum konfirmasi.\nBelum ada write perangkat/customer.\nBenar: #migrasi konfirmasi #<migration2>\nSalah: #migrasi pilih #<migration2> <nomor lain>\nBatal: #migrasi batal #<migration2>",
+            "selection_confirmation_three": "*Migrasi #<migration1>: kandidat #3 dipilih*\nPelanggan: DRAFTG LESTARI (ID <customer3>)\nPPPoE: USERDEWI_RT01_RW02\nODP: ODP-KRN-01\nSN: ZTEGA0000013 -> FHTTC0FFEE90\nKurang: HP, KTP. Lengkapi dulu.\nBelum ada write perangkat/customer.\nBenar: #migrasi konfirmasi #<migration1>\nSalah: #migrasi pilih #<migration1> <nomor lain>\nBatal: #migrasi batal #<migration1>"
+        },
+        "review": {
+            "ktp_customer_empty": "KTP: customer lama masih kosong. Kirim foto sebagai gambar dengan caption #migrasi ktp #9207.",
+            "ktp_new_photo": "KTP: foto baru tersimpan untuk direview.",
+            "ktp_nothing": null,
+            "plain": "*Draft migrasi #9205 menunggu review*\nPPPoE: USERBUDI_RT01_RW02\nPelanggan: DRAFTE SANTOSO\nSN lama: ZTEGA0000011 / ONU lama: -\nSN baru: FHTTC0FFEE96\nOperasi: MIGRATION (TARGET_ROUTER_CHANGED)\nReference: MIG-<ref>\nExcel starlite-akuisisi match: 1\nAlasan: operator_approval_required\nBelum ada action OLT/MikroTik/PPPoE/customer. NOC cek di menu Migrasi lalu approve/manual action sprint berikutnya.\nCek ulang: #migrasi cek #9205"
+        },
+        "rollback_hint": [
+            "Rollback migrasi #9212: restore customer ONU ZTEGA0000012 / 1/1/1:6, cek ulang secret PPPoE USERBUDI_RT01_RW02, hapus ONU baru hanya jika belum dipakai pelanggan lain, dan restore GenieACS tag dari snapshot sebelum.",
+            "Rollback migrasi #9213: restore customer ONU - / -, cek ulang secret PPPoE USERBUDI_RT01_RW02, hapus ONU baru hanya jika belum dipakai pelanggan lain, dan restore GenieACS tag dari snapshot sebelum."
+        ],
+        "short_wa_error": [
+            "Kesalahan perangkat. Kesalahan perangkat. Kesalahan perangkat. Kesalahan perangkat. Kesalahan perangkat. Kesalahan perangkat. Kesalahan perangkat. Kesalahan ...",
+            "-",
+            "a b c"
+        ],
+        "status": {
+            "plain": "Migrasi #9202\nStatus: needs_review\nPPPoE: USERBUDI_RT01_RW02\nCustomer: DRAFTE SANTOSO\nONU lama: 1/1/1:5 / ZTEGA0000011\nONU baru: - / FHTTC0FFEE94\nReview: confirmed_pending_approval (guided_wa_candidate_confirmed)\nCatatan: Dry-run siap.",
+            "with_router_value": "Migrasi #9203\nStatus: synced\nPPPoE: USERBUDI_RT01_RW02\nPassword PPPoE: <pw len=9>\nCustomer: DRAFTE SANTOSO\nONU lama: - / -\nONU baru: - / -"
+        },
+        "success": {
+            "huawei": [
+                "Huawei OLT-only #9210 selesai pada 0/0/1:0.\nPPPoE: USERBUDI_RT01_RW02 password : <pw len=9>\nPassword: <pw len=6> live dari Router SKYNET-GADANG; tidak disimpan sistem.\nVLAN internet/TR-069: 102/69.\nTag GenieACS: terpasang.\nONU lama dan customer eBilling tidak disentuh.",
+                "Huawei OLT-only #9210 selesai pada 0/0/1:0.\nPPPoE: USERBUDI_RT01_RW02 password : <pw len=5> terbaca dari Router SKYNET-GADANG; jangan gunakan tebakan.\nPassword: <pw len=5> ditampilkan karena tidak terbaca dari Router SKYNET-GADANG.\nVLAN internet/TR-069: 102/69.\nTag GenieACS: menunggu Inform CPE.\nONU lama dan customer eBilling tidak disentuh."
+            ],
+            "name_mismatch": "*Migrasi #9209 selesai*\nPelanggan: DRAFTE SANTOSO\nPPPoE: USERBUDI_RT01_RW02\nKredensial PPPoE: tidak terbaca dari MikroTik; jangan gunakan tebakan/database.\nProfile/Paket: -\nVLAN internet: 200\nTR-069: VLAN 69\nACS URL: http://acs.test\nOLT/ONU baru: 1/2/2:3 / FHTTC0FFEE97\nONU lama: 1/1/1:5 / ZTEGA0000011 (cek manual)\nStatus: PPPoE verified - OLT verified - ACS pending/manual retry\nCatatan: nama ONU di OLT 'DRAFTESANTOSO' beda dengan PPPoE 'USERBUDI_RT01_RW02'. Inventory eBilling & tag ACS sudah memakai PPPoE; rename ONU di OLT lewat menu OLT.",
+            "with_router_value_acs_verified": "*Migrasi #9209 selesai*\nPelanggan: DRAFTE SANTOSO\nPPPoE: USERBUDI_RT01_RW02\nPassword PPPoE: <pw len=9>\nProfile/Paket: -\nVLAN internet: 200\nTR-069: VLAN 69\nACS URL: http://acs.test\nOLT/ONU baru: 1/2/2:3 / FHTTC0FFEE97\nONU lama: 1/1/1:5 / ZTEGA0000011 (terhapus)\nStatus: PPPoE verified - OLT verified - ACS verified",
+            "without_router_value": "*Migrasi #9209 selesai*\nPelanggan: DRAFTE SANTOSO\nPPPoE: USERBUDI_RT01_RW02\nKredensial PPPoE: tidak terbaca dari MikroTik; jangan gunakan tebakan/database.\nProfile/Paket: -\nVLAN internet: 200\nTR-069: VLAN 69\nACS URL: http://acs.test\nOLT/ONU baru: 1/2/2:3 / FHTTC0FFEE97\nONU lama: 1/1/1:5 / ZTEGA0000011 (cek manual)\nStatus: PPPoE verified - OLT verified - ACS pending/manual retry"
+        },
+        "today_summary_empty": "*Rekap Migrasi hari ini*\n20 Oct 2026 - 10:00 WIB\nTotal: *2* | Synced: 0 | OLT: 0\nReview: 2 | Dry-run: 1 | Gagal: 0 | Batal: 0\nSumber: WA 2 | Manual 0\nData kurang: 0\nSnapshot OLT aktif: 0 | Review tetapi OLT aktif: 0\nBantuan: *#migrasi bantu*",
+        "today_summary_rows": "*Rekap Migrasi hari ini*\n20 Oct 2026 - 10:00 WIB\nTotal: *9* | Synced: 1 | OLT: 1\nReview: 4 | Dry-run: 2 | Gagal: 1 | Batal: 1\nSumber: WA 7 | Manual 1\nData kurang: 2\nSnapshot OLT aktif: 0 | Review tetapi OLT aktif: 0\nBantuan: *#migrasi bantu*",
+        "waiting_new_sn": "*Migrasi #9204: SN belum kedetek*\nSN baru: FHTTC0FFEE95\nOLT: OLT KRIAN\nAksi teknisi: cek ONT power/FO/PON, tunggu 30-60 detik.\nCek: #migrasi cek #9204\nRetry: #migrasi konfirmasi #9204\nCatatan: SN baru belum muncul di uncfg/snapshot OLT."
+    }
+}

@@ -1,0 +1,306 @@
+{
+    "scenario": "02_psb_text_then_2_photos",
+    "steps": [
+        {
+            "label": "#psb text",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "queue": "psb",
+                    "unique": "psb-wa-msg:FAKE-S02-T1",
+                    "data": {
+                        "afterCommit": null,
+                        "chainCatchCallbacks": null,
+                        "chainConnection": null,
+                        "chainQueue": null,
+                        "chained": [],
+                        "connection": null,
+                        "deduplicator": null,
+                        "delay": null,
+                        "maxExceptions": 2,
+                        "messageGroup": null,
+                        "middleware": [],
+                        "payload": {
+                            "group_jid": "120363000000000001@g.us",
+                            "image_paths": [],
+                            "media_contexts": [],
+                            "message_id": "FAKE-S02-T1",
+                            "sender_jid": "62812000001@s.whatsapp.net",
+                            "sender_jid_lid": "62812000001@s.whatsapp.net",
+                            "sender_jid_pn": null,
+                            "sender_name": "Teknisi Satu",
+                            "text": "#psb\nNama: Budi Uji\nSN: FHTT00000002"
+                        },
+                        "queue": "psb",
+                        "timeout": 300,
+                        "tries": 10,
+                        "uniqueFor": 600
+                    }
+                }
+            ],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": "#psb",
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "psb_command",
+                        "message_id": "FAKE-S02-T1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "#psb Nama: Budi Uji SN: FHTT00000002",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Psb Command: #psb Nama: Budi Uji SN: FHTT00000002"
+                    }
+                ]
+            }
+        },
+        {
+            "label": "photo 1",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "queue": "psb",
+                    "unique": "psb-wa-msg:FAKE-S02-P1",
+                    "data": {
+                        "afterCommit": null,
+                        "chainCatchCallbacks": null,
+                        "chainConnection": null,
+                        "chainQueue": null,
+                        "chained": [],
+                        "connection": null,
+                        "deduplicator": null,
+                        "delay": null,
+                        "maxExceptions": 2,
+                        "messageGroup": null,
+                        "middleware": [],
+                        "payload": {
+                            "follow_up_anchor_message_id": "FAKE-S02-T1",
+                            "group_jid": "120363000000000001@g.us",
+                            "image_paths": [
+                                "<file sha1:4bc6e2395d09>"
+                            ],
+                            "media_contexts": [
+                                {
+                                    "message_id": "FAKE-S02-P1",
+                                    "mime": "image/jpeg",
+                                    "path": "<file sha1:4bc6e2395d09>",
+                                    "received_at": "<ts>",
+                                    "sender": "62812000001@s.whatsapp.net"
+                                }
+                            ],
+                            "message_id": "FAKE-S02-P1",
+                            "sender_jid": "62812000001@s.whatsapp.net",
+                            "sender_name": "Teknisi Satu",
+                            "text": ""
+                        },
+                        "queue": "psb",
+                        "timeout": 300,
+                        "tries": 10,
+                        "uniqueFor": 600
+                    }
+                }
+            ],
+            "http": [
+                {
+                    "path": "POST /chat/getBase64FromMediaMessage/ops",
+                    "id": "FAKE-S02-P1"
+                }
+            ],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": "#psb",
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "psb_command",
+                        "message_id": "FAKE-S02-T1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "#psb Nama: Budi Uji SN: FHTT00000002",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Psb Command: #psb Nama: Budi Uji SN: FHTT00000002"
+                    },
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "noise",
+                        "message_id": "FAKE-S02-P1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": true,
+                            "read_only": true
+                        },
+                        "redacted_text": "",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Noise: (media tanpa caption)"
+                    }
+                ]
+            }
+        },
+        {
+            "label": "photo 2",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "queue": "psb",
+                    "unique": "psb-wa-msg:FAKE-S02-P2",
+                    "data": {
+                        "afterCommit": null,
+                        "chainCatchCallbacks": null,
+                        "chainConnection": null,
+                        "chainQueue": null,
+                        "chained": [],
+                        "connection": null,
+                        "deduplicator": null,
+                        "delay": null,
+                        "maxExceptions": 2,
+                        "messageGroup": null,
+                        "middleware": [],
+                        "payload": {
+                            "follow_up_anchor_message_id": "FAKE-S02-T1",
+                            "group_jid": "120363000000000001@g.us",
+                            "image_paths": [
+                                "<file sha1:4cdcd8d94642>"
+                            ],
+                            "media_contexts": [
+                                {
+                                    "message_id": "FAKE-S02-P2",
+                                    "mime": "image/jpeg",
+                                    "path": "<file sha1:4cdcd8d94642>",
+                                    "received_at": "<ts>",
+                                    "sender": "62812000001@s.whatsapp.net"
+                                }
+                            ],
+                            "message_id": "FAKE-S02-P2",
+                            "sender_jid": "62812000001@s.whatsapp.net",
+                            "sender_name": "Teknisi Satu",
+                            "text": ""
+                        },
+                        "queue": "psb",
+                        "timeout": 300,
+                        "tries": 10,
+                        "uniqueFor": 600
+                    }
+                }
+            ],
+            "http": [
+                {
+                    "path": "POST /chat/getBase64FromMediaMessage/ops",
+                    "id": "FAKE-S02-P2"
+                }
+            ],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": "#psb",
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "psb_command",
+                        "message_id": "FAKE-S02-T1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "#psb Nama: Budi Uji SN: FHTT00000002",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Psb Command: #psb Nama: Budi Uji SN: FHTT00000002"
+                    },
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "noise",
+                        "message_id": "FAKE-S02-P1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": true,
+                            "read_only": true
+                        },
+                        "redacted_text": "",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Noise: (media tanpa caption)"
+                    },
+                    {
+                        "channel": "activation",
+                        "command": null,
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "noise",
+                        "message_id": "FAKE-S02-P2",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": true,
+                            "read_only": true
+                        },
+                        "redacted_text": "",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Noise: (media tanpa caption)"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,156 @@
+{
+    "scenario": "20_malformed",
+    "steps": [
+        {
+            "label": "not json",
+            "status": 200,
+            "json": {
+                "event": "",
+                "status": "ignored"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "data is a string",
+            "status": 200,
+            "json": {
+                "processed": 0,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "no data",
+            "status": 200,
+            "json": {
+                "processed": 0,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "item without key",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "empty messages",
+            "status": 200,
+            "json": {
+                "processed": 0,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "event in upper case with underscore",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "queue": "psb",
+                    "unique": "psb-wa-msg:FAKE-S20-T1",
+                    "data": {
+                        "afterCommit": null,
+                        "chainCatchCallbacks": null,
+                        "chainConnection": null,
+                        "chainQueue": null,
+                        "chained": [],
+                        "connection": null,
+                        "deduplicator": null,
+                        "delay": null,
+                        "maxExceptions": 2,
+                        "messageGroup": null,
+                        "middleware": [],
+                        "payload": {
+                            "group_jid": "120363000000000001@g.us",
+                            "image_paths": [],
+                            "media_contexts": [],
+                            "message_id": "FAKE-S20-T1",
+                            "sender_jid": "62812000001@s.whatsapp.net",
+                            "sender_jid_lid": "62812000001@s.whatsapp.net",
+                            "sender_jid_pn": null,
+                            "sender_name": "Teknisi Satu",
+                            "text": "#psb\nNama: Budi Uji"
+                        },
+                        "queue": "psb",
+                        "timeout": 300,
+                        "tries": 10,
+                        "uniqueFor": 600
+                    }
+                }
+            ],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": "#psb",
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "psb_command",
+                        "message_id": "FAKE-S20-T1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "#psb Nama: Budi Uji",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Psb Command: #psb Nama: Budi Uji"
+                    }
+                ]
+            }
+        }
+    ]
+}

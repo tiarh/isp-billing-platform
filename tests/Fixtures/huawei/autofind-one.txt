@@ -1,0 +1,16 @@
+display ont autofind all
+  ----------------------------------------------------------------------------
+  Number              : 1
+  F/S/P               : 0/0/3
+  Ont SN              : 485754430000A005 (HWTC-0000A005)
+  Password            : 0x00000000000000000000(                    )
+  Loid                : loid-canary
+  Checkcode           : canary-pw
+  VendorID            : HWTC
+  Ont Version         : 140D.A
+  Ont SoftwareVersion : V5R019C10S125
+  Ont EquipmentID     : EG8145V5
+  Ont autofind time   : 2026-10-22 09:14:03+07:00
+  ----------------------------------------------------------------------------
+  The number of GPON autofind ONT is 1
+MA5608T#

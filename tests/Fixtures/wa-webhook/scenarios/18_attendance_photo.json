@@ -1,0 +1,46 @@
+{
+  "description": "attendance group photo (media download + local storage fallback), then the same delivery again and a text message",
+  "steps": [
+    {
+      "label": "attendance photo",
+      "msg": {
+        "key": {"remoteJid": "120363000000000003@g.us", "fromMe": false, "id": "FAKE-S18-P1", "participant": "62812000005@s.whatsapp.net"},
+        "pushName": "Teknisi Lima",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/a", "mimetype": "image/jpeg", "caption": "Absen masuk"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "same delivery again",
+      "msg": {
+        "key": {"remoteJid": "120363000000000003@g.us", "fromMe": false, "id": "FAKE-S18-P1", "participant": "62812000005@s.whatsapp.net"},
+        "pushName": "Teknisi Lima",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/a", "mimetype": "image/jpeg", "caption": "Absen masuk"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "text in the attendance group",
+      "msg": {
+        "key": {"remoteJid": "120363000000000003@g.us", "fromMe": false, "id": "FAKE-S18-T1", "participant": "62812000005@s.whatsapp.net"},
+        "pushName": "Teknisi Lima",
+        "message": {"conversation": "izin terlambat"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "photo that cannot be downloaded",
+      "media": "fail",
+      "msg": {
+        "key": {"remoteJid": "120363000000000003@g.us", "fromMe": false, "id": "FAKE-S18-P2", "participant": "62812000006@s.whatsapp.net"},
+        "pushName": "Teknisi Enam",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/b", "mimetype": "image/jpeg"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

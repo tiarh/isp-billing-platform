@@ -1,0 +1,20 @@
+display ont autofind all
+  ----------------------------------------------------------------------------
+  Number              : 1
+  F/S/P               : 0/0/1
+  Ont SN              : 485754430000A005 (HWTC-0000A005)
+  Password            : 0x00000000000000000000(                    )
+  VendorID            : HWTC
+  Ont EquipmentID     : EG8145V5
+  Ont autofind time   : 2026-10-22 09:14:03+07:00
+  ----------------------------------------------------------------------------
+  Number              : 2
+  F/S/P               : 0/0/2
+  Ont SN              : 464854540000A052 (FHTT-0000A052)
+  Password            : 0x00000000000000000000(                    )
+  VendorID            : FHTT
+  Ont EquipmentID     : HG6145F
+  Ont autofind time   : 2026-10-22 09:15:10+07:00
+  ----------------------------------------------------------------------------
+  The number of GPON autofind ONT is 3
+MA5608T#

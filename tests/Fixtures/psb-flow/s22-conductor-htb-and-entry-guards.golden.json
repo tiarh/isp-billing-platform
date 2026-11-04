@@ -1,0 +1,1380 @@
+{
+    "scenario": "s22-conductor-htb-and-entry-guards",
+    "steps": [
+        {
+            "label": "HTB pppoe_vlan site whose VLAN is not filled: pending_vlan, no router call",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft1>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⏸️ *Site HTB butuh VLAN service*\nDraft: *#<draft1>* · mode `pppoe_vlan`\nPelanggan: DRAFTE SANTOSO\nDaerah: Randuagung\nPath ini hanya menyiapkan PPPoE pada MikroTik site.\nIsi VLAN: *#psb vlan <nomor> #<draft1>*\nLalu lanjutkan: *#psb lanjut #<draft1>*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "received",
+                    "to": "pending_vlan"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Site HTB butuh VLAN service. Isi di Aktivasi→VLAN MikroTik atau kirim: #psb vlan NN #<draft1>",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC1",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "HTB pppoe_only: secret only, secret_ok is the end state",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft2>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.connect"
+                },
+                {
+                    "count": 2,
+                    "type": "mt.getPPPSecretsWithAddresses"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=10>",
+                    "profile": "50M",
+                    "remote": "198.19.42.12",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_1"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_1"
+                },
+                {
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_1"
+                },
+                {
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n*PPPoE siap*\nDraft: *#<draft2>* - Paket *HTB-50M [50M]*\nPelanggan: USERSI AMINAH\nMikroTik: *SKYNET-RANDUAGUNG-CCR*\nUser: `USERSIAMINAH_RT01_RW02_1`\nPassword: <pw>\nProfile: *50M*\nVLAN: *-*\nSN: `FHTTC0FFEEC2`\nLanjut aktivasi OLT...",
+                    "type": "wa.send"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_1"
+                },
+                {
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n✅ *PSB HTB selesai (PPPoE)*\nDraft: *#<draft2>*\nPelanggan: USERSI AMINAH\nMikroTik: *SKYNET-RANDUAGUNG-CCR*\nUser: `USERSIAMINAH_RT01_RW02_1`\nPassword: <pw>\nVLAN: tidak digunakan\nSN: `FHTTC0FFEEC2`\nONU HTB tetap disetel manual oleh NOC.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 2,
+                    "from": "received",
+                    "to": "secret_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Site HTB butuh VLAN service. Isi di Aktivasi→VLAN MikroTik atau kirim: #psb vlan NN #<draft1>",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC1",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": true,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": null,
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEC2",
+                        "status": "secret_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "ord": 1,
+                        "package": "HTB-50M",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "profile": "50M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_1": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "50M",
+                        "pw_len": "10",
+                        "remote": "198.19.42.12"
+                    }
+                }
+            }
+        },
+        {
+            "label": "#psb lanjut on the finished HTB draft: skipped, no secret write",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_1"
+                },
+                {
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.disconnect"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "HTB secret write fails: pppoeFailed reply, status failed",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft3>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.connect"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=10>",
+                    "profile": "50M",
+                    "remote": "198.19.42.13",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTCWIJAYA_RT01_RW02_1"
+                },
+                {
+                    "router": "SKYNET-RANDUAGUNG-CCR",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Gagal buat PPPoE*\nDetail: failure: profile not found\nCek: profile, router, IP block, atau username dobel.\nRetry: *#psb lanjut #ID*\nCari: *#pppoe cari <nama/user/telp>*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 3,
+                    "from": "received",
+                    "to": "failed"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Site HTB butuh VLAN service. Isi di Aktivasi→VLAN MikroTik atau kirim: #psb vlan NN #<draft1>",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC1",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": true,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": null,
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEC2",
+                        "status": "secret_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 3,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC3",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "ord": 1,
+                        "package": "HTB-50M",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "profile": "50M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_1": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "50M",
+                        "pw_len": "10",
+                        "remote": "198.19.42.12"
+                    }
+                }
+            }
+        },
+        {
+            "label": "admin HTTP retry with invalid documents: documentBlocked reply, waiting_photo",
+            "trigger": "admin:retry",
+            "events": [
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Foto KTP belum ada*\nDraft: *#<draft4>* - DRAFTG LESTARI\nKirim foto KTP dengan caption: *#psb ktp #<draft4>*\nBelum ada perubahan di MikroTik/OLT.",
+                    "type": "wa.send"
+                },
+                {
+                    "message": "Draft #<draft4> di-retry.",
+                    "status": 200,
+                    "type": "http.response"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 4,
+                    "from": "failed",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Site HTB butuh VLAN service. Isi di Aktivasi→VLAN MikroTik atau kirim: #psb vlan NN #<draft1>",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC1",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": true,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": null,
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEC2",
+                        "status": "secret_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 3,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC3",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 4,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC4",
+                        "status": "received",
+                        "vlan": null,
+                        "waiting_photo": true
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "ord": 1,
+                        "package": "HTB-50M",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "profile": "50M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_1": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "50M",
+                        "pw_len": "10",
+                        "remote": "198.19.42.12"
+                    }
+                }
+            }
+        },
+        {
+            "label": "processDraft on an olt_ok draft: skipped, no device call",
+            "trigger": "entry:processDraft",
+            "events": [],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Site HTB butuh VLAN service. Isi di Aktivasi→VLAN MikroTik atau kirim: #psb vlan NN #<draft1>",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC1",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": true,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": null,
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEC2",
+                        "status": "secret_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 3,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC3",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 4,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC4",
+                        "status": "received",
+                        "vlan": null,
+                        "waiting_photo": true
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": null,
+                        "ord": 5,
+                        "pon_port": null,
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEC5",
+                        "status": "olt_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "ord": 1,
+                        "package": "HTB-50M",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "profile": "50M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_1": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "50M",
+                        "pw_len": "10",
+                        "remote": "198.19.42.12"
+                    }
+                }
+            }
+        },
+        {
+            "label": "processDraft on a correction_pending draft: skipped",
+            "trigger": "entry:processDraft",
+            "events": [],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Site HTB butuh VLAN service. Isi di Aktivasi→VLAN MikroTik atau kirim: #psb vlan NN #<draft1>",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC1",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": true,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": null,
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEC2",
+                        "status": "secret_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 3,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC3",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 4,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC4",
+                        "status": "received",
+                        "vlan": null,
+                        "waiting_photo": true
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": null,
+                        "ord": 5,
+                        "pon_port": null,
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEC5",
+                        "status": "olt_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 6,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC6",
+                        "status": "correction_pending_review",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "ord": 1,
+                        "package": "HTB-50M",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "profile": "50M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_1": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "50M",
+                        "pw_len": "10",
+                        "remote": "198.19.42.12"
+                    }
+                }
+            }
+        },
+        {
+            "label": "processDraft on a cancelled draft: skipped under the draft lock",
+            "trigger": "entry:processDraft",
+            "events": [],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Site HTB butuh VLAN service. Isi di Aktivasi→VLAN MikroTik atau kirim: #psb vlan NN #<draft1>",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC1",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": true,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": null,
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEC2",
+                        "status": "secret_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 3,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC3",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 4,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC4",
+                        "status": "received",
+                        "vlan": null,
+                        "waiting_photo": true
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": null,
+                        "ord": 5,
+                        "pon_port": null,
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEC5",
+                        "status": "olt_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 6,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC6",
+                        "status": "correction_pending_review",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 7,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC7",
+                        "status": "cancelled",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "ord": 1,
+                        "package": "HTB-50M",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "profile": "50M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_1": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "50M",
+                        "pw_len": "10",
+                        "remote": "198.19.42.12"
+                    }
+                }
+            }
+        },
+        {
+            "label": "pollWaitingSn: the wait window is over, status timeout, snTimeout reply",
+            "trigger": "job:PollPsbSnJob",
+            "events": [
+                {
+                    "class": "App\\Jobs\\PollPsbSnJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Timeout SN OLT*\nDraft: *#<draft8>*\nPelanggan: DRAFTK MARLINA\nSN: `FHTTC0FFEEC8`\nCek FO/power ONT/splitter/ODP.\nRetry: *#psb lanjut #<draft8>*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 8,
+                    "from": "waiting_sn",
+                    "to": "timeout"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Site HTB butuh VLAN service. Isi di Aktivasi→VLAN MikroTik atau kirim: #psb vlan NN #<draft1>",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC1",
+                        "status": "pending_vlan",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer1",
+                        "htb_complete": true,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": null,
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEC2",
+                        "status": "secret_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "failure: profile not found",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 3,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC3",
+                        "status": "failed",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 4,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RANDUAGUNG-CCR",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC4",
+                        "status": "received",
+                        "vlan": null,
+                        "waiting_photo": true
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": null,
+                        "ord": 5,
+                        "pon_port": null,
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_3",
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": true,
+                        "sn": "FHTTC0FFEEC5",
+                        "status": "olt_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 6,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC6",
+                        "status": "correction_pending_review",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 7,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC7",
+                        "status": "cancelled",
+                        "vlan": null,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Timeout menunggu SN di uncfg",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 8,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "secret_done": false,
+                        "sn": "FHTTC0FFEEC8",
+                        "status": "timeout",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "ord": 1,
+                        "package": "HTB-50M",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_1",
+                        "profile": "50M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_1": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "50M",
+                        "pw_len": "10",
+                        "remote": "198.19.42.12"
+                    }
+                }
+            }
+        },
+        {
+            "label": "locks-free probe: no PSB lock is left held",
+            "trigger": "probe",
+            "events": [
+                {
+                    "busy": [],
+                    "checked": 30,
+                    "type": "locks.probe"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        }
+    ],
+    "transitions": [
+        [
+            "received",
+            "pending_vlan",
+            "cmd:lanjut"
+        ],
+        [
+            "received",
+            "secret_ok",
+            "cmd:lanjut"
+        ],
+        [
+            "received",
+            "failed",
+            "cmd:lanjut"
+        ],
+        [
+            "failed",
+            "received",
+            "admin:retry"
+        ],
+        [
+            "waiting_sn",
+            "timeout",
+            "job:PollPsbSnJob"
+        ]
+    ]
+}

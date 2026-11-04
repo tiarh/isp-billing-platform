@@ -1,0 +1,28 @@
+{
+  "description": "open migration belongs to another sender: the photo is not a migration follow-up (PSB buffer)",
+  "migrations": [
+    {"ref": "m1", "status": "waiting_sn", "minutes_ago": 5, "sender_jid": "62812000002@s.whatsapp.net"}
+  ],
+  "steps": [
+    {
+      "label": "plain photo from another sender",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S12-P1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/p1", "mimetype": "image/jpeg"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "#psb text consumes the buffer",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S12-T1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb\nNama: Budi Uji\nSN: FHTT00000012"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

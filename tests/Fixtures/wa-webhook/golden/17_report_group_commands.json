@@ -1,0 +1,158 @@
+{
+    "scenario": "17_report_group_commands",
+    "steps": [
+        {
+            "label": "#pppoe cari",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [
+                {
+                    "class": "App\\Jobs\\ProcessReportPppoeCariJob",
+                    "queue": "wa",
+                    "unique": "report-pppoe-cari-msg:FAKE-S17-C1",
+                    "data": {
+                        "afterCommit": null,
+                        "chainCatchCallbacks": null,
+                        "chainConnection": null,
+                        "chainQueue": null,
+                        "chained": [],
+                        "connection": null,
+                        "deduplicator": null,
+                        "delay": null,
+                        "messageGroup": null,
+                        "middleware": [],
+                        "payload": {
+                            "group_jid": "120363000000000002@g.us",
+                            "message_id": "FAKE-S17-C1",
+                            "sender_jid": "62812000001@s.whatsapp.net",
+                            "sender_name": "Teknisi Satu",
+                            "text": "#pppoe cari budi.uji"
+                        },
+                        "queue": "wa",
+                        "timeout": 180,
+                        "tries": 2,
+                        "uniqueFor": 300
+                    }
+                }
+            ],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "#rekap psb",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbRecapCommandJob",
+                    "queue": "wa",
+                    "unique": "psb-recap-msg:FAKE-S17-C2",
+                    "data": {
+                        "afterCommit": null,
+                        "chainCatchCallbacks": null,
+                        "chainConnection": null,
+                        "chainQueue": null,
+                        "chained": [],
+                        "connection": null,
+                        "deduplicator": null,
+                        "delay": null,
+                        "messageGroup": null,
+                        "middleware": [],
+                        "payload": {
+                            "context": "report",
+                            "group_jid": "120363000000000002@g.us",
+                            "message_id": "FAKE-S17-C2",
+                            "sender_jid": "62812000001@s.whatsapp.net",
+                            "sender_name": "Teknisi Satu",
+                            "text": "#rekap psb semua kemarin"
+                        },
+                        "queue": "wa",
+                        "timeout": 60,
+                        "tries": 2,
+                        "uniqueFor": 300
+                    }
+                }
+            ],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "#rekap onu",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [
+                {
+                    "class": "App\\Jobs\\ProcessRecapTopicCommandJob",
+                    "queue": "wa",
+                    "unique": "recap-topic-msg:FAKE-S17-C3",
+                    "data": {
+                        "afterCommit": null,
+                        "chainCatchCallbacks": null,
+                        "chainConnection": null,
+                        "chainQueue": null,
+                        "chained": [],
+                        "connection": null,
+                        "deduplicator": null,
+                        "delay": null,
+                        "messageGroup": null,
+                        "middleware": [],
+                        "payload": {
+                            "context": "report",
+                            "group_jid": "120363000000000002@g.us",
+                            "message_id": "FAKE-S17-C3",
+                            "sender_jid": "62812000001@s.whatsapp.net",
+                            "sender_name": "Teknisi Satu",
+                            "text": "#rekap onu klampok"
+                        },
+                        "queue": "wa",
+                        "timeout": 120,
+                        "tries": 2,
+                        "uniqueFor": 300
+                    }
+                }
+            ],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        },
+        {
+            "label": "#psb in the report group",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": []
+            }
+        }
+    ]
+}

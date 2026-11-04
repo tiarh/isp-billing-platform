@@ -1,0 +1,19 @@
+name: Question or bug
+description: Ask about the code or report a problem you found
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This repository is a read-only snapshot. It is not accepting contributions
+        and a reply is not guaranteed. Do not post secrets or personal data.
+        For security problems use the private vulnerability report instead.
+  - type: textarea
+    id: what
+    attributes:
+      label: What did you find or want to ask?
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where in the code? (file and line, if you know)

@@ -1,0 +1,679 @@
+{
+    "scenario": "s13-misc-commands",
+    "steps": [
+        {
+            "label": "#psb antri",
+            "trigger": "cmd:antri",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "📋 *Antrian PSB (max 5)*\n• #<draft4> DRAFTG LESTARI · koreksi menunggu approval · SN FHTTC0FFEE33\n• #<draft3> DRAFTC WIJAYA · pending VLAN · SN FHTTC0FFEE32\n• #<draft1> DRAFTE SANTOSO · menunggu SN · SN FHTTC0FFEE30\nDetail: `#psb cek #ID`",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 1,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE30",
+                        "status": "waiting_sn"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "USERSI AMINAH",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 2,
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE31",
+                        "status": "applied"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTC WIJAYA",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 3,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE32",
+                        "status": "pending_vlan"
+                    },
+                    {
+                        "correction_diff": [],
+                        "full_name": "DRAFTG LESTARI",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 4,
+                        "pppoe_user": "DRAFTGLESTARI_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE33",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "#psb batal #applied (soft cancel is refused)",
+            "trigger": "cmd:batal",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "ℹ️ *Draft tidak perlu “done”*\nDraft *#<draft2>* · status: *applied admin*\nPerintah *done* hanya untuk antrian *pending VLAN*.\nButuh proses ulang SN? Kirim: *#psb lanjut*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb router ra #correction_pending (answers pending)",
+            "trigger": "cmd:router",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft4>* · DRAFTG LESTARI\n*Perubahan terdeteksi:*\nAda perubahan provisioning pada draft live.\n*Preflight read-only:*\nMikroTik: old - / new - / -\nOLT snapshot: not_checked\nGenieACS snapshot: not_checked\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft4>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft4>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb vlan 100 #correction_pending (answers pending)",
+            "trigger": "cmd:vlan",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft4>* · DRAFTG LESTARI\n*Perubahan terdeteksi:*\nAda perubahan provisioning pada draft live.\n*Preflight read-only:*\nMikroTik: old - / new - / -\nOLT snapshot: not_checked\nGenieACS snapshot: not_checked\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft4>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft4>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb ya #correction_pending (answers pending)",
+            "trigger": "cmd:ya",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft4>* · DRAFTG LESTARI\n*Perubahan terdeteksi:*\nAda perubahan provisioning pada draft live.\n*Preflight read-only:*\nMikroTik: old - / new - / -\nOLT snapshot: not_checked\nGenieACS snapshot: not_checked\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft4>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft4>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb router unknown #waiting_sn",
+            "trigger": "cmd:router",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ Router `nowhere` tidak dikenali.\nContoh: *#psb router ra* · *#psb router krian* · *#psb router rdg* · *#psb router bumiayu* · *#psb router gadang*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb vlan 5000 #waiting_sn (out of range)",
+            "trigger": "cmd:vlan",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ VLAN harus 1–4094. Contoh: *#psb vlan 100 #<draft1>*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "done #pending_vlan",
+            "trigger": "cmd:done",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Lanjut setelah mapping VLAN*\nDraft: *#<draft3>* · PON *?*\nMemeriksa VLAN & melanjutkan aktivasi…",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Foto KTP belum ada*\nDraft: *#<draft3>* - DRAFTC WIJAYA\nKirim foto KTP dengan caption: *#psb ktp #<draft3>*\nBelum ada perubahan di MikroTik/OLT.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 3,
+                    "from": "pending_vlan",
+                    "to": "received"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 1,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE30",
+                        "status": "waiting_sn"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "USERSI AMINAH",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 2,
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE31",
+                        "status": "applied"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTC WIJAYA",
+                        "group": "120363000000000001@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 3,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE32",
+                        "status": "received"
+                    },
+                    {
+                        "correction_diff": [],
+                        "full_name": "DRAFTG LESTARI",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 4,
+                        "pppoe_user": "DRAFTGLESTARI_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE33",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "#psb done without a draft waiting",
+            "trigger": "cmd:done",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "ℹ️ *Tidak ada antrian VLAN*\nTidak ada draft berstatus *pending VLAN*.\nRekap: */psb*\nLanjut SN: *#psb lanjut*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb batal #waiting_sn",
+            "trigger": "cmd:batal",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "🛑 *Draft dibatalkan (soft)*\nDraft: *#<draft1>* · DRAFTE SANTOSO\nStatus eBilling: *cancelled*.\nSecret/ONU di perangkat *tidak* dihapus otomatis.\nButuh hapus di MT/OLT → NOC manual di eBilling.\nAktifkan lagi: *#psb lanjut* (jika masih relevan).",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "waiting_sn",
+                    "to": "cancelled"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000001@g.us",
+                        "last_error": "Dibatalkan via WA (soft — secret/ONU tidak dihapus)",
+                        "ord": 1,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE30",
+                        "status": "cancelled"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "USERSI AMINAH",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 2,
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE31",
+                        "status": "applied"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTC WIJAYA",
+                        "group": "120363000000000001@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 3,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE32",
+                        "status": "received"
+                    },
+                    {
+                        "correction_diff": [],
+                        "full_name": "DRAFTG LESTARI",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 4,
+                        "pppoe_user": "DRAFTGLESTARI_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE33",
+                        "status": "correction_pending_review"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "#psb sn without a serial",
+            "trigger": "cmd:sn",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ Format: `#psb sn FHTT12345678`\nOpsional: `#psb sn FHTT… #42`",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb lanjut #unknown",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Draft tidak ditemukan*\nDraft *#999999* tidak ada di grup ini.\nCek nomor di rekap: */psb*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb ktp #ID (text only, asks for the photo)",
+            "trigger": "cmd:ktp",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "📷 *Foto KTP belum terlampir*\nKirim ulang foto sebagai gambar dengan caption tepat: *#psb ktp #<draft1>*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb bantu",
+            "trigger": "cmd:help",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Bantuan PSB WA*\nFormat:\n#psb\nNama: ...\nODP: ODP-AREA-L3.1\nRT: 03\nRW: 04\nTikor: -7.x,112.x\nDaerah: ...\nRouter: RA/KRIAN/...\nPaket: STARTLITE/CSR/...\nSN: FHTTxxxxxxxx\nHP: 08xxxx\nKTP wajib. Kirim susulan: *#psb ktp #ID*\nCek: *#psb cek #ID* | Retry: *#psb lanjut #ID*\nCari PPPoE: *#pppoe cari <nama/user/hp>*\nRekap: */psb*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "/psb (today recap)",
+            "trigger": "cmd:status",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Rekap PSB hari ini*\n20 Oct 2026 · 10:05 WIB\nTotal: *4* | OLT: 1 | PPPoE: 0\nTunggu SN: 0 | VLAN: 0 | Gagal: 0 | Applied: 1\nSumber: WA 4 | Manual 0\nRefresh: */psb* | Bantuan: *#psb bantu*\nSnapshot: OLT aktif 0 | PPPoE linked DB 2",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "/pppoe cari (nothing found)",
+            "trigger": "cmd:pppoe",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "❌ *Pencarian PPPoE*\nTidak ditemukan pelanggan dengan kata kunci: *nobody*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "/pppoe without a query",
+            "trigger": "cmd:pppoe",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Format cari PPPoE*\nGunakan: `#pppoe cari <nama/user/telp>`\n\n_Contoh:_\n`#pppoe cari djoko comboran`\n`#pppoe cari 0812...`",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "plain chatter is ignored",
+            "trigger": "ignored",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "near-miss \"psb:\" without the hash (rate limited per sender)",
+            "trigger": "near_miss",
+            "events": [
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "ℹ️ *Pakai *#psb* (ada pagar #)*\nBot tidak memproses `psb` atau `psb:` tanpa `#`.\nJangan edit pesan lama. Kirim ulang sebagai pesan baru.\nContoh baris pertama: `#psb`\nFormat lengkap: *#psb bantu*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb vlan 100 without #ID and several open drafts: asks for #ID",
+            "trigger": "cmd:vlan",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "Ada beberapa draft. Tulis #ID, contoh: #psb vlan 100 #812",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000001@g.us",
+                        "last_error": "Dibatalkan via WA (soft — secret/ONU tidak dihapus)",
+                        "ord": 1,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE30",
+                        "status": "cancelled"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "USERSI AMINAH",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 2,
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE31",
+                        "status": "applied"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTC WIJAYA",
+                        "group": "120363000000000001@g.us",
+                        "last_error": "Dokumen PSB belum valid: missing",
+                        "ord": 3,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE32",
+                        "status": "received"
+                    },
+                    {
+                        "correction_diff": [],
+                        "full_name": "DRAFTG LESTARI",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 4,
+                        "pppoe_user": "DRAFTGLESTARI_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE33",
+                        "status": "correction_pending_review"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTC WIJAYA",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 5,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE34",
+                        "status": "failed"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTG LESTARI",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 6,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE35",
+                        "status": "failed"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "USERSI AMINAH",
+                        "group": "1203630000000009@g.us",
+                        "last_error": null,
+                        "ord": 7,
+                        "pppoe_user": null,
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE36",
+                        "status": "failed"
+                    },
+                    {
+                        "correction_diff": null,
+                        "full_name": "DRAFTE SANTOSO",
+                        "group": "120363000000000001@g.us",
+                        "last_error": null,
+                        "ord": 8,
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "sn": "FHTTC0FFEE37",
+                        "status": "secret_ok"
+                    }
+                ],
+                "customers": 0,
+                "mikrotik_secrets": 2
+            }
+        },
+        {
+            "label": "#psb router ra #ID from another group: not in this group",
+            "trigger": "cmd:router",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Draft tidak ditemukan*\nDraft *#<draft7>* tidak ada di grup ini.\nCek nomor di rekap: */psb*",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb router rdg #finished_htb: refused",
+            "trigger": "cmd:router",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "Draft #<draft8> sudah PPPoE OK, tidak bisa diproses ulang.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "#psb vlan 100 #finished_htb: refused",
+            "trigger": "cmd:vlan",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "Draft #<draft8> sudah PPPoE OK, tidak bisa diproses ulang.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        }
+    ],
+    "transitions": [
+        [
+            "pending_vlan",
+            "received",
+            "cmd:done"
+        ],
+        [
+            "waiting_sn",
+            "cancelled",
+            "cmd:batal"
+        ]
+    ]
+}

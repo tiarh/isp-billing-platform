@@ -1,0 +1,1606 @@
+{
+    "scenario": "s20-conductor-gadang-huawei-edges",
+    "steps": [
+        {
+            "label": "Huawei session busy before any secret gives a manual-resend reply, no secret, status kept",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft1>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "OLT Huawei sedang dipakai sesi lain. Belum ada perintah dikirim; coba lagi +-1 menit.\nDraft #<draft1>: kirim #psb lanjut #<draft1> +-1 menit lagi.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT Huawei sibuk; belum ada perintah dikirim. Kirim #psb lanjut.",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 1,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-GADANG",
+                        "secret_done": false,
+                        "sn": "HWTCC0FFEE91",
+                        "status": "received",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "Huawei OLT lock held after the secret is deferred (vendor huawei), resume job queued",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/1",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "count": 2,
+                    "type": "mt.getPPPSecretsWithAddresses"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=6>",
+                    "profile": "GADANG-200M",
+                    "remote": "198.19.42.12",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_2"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_2"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "args": {
+                        "attempt": 1,
+                        "draftId": "<draft1>",
+                        "lockRetries": 0,
+                        "token": "<token>"
+                    },
+                    "class": "App\\Jobs\\ResumePsbDraftJob",
+                    "delay": "60-119s",
+                    "queue": "psb",
+                    "type": "job.dispatch",
+                    "unique": null
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "Draft #<draft1>: antrian OLT sedang dipakai.\nPPPoE sudah siap. Aktivasi OLT dicoba lagi otomatis +-1 menit.\nTidak perlu kirim ulang atau #psb lanjut.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "received",
+                    "to": "secret_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "OLT antri: menunggu giliran OLT (otomatis, percobaan 1/5)",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": {
+                            "attempt": 1,
+                            "scope": "olt",
+                            "stage": "olt",
+                            "token": "<token>",
+                            "vendor": "huawei"
+                        },
+                        "olt_done": false,
+                        "onu_id": 0,
+                        "ord": 1,
+                        "pon_port": "0/0/1",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE91",
+                        "status": "secret_ok",
+                        "vlan": 102,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTE SANTOSO",
+                        "ord": 1,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTESANTOSO_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.12"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "resume job goes through Huawei: no C300 call, draft finishes",
+            "trigger": "job:ResumePsbDraftJob",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ResumePsbDraftJob",
+                    "type": "job.run"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/1",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/1",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "approval_present": true,
+                    "commands": [
+                        "config",
+                        "interface gpon 0/0",
+                        "ont add 1 0 sn-auth \"HWTCC0FFEE91\" omci ont-lineprofile-id 20 ont-srvprofile-id 10 desc \"DRAFTESANTOSO_RT01_RW02_2\"",
+                        "quit",
+                        "display ont info by-sn HWTCC0FFEE91",
+                        "display ont info 0 0 1 0",
+                        "service-port vlan 102 gpon 0/0/1 ont 0 gemport 1 multi-service user-vlan 102 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                        "service-port vlan 69 gpon 0/0/1 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                        "quit",
+                        "display service-port port 0/0/1 ont 0",
+                        "save",
+                        "config",
+                        "interface gpon 0/0",
+                        "ont tr069-server-config 1 0 profile-id 1",
+                        "quit",
+                        "quit",
+                        "save"
+                    ],
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.executePlan"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_2"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "PSB Huawei #<draft1> selesai pada 0/0/1:0.\nNama: DRAFTE SANTOSO\nPPPoE: DRAFTESANTOSO_RT01_RW02_2\nPassword: <pw>\nVLAN internet/TR-069: 102/69.\nGenieACS: menunggu Inform CPE.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "secret_ok",
+                    "to": "olt_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": true,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 0,
+                        "ord": 1,
+                        "pon_port": "0/0/1",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE91",
+                        "status": "olt_ok",
+                        "vlan": 102,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTE SANTOSO",
+                        "ord": 1,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTESANTOSO_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.12"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "SN not on Huawei autofind yet: waiting_sn",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft2>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "❌ PSB Huawei #<draft2> berhenti aman: sn_not_found_on_autofind. Tidak ada ont add/service-port dikirim.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 2,
+                    "from": "received",
+                    "to": "waiting_sn"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": true,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 0,
+                        "ord": 1,
+                        "pon_port": "0/0/1",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE91",
+                        "status": "olt_ok",
+                        "vlan": 102,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": null,
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Huawei PSB: sn_not_found_on_autofind",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 2,
+                        "pon_port": null,
+                        "pppoe_user": null,
+                        "remote": null,
+                        "router": "SKYNET-GADANG",
+                        "secret_done": false,
+                        "sn": "HWTCC0FFEE92",
+                        "status": "waiting_sn",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTE SANTOSO",
+                        "ord": 1,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTESANTOSO_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.12"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "SN poller finds the SN on autofind: provisions through Huawei",
+            "trigger": "job:PollPsbSnJob",
+            "events": [
+                {
+                    "class": "App\\Jobs\\PollPsbSnJob",
+                    "type": "job.run"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/5",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=6>",
+                    "profile": "GADANG-200M",
+                    "remote": "198.19.42.13",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_2"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_2"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/5",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "approval_present": true,
+                    "commands": [
+                        "config",
+                        "interface gpon 0/0",
+                        "ont add 5 0 sn-auth \"HWTCC0FFEE92\" omci ont-lineprofile-id 24 ont-srvprofile-id 10 desc \"USERSIAMINAH_RT01_RW02_2\"",
+                        "quit",
+                        "display ont info by-sn HWTCC0FFEE92",
+                        "display ont info 0 0 5 0",
+                        "service-port vlan 106 gpon 0/0/5 ont 0 gemport 1 multi-service user-vlan 106 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                        "service-port vlan 69 gpon 0/0/5 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                        "quit",
+                        "display service-port port 0/0/5 ont 0",
+                        "save",
+                        "config",
+                        "interface gpon 0/0",
+                        "ont tr069-server-config 5 0 profile-id 1",
+                        "quit",
+                        "quit",
+                        "save"
+                    ],
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.executePlan"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "USERSIAMINAH_RT01_RW02_2"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "PSB Huawei #<draft2> selesai pada 0/0/5:0.\nNama: USERSI AMINAH\nPPPoE: USERSIAMINAH_RT01_RW02_2\nPassword: <pw>\nVLAN internet/TR-069: 106/69.\nGenieACS: menunggu Inform CPE.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 2,
+                    "from": "waiting_sn",
+                    "to": "olt_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": true,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 0,
+                        "ord": 1,
+                        "pon_port": "0/0/1",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE91",
+                        "status": "olt_ok",
+                        "vlan": 102,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer2",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": true,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 0,
+                        "ord": 2,
+                        "pon_port": "0/0/5",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE92",
+                        "status": "olt_ok",
+                        "vlan": 106,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTE SANTOSO",
+                        "ord": 1,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "ord": 2,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.13",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTESANTOSO_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.12"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.13"
+                    }
+                }
+            }
+        },
+        {
+            "label": "Huawei executePlan fails: status secret_ok, huawei_psb_last_failure saved",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft3>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/2",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=6>",
+                    "profile": "GADANG-200M",
+                    "remote": "198.19.42.14",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTCWIJAYA_RT01_RW02_2"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTCWIJAYA_RT01_RW02_2"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "DRAFTCWIJAYA_RT01_RW02_2",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/2",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "approval_present": true,
+                    "commands": [
+                        "config",
+                        "interface gpon 0/0",
+                        "ont add 2 0 sn-auth \"HWTCC0FFEE93\" omci ont-lineprofile-id 21 ont-srvprofile-id 10 desc \"DRAFTCWIJAYA_RT01_RW02_2\"",
+                        "quit",
+                        "display ont info by-sn HWTCC0FFEE93",
+                        "display ont info 0 0 2 0",
+                        "service-port vlan 103 gpon 0/0/2 ont 0 gemport 1 multi-service user-vlan 103 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                        "service-port vlan 69 gpon 0/0/2 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                        "quit",
+                        "display service-port port 0/0/2 ont 0",
+                        "save",
+                        "config",
+                        "interface gpon 0/0",
+                        "ont tr069-server-config 2 0 profile-id 1",
+                        "quit",
+                        "quit",
+                        "save"
+                    ],
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.executePlan"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 3,
+                    "from": "received",
+                    "to": "secret_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": true,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 0,
+                        "ord": 1,
+                        "pon_port": "0/0/1",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE91",
+                        "status": "olt_ok",
+                        "vlan": 102,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer2",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": true,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 0,
+                        "ord": 2,
+                        "pon_port": "0/0/5",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE92",
+                        "status": "olt_ok",
+                        "vlan": 106,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer3",
+                        "htb_complete": false,
+                        "huawei_last_failure": {
+                            "cause_class": "RuntimeException",
+                            "command_index": 2,
+                            "command_label": "ont add",
+                            "failure_stage": "provision",
+                            "failure_type": "command_failed"
+                        },
+                        "huawei_provisioned": false,
+                        "last_error": "OLT Huawei: OLT rejected a command",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 0,
+                        "ord": 3,
+                        "pon_port": "0/0/2",
+                        "pppoe_user": "DRAFTCWIJAYA_RT01_RW02_2",
+                        "remote": "198.19.42.14",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE93",
+                        "status": "secret_ok",
+                        "vlan": 103,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTE SANTOSO",
+                        "ord": 1,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "ord": 2,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.13",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTC WIJAYA",
+                        "ord": 3,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTCWIJAYA_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.14",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTCWIJAYA_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.14"
+                    },
+                    "DRAFTESANTOSO_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.12"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.13"
+                    }
+                }
+            }
+        },
+        {
+            "label": "Huawei write guard closed: \"Huawei OLT write belum aktif\", status secret_ok",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft4>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/3",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=6>",
+                    "profile": "GADANG-200M",
+                    "remote": "198.19.42.15",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTGLESTARI_RT01_RW02_2"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTGLESTARI_RT01_RW02_2"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "DRAFTGLESTARI_RT01_RW02_2",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectAutofind"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.collectSnapshot"
+                },
+                {
+                    "olt": "OLT-GADANG-3",
+                    "pon": "0/0/3",
+                    "type": "huawei.collectPortOnus"
+                },
+                {
+                    "approval_present": true,
+                    "commands": [
+                        "config",
+                        "interface gpon 0/0",
+                        "ont add 3 0 sn-auth \"HWTCC0FFEE94\" omci ont-lineprofile-id 22 ont-srvprofile-id 10 desc \"DRAFTGLESTARI_RT01_RW02_2\"",
+                        "quit",
+                        "display ont info by-sn HWTCC0FFEE94",
+                        "display ont info 0 0 3 0",
+                        "service-port vlan 104 gpon 0/0/3 ont 0 gemport 1 multi-service user-vlan 104 tag-transform translate inbound traffic-table name \"200M\" outbound traffic-table name \"200M\"",
+                        "service-port vlan 69 gpon 0/0/3 ont 0 gemport 2 multi-service user-vlan 69 tag-transform translate",
+                        "quit",
+                        "display service-port port 0/0/3 ont 0",
+                        "save",
+                        "config",
+                        "interface gpon 0/0",
+                        "ont tr069-server-config 3 0 profile-id 1",
+                        "quit",
+                        "quit",
+                        "save"
+                    ],
+                    "olt": "OLT-GADANG-3",
+                    "type": "huawei.executePlan"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 4,
+                    "from": "received",
+                    "to": "secret_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": true,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 0,
+                        "ord": 1,
+                        "pon_port": "0/0/1",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE91",
+                        "status": "olt_ok",
+                        "vlan": 102,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer2",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": true,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 0,
+                        "ord": 2,
+                        "pon_port": "0/0/5",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE92",
+                        "status": "olt_ok",
+                        "vlan": 106,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer3",
+                        "htb_complete": false,
+                        "huawei_last_failure": {
+                            "cause_class": "RuntimeException",
+                            "command_index": 2,
+                            "command_label": "ont add",
+                            "failure_stage": "provision",
+                            "failure_type": "command_failed"
+                        },
+                        "huawei_provisioned": false,
+                        "last_error": "OLT Huawei: OLT rejected a command",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 0,
+                        "ord": 3,
+                        "pon_port": "0/0/2",
+                        "pppoe_user": "DRAFTCWIJAYA_RT01_RW02_2",
+                        "remote": "198.19.42.14",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE93",
+                        "status": "secret_ok",
+                        "vlan": 103,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer4",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Huawei OLT write belum aktif: guard",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 0,
+                        "ord": 4,
+                        "pon_port": "0/0/3",
+                        "pppoe_user": "DRAFTGLESTARI_RT01_RW02_2",
+                        "remote": "198.19.42.15",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE94",
+                        "status": "secret_ok",
+                        "vlan": 104,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTE SANTOSO",
+                        "ord": 1,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "ord": 2,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.13",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTC WIJAYA",
+                        "ord": 3,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTCWIJAYA_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.14",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTG LESTARI",
+                        "ord": 4,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTGLESTARI_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.15",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTCWIJAYA_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.14"
+                    },
+                    "DRAFTESANTOSO_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.12"
+                    },
+                    "DRAFTGLESTARI_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.15"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.13"
+                    }
+                }
+            }
+        },
+        {
+            "label": "psb_huawei_gadang_enabled=0: the legacy conductor route handles the Gadang draft",
+            "trigger": "cmd:lanjut",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "▶️ *Melanjutkan draft*\nDraft: *#<draft5>*\nMemproses ulang SN / OLT…",
+                    "type": "wa.send"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=6>",
+                    "profile": "GADANG-200M",
+                    "remote": "198.19.42.16",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTAPRASETYO_RT01_RW02_2"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTAPRASETYO_RT01_RW02_2"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_2",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTAPRASETYO_RT01_RW02_2"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n*PPPoE siap*\nDraft: *#<draft5>* - Paket *GADANG-200M [GADANG-200M]*\nPelanggan: DRAFTA PRASETYO\nMikroTik: *SKYNET-GADANG*\nUser: `DRAFTAPRASETYO_RT01_RW02_2`\nPassword: <pw>\nProfile: *GADANG-200M*\nVLAN: *-*\nSN: `HWTCC0FFEE95`\nLanjut aktivasi OLT...",
+                    "type": "wa.send"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTAPRASETYO_RT01_RW02_2"
+                },
+                {
+                    "router": "SKYNET-GADANG",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 6281200000011\n✅ *PSB HTB selesai (PPPoE)*\nDraft: *#<draft5>*\nPelanggan: DRAFTA PRASETYO\nMikroTik: *SKYNET-GADANG*\nUser: `DRAFTAPRASETYO_RT01_RW02_2`\nPassword: <pw>\nVLAN: tidak digunakan\nSN: `HWTCC0FFEE95`\nONU HTB tetap disetel manual oleh NOC.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 5,
+                    "from": "received",
+                    "to": "secret_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "customer": "customer1",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": true,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 0,
+                        "ord": 1,
+                        "pon_port": "0/0/1",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE91",
+                        "status": "olt_ok",
+                        "vlan": 102,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer2",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": true,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": true,
+                        "onu_id": 0,
+                        "ord": 2,
+                        "pon_port": "0/0/5",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                        "remote": "198.19.42.13",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE92",
+                        "status": "olt_ok",
+                        "vlan": 106,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer3",
+                        "htb_complete": false,
+                        "huawei_last_failure": {
+                            "cause_class": "RuntimeException",
+                            "command_index": 2,
+                            "command_label": "ont add",
+                            "failure_stage": "provision",
+                            "failure_type": "command_failed"
+                        },
+                        "huawei_provisioned": false,
+                        "last_error": "OLT Huawei: OLT rejected a command",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 0,
+                        "ord": 3,
+                        "pon_port": "0/0/2",
+                        "pppoe_user": "DRAFTCWIJAYA_RT01_RW02_2",
+                        "remote": "198.19.42.14",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE93",
+                        "status": "secret_ok",
+                        "vlan": 103,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer4",
+                        "htb_complete": false,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": "Huawei OLT write belum aktif: guard",
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": 0,
+                        "ord": 4,
+                        "pon_port": "0/0/3",
+                        "pppoe_user": "DRAFTGLESTARI_RT01_RW02_2",
+                        "remote": "198.19.42.15",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE94",
+                        "status": "secret_ok",
+                        "vlan": 104,
+                        "waiting_photo": false
+                    },
+                    {
+                        "customer": "customer5",
+                        "htb_complete": true,
+                        "huawei_last_failure": null,
+                        "huawei_provisioned": false,
+                        "last_error": null,
+                        "mt_missing_after_db_success": false,
+                        "olt_busy_resume": null,
+                        "olt_done": false,
+                        "onu_id": null,
+                        "ord": 5,
+                        "pon_port": null,
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_2",
+                        "remote": "198.19.42.16",
+                        "router": "SKYNET-GADANG",
+                        "secret_done": true,
+                        "sn": "HWTCC0FFEE95",
+                        "status": "secret_ok",
+                        "vlan": null,
+                        "waiting_photo": false
+                    }
+                ],
+                "customers": [
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTE SANTOSO",
+                        "ord": 1,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.12",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "USERSI AMINAH",
+                        "ord": 2,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.13",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTC WIJAYA",
+                        "ord": 3,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTCWIJAYA_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.14",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTG LESTARI",
+                        "ord": 4,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTGLESTARI_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.15",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    },
+                    {
+                        "local": "198.19.42.1",
+                        "name": "DRAFTA PRASETYO",
+                        "ord": 5,
+                        "package": "GADANG-200M",
+                        "pppoe_user": "DRAFTAPRASETYO_RT01_RW02_2",
+                        "profile": "GADANG-200M",
+                        "remote": "198.19.42.16",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTAPRASETYO_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.16"
+                    },
+                    "DRAFTCWIJAYA_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.14"
+                    },
+                    "DRAFTESANTOSO_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.12"
+                    },
+                    "DRAFTGLESTARI_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.15"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    },
+                    "USERSIAMINAH_RT01_RW02_2": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "GADANG-200M",
+                        "pw_len": "6",
+                        "remote": "198.19.42.13"
+                    }
+                }
+            }
+        },
+        {
+            "label": "locks-free probe: no PSB lock is left held",
+            "trigger": "probe",
+            "events": [
+                {
+                    "busy": [],
+                    "checked": 21,
+                    "type": "locks.probe"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        }
+    ],
+    "transitions": [
+        [
+            "received",
+            "secret_ok",
+            "cmd:lanjut"
+        ],
+        [
+            "secret_ok",
+            "olt_ok",
+            "job:ResumePsbDraftJob"
+        ],
+        [
+            "received",
+            "waiting_sn",
+            "cmd:lanjut"
+        ],
+        [
+            "waiting_sn",
+            "olt_ok",
+            "job:PollPsbSnJob"
+        ]
+    ]
+}

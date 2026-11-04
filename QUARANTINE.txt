@@ -1,0 +1,4 @@
+Files left out of this snapshot because they fail the verify gate only due to
+known fixture data. Each one is a follow-up in the private repo.
+
+(none)

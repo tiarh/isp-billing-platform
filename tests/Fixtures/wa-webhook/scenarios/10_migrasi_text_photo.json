@@ -1,0 +1,25 @@
+{
+  "description": "#migrasi as a photo caption (media downloaded in the request), then the same delivery again",
+  "steps": [
+    {
+      "label": "#migrasi caption photo",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S10-P1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/m", "mimetype": "image/jpeg", "caption": "#migrasi\nNama: Budi Uji\nSN: FHTT00000010"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "same delivery again",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S10-P1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/m", "mimetype": "image/jpeg", "caption": "#migrasi\nNama: Budi Uji\nSN: FHTT00000010"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+=== show gpon onu detail-info gpon-onu_1/3/3:27 ===
+show gpon onu detail-info gpon-onu_1/3/3:27
+
+show gpon onu detail-info gpon-onu_1/3/3:27
+                          ^
+%Error 20202: Invalid input detected at '^' marker.Invalid parameter
+SKYNET
+=== show gpon onu state gpon-olt_1/3/3 ===
+show gpon onu state gpon-olt_1/3/3
+OnuIndex   Admin State  OMCC State  Phase State  Channel
+--------------------------------------------------------------
+1/3/3:1     enable       enable      working      1(GPON)
+1/3/3:2     enable       disable     DyingGasp    1(GPON)
+1/3/3:3     enable       enable      working      1(GPON)
+1/3/3:4     enable       disable     OffLine      1(GPON)
+1/3/3:5     enable       enable      working      1(GPON)
+1/3/3:6     enable       enable      working      1(GPON)
+1/3/3:7     enable       enable      working      1(GPON)
+1/3/3:8     enable       disable     DyingGasp    1(GPON)
+1/3/3:9     enable       enable      working      1(GPON)
+1/3/3:10    enable       disable     OffLine      1(GPON)
+1/3/3:11    enable       enable      working      1(GPON)
+1/3/3:12    enable       enable      working      1(GPON)
+1/3/3:13    enable       enable      working      1(GPON)
+1/3/3:14    enable       disable     DyingGasp    1(GPON)
+1/3/3:15    enable       enable      working      1(GPON)
+1/3/3:16    enable       disable     OffLine      1(GPON)
+1/3/3:17    enable       enable      working      1(GPON)
+1/3/3:18    enable       enable      working      1(GPON)
+1/3/3:19    enable       enable      working      1(GPON)
+1/3/3:20    enable       disable     DyingGasp    1(GPON)
+1/3/3:21    enable       enable      working      1(GPON)
+1/3/3:22    enable       disable     OffLine      1(GPON)
+1/3/3:23    enable       enable      working      1(GPON)
+1/3/3:26    enable       disable     DyingGasp    1(GPON)
+1/3/3:28    enable       disable     OffLine      1(GPON)
+1/3/3:29    enable       enable      working      1(GPON)
+1/3/3:30    enable       enable      working      1(GPON)
+1/3/3:31    enable       enable      working      1(GPON)
+1/3/3:32    enable       disable     DyingGasp    1(GPON)
+1/3/3:33    enable       disable     LOS          1(GPON)
+1/3/3:34    enable       disable     OffLine      1(GPON)
+1/3/3:35    enable       enable      working      1(GPON)
+1/3/3:36    enable       enable      working      1(GPON)
+1/3/3:37    enable       enable      working      1(GPON)
+1/3/3:38    enable       disable     DyingGasp    1(GPON)
+1/3/3:39    enable       enable      working      1(GPON)
+1/3/3:40    enable       disable     OffLine      1(GPON)
+1/3/3:41    enable       enable      working      1(GPON)
+1/3/3:42    enable       enable      working      1(GPON)
+1/3/3:43    enable       enable      working      1(GPON)
+1/3/3:44    enable       disable     DyingGasp    1(GPON)
+1/3/3:45    enable       enable      working      1(GPON)
+1/3/3:46    enable       disable     OffLine      1(GPON)
+1/3/3:47    enable       enable      working      1(GPON)
+1/3/3:48    enable       enable      working      1(GPON)
+1/3/3:49    enable       enable      working      1(GPON)
+1/3/3:50    enable       disable     DyingGasp    1(GPON)
+1/3/3:51    enable       enable      working      1(GPON)
+1/3/3:52    enable       disable     OffLine      1(GPON)
+1/3/3:53    enable       enable      working      1(GPON)
+1/3/3:54    enable       enable      working      1(GPON)
+1/3/3:55    enable       enable      working      1(GPON)
+1/3/3:56    enable       disable     DyingGasp    1(GPON)
+1/3/3:57    enable       enable      working      1(GPON)
+1/3/3:58    enable       disable     OffLine      1(GPON)
+1/3/3:59    enable       enable      working      1(GPON)
+1/3/3:60    enable       enable      working      1(GPON)
+1/3/3:61    enable       enable      working      1(GPON)
+1/3/3:62    enable       disable     DyingGasp    1(GPON)
+1/3/3:63    enable       enable      working      1(GPON)
+1/3/3:64    enable       disable     OffLine      1(GPON)
+1/3/3:65    enable       enable      working      1(GPON)
+1/3/3:66    enable       enable      working      1(GPON)
+1/3/3:67    enable       enable      working      1(GPON)
+1/3/3:68    enable       disable     DyingGasp    1(GPON)
+1/3/3:69    enable       enable      working      1(GPON)
+1/3/3:70    enable       disable     OffLine      1(GPON)
+1/3/3:71    enable       enable      working      1(GPON)
+1/3/3:72    enable       enable      working      1(GPON)
+ONU Number: 44/69
+SKYNET
+=== show gpon onu detail-info gpon-onu_1/3/3:22 ===
+show gpon onu detail-info gpon-onu_1/3/3:22
+
+ONU interface:         gpon-onu_1/3/3:22
+  Name:                BUDI_RT01_RW01_3
+  Type:                ALL
+  State:               ready
+  Configured channel:  auto
+  Current channel:     1(GPON)
+  Admin state:         enable
+  Phase state:         OffLine
+  Config state:        success
+  Authentication mode: sn
+  SN Bind:             enable with SN check
+  Serial number:       FHTTC0000B02
+  Password:
+  Description:         FHTTC0000B02
+  Vport mode:          gemport
+  DBA Mode:            Hybrid
+  ONU Status:          enable
+  OMCI BW Profile:
+  Line Profile:        N/A
+  Service Profile:     N/A
+  ONU Distance:        N/A
+  Online Duration:     0h 0m 0s
+  FEC:                 none
+  FEC actual mode:     N/A
+  1PPS+ToD:            disable
+  Auto replace:        disable
+  Multicast encryption:disable
+  Multicast encryption current state:N/A
+------------------------------------------
+       Authpass Time          OfflineTime             Cause
+   1   0000-00-00 00:00:00    0000-00-00 00:00:00
+   2   0000-00-00 00:00:00    0000-00-00 00:00:00
+   3   0000-00-00 00:00:00    0000-00-00 00:00:00
+   4   0000-00-00 00:00:00    0000-00-00 00:00:00
+   5   0000-00-00 00:00:00    0000-00-00 00:00:00
+   6   0000-00-00 00:00:00    0000-00-00 00:00:00
+   7   0000-00-00 00:00:00    0000-00-00 00:00:00
+   8   0000-00-00 00:00:00    0000-00-00 00:00:00
+   9   0000-00-00 00:00:00    0000-00-00 00:00:00
+  10   0000-00-00 00:00:00    0000-00-00 00:00:00
+
+
+SKYNET

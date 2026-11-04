@@ -1,0 +1,18 @@
+{
+  "widget": "routers",
+  "range": "1h",
+  "status": "unavailable",
+  "fetched_at": null,
+  "reason": "Grafana tidak menjawab (timeout).",
+  "partial": true,
+  "step_seconds": 60,
+  "grafana_dashboard_url": "https://grafana.example.test/d/skynet-mikrotik-overview?orgId=1&from=now-1h&to=now",
+  "data": {
+    "rows": [
+      { "router_id": 1, "name": "RTR-SUKAMAJU-01", "scraped": null, "pppoe_online": 412, "pppoe_source": "db", "pppoe_secrets": 452, "rx_mbps": null, "tx_mbps": null, "cpu_pct": null, "memory_pct": null, "uptime_seconds": null },
+      { "router_id": 2, "name": "RTR-MEKARSARI-01", "scraped": null, "pppoe_online": 286, "pppoe_source": "db", "pppoe_secrets": 326, "rx_mbps": null, "tx_mbps": null, "cpu_pct": null, "memory_pct": null, "uptime_seconds": null },
+      { "router_id": 3, "name": "RTR-CEMPAKA-01", "scraped": null, "pppoe_online": 154, "pppoe_source": "db", "pppoe_secrets": 190, "rx_mbps": null, "tx_mbps": null, "cpu_pct": null, "memory_pct": null, "uptime_seconds": null },
+      { "router_id": 4, "name": "RTR-TANJUNG-01", "scraped": null, "pppoe_online": 0, "pppoe_source": "db", "pppoe_secrets": 12, "rx_mbps": null, "tx_mbps": null, "cpu_pct": null, "memory_pct": null, "uptime_seconds": null }
+    ]
+  }
+}

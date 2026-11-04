@@ -1,0 +1,169 @@
+{
+    "scenario": "06_psb_ktp_draft_completed",
+    "steps": [
+        {
+            "label": "#psb ktp #ID photo",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbMediaOcrJob",
+                    "queue": "ocr-media",
+                    "unique": "psb-media-ocr:<draft1>:<hash>",
+                    "data": {
+                        "afterCommit": null,
+                        "chainCatchCallbacks": null,
+                        "chainConnection": null,
+                        "chainQueue": null,
+                        "chained": [],
+                        "connection": null,
+                        "contexts": [
+                            {
+                                "message_id": "FAKE-S06-K1",
+                                "sender": "62812000001@s.whatsapp.net",
+                                "sha256": "<hash>",
+                                "source": "wa_exact_caption"
+                            }
+                        ],
+                        "continuation": {
+                            "batch_key": "<hash>",
+                            "context": {
+                                "actor": "62812000001@s.whatsapp.net",
+                                "message_id": "FAKE-S06-K1",
+                                "source": "wa_exact_caption"
+                            },
+                            "mode": "follow_up"
+                        },
+                        "deduplicator": null,
+                        "delay": null,
+                        "draftId": "<draft1>",
+                        "maxExceptions": 1,
+                        "messageGroup": null,
+                        "middleware": [],
+                        "queue": "ocr-media",
+                        "stagedPaths": [
+                            "<file sha1:6c901087f112>"
+                        ],
+                        "timeout": 600,
+                        "tries": 2,
+                        "uniqueFor": 600
+                    }
+                }
+            ],
+            "http": [
+                {
+                    "path": "POST /chat/getBase64FromMediaMessage/ops",
+                    "id": "FAKE-S06-K1"
+                },
+                {
+                    "path": "POST /message/sendText/skynet-ebilling",
+                    "number": "120363000000000001@g.us",
+                    "text": "*Foto diterima, sedang validasi KTP dan SN.*\nDraft: *#<draft1>* - Pelanggan Uji\nBelum ada perubahan customer atau perangkat.\nBot akan memberi hasil setelah validasi selesai."
+                },
+                {
+                    "path": "POST /message/sendText/skynet-ebilling",
+                    "number": "120363000000000001@g.us",
+                    "text": "*Foto PSB diterima*\nDraft: *#<draft1>* · Pelanggan Uji\nKTP sedang dibaca.\nLampiran tersimpan. Tidak perlu kirim ulang."
+                }
+            ],
+            "db": {
+                "psb_drafts": [
+                    {
+                        "activation_mode": null,
+                        "applied_at": null,
+                        "area_id": null,
+                        "customer_id": null,
+                        "daerah": null,
+                        "full_name": "Pelanggan Uji",
+                        "group_jid": "120363000000000001@g.us",
+                        "ktp_photo_path": null,
+                        "last_error": null,
+                        "message_id": "SEED-d1",
+                        "meta": {
+                            "document_context": {
+                                "actor": "62812000001@s.whatsapp.net",
+                                "message_id": "FAKE-S06-K1",
+                                "source": "wa_exact_caption"
+                            },
+                            "document_gate": {
+                                "reason": "queued_ocr_media",
+                                "status": "ocr_pending",
+                                "updated_at": "<ts>"
+                            },
+                            "ocr_batch_contexts": {
+                                "<hash>": {
+                                    "message_id": "FAKE-S06-K1",
+                                    "sender": "62812000001@s.whatsapp.net",
+                                    "sha256": "<hash>",
+                                    "source": "wa_exact_caption"
+                                }
+                            },
+                            "ocr_batch_key": "<hash>",
+                            "ocr_batch_paths": [
+                                "<file sha1:6c901087f112>"
+                            ],
+                            "photo_class": {
+                                "queue": "ocr-media",
+                                "status": "pending"
+                            }
+                        },
+                        "mikrotik_profile": null,
+                        "nik": null,
+                        "odp": null,
+                        "olt_at": null,
+                        "olt_id": null,
+                        "onu_id": null,
+                        "package_id": null,
+                        "phone": null,
+                        "pon_port": null,
+                        "pppoe_local_address": null,
+                        "pppoe_remote_address": null,
+                        "pppoe_user": null,
+                        "raw_text": null,
+                        "router_id": null,
+                        "router_photo_path": null,
+                        "rt": null,
+                        "rw": null,
+                        "secret_at": null,
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": null,
+                        "site_profile_key": null,
+                        "sn": null,
+                        "sn_wait_until": null,
+                        "status": "olt_ok",
+                        "tikor": null,
+                        "tr069_vlan": 69,
+                        "vlan": null
+                    }
+                ],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": "#psb",
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "psb_command",
+                        "message_id": "FAKE-S06-K1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": true,
+                            "read_only": true
+                        },
+                        "redacted_text": "#psb ktp #<draft1>",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Psb Command: #psb ktp #<draft1>"
+                    }
+                ]
+            }
+        }
+    ]
+}

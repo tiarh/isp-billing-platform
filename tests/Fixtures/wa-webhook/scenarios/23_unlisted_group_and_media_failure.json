@@ -1,0 +1,36 @@
+{
+  "description": "#psb in a group that is not listed is only logged; media download failure on a #psb photo",
+  "media": "fail",
+  "steps": [
+    {
+      "label": "#psb in an unlisted group",
+      "msg": {
+        "key": {"remoteJid": "120363000000000009@g.us", "fromMe": false, "id": "FAKE-S23-T1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb\nNama: Budi Uji"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "#psb caption photo, download fails",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S23-P1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/1", "mimetype": "image/jpeg", "caption": "#psb\nNama: Budi Uji\nSN: FHTT00000023"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "plain photo, download fails",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S23-P2", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/2", "mimetype": "image/jpeg"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

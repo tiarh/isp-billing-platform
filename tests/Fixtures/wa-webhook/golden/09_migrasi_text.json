@@ -1,0 +1,74 @@
+{
+    "scenario": "09_migrasi_text",
+    "steps": [
+        {
+            "label": "#migrasi text",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "queue": "migration-command",
+                    "unique": "migration-wa-msg:FAKE-S09-T1",
+                    "data": {
+                        "afterCommit": null,
+                        "chainCatchCallbacks": null,
+                        "chainConnection": null,
+                        "chainQueue": null,
+                        "chained": [],
+                        "connection": null,
+                        "deduplicator": null,
+                        "delay": null,
+                        "messageGroup": null,
+                        "middleware": [],
+                        "payload": {
+                            "group_jid": "120363000000000001@g.us",
+                            "image_paths": [],
+                            "message_id": "FAKE-S09-T1",
+                            "sender_jid": "62812000001@s.whatsapp.net",
+                            "sender_jid_lid": "62812000001@s.whatsapp.net",
+                            "sender_jid_pn": null,
+                            "sender_name": "Teknisi Satu",
+                            "text": "#migrasi\nNama: Budi Uji\nPPPoE: budi.uji\nSN: FHTT00000009"
+                        },
+                        "queue": "migration-command",
+                        "timeout": 420,
+                        "tries": 2,
+                        "uniqueFor": 900
+                    }
+                }
+            ],
+            "http": [],
+            "db": {
+                "psb_drafts": [],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": "#migrasi",
+                        "domain": "migration",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "migration_command",
+                        "message_id": "FAKE-S09-T1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "#migrasi Nama: Budi Uji PPPoE: budi.uji SN: FHTT00000009",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Migration Command: #migrasi Nama: Budi Uji PPPoE: budi.uji SN: FHTT00000009"
+                    }
+                ]
+            }
+        }
+    ]
+}

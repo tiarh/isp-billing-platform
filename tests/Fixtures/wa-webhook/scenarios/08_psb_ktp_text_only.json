@@ -1,0 +1,18 @@
+{
+  "description": "#psb ktp #ID as plain text (no photo) goes to handleInbound",
+  "drafts": [
+    {"ref": "d1", "status": "received", "meta": {"waiting_photo": true}, "attrs": {"last_error": "Menunggu foto KTP."}}
+  ],
+  "steps": [
+    {
+      "label": "#psb ktp #ID text",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S08-T1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb ktp #{{d1}}"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,681 @@
+{
+    "scenario": "s11-807-sn-reuse-refused-and-typo-correction",
+    "steps": [
+        {
+            "label": "#psb text + 2 photos provisions the live draft",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*PSB diterima*\nDraft: *#<draft1>*\nPelanggan: *DRAFTE SANTOSO*\nStatus: cek SN OLT.\nCek: *#psb cek #<draft1>*",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 1,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 20
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "count": 2,
+                    "type": "mt.getPPPSecretsWithAddresses"
+                },
+                {
+                    "comment": "20Oct2026",
+                    "local": "198.19.42.1",
+                    "password": "<pw len=7>",
+                    "profile": "200M",
+                    "remote": "198.19.42.12",
+                    "service": "pppoe",
+                    "type": "mt.addPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                    "type": "radius.syncCustomer"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 Teknisi Satu\n*PPPoE siap*\nDraft: *#<draft1>* - Paket *RA-200M [200M]*\nPelanggan: DRAFTE SANTOSO\nMikroTik: *SKYNET-RA-OLT*\nUser: `DRAFTESANTOSO_RT01_RW02_3`\nPassword: <pw>\nProfile: *200M*\nVLAN: *100*\nSN: `FHTTC0FFEE11`\nLanjut aktivasi OLT...",
+                    "type": "wa.send"
+                },
+                {
+                    "approval_present": true,
+                    "input": {
+                        "dry_run": false,
+                        "name": "DRAFTESANTOSO_RT01_RW02_3",
+                        "olt_id": 1,
+                        "onu_type": "ALL",
+                        "paket": "200M",
+                        "port": "1/1/1",
+                        "purpose": "psb_wa",
+                        "router_id": 513,
+                        "sn": "FHTTC0FFEE11"
+                    },
+                    "type": "olt.provisionFiberhome"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [
+                        "6281200000011@s.whatsapp.net"
+                    ],
+                    "text": "@6281200000011 Teknisi Satu\n✅ *Aktivasi OLT selesai*\nDraft: *#<draft1>*\nPelanggan: DRAFTE SANTOSO\nSN: FHTTC0FFEE11\nPON: 1/1/1 · VLAN: *100*\n────────────\n*Setting manual di ONT pelanggan*\n*1) Internet (PPPoE)*\n• Mode: PPPoE\n• Username: DRAFTESANTOSO_RT01_RW02_3\n• Password: <pw>\n• VLAN internet: *100*\n*2) Management / ACS (TR-069)*\n• Mode: DHCP\n• VLAN: *69*\n• ACS URL: http://acs.test:7547\n────────────\nFoto KTP & router tersimpan di draft (menu *PSB WA*).\nAdmin apply pelanggan aktif belakangan dari eBilling.\nStatus *live PPPoE* & *redaman* → cek di eBilling (bukan di grup, biar tidak spam).\nSelesai. Uji internet + cek ACS jika perlu.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "(none)",
+                    "to": "olt_ok"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "activation_mode": "full_olt",
+                        "area": "klampok",
+                        "customer": "customer1",
+                        "daerah": "Klampok",
+                        "full_name": "DRAFTE SANTOSO",
+                        "ktp_photo": "<file:ktp-a>",
+                        "last_error": null,
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": "area:klampok",
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": "klampok",
+                                "source": "alias",
+                                "status": "resolved"
+                            },
+                            "document_context": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-a>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "forced_router_id": "SKYNET-RA-OLT",
+                            "forced_site_key": "ra",
+                            "ip_source": "heuristic_dominant24",
+                            "mt_comment": "20Oct2026",
+                            "mt_router_id": "SKYNET-RA-OLT",
+                            "mt_written_at": "<ts>",
+                            "olt_last_response": {
+                                "at": "<ts>",
+                                "ok": true,
+                                "onu_id": 7
+                            },
+                            "olt_provisioned_at": "<ts>",
+                            "package_hint": "200M",
+                            "photo_attachments": [
+                                {
+                                    "classifier": "ktp",
+                                    "ktp_score": 100,
+                                    "odp_score": 0,
+                                    "path": "<file:ktp-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 0
+                                },
+                                {
+                                    "classifier": "sn",
+                                    "ktp_score": 0,
+                                    "odp_score": 0,
+                                    "path": "<file:sn-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 90
+                                }
+                            ],
+                            "photo_class": {
+                                "degraded_count": 0,
+                                "fast_path": true,
+                                "hard_guard": false,
+                                "images": 2,
+                                "ktp_idx": 0,
+                                "ktp_path": "<file:ktp-a>",
+                                "ktp_score": 100,
+                                "ocr_status": [
+                                    "ok",
+                                    "ok"
+                                ],
+                                "odp_scores": [
+                                    0,
+                                    0
+                                ],
+                                "sha256": "<hash x2>",
+                                "slow_unreadable": false,
+                                "sn_idx": 1,
+                                "sn_path": "<file:sn-a>",
+                                "sn_score": 90,
+                                "unknown_count": 0
+                            },
+                            "psb_customer_sync": {
+                                "checked_at": "<ts>",
+                                "skipped": [],
+                                "status": "synced",
+                                "updated": [
+                                    "ktp_photo_url"
+                                ]
+                            },
+                            "router_alias": "ra",
+                            "secret_existed": false,
+                            "sender_jid_pn": "6281200000011@s.whatsapp.net",
+                            "site_resolve": {
+                                "at": "<ts>",
+                                "key": "ra",
+                                "mode": "full_olt",
+                                "olt_id": "OLT-1",
+                                "router_id": "SKYNET-RA-OLT",
+                                "tr069_vlan": 69,
+                                "vlan": null
+                            }
+                        },
+                        "mikrotik_profile": "200M",
+                        "nik_set": true,
+                        "odp": "ODP-KLAMPOK-3",
+                        "olt": "OLT-1",
+                        "olt_at": "<ts>",
+                        "onu_id": 7,
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "phone": "081200000021",
+                        "pon_port": "1/1/1",
+                        "pppoe_local_address": "198.19.42.1",
+                        "pppoe_remote_address": "198.19.42.12",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "router": "SKYNET-RA-OLT",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": "<ts>",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "site_profile_key": "ra",
+                        "sn": "FHTTC0FFEE11",
+                        "sn_photo": "<file:sn-a>",
+                        "sn_wait_until": null,
+                        "status": "olt_ok",
+                        "tr069_vlan": 69,
+                        "vlan": 100
+                    }
+                ],
+                "customers": [
+                    {
+                        "address": "RT 01 / RW 02 - ODP ODP-KLAMPOK-3 - Klampok",
+                        "area": "klampok",
+                        "due_day": 25,
+                        "ktp_photo": "/storage/<file:ktp-a>",
+                        "local": "198.19.42.1",
+                        "name": "DRAFTE SANTOSO",
+                        "odp_name": "ODP-KLAMPOK-3",
+                        "olt": "OLT-1",
+                        "onu_serial": "FHTTC0FFEE11",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "password_set": true,
+                        "phone": "081200000021",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "sn_photo": "<file:sn-a>",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTESANTOSO_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.12"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        },
+        {
+            "label": "\"SN:\" first line, full form: normal intake (SN in use → refused)",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "SN `FHTTC0FFEE11` sudah dipakai draft *#<draft1>* (DRAFTE SANTOSO). Kalau ini pelanggan lain, cek lagi SN di modem lalu kirim ulang #psb.\nKalau SN sudah benar, berarti SN di draft *#<draft1>* yang salah. Hubungi admin.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "same SN, other name and phone: refused (\"sudah dipakai\"), nothing changes",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "photo sent after the refused #psb is dropped quietly",
+            "trigger": "follow_up_photo",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "legit typo correction (same SN, name typo, new phone) still merges",
+            "trigger": "psb_text",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessPsbWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 4
+                    },
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSO_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getPPPSecret",
+                    "user": "DRAFTESANTOSA_RT01_RW02_3"
+                },
+                {
+                    "type": "mt.getActiveConnections",
+                    "withMeta": true
+                },
+                {
+                    "router": "SKYNET-RA-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "⚠️ *Koreksi PSB menunggu approval*\nDraft: *#<draft1>* · DRAFTE SANTOSA\n*Perubahan terdeteksi:*\nNama: `DRAFTE SANTOSO` -> `DRAFTE SANTOSA`\nHP: `081200000021` -> `081200000099`\nPPPoE: `DRAFTESANTOSO_RT01_RW02_3` -> `DRAFTESANTOSA_RT01_RW02_3`\n*Preflight read-only:*\nMikroTik: old live / new missing / offline\nOLT snapshot: not_found\nGenieACS snapshot: not_found\nBelum ada perangkat/customer yang diubah dari resend ini.\nNOC cek dulu. Apply aman: *#psb lanjut #<draft1>* setelah switch koreksi aktif.\nKalau ini salah draft/pelanggan beda: *#psb batal #<draft1>* untuk batalkan koreksi saja.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "draft": 1,
+                    "from": "olt_ok",
+                    "to": "correction_pending_review"
+                }
+            ],
+            "db": {
+                "drafts": [
+                    {
+                        "activation_mode": "full_olt",
+                        "area": "klampok",
+                        "customer": "customer1",
+                        "daerah": "Klampok",
+                        "full_name": "DRAFTE SANTOSA",
+                        "ktp_photo": "<file:ktp-a>",
+                        "last_error": "Koreksi provisioning menunggu approval; perangkat/customer belum diubah.",
+                        "meta": {
+                            "area_resolution": {
+                                "area_id": "area:klampok",
+                                "at": "<ts>",
+                                "candidates": [],
+                                "matched_key": null,
+                                "source": "existing",
+                                "status": "resolved"
+                            },
+                            "document_context": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "message_id": "FAKE-PSB-009",
+                                "source": "psb_wa"
+                            },
+                            "document_gate": {
+                                "actor": "6281200000011@s.whatsapp.net",
+                                "allowed": true,
+                                "checked_at": "<ts>",
+                                "evidence": {
+                                    "mime": "image/jpeg",
+                                    "path": "<file:ktp-a>",
+                                    "sha256": "<hash>",
+                                    "size": "<size>",
+                                    "valid": true
+                                },
+                                "message_id": "FAKE-PSB-003",
+                                "source": "psb_wa",
+                                "status": "verified"
+                            },
+                            "forced_router_id": "SKYNET-RA-OLT",
+                            "forced_site_key": "ra",
+                            "ip_source": "heuristic_dominant24",
+                            "mt_comment": "20Oct2026",
+                            "mt_router_id": "SKYNET-RA-OLT",
+                            "mt_written_at": "<ts>",
+                            "olt_last_response": {
+                                "at": "<ts>",
+                                "ok": true,
+                                "onu_id": 7
+                            },
+                            "olt_provisioned_at": "<ts>",
+                            "package_hint": "200M",
+                            "photo_attachments": [
+                                {
+                                    "classifier": "ktp",
+                                    "ktp_score": 100,
+                                    "odp_score": 0,
+                                    "path": "<file:ktp-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 0
+                                },
+                                {
+                                    "classifier": "sn",
+                                    "ktp_score": 0,
+                                    "odp_score": 0,
+                                    "path": "<file:sn-a>",
+                                    "sender": "6281200000011@s.whatsapp.net",
+                                    "sn_score": 90
+                                }
+                            ],
+                            "photo_class": {
+                                "degraded_count": 0,
+                                "fast_path": true,
+                                "hard_guard": false,
+                                "images": 2,
+                                "ktp_idx": 0,
+                                "ktp_path": "<file:ktp-a>",
+                                "ktp_score": 100,
+                                "ocr_status": [
+                                    "ok",
+                                    "ok"
+                                ],
+                                "odp_scores": [
+                                    0,
+                                    0
+                                ],
+                                "sha256": "<hash x2>",
+                                "slow_unreadable": false,
+                                "sn_idx": 1,
+                                "sn_path": "<file:sn-a>",
+                                "sn_score": 90,
+                                "unknown_count": 0
+                            },
+                            "psb_correction": {
+                                "after": {
+                                    "customer_id": "<customer1>",
+                                    "daerah": "Klampok",
+                                    "full_name": "DRAFTE SANTOSA",
+                                    "mikrotik_profile": "200M",
+                                    "odp": "ODP-KLAMPOK-3",
+                                    "olt_id": 1,
+                                    "package_id": "package:RA-200M",
+                                    "phone": "081200000099",
+                                    "pppoe_local_address": "198.19.42.1",
+                                    "pppoe_remote_address": "198.19.42.12",
+                                    "pppoe_user": "DRAFTESANTOSA_RT01_RW02_3",
+                                    "router_id": 513,
+                                    "rt": "01",
+                                    "rw": "02",
+                                    "sn": "FHTTC0FFEE11",
+                                    "status": "olt_ok"
+                                },
+                                "before": {
+                                    "customer_id": "<customer1>",
+                                    "daerah": "Klampok",
+                                    "full_name": "DRAFTE SANTOSO",
+                                    "mikrotik_profile": "200M",
+                                    "odp": "ODP-KLAMPOK-3",
+                                    "olt_id": 1,
+                                    "package_id": "package:RA-200M",
+                                    "phone": "081200000021",
+                                    "pppoe_local_address": "198.19.42.1",
+                                    "pppoe_remote_address": "198.19.42.12",
+                                    "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                                    "router_id": 513,
+                                    "rt": "01",
+                                    "rw": "02",
+                                    "sn": "FHTTC0FFEE11",
+                                    "status": "olt_ok"
+                                },
+                                "diff": {
+                                    "full_name": {
+                                        "new": "DRAFTE SANTOSA",
+                                        "old": "DRAFTE SANTOSO"
+                                    },
+                                    "phone": {
+                                        "new": "081200000099",
+                                        "old": "081200000021"
+                                    },
+                                    "pppoe_user": {
+                                        "new": "DRAFTESANTOSA_RT01_RW02_3",
+                                        "old": "DRAFTESANTOSO_RT01_RW02_3"
+                                    }
+                                },
+                                "preflight": {
+                                    "checked_at": "<ts>",
+                                    "db_customer": "linked #<customer1>",
+                                    "genieacs": {
+                                        "snapshot": "not_found"
+                                    },
+                                    "mikrotik": {
+                                        "active": "offline",
+                                        "new_secret": "missing",
+                                        "old_secret": "live",
+                                        "router": "SKYNET-RA-OLT"
+                                    },
+                                    "olt": {
+                                        "snapshot": "not_found"
+                                    }
+                                },
+                                "raw": "#psb\nNama: DRAFTE SANTOSA\nODP: ODP-KLAMPOK-3\nRT: 01\nRW: 02\nTikor: -6.745468,111.601127\nDaerah: Klampok\nRouter: RA\nPaket: 200M\nSN: FHTTC0FFEE11\nHP: 081200000099",
+                                "reason": "Resend #psb mengubah data provisioning setelah PPPoE/OLT live.",
+                                "requested_at": "<ts>",
+                                "requested_by": "Teknisi Satu",
+                                "status": "pending_review"
+                            },
+                            "psb_customer_sync": {
+                                "checked_at": "<ts>",
+                                "skipped": [],
+                                "status": "synced",
+                                "updated": [
+                                    "ktp_photo_url"
+                                ]
+                            },
+                            "router_alias": "ra",
+                            "secret_existed": false,
+                            "sender_jid_pn": "6281200000011@s.whatsapp.net",
+                            "site_resolve": {
+                                "at": "<ts>",
+                                "key": "ra",
+                                "mode": "full_olt",
+                                "olt_id": "OLT-1",
+                                "router_id": "SKYNET-RA-OLT",
+                                "tr069_vlan": 69,
+                                "vlan": null
+                            }
+                        },
+                        "mikrotik_profile": "200M",
+                        "nik_set": true,
+                        "odp": "ODP-KLAMPOK-3",
+                        "olt": "OLT-1",
+                        "olt_at": "<ts>",
+                        "onu_id": 7,
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "phone": "081200000099",
+                        "pon_port": "1/1/1",
+                        "pppoe_local_address": "198.19.42.1",
+                        "pppoe_remote_address": "198.19.42.12",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "router": "SKYNET-RA-OLT",
+                        "rt": "01",
+                        "rw": "02",
+                        "secret_at": "<ts>",
+                        "sender": "6281200000011@s.whatsapp.net",
+                        "site_profile_key": "ra",
+                        "sn": "FHTTC0FFEE11",
+                        "sn_photo": "<file:sn-a>",
+                        "sn_wait_until": null,
+                        "status": "correction_pending_review",
+                        "tr069_vlan": 69,
+                        "vlan": 100
+                    }
+                ],
+                "customers": [
+                    {
+                        "address": "RT 01 / RW 02 - ODP ODP-KLAMPOK-3 - Klampok",
+                        "area": "klampok",
+                        "due_day": 25,
+                        "ktp_photo": "/storage/<file:ktp-a>",
+                        "local": "198.19.42.1",
+                        "name": "DRAFTE SANTOSO",
+                        "odp_name": "ODP-KLAMPOK-3",
+                        "olt": "OLT-1",
+                        "onu_serial": "FHTTC0FFEE11",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "password_set": true,
+                        "phone": "081200000021",
+                        "pppoe_user": "DRAFTESANTOSO_RT01_RW02_3",
+                        "profile": "200M",
+                        "remote": "198.19.42.12",
+                        "router": "SKYNET-RA-OLT",
+                        "sn_photo": "<file:sn-a>",
+                        "status": "pending_installation",
+                        "sync": "synced"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "DRAFTESANTOSO_RT01_RW02_3": {
+                        "comment": "20Oct2026",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "7",
+                        "remote": "198.19.42.12"
+                    },
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                }
+            }
+        }
+    ],
+    "transitions": [
+        [
+            "(none)",
+            "olt_ok",
+            "psb_text"
+        ],
+        [
+            "olt_ok",
+            "correction_pending_review",
+            "psb_text"
+        ]
+    ]
+}

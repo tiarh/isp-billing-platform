@@ -1,0 +1,15 @@
+{
+  "description": "#psb ktp #ID + photo where the draft does not exist (not found reply)",
+  "steps": [
+    {
+      "label": "#psb ktp #999999 photo",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S07-K1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/k", "mimetype": "image/jpeg", "caption": "#psb ktp #999999"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

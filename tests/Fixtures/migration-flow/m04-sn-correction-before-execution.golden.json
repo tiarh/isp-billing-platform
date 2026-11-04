@@ -1,0 +1,1502 @@
+{
+    "scenario": "m04-sn-correction-before-execution",
+    "steps": [
+        {
+            "label": "intake with an SN that another customer owns: conflict line",
+            "trigger": "intake",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Data migrasi diterima (ref MIG001). Sedang dicocokkan; tunggu hasil bot dan jangan kirim ulang.",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "*Preview migrasi*\nStatus: needs_review\n1. DRAFTG LESTARI | USERDEWI_RT01_RW02 | SN ZTEGA0000013 | ONU 1/1/1:7 | score 100\nID: #<migration1>\nTarget: reguler STARTLITE/200M, sekolah CSR.\nNext: #migrasi pilih #<migration1> <nomor kandidat>\nBelum ada update customer/PPPoE/OLT/MikroTik/GenieACS dari preview.\nSN baru sudah tercatat di pelanggan lain. Cek SN di ONT. Jika salah: #migrasi sn #<migration1> <SN_BENAR>",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "migration": 1,
+                    "from": "(none)",
+                    "to": "needs_review"
+                }
+            ],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "new": true,
+                        "customer": null,
+                        "full_name": "DRAFTG LESTARI",
+                        "group": "120363000000000101@g.us",
+                        "ktp_photo": null,
+                        "last_error": null,
+                        "meta": {
+                            "guided_wa_preview": {
+                                "candidates": [
+                                    {
+                                        "area": null,
+                                        "authoritative_source": "ebilling_live_post_cutoff",
+                                        "confidence": "high",
+                                        "conflicts": [
+                                            "new_sn_already_linked_to_other_customer"
+                                        ],
+                                        "customer_code": "KRN-DEWI",
+                                        "customer_id": "<customer3>",
+                                        "freshness": {
+                                            "customer": {
+                                                "at": "<ts>",
+                                                "stale": false
+                                            },
+                                            "genieacs_snapshot": {
+                                                "at": null,
+                                                "stale": null
+                                            },
+                                            "mikrotik_snapshot": {
+                                                "at": null,
+                                                "stale": null
+                                            },
+                                            "olt_snapshot": {
+                                                "at": null,
+                                                "stale": null
+                                            }
+                                        },
+                                        "match_reasons": [
+                                            "name_exact",
+                                            "pppoe_exact"
+                                        ],
+                                        "name": "DRAFTG LESTARI",
+                                        "number": 1,
+                                        "odp": "ODP-KRN-01",
+                                        "old_onu_ref": "1/1/1:7",
+                                        "old_onu_resolution": "known",
+                                        "old_sn": "ZTEGA0000013",
+                                        "pppoe_user": "USERDEWI_RT01_RW02",
+                                        "requires_manual_selection": false,
+                                        "rt": "1",
+                                        "rw": "2",
+                                        "score": 100,
+                                        "sources": [
+                                            "customer_db",
+                                            "olt_snapshot"
+                                        ],
+                                        "warnings": []
+                                    }
+                                ],
+                                "idempotency_key": "migration-lookup:<hash>",
+                                "new_sn": "ZTEGA0000014",
+                                "reasons": [
+                                    "source_conflict"
+                                ],
+                                "status": "needs_review",
+                                "updated_at": "<ts>"
+                            },
+                            "input_identity": {
+                                "pppoe_user": "USERDEWI_RT01_RW02"
+                            },
+                            "router_mapping": {
+                                "status": "resolved",
+                                "target_input": "Skynet-Krian-OLT",
+                                "target_router_id": "Skynet-Krian-OLT"
+                            }
+                        },
+                        "new_olt": null,
+                        "new_onu_ref": null,
+                        "new_pon_port": null,
+                        "new_sn": "ZTEGA0000014",
+                        "old_olt": null,
+                        "old_onu_deleted_at": null,
+                        "old_onu_ref": null,
+                        "old_router": null,
+                        "old_sn": "",
+                        "olt_at": null,
+                        "phone": "",
+                        "pppoe_user": "USERDEWI_RT01_RW02",
+                        "router": "Skynet-Krian-OLT",
+                        "sender": "6281200000101@s.whatsapp.net",
+                        "source": "guided_lookup_wa",
+                        "status": "needs_review",
+                        "synced_at": null,
+                        "tr069_vlan": null,
+                        "vlan": null
+                    }
+                ],
+                "customers": [
+                    {
+                        "row": "1",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": "/storage/customers/ktp/budi.jpg",
+                        "local": null,
+                        "name": "DRAFTE SANTOSO",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:5",
+                        "onu_serial": "ZTEGA0000011",
+                        "package": "KRIAN-10",
+                        "phone": "081200000011",
+                        "pppoe_user": "USERBUDI_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "2",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": "/storage/customers/ktp/siti.jpg",
+                        "local": null,
+                        "name": "USERSI AMINAH",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:6",
+                        "onu_serial": "ZTEGA0000012",
+                        "package": "KRIAN-10",
+                        "phone": "081200000012",
+                        "pppoe_user": "USERSITI_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "3",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": null,
+                        "local": null,
+                        "name": "DRAFTG LESTARI",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:7",
+                        "onu_serial": "ZTEGA0000013",
+                        "package": "KRIAN-10",
+                        "phone": "081200000013",
+                        "pppoe_user": "USERDEWI_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "4",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": "/storage/customers/ktp/agus.jpg",
+                        "local": null,
+                        "name": "DRAFTA PRASETYO",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:8",
+                        "onu_serial": "ZTEGA0000014",
+                        "package": "KRIAN-10",
+                        "phone": "081200000014",
+                        "pppoe_user": "USERAGUS_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "5",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": "/storage/customers/ktp/andi.jpg",
+                        "local": null,
+                        "name": "DRAFTC WIJAYA",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:9",
+                        "onu_serial": "ZTEGA0000015",
+                        "package": "KRIAN-10",
+                        "phone": "081200000015",
+                        "pppoe_user": "USERANDI_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    },
+                    {
+                        "row": "6",
+                        "new": true,
+                        "address": "RT 1 RW 2 Krian",
+                        "ktp_photo": "/storage/customers/ktp/toni.jpg",
+                        "local": null,
+                        "name": "USERTO HARTONO",
+                        "odp_name": "ODP-KRN-01",
+                        "olt": "OLT-KRIAN-HTB",
+                        "olt_port_label": "1/1/1:10",
+                        "onu_serial": "ZTEGA0000016",
+                        "package": "KRIAN-10",
+                        "phone": "081200000016",
+                        "pppoe_user": "USERTONI_RT01_RW02",
+                        "profile": "10MB",
+                        "pw_set": false,
+                        "remote": null,
+                        "router": "Krian",
+                        "status": "active",
+                        "sync": "unknown"
+                    }
+                ],
+                "ledgers": "unchanged",
+                "olt_onus": [
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:10",
+                        "new": true,
+                        "name": "USERTONI_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:10",
+                        "serial": "ZTEGA0000016",
+                        "state": "online"
+                    },
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:5",
+                        "new": true,
+                        "name": "USERBUDI_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:5",
+                        "serial": "ZTEGA0000011",
+                        "state": "online"
+                    },
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:6",
+                        "new": true,
+                        "name": "USERSITI_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:6",
+                        "serial": "ZTEGA0000012",
+                        "state": "online"
+                    },
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:7",
+                        "new": true,
+                        "name": "USERDEWI_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:7",
+                        "serial": "ZTEGA0000013",
+                        "state": "online"
+                    },
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:8",
+                        "new": true,
+                        "name": "USERAGUS_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:8",
+                        "serial": "ZTEGA0000014",
+                        "state": "online"
+                    },
+                    {
+                        "row": "OLT-KRIAN-HTB|1/1/1:9",
+                        "new": true,
+                        "name": "USERANDI_RT01_RW02",
+                        "olt": "OLT-KRIAN-HTB",
+                        "onu_ref": "1/1/1:9",
+                        "serial": "ZTEGA0000015",
+                        "state": "online"
+                    }
+                ],
+                "mikrotik": {
+                    "Krian": {
+                        "USERAGUS_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.13"
+                        },
+                        "USERANDI_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.14"
+                        },
+                        "USERBUDI_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.10"
+                        },
+                        "USERDEWI_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.12"
+                        },
+                        "USERSITI_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.11"
+                        },
+                        "USERTONI_RT01_RW02": {
+                            "comment": "seed",
+                            "disabled": "no",
+                            "local": "198.19.44.1",
+                            "profile": "10MB",
+                            "pw_len": "9",
+                            "remote": "198.19.44.15"
+                        }
+                    }
+                },
+                "psb_drafts": 0
+            }
+        },
+        {
+            "label": "pilih refused: SN conflict",
+            "trigger": "cmd:pilih",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Pelanggan #1 belum bisa dipilih: SN baru sudah tercatat di pelanggan lain.\nCek SN di ONT. Jika salah: #migrasi sn #<migration1> <SN_BENAR>\nLalu pilih lagi: #migrasi pilih #<migration1> 1",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "sn command with a bad format",
+            "trigger": "cmd:sn",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Data migrasi diterima (ref MIG003). Sedang dicocokkan; tunggu hasil bot dan jangan kirim ulang.",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Format SN tidak valid: FHTTXYZ. Contoh: FHTT12345678 (4 huruf + 8 karakter 0-9/A-F). SN migrasi #<migration1> tidak diubah.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "sn command with an SN of another customer: ownership refusal",
+            "trigger": "cmd:sn",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Data migrasi diterima (ref MIG004). Sedang dicocokkan; tunggu hasil bot dan jangan kirim ulang.",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "SN ZTEGA0000016 ditolak untuk migrasi #<migration1>: SN sudah dipakai pelanggan lain (USERTONI_RT01_RW02). SN tetap ZTEGA0000014.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "customer": "customer3",
+                        "meta": {
+                            "timeline": [
+                                {
+                                    "at": "<ts>",
+                                    "data": {
+                                        "conflicts": [
+                                            "SN sudah dipakai pelanggan lain (USERTONI_RT01_RW02)"
+                                        ],
+                                        "from": "ZTEGA0000014",
+                                        "origin": "sn_command",
+                                        "to": "ZTEGA0000016"
+                                    },
+                                    "status": "pending_review",
+                                    "step": "sn_correction_rejected"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "sn command with a free SN: list refreshed",
+            "trigger": "cmd:sn",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Data migrasi diterima (ref MIG005). Sedang dicocokkan; tunggu hasil bot dan jangan kirim ulang.",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 9,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "*Migrasi #<migration1>: SN diperbarui*\nSN: ZTEGA0000014 -> FHTTC0FFEE54\nSN terdeteksi di uncfg OLT OLT KRIAN port 1/2/2.\nDaftar pelanggan #<migration1> diperbarui:\n1. DRAFTG LESTARI | USERDEWI_RT01_RW02 | skor 100\nPilih: #migrasi pilih #<migration1> <nomor>\nCek: #migrasi cek #<migration1>",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "last_error": "Menunggu teknisi pilih pelanggan: #migrasi pilih #<migration1> <nomor>",
+                        "meta": {
+                            "guided_wa_preview": {
+                                "candidates": [
+                                    {
+                                        "area": null,
+                                        "authoritative_source": "ebilling_live_post_cutoff",
+                                        "confidence": "high",
+                                        "conflicts": [],
+                                        "customer_code": "KRN-DEWI",
+                                        "customer_id": "<customer3>",
+                                        "freshness": {
+                                            "customer": {
+                                                "at": "<ts>",
+                                                "stale": false
+                                            },
+                                            "genieacs_snapshot": {
+                                                "at": null,
+                                                "stale": null
+                                            },
+                                            "mikrotik_snapshot": {
+                                                "at": null,
+                                                "stale": null
+                                            },
+                                            "olt_snapshot": {
+                                                "at": null,
+                                                "stale": null
+                                            }
+                                        },
+                                        "match_reasons": [
+                                            "name_exact",
+                                            "pppoe_exact"
+                                        ],
+                                        "name": "DRAFTG LESTARI",
+                                        "number": 1,
+                                        "odp": "ODP-KRN-01",
+                                        "old_onu_ref": "1/1/1:7",
+                                        "old_onu_resolution": "known",
+                                        "old_sn": "ZTEGA0000013",
+                                        "pppoe_user": "USERDEWI_RT01_RW02",
+                                        "requires_manual_selection": false,
+                                        "rt": "1",
+                                        "rw": "2",
+                                        "score": 100,
+                                        "sources": [
+                                            "customer_db",
+                                            "olt_snapshot"
+                                        ],
+                                        "warnings": []
+                                    }
+                                ],
+                                "idempotency_key": "migration-lookup:<hash>",
+                                "new_sn": "FHTTC0FFEE54",
+                                "previous_order": [
+                                    "<customer3>"
+                                ],
+                                "reasons": [],
+                                "refreshed_from": "sn_command",
+                                "status": "ready_for_selection",
+                                "updated_at": "<ts>"
+                            },
+                            "sn_corrections": [
+                                {
+                                    "at": "<ts>",
+                                    "changed": true,
+                                    "from": "ZTEGA0000014",
+                                    "lookup": {
+                                        "found": true,
+                                        "olt": "OLT KRIAN",
+                                        "onu_id": 5,
+                                        "port": "1/2/2",
+                                        "source": "uncfg"
+                                    },
+                                    "message_id": "FAKE-MIG-005",
+                                    "origin": "sn_command",
+                                    "sender_keys": [
+                                        "6281200000101"
+                                    ],
+                                    "sender_name": "Teknisi Satu",
+                                    "to": "FHTTC0FFEE54"
+                                }
+                            ],
+                            "timeline": {
+                                "added": [
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "from": "ZTEGA0000014",
+                                            "lookup_source": "uncfg",
+                                            "olt_found": true,
+                                            "origin": "sn_command",
+                                            "to": "FHTTC0FFEE54"
+                                        },
+                                        "status": "pending_review",
+                                        "step": "sn_corrected"
+                                    },
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "from_conflicts": [
+                                                [
+                                                    "new_sn_already_linked_to_other_customer"
+                                                ]
+                                            ],
+                                            "order_changed": false,
+                                            "origin": "sn_command",
+                                            "selection": "none",
+                                            "to_conflicts": [
+                                                []
+                                            ]
+                                        },
+                                        "status": "pending_review",
+                                        "step": "guided_wa_preview_refreshed"
+                                    }
+                                ]
+                            }
+                        },
+                        "new_pon_port": "1/2/2",
+                        "new_sn": "FHTTC0FFEE54"
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "pilih candidate 1",
+            "trigger": "cmd:pilih",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "*Migrasi #<migration1>: kandidat #1 dipilih*\nPelanggan: DRAFTG LESTARI (ID <customer3>)\nPPPoE: USERDEWI_RT01_RW02\nODP: ODP-KRN-01\nSN: ZTEGA0000013 -> FHTTC0FFEE54\nKurang: KTP. Lengkapi dulu.\nBelum ada write perangkat/customer.\nBenar: #migrasi konfirmasi #<migration1>\nSalah: #migrasi pilih #<migration1> <nomor lain>\nBatal: #migrasi batal #<migration1>",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "last_error": "Kandidat dipilih; menunggu konfirmasi teknisi sebelum dry-run/device action.",
+                        "meta": {
+                            "guided_wa_confirmation": {
+                                "candidate_number": 1,
+                                "customer_id": "<customer3>",
+                                "expires_at": "<ts>",
+                                "previous_customer_id": "<customer3>",
+                                "selected_at": "<ts>",
+                                "selected_by_sender_keys": [
+                                    "6281200000101"
+                                ],
+                                "status": "pending"
+                            },
+                            "guided_wa_selection": {
+                                "acknowledged_conflicts": [],
+                                "candidate_number": 1,
+                                "confidence": "high",
+                                "customer_id": "<customer3>",
+                                "score": 100,
+                                "selected_at": "<ts>",
+                                "selected_by_sender": "6281200000101@s.whatsapp.net",
+                                "selected_by_sender_keys": [
+                                    "6281200000101"
+                                ],
+                                "sources": [
+                                    "customer_db",
+                                    "olt_snapshot"
+                                ]
+                            },
+                            "migration_review": {
+                                "match_status": "confirmed_pending_approval",
+                                "reasons": [
+                                    "guided_wa_candidate_confirmed"
+                                ],
+                                "source": "guided_lookup_wa"
+                            },
+                            "timeline": {
+                                "added": [
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "candidate_number": 1,
+                                            "customer_id": "<customer3>"
+                                        },
+                                        "status": "pending_review",
+                                        "step": "guided_wa_candidate_confirmed"
+                                    },
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "candidate_number": 1,
+                                            "customer_id": "<customer3>"
+                                        },
+                                        "status": "pending_review",
+                                        "step": "guided_wa_confirmation_pending"
+                                    }
+                                ]
+                            }
+                        },
+                        "old_olt": "OLT-KRIAN-HTB",
+                        "old_onu_ref": "1/1/1:7",
+                        "old_router": "Krian",
+                        "old_sn": "ZTEGA0000013",
+                        "phone": "081200000013"
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "konfirmasi 31 minutes after pilih: the pending choice has expired",
+            "trigger": "cmd:konfirmasi",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Pilihan migrasi #<migration1> sudah kedaluwarsa. Pilih ulang: #migrasi pilih #<migration1> <nomor>",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "konfirmasi without a KTP: asks for it",
+            "trigger": "cmd:konfirmasi",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Migrasi #<migration1> belum dapat dikonfirmasi. Data kurang: foto KTP.\nKTP: kirim gambar dengan caption #migrasi ktp #<migration1>; lalu ulangi #migrasi konfirmasi #<migration1>.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        },
+        {
+            "label": "ktp command with a photo: classified by the PSB facade",
+            "trigger": "cmd:ktp",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Foto KTP tersimpan di migrasi #<migration1> dan terikat ke ID yang benar.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "ktp_photo": "<file:ktp-a>",
+                        "meta": {
+                            "photo_class": [
+                                {
+                                    "at": "<ts>",
+                                    "detected_type": "ktp",
+                                    "hint": "ktp",
+                                    "ktp_score": 100,
+                                    "label": "ktp",
+                                    "path": "<file:ktp-a>",
+                                    "sn": null,
+                                    "sn_score": 0
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "konfirmasi: dry-run ready",
+            "trigger": "cmd:konfirmasi",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "Krian",
+                    "type": "mt.connect"
+                },
+                {
+                    "router": "Krian",
+                    "type": "mt.getPPPSecret",
+                    "user": "USERDEWI_RT01_RW02"
+                },
+                {
+                    "router": "Krian",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "options": {
+                        "attempts": 1,
+                        "timeout": 12
+                    },
+                    "router": "Skynet-Krian-OLT",
+                    "type": "mt.connect"
+                },
+                {
+                    "router": "Skynet-Krian-OLT",
+                    "type": "mt.getProfiles"
+                },
+                {
+                    "router": "Skynet-Krian-OLT",
+                    "type": "mt.disconnect"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Konfirmasi teknisi untuk migrasi #<migration1> tersimpan. Tidak ada auto-live; kirim #migrasi eksekusi #<migration1> setelah review terakhir.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "last_error": "Dry-run action migrasi siap. Belum ada write perangkat/customer; execute butuh ACK MIG-008 dan kill switch.",
+                        "meta": {
+                            "device_action_approval": {
+                                "continuation": false,
+                                "continuation_of_ledger_id": null,
+                                "idempotency_key": "migration-device:<migration1>:ZTEGA0000013:FHTTC0FFEE54:onu:v1",
+                                "ledger_id": "<ledger1>",
+                                "reason": "WA technician confirmed selected candidate",
+                                "remaining_steps": null,
+                                "requested_at": "<ts>",
+                                "requested_by": null,
+                                "rollback_hint": "Rollback migrasi #<migration1>: restore customer ONU ZTEGA0000013 / 1/1/1:7, cek ulang secret PPPoE USERDEWI_RT01_RW02, hapus ONU baru hanya jika belum dipakai pelanggan lain, dan restore GenieACS tag dari snapshot sebelum.",
+                                "status": "dry_run_ready",
+                                "write_flags": {
+                                    "genieacs": true,
+                                    "global_read_only": false,
+                                    "migration_actions": true,
+                                    "mikrotik": true,
+                                    "olt": true
+                                }
+                            },
+                            "device_action_preflight": {
+                                "continuation": false,
+                                "cross_router": true,
+                                "customer_after_proposed": {
+                                    "customer_id": "<customer3>",
+                                    "device_write": false,
+                                    "ktp_photo_url": "<file:ktp-a>",
+                                    "name": "DRAFTG LESTARI",
+                                    "old_onu_ref": "1/1/1:7",
+                                    "old_sn": "ZTEGA0000013",
+                                    "olt_id": 9,
+                                    "olt_port_label": "1/2/2",
+                                    "onu_serial": "FHTTC0FFEE54",
+                                    "phone": "081200000013",
+                                    "pppoe_user": "USERDEWI_RT01_RW02",
+                                    "router_id": 514
+                                },
+                                "customer_before": {
+                                    "area_id": null,
+                                    "id": "<customer3>",
+                                    "ktp_photo_url": null,
+                                    "mikrotik_profile": "10MB",
+                                    "name": "DRAFTG LESTARI",
+                                    "odp_name": "ODP-KRN-01",
+                                    "olt_id": 10,
+                                    "olt_port_label": "1/1/1:7",
+                                    "onu_serial": "ZTEGA0000013",
+                                    "package_id": "package:KRIAN-10",
+                                    "phone": "081200000013",
+                                    "pppoe_user": "USERDEWI_RT01_RW02",
+                                    "router_id": 15
+                                },
+                                "eligible": true,
+                                "genieacs_snapshot": {
+                                    "available": true,
+                                    "found": false,
+                                    "id": null,
+                                    "last_seen": null,
+                                    "serial_number": null,
+                                    "tag": null
+                                },
+                                "migration": {
+                                    "id": "<migration1>",
+                                    "new_onu_ref": null,
+                                    "new_sn": "FHTTC0FFEE54",
+                                    "old_onu_ref": "1/1/1:7",
+                                    "old_sn": "ZTEGA0000013",
+                                    "review_status": "confirmed_pending_approval",
+                                    "status": "needs_review"
+                                },
+                                "mikrotik_secret": {
+                                    "found": true,
+                                    "profile": "10MB"
+                                },
+                                "olt": {
+                                    "id": 9,
+                                    "name": "OLT KRIAN",
+                                    "vendor": "zte_c300"
+                                },
+                                "olt_snapshot": {
+                                    "available": true,
+                                    "belongs_to_migration": null,
+                                    "found": false,
+                                    "id": null,
+                                    "last_seen": null,
+                                    "onu_name": null,
+                                    "onu_ref": null,
+                                    "serial_number": null
+                                },
+                                "partial_execution": null,
+                                "reasons": [],
+                                "router": {
+                                    "id": 514,
+                                    "name": "Skynet-Krian-OLT"
+                                },
+                                "source_router": {
+                                    "id": 15,
+                                    "name": "Krian"
+                                },
+                                "target_profile": {
+                                    "desired": "10MB",
+                                    "found": true,
+                                    "resolved": "10MB"
+                                },
+                                "warnings": [],
+                                "write_flags": {
+                                    "genieacs": true,
+                                    "global_read_only": false,
+                                    "migration_actions": true,
+                                    "mikrotik": true,
+                                    "olt": true
+                                }
+                            },
+                            "guided_wa_confirmation": {
+                                "candidate_number": 1,
+                                "confirmed_at": "<ts>",
+                                "confirmed_by_sender_keys": [
+                                    "6281200000101"
+                                ],
+                                "customer_id": "<customer3>",
+                                "expires_at": "<ts>",
+                                "previous_customer_id": "<customer3>",
+                                "selected_at": "<ts>",
+                                "selected_by_sender_keys": [
+                                    "6281200000101"
+                                ],
+                                "status": "confirmed"
+                            },
+                            "migration_operation": {
+                                "classified_at": "<ts>",
+                                "customer_id": "<customer3>",
+                                "operation_key": "<hash>",
+                                "operation_reference": "MIG-<ref>",
+                                "operation_type": "MIGRATION",
+                                "reason_code": "TARGET_ROUTER_CHANGED",
+                                "requires_confirmation": false,
+                                "target_router_id": 514,
+                                "warnings": []
+                            },
+                            "timeline": {
+                                "added": [
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "candidate_number": 1,
+                                            "customer_id": "<customer3>"
+                                        },
+                                        "status": "pending_review",
+                                        "step": "guided_wa_selection_confirmed"
+                                    },
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "continuation_of_ledger_id": null,
+                                            "ledger_id": "<ledger1>",
+                                            "reason": "WA technician confirmed selected candidate",
+                                            "write_flags": {
+                                                "genieacs": true,
+                                                "global_read_only": false,
+                                                "migration_actions": true,
+                                                "mikrotik": true,
+                                                "olt": true
+                                            }
+                                        },
+                                        "status": "pending_review",
+                                        "step": "device_action_dry_run_prepared"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": [
+                    {
+                        "row": "1",
+                        "new": true,
+                        "action": "migration-device-action-dry-run",
+                        "executed": false,
+                        "idempotency_key": "migration-device:<migration1>:ZTEGA0000013:FHTTC0FFEE54:onu:v1",
+                        "migration": 1,
+                        "payload": {
+                            "customer_id": "<customer3>",
+                            "customer_write": false,
+                            "device_write": false,
+                            "dry_run_diff": {
+                                "customer": {
+                                    "after": {
+                                        "customer_id": "<customer3>",
+                                        "device_write": false,
+                                        "ktp_photo_url": "<file:ktp-a>",
+                                        "name": "DRAFTG LESTARI",
+                                        "old_onu_ref": "1/1/1:7",
+                                        "old_sn": "ZTEGA0000013",
+                                        "olt_id": 9,
+                                        "olt_port_label": "1/2/2",
+                                        "onu_serial": "FHTTC0FFEE54",
+                                        "phone": "081200000013",
+                                        "pppoe_user": "USERDEWI_RT01_RW02",
+                                        "router_id": 514
+                                    },
+                                    "before": {
+                                        "area_id": null,
+                                        "id": "<customer3>",
+                                        "ktp_photo_url": null,
+                                        "mikrotik_profile": "10MB",
+                                        "name": "DRAFTG LESTARI",
+                                        "odp_name": "ODP-KRN-01",
+                                        "olt_id": 10,
+                                        "olt_port_label": "1/1/1:7",
+                                        "onu_serial": "ZTEGA0000013",
+                                        "package_id": "package:KRIAN-10",
+                                        "phone": "081200000013",
+                                        "pppoe_user": "USERDEWI_RT01_RW02",
+                                        "router_id": 15
+                                    },
+                                    "ktp": {
+                                        "action": "update_if_customer_empty_or_replaceable",
+                                        "existing": false,
+                                        "incoming": true
+                                    }
+                                },
+                                "genieacs": {
+                                    "mode": "planned_only_no_write",
+                                    "new_sn": "FHTTC0FFEE54",
+                                    "snapshot": {
+                                        "available": true,
+                                        "found": false,
+                                        "id": null,
+                                        "last_seen": null,
+                                        "serial_number": null,
+                                        "tag": null
+                                    },
+                                    "target_label": "USERDEWI_RT01_RW02"
+                                },
+                                "mikrotik": {
+                                    "comment": "migrasi 20Oct2026 - migrasi",
+                                    "cross_router": true,
+                                    "mode": "planned_only_no_write",
+                                    "pppoe_plan": {
+                                        "current_username": "USERDEWI_RT01_RW02",
+                                        "new_odp": "ODP-KRN-01",
+                                        "new_odp_suffix": "01",
+                                        "notes": [
+                                            "odp_same_or_unknown_keep_username_profile_only"
+                                        ],
+                                        "odp_changed": false,
+                                        "old_odp": "ODP-KRN-01",
+                                        "old_odp_suffix": "01",
+                                        "profile_action": "set_target_profile",
+                                        "pw_action": "preserve_existing",
+                                        "target_username": "USERDEWI_RT01_RW02",
+                                        "username_action": "keep_existing"
+                                    },
+                                    "pppoe_user": "USERDEWI_RT01_RW02",
+                                    "router": {
+                                        "id": 514,
+                                        "name": "Skynet-Krian-OLT"
+                                    },
+                                    "secret_snapshot": {
+                                        "found": true,
+                                        "profile": "10MB"
+                                    },
+                                    "source_router": {
+                                        "id": 15,
+                                        "name": "Krian"
+                                    },
+                                    "target_ip_action": "allocate_from_target_router_pool_or_use_target_profile_pool",
+                                    "target_profile": "10MB"
+                                },
+                                "olt": {
+                                    "mode": "planned_only_no_write",
+                                    "new_onu_ref": "unknown",
+                                    "new_sn": "FHTTC0FFEE54",
+                                    "old_onu_ref": "1/1/1:7",
+                                    "old_sn": "ZTEGA0000013",
+                                    "olt": {
+                                        "id": 9,
+                                        "name": "OLT KRIAN",
+                                        "vendor": "zte_c300"
+                                    },
+                                    "snapshot": {
+                                        "available": true,
+                                        "belongs_to_migration": null,
+                                        "found": false,
+                                        "id": null,
+                                        "last_seen": null,
+                                        "onu_name": null,
+                                        "onu_ref": null,
+                                        "serial_number": null
+                                    },
+                                    "target_bandwidth": "200M"
+                                },
+                                "unknown_or_skipped": []
+                            },
+                            "migration_id": "<migration1>",
+                            "mode": "dry_run",
+                            "new_olt_id": null,
+                            "new_onu_ref": null,
+                            "new_sn": "FHTTC0FFEE54",
+                            "old_olt_id": 10,
+                            "old_onu_ref": "1/1/1:7",
+                            "old_sn": "ZTEGA0000013",
+                            "pppoe_user": "USERDEWI_RT01_RW02",
+                            "reason": "WA technician confirmed selected candidate",
+                            "steps": [
+                                {
+                                    "action": "verify_old_pppoe_secret_on_source_router",
+                                    "domain": "mikrotik",
+                                    "mode": "read_only"
+                                },
+                                {
+                                    "action": "same_router_rename_or_cross_router_copy_then_cutover",
+                                    "domain": "mikrotik",
+                                    "mode": "planned_only"
+                                },
+                                {
+                                    "action": "provision_new_onu",
+                                    "domain": "olt",
+                                    "mode": "planned_only"
+                                },
+                                {
+                                    "action": "sync_customer_snapshot",
+                                    "domain": "customer",
+                                    "mode": "planned_only"
+                                },
+                                {
+                                    "action": "sync_tag_label",
+                                    "domain": "genieacs",
+                                    "mode": "planned_only"
+                                },
+                                {
+                                    "action": "delete_old_onu_if_safe",
+                                    "domain": "olt",
+                                    "mode": "planned_only"
+                                }
+                            ],
+                            "target_contract": {
+                                "customer_type": "regular",
+                                "krian": {
+                                    "applies": true,
+                                    "blockers": [],
+                                    "customer_area": "Krian",
+                                    "source_router": "Krian",
+                                    "target_olt": "OLT KRIAN",
+                                    "target_router": "Skynet-Krian-OLT",
+                                    "target_router_id": 514
+                                },
+                                "mikrotik_profile": "10MB",
+                                "old_package_kept_as_before_snapshot": true,
+                                "package_blocker": null,
+                                "package_id": "package:KRIAN-10",
+                                "package_name": "KRIAN-10",
+                                "preserve_package": true,
+                                "profile": "10MB",
+                                "profile_source": "package",
+                                "profile_warning": null
+                            },
+                            "write_blocked_until_ack": true
+                        },
+                        "result": {
+                            "continuation": false,
+                            "customer_write": false,
+                            "device_write": false,
+                            "execute_allowed": false,
+                            "mode": "dry_run",
+                            "prepared_at": "<ts>",
+                            "reason": "WA technician confirmed selected candidate"
+                        },
+                        "rollback_hint": "Rollback migrasi #<migration1>: restore customer ONU ZTEGA0000013 / 1/1/1:7, cek ulang secret PPPoE USERDEWI_RT01_RW02, hapus ONU baru hanya jika belum dipakai pelanggan lain, dan restore GenieACS tag dari snapshot sebelum.",
+                        "status": "dry_run",
+                        "verified": false
+                    }
+                ],
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "full message resent with another SN: correction by resend",
+            "trigger": "intake",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Data migrasi diterima (ref MIG011). Sedang dicocokkan; tunggu hasil bot dan jangan kirim ulang.",
+                    "type": "wa.send"
+                },
+                {
+                    "olt_id": 9,
+                    "type": "olt.listUncfg"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "*Migrasi #<migration1>: SN diperbarui*\nSN: FHTTC0FFEE54 -> FHTTC0FFEE58\nSN FHTTC0FFEE58 belum ditemukan di OLT OLT KRIAN.\nSN FHTTC0FFEE58 tidak ditemukan di OLT OLT KRIAN. Maksud Anda FHTTC0FFEE54 (port 1/2/2)? Kirim #migrasi sn #<migration1> FHTTC0FFEE54\nPastikan ONT menyala & FO/PON benar, tunggu 30-60 detik, lalu cek lagi dengan perintah yang sama.\nLanjut: #migrasi konfirmasi #<migration1> lalu #migrasi eksekusi #<migration1>\nCek: #migrasi cek #<migration1>",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "last_error": "Pelanggan sudah dipilih; menunggu konfirmasi teknisi.",
+                        "meta": {
+                            "guided_wa_preview": {
+                                "candidates": [
+                                    {
+                                        "area": null,
+                                        "authoritative_source": "ebilling_live_post_cutoff",
+                                        "confidence": "high",
+                                        "conflicts": [],
+                                        "customer_code": "KRN-DEWI",
+                                        "customer_id": "<customer3>",
+                                        "freshness": {
+                                            "customer": {
+                                                "at": "<ts>",
+                                                "stale": false
+                                            },
+                                            "genieacs_snapshot": {
+                                                "at": null,
+                                                "stale": null
+                                            },
+                                            "mikrotik_snapshot": {
+                                                "at": null,
+                                                "stale": null
+                                            },
+                                            "olt_snapshot": {
+                                                "at": null,
+                                                "stale": null
+                                            }
+                                        },
+                                        "match_reasons": [
+                                            "name_exact",
+                                            "pppoe_exact"
+                                        ],
+                                        "name": "DRAFTG LESTARI",
+                                        "number": 1,
+                                        "odp": "ODP-KRN-01",
+                                        "old_onu_ref": "1/1/1:7",
+                                        "old_onu_resolution": "known",
+                                        "old_sn": "ZTEGA0000013",
+                                        "pppoe_user": "USERDEWI_RT01_RW02",
+                                        "requires_manual_selection": false,
+                                        "rt": "1",
+                                        "rw": "2",
+                                        "score": 100,
+                                        "sources": [
+                                            "customer_db",
+                                            "olt_snapshot"
+                                        ],
+                                        "warnings": []
+                                    }
+                                ],
+                                "idempotency_key": "migration-lookup:<hash>",
+                                "new_sn": "FHTTC0FFEE58",
+                                "previous_order": [
+                                    "<customer3>"
+                                ],
+                                "reasons": [],
+                                "refreshed_from": "resend",
+                                "status": "ready_for_selection",
+                                "updated_at": "<ts>"
+                            },
+                            "sn_corrections": [
+                                {
+                                    "at": "<ts>",
+                                    "changed": true,
+                                    "from": "ZTEGA0000014",
+                                    "lookup": {
+                                        "found": true,
+                                        "olt": "OLT KRIAN",
+                                        "onu_id": 5,
+                                        "port": "1/2/2",
+                                        "source": "uncfg"
+                                    },
+                                    "message_id": "FAKE-MIG-005",
+                                    "origin": "sn_command",
+                                    "sender_keys": [
+                                        "6281200000101"
+                                    ],
+                                    "sender_name": "Teknisi Satu",
+                                    "to": "FHTTC0FFEE54"
+                                },
+                                {
+                                    "at": "<ts>",
+                                    "changed": true,
+                                    "from": "FHTTC0FFEE54",
+                                    "lookup": {
+                                        "error": null,
+                                        "found": false,
+                                        "olt": "OLT KRIAN",
+                                        "uncfg_count": 1,
+                                        "uncfg_ok": true
+                                    },
+                                    "message_id": "FAKE-MIG-011",
+                                    "origin": "resend",
+                                    "sender_keys": [
+                                        "6281200000101"
+                                    ],
+                                    "sender_name": "Teknisi Satu",
+                                    "to": "FHTTC0FFEE58"
+                                }
+                            ],
+                            "timeline": {
+                                "added": [
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "from": "FHTTC0FFEE54",
+                                            "lookup_source": null,
+                                            "olt_found": false,
+                                            "origin": "resend",
+                                            "to": "FHTTC0FFEE58"
+                                        },
+                                        "status": "pending_review",
+                                        "step": "sn_corrected"
+                                    },
+                                    {
+                                        "at": "<ts>",
+                                        "data": {
+                                            "from_conflicts": [
+                                                []
+                                            ],
+                                            "order_changed": false,
+                                            "origin": "resend",
+                                            "selection": "kept",
+                                            "to_conflicts": [
+                                                []
+                                            ]
+                                        },
+                                        "status": "pending_review",
+                                        "step": "guided_wa_preview_refreshed"
+                                    }
+                                ]
+                            },
+                            "device_action_approval": "<removed>",
+                            "device_action_preflight": "<removed>"
+                        },
+                        "new_pon_port": null,
+                        "new_sn": "FHTTC0FFEE58"
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": [
+                    {
+                        "row": "1",
+                        "result": {
+                            "cancelled_at": "<ts>",
+                            "cancelled_reason": "sn_corrected",
+                            "continuation": false,
+                            "customer_write": false,
+                            "device_write": false,
+                            "execute_allowed": false,
+                            "mode": "dry_run",
+                            "prepared_at": "<ts>",
+                            "reason": "WA technician confirmed selected candidate"
+                        },
+                        "status": "cancelled"
+                    }
+                ],
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        },
+        {
+            "label": "batal by the same technician: cancelled before any device call",
+            "trigger": "cmd:batal",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000101@g.us",
+                    "mentions": [],
+                    "text": "Migrasi #<migration1> dibatalkan sebelum device action. Tidak ada PPPoE/ONU/customer yang diubah.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [
+                {
+                    "migration": 1,
+                    "from": "needs_review",
+                    "to": "cancelled"
+                }
+            ],
+            "db": {
+                "migrations": [
+                    {
+                        "row": "1",
+                        "last_error": "Dibatalkan teknisi sebelum device action.",
+                        "meta": {
+                            "guided_wa_confirmation": {
+                                "cancelled_at": "<ts>",
+                                "candidate_number": 1,
+                                "confirmed_at": "<ts>",
+                                "confirmed_by_sender_keys": [
+                                    "6281200000101"
+                                ],
+                                "customer_id": "<customer3>",
+                                "expires_at": "<ts>",
+                                "previous_customer_id": "<customer3>",
+                                "selected_at": "<ts>",
+                                "selected_by_sender_keys": [
+                                    "6281200000101"
+                                ],
+                                "status": "cancelled"
+                            },
+                            "timeline": {
+                                "added": [
+                                    {
+                                        "at": "<ts>",
+                                        "data": [],
+                                        "status": "pending_review",
+                                        "step": "guided_wa_selection_cancelled"
+                                    }
+                                ]
+                            }
+                        },
+                        "status": "cancelled"
+                    }
+                ],
+                "customers": "unchanged",
+                "ledgers": "unchanged",
+                "olt_onus": "unchanged",
+                "mikrotik": "unchanged",
+                "psb_drafts": "unchanged"
+            }
+        }
+    ],
+    "transitions": [
+        [
+            "(none)",
+            "needs_review",
+            "intake"
+        ],
+        [
+            "needs_review",
+            "cancelled",
+            "cmd:batal"
+        ]
+    ]
+}

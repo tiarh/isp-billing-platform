@@ -1,0 +1,3 @@
+display ont info 0 0 5 all
+  Failure: There is no ONT available
+MA5608T#

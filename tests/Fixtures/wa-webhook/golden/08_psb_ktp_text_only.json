@@ -1,0 +1,91 @@
+{
+    "scenario": "08_psb_ktp_text_only",
+    "steps": [
+        {
+            "label": "#psb ktp #ID text",
+            "status": 200,
+            "json": {
+                "processed": 1,
+                "status": "ok"
+            },
+            "jobs": [],
+            "http": [
+                {
+                    "path": "POST /message/sendText/skynet-ebilling",
+                    "number": "120363000000000001@g.us",
+                    "text": "📷 *Foto KTP belum terlampir*\nKirim ulang foto sebagai gambar dengan caption tepat: *#psb ktp #<draft1>*"
+                }
+            ],
+            "db": {
+                "psb_drafts": [
+                    {
+                        "activation_mode": null,
+                        "applied_at": null,
+                        "area_id": null,
+                        "customer_id": null,
+                        "daerah": null,
+                        "full_name": "Pelanggan Uji",
+                        "group_jid": "120363000000000001@g.us",
+                        "ktp_photo_path": null,
+                        "last_error": "Menunggu foto KTP.",
+                        "message_id": "SEED-d1",
+                        "meta": {
+                            "waiting_photo": true
+                        },
+                        "mikrotik_profile": null,
+                        "nik": null,
+                        "odp": null,
+                        "olt_at": null,
+                        "olt_id": null,
+                        "onu_id": null,
+                        "package_id": null,
+                        "phone": null,
+                        "pon_port": null,
+                        "pppoe_local_address": null,
+                        "pppoe_remote_address": null,
+                        "pppoe_user": null,
+                        "raw_text": null,
+                        "router_id": null,
+                        "router_photo_path": null,
+                        "rt": null,
+                        "rw": null,
+                        "secret_at": null,
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": null,
+                        "site_profile_key": null,
+                        "sn": null,
+                        "sn_wait_until": null,
+                        "status": "received",
+                        "tikor": null,
+                        "tr069_vlan": 69,
+                        "vlan": null
+                    }
+                ],
+                "customer_migrations": [],
+                "attendances": [],
+                "wa_chat_signals": [
+                    {
+                        "channel": "activation",
+                        "command": "#psb",
+                        "domain": "psb",
+                        "group_jid": "120363000000000001@g.us",
+                        "group_label": "120363000000000001",
+                        "intent": "psb_command",
+                        "message_id": "FAKE-S08-T1",
+                        "occurred_at": "<ts>",
+                        "payload": {
+                            "auto_reply_enabled": false,
+                            "has_image": false,
+                            "read_only": true
+                        },
+                        "redacted_text": "#psb ktp #<draft1>",
+                        "sender_jid": "62812000001@s.whatsapp.net",
+                        "sender_name": "Teknisi Satu",
+                        "severity": "normal",
+                        "summary": "Psb Command: #psb ktp #<draft1>"
+                    }
+                ]
+            }
+        }
+    ]
+}

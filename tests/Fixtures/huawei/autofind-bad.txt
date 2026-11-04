@@ -1,0 +1,3 @@
+display ont autofind all
+  % Unknown command, the error locates at '^'
+MA5608T#

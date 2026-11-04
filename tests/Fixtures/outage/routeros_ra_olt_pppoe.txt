@@ -1,0 +1,12 @@
+<134>Oct 17 11:40:01 SKYNET-RA-OLT pppoe,ppp,info <pppoe-USER_UJI_A_2>: disconnected
+<134>Oct 17 11:40:02 SKYNET-RA-OLT pppoe,info PPPoE connection established from 64:9C:F3:00:00:03
+<134>Oct 17 11:40:02 SKYNET-RA-OLT pppoe,ppp,info,account USER_UJI_A_2 logged in, 198.18.11.184 from 64:9C:F3:00:00:03
+<134>Oct 17 11:40:02 SKYNET-RA-OLT pppoe,ppp,info <pppoe-USER_UJI_A_2>: authenticated
+<134>Oct 17 11:40:02 SKYNET-RA-OLT pppoe,ppp,info <pppoe-USER_UJI_A_2>: connected
+<134>Oct 17 11:40:09 SKYNET-RA-OLT pppoe,info PPPoE connection established from 64:9C:F3:00:00:2B
+<131>Oct 17 11:40:09 SKYNET-RA-OLT pppoe,ppp,error <0081>: user USER_UJI_B_06 is already active
+<131>Oct 17 11:40:25 SKYNET-RA-OLT l2tp,ppp,error <192.0.2.202>: user tutur authentication failed - radius timeout
+<134>Oct 17 11:41:00 SKYNET-RA-OLT pppoe,ppp,info <pppoe-USER_UJI_C>: terminating... - peer is not responding
+<134>Oct 17 11:41:00 SKYNET-RA-OLT pppoe,ppp,info,account USER_UJI_C logged out, 3600 1234 5678 9 10 from 64:9C:F3:00:00:44
+<134>Oct 17 11:42:00 SKYNET-RA-OLT pppoe,ppp,error <pppoe-USER_UJI_D>: user USER_UJI_D authentication failed
+<134>Oct 17 11:43:00 SKYNET-RA-OLT pppoe,ppp,info something completely new from a future RouterOS

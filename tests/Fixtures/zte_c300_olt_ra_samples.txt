@@ -1,0 +1,121 @@
+=== show gpon onu detail-info gpon-onu_1/5/5:3 ===
+show gpon onu detail-info gpon-onu_1/5/5:3
+
+ONU interface:         gpon-onu_1/5/5:3
+  Name:                BUDI_RT01_RW01_1
+  Type:                ALL
+  State:               ready
+  Configured channel:  auto
+  Current channel:     1(GPON)
+  Admin state:         enable
+  Phase state:         working
+  Config state:        success
+  Authentication mode: sn
+  SN Bind:             enable with SN check
+  Serial number:       FHTTC0000A01
+  Password:
+  Description:         FHTTC0000A01
+  Vport mode:          gemport
+  DBA Mode:            Hybrid
+  ONU Status:          enable
+  OMCI BW Profile:
+  Line Profile:        N/A
+  Service Profile:     N/A
+  ONU Distance:        1234m
+  Online Duration:     12h 34m 56s
+  FEC:                 none
+  FEC actual mode:     N/A
+  1PPS+ToD:            disable
+  Auto replace:        disable
+  Multicast encryption:disable
+  Multicast encryption current state:N/A
+------------------------------------------
+       Authpass Time          OfflineTime             Cause
+   1   2026-01-02 03:04:05    2026-01-02 04:05:06     DyingGasp
+   2   2026-01-02 05:06:07    0000-00-00 00:00:00
+   3   0000-00-00 00:00:00    0000-00-00 00:00:00
+   4   0000-00-00 00:00:00    0000-00-00 00:00:00
+   5   0000-00-00 00:00:00    0000-00-00 00:00:00
+   6   0000-00-00 00:00:00    0000-00-00 00:00:00
+   7   0000-00-00 00:00:00    0000-00-00 00:00:00
+   8   0000-00-00 00:00:00    0000-00-00 00:00:00
+   9   0000-00-00 00:00:00    0000-00-00 00:00:00
+  10   0000-00-00 00:00:00    0000-00-00 00:00:00
+
+
+SKYNET
+=== show gpon onu detail-info gpon-onu_1/3/6:2 ===
+show gpon onu detail-info gpon-onu_1/3/6:2
+
+ONU interface:         gpon-onu_1/3/6:2
+  Name:                BUDI_RT01_RW01_2
+  Type:                ALL
+  State:               ready
+  Configured channel:  auto
+  Current channel:     1(GPON)
+  Admin state:         enable
+  Phase state:         DyingGasp
+  Config state:        success
+  Authentication mode: sn
+  SN Bind:             enable with SN check
+  Serial number:       FHTTC0000A01
+  Password:
+  Description:         FHTTC0000A01
+  Vport mode:          gemport
+  DBA Mode:            Hybrid
+  ONU Status:          enable
+  OMCI BW Profile:
+  Line Profile:        N/A
+  Service Profile:     N/A
+  ONU Distance:        2345m
+  Online Duration:     0h 0m 0s
+  FEC:                 none
+  FEC actual mode:     N/A
+  1PPS+ToD:            disable
+  Auto replace:        disable
+  Multicast encryption:disable
+  Multicast encryption current state:N/A
+------------------------------------------
+       Authpass Time          OfflineTime             Cause
+   1   2026-01-03 01:02:03    2026-01-03 02:03:04     DyingGasp
+   2   2026-01-03 03:04:05    2026-01-03 04:05:06     DyingGasp
+   3   0000-00-00 00:00:00    0000-00-00 00:00:00
+   4   0000-00-00 00:00:00    0000-00-00 00:00:00
+   5   0000-00-00 00:00:00    0000-00-00 00:00:00
+   6   0000-00-00 00:00:00    0000-00-00 00:00:00
+   7   0000-00-00 00:00:00    0000-00-00 00:00:00
+   8   0000-00-00 00:00:00    0000-00-00 00:00:00
+   9   0000-00-00 00:00:00    0000-00-00 00:00:00
+  10   0000-00-00 00:00:00    0000-00-00 00:00:00
+
+
+SKYNET
+=== show gpon onu state gpon-olt_1/3/6 ===
+show gpon onu state gpon-olt_1/3/6
+OnuIndex   Admin State  OMCC State  Phase State  Channel
+--------------------------------------------------------------
+1/3/6:1     enable       enable      working      1(GPON)
+1/3/6:2     enable       disable     DyingGasp    1(GPON)
+1/3/6:3     enable       enable      working      1(GPON)
+1/3/6:4     enable       disable     DyingGasp    1(GPON)
+1/3/6:5     enable       disable     OffLine      1(GPON)
+1/3/6:6     enable       enable      working      1(GPON)
+1/3/6:7     enable       disable     DyingGasp    1(GPON)
+1/3/6:8     enable       disable     LOS          1(GPON)
+1/3/6:9     enable       enable      working      1(GPON)
+1/3/6:10    enable       disable     DyingGasp    1(GPON)
+1/3/6:11    enable       enable      working      1(GPON)
+1/3/6:12    enable       disable     OffLine      1(GPON)
+1/3/6:13    enable       enable      working      1(GPON)
+1/3/6:14    enable       disable     DyingGasp    1(GPON)
+1/3/6:15    enable       enable      working      1(GPON)
+1/3/6:16    enable       enable      working      1(GPON)
+1/3/6:17    enable       disable     DyingGasp    1(GPON)
+1/3/6:18    enable       enable      working      1(GPON)
+1/3/6:19    enable       disable     OffLine      1(GPON)
+1/3/6:21    enable       enable      working      1(GPON)
+1/3/6:22    enable       disable     DyingGasp    1(GPON)
+1/3/6:23    enable       enable      working      1(GPON)
+1/3/6:24    enable       enable      working      1(GPON)
+ONU Number: 12/23
+SKYNET

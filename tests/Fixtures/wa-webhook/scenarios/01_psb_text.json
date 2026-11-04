@@ -1,0 +1,17 @@
+{
+  "description": "#psb text only in the PSB group",
+  "steps": [
+    {
+      "label": "#psb text",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S01-T1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"conversation": "#psb\nNama: Budi Uji\nRT: 01\nRW: 02\nODP: ODP-UJI-01\nSN: FHTT00000001\nTikor: -7.9,112.6\nDaerah: RA"},
+        "messageType": "conversation",
+        "messageTimestamp": "{{ts}}",
+        "instanceId": "00000000-0000-0000-0000-000000000000",
+        "source": "android"
+      }
+    }
+  ]
+}

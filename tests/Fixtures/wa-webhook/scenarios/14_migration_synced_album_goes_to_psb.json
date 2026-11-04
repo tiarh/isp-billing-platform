@@ -1,0 +1,34 @@
+{
+  "description": "finished (synced) migration never takes photos: caption-less album siblings first, then the #psb caption image",
+  "migrations": [
+    {"ref": "m1", "status": "synced", "minutes_ago": 40}
+  ],
+  "steps": [
+    {
+      "label": "album sibling without caption",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S14-A1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {
+          "imageMessage": {"url": "https://mmg.whatsapp.net/fake/1", "mimetype": "image/jpeg"},
+          "messageContextInfo": {"messageAssociation": {"associationType": "MEDIA_ALBUM", "parentMessageKey": {"id": "FAKE-S14-ALBUM", "remoteJid": "120363000000000001@g.us"}}}
+        },
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "album image with #psb caption",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S14-A2", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {
+          "imageMessage": {"url": "https://mmg.whatsapp.net/fake/2", "mimetype": "image/jpeg", "caption": "#psb\nNama: Budi Uji"},
+          "messageContextInfo": {"messageAssociation": {"associationType": "MEDIA_ALBUM", "parentMessageKey": {"id": "FAKE-S14-ALBUM", "remoteJid": "120363000000000001@g.us"}}}
+        },
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}

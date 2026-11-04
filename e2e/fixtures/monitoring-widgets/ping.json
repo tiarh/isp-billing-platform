@@ -1,0 +1,33 @@
+{
+  "widget": "ping",
+  "range": "1h",
+  "status": "ok",
+  "fetched_at": "__now__",
+  "reason": null,
+  "partial": false,
+  "step_seconds": 60,
+  "grafana_dashboard_url": "https://grafana.example.test/d/skynet-mikrotik-overview?orgId=1&from=now-1h&to=now",
+  "data": {
+    "targets": [
+      { "target_name": "Upstream A (contoh)", "kind": "upstream", "router_id": null, "router_name": null, "rtt_ms": 8.4, "loss_pct": 0, "state": "up" },
+      { "target_name": "Upstream B (contoh)", "kind": "upstream", "router_id": null, "router_name": null, "rtt_ms": 112.7, "loss_pct": 2.5, "state": "degraded" },
+      { "target_name": "DNS contoh 1", "kind": "internet", "router_id": null, "router_name": null, "rtt_ms": 14.2, "loss_pct": 0, "state": "up" },
+      { "target_name": "RTR-SUKAMAJU-01", "kind": "router", "router_id": 1, "router_name": "RTR-SUKAMAJU-01", "rtt_ms": 1.4, "loss_pct": 0, "state": "up" },
+      { "target_name": "RTR-MEKARSARI-01", "kind": "router", "router_id": 2, "router_name": "RTR-MEKARSARI-01", "rtt_ms": 2.1, "loss_pct": 0, "state": "up" },
+      { "target_name": "RTR-CEMPAKA-01", "kind": "router", "router_id": 3, "router_name": "RTR-CEMPAKA-01", "rtt_ms": null, "loss_pct": 100, "state": "icmp_blocked" },
+      { "target_name": "RTR-TANJUNG-01", "kind": "router", "router_id": 4, "router_name": "RTR-TANJUNG-01", "rtt_ms": null, "loss_pct": 100, "state": "down" }
+    ],
+    "series": {
+      "rtt": [
+        { "target_name": "Upstream A (contoh)", "kind": "upstream", "points": { "wave": { "count": 30, "stepMinutes": 2, "base": 8.4, "amp": 1.2, "period": 8, "phase": 0 } } },
+        { "target_name": "Upstream B (contoh)", "kind": "upstream", "points": { "wave": { "count": 30, "stepMinutes": 2, "base": 108, "amp": 14, "period": 11, "phase": 1 } } },
+        { "target_name": "DNS contoh 1", "kind": "internet", "points": { "wave": { "count": 30, "stepMinutes": 2, "base": 14, "amp": 2, "period": 7, "phase": 2 } } }
+      ],
+      "loss": [
+        { "target_name": "Upstream A (contoh)", "kind": "upstream", "points": { "wave": { "count": 30, "stepMinutes": 2, "base": 0.1, "amp": 0.1, "period": 6, "phase": 0 } } },
+        { "target_name": "Upstream B (contoh)", "kind": "upstream", "points": { "wave": { "count": 30, "stepMinutes": 2, "base": 2.4, "amp": 1.1, "period": 9, "phase": 2 } } },
+        { "target_name": "DNS contoh 1", "kind": "internet", "points": { "wave": { "count": 30, "stepMinutes": 2, "base": 0.2, "amp": 0.15, "period": 5, "phase": 1 } } }
+      ]
+    }
+  }
+}

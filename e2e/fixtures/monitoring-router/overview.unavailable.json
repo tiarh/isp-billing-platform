@@ -1,0 +1,25 @@
+{
+  "widget": "routers",
+  "range": "1h",
+  "status": "unavailable",
+  "fetched_at": null,
+  "reason": "Grafana tidak menjawab (timeout).",
+  "partial": true,
+  "step_seconds": 60,
+  "grafana_dashboard_url": "https://grafana.example.test/d/skynet-per-router?orgId=1&var-router=rtr-sukamaju-01&from=now-1h&to=now",
+  "data": {
+    "kpi": {
+      "pppoe_online": 412,
+      "pppoe_online_source": "db",
+      "pppoe_secrets": 452,
+      "download_now_mbps": null,
+      "upload_now_mbps": null,
+      "month_gb": 18420.6,
+      "month_has_invalid_days": false,
+      "month_history_partial": true
+    },
+    "uplink": { "rx": [], "tx": [] },
+    "top": [],
+    "daily": "__daily30__"
+  }
+}

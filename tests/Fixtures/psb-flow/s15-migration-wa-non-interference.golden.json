@@ -1,0 +1,203 @@
+{
+    "scenario": "s15-migration-wa-non-interference",
+    "steps": [
+        {
+            "label": "#migrasi guided intake: ack, then preview with no customer or device write",
+            "trigger": "migration_inbound",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "Data migrasi diterima (ref PSB001). Sedang dicocokkan; tunggu hasil bot dan jangan kirim ulang.",
+                    "type": "wa.send"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "*Preview migrasi*\nStatus: ready_for_selection\n1. USERSI AMINAH | USERSIAMINAH_RT01_RW02_3 | SN FHTTOLD00001 | ONU - | score 90\nID: #<migration1>\nKTP kurang: kirim foto caption #migrasi ktp #<migration1>\nDry-run tertahan: Replacement perangkat belum dikonfirmasi teknisi.\nTidak ada auto-live. Lengkapi identitas/konfirmasi teknisi lalu kirim perintah eksekusi eksplisit.\nTarget: reguler STARTLITE/200M, sekolah CSR.\nNext: #migrasi pilih #<migration1> <nomor kandidat>\nBelum ada update customer/PPPoE/OLT/MikroTik/GenieACS dari preview.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [],
+                "customers": [
+                    {
+                        "address": "RT 01 / RW 02 - Klampok",
+                        "area": null,
+                        "due_day": 1,
+                        "ktp_photo": null,
+                        "local": null,
+                        "name": "USERSI AMINAH",
+                        "odp_name": null,
+                        "olt": null,
+                        "onu_serial": "FHTTOLD00001",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "password_set": true,
+                        "phone": "081200000022",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_3",
+                        "profile": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "sn_photo": null,
+                        "status": "active",
+                        "sync": "unknown"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                },
+                "migrations": [
+                    {
+                        "device_write": null,
+                        "full_name": "USERSI AMINAH",
+                        "ktp_photo": null,
+                        "new_sn": "FHTTGUIDED123",
+                        "old_sn": "FHTTOLD00001",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_3",
+                        "review_match": "confirmed_pending_approval",
+                        "source": "guided_lookup_wa",
+                        "status": "needs_review"
+                    }
+                ]
+            }
+        },
+        {
+            "label": "#migrasi ktp #ID with a photo: classified by the PSB facade",
+            "trigger": "migration_inbound",
+            "events": [
+                {
+                    "class": "App\\Jobs\\ProcessCustomerMigrationWaJob",
+                    "type": "job.run"
+                },
+                {
+                    "group": "120363000000000001@g.us",
+                    "mentions": [],
+                    "text": "Foto KTP tersimpan di migrasi #<migration1> dan terikat ke ID yang benar.",
+                    "type": "wa.send"
+                }
+            ],
+            "status_changes": [],
+            "db": {
+                "drafts": [],
+                "customers": [
+                    {
+                        "address": "RT 01 / RW 02 - Klampok",
+                        "area": null,
+                        "due_day": 1,
+                        "ktp_photo": null,
+                        "local": null,
+                        "name": "USERSI AMINAH",
+                        "odp_name": null,
+                        "olt": null,
+                        "onu_serial": "FHTTOLD00001",
+                        "ord": 1,
+                        "package": "RA-200M",
+                        "password_set": true,
+                        "phone": "081200000022",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_3",
+                        "profile": null,
+                        "remote": null,
+                        "router": "SKYNET-RA-OLT",
+                        "sn_photo": null,
+                        "status": "active",
+                        "sync": "unknown"
+                    }
+                ],
+                "mikrotik_secrets": {
+                    "USERSEEDONE_RT1_RW1_01": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.10"
+                    },
+                    "USERSEEDTWO_RT1_RW1_02": {
+                        "comment": "seed",
+                        "local": "198.19.42.1",
+                        "profile": "200M",
+                        "pw_len": "9",
+                        "remote": "198.19.42.11"
+                    }
+                },
+                "migrations": [
+                    {
+                        "device_write": null,
+                        "full_name": "USERSI AMINAH",
+                        "ktp_photo": "migrasi/2026/10/ktp_<rand>.jpg",
+                        "new_sn": "FHTTGUIDED123",
+                        "old_sn": "FHTTOLD00001",
+                        "pppoe_user": "USERSIAMINAH_RT01_RW02_3",
+                        "review_match": "confirmed_pending_approval",
+                        "source": "guided_lookup_wa",
+                        "status": "needs_review"
+                    }
+                ]
+            }
+        },
+        {
+            "label": "classifyWaActivationPhoto called directly (KTP photo and SN photo)",
+            "trigger": "facade_call",
+            "events": [
+                {
+                    "classification_status": "terminal",
+                    "ktp_ocr_name": "DRAFTE CO SANTOSO",
+                    "ktp_ocr_rt_rw": [
+                        "1",
+                        "2"
+                    ],
+                    "ktp_score": 100,
+                    "photo": "ktp",
+                    "sn": null,
+                    "sn_score": 0,
+                    "type": "facade.classifyWaActivationPhoto"
+                },
+                {
+                    "classification_status": "terminal",
+                    "ktp_ocr_name": null,
+                    "ktp_ocr_rt_rw": [
+                        null,
+                        null
+                    ],
+                    "ktp_score": 0,
+                    "photo": "sn",
+                    "sn": "FHTTGUIDED123",
+                    "sn_score": 90,
+                    "type": "facade.classifyWaActivationPhoto"
+                },
+                {
+                    "allowed_group": true,
+                    "other_group": false,
+                    "type": "facade.isAllowedGroup"
+                },
+                {
+                    "olt": "OLT-1",
+                    "package_200M": "RA-200M",
+                    "router": "SKYNET-RA-OLT",
+                    "type": "facade.resolve"
+                }
+            ],
+            "status_changes": [],
+            "db": "unchanged"
+        }
+    ],
+    "transitions": []
+}

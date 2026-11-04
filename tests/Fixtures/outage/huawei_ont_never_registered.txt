@@ -1,0 +1,23 @@
+  -----------------------------------------------------------------------------
+  F/S/P                   : 0/0/5
+  ONT-ID                  : 3
+  Control flag            : active
+  Run state               : offline
+  Config state            : initial
+  Match state             : initial
+  DBA type                : -
+  ONT distance(m)         : -
+  Memory occupation       : -
+  CPU occupation          : -
+  Temperature             : -
+  Authentic type          : SN-auth
+  SN                      : 485754430000002B (HWTC-0000002B)
+  Management mode         : OMCI
+  Description             : SISA-UJI
+  Last down cause         : -
+  Last up time            : -
+  Last down time          : -
+  Last dying gasp time    : -
+  ONT online duration     : -
+  ONT system up duration  : -
+  Power reduction status  : Not support

@@ -1,0 +1,28 @@
+{
+  "description": "open migration of the same sender + plain photo (follow-up download + attach in the request), then a #ktp hint photo",
+  "migrations": [
+    {"ref": "m1", "status": "waiting_sn", "minutes_ago": 5}
+  ],
+  "steps": [
+    {
+      "label": "plain photo",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S11-P1", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/p1", "mimetype": "image/jpeg"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    },
+    {
+      "label": "photo with #ktp hint",
+      "msg": {
+        "key": {"remoteJid": "120363000000000001@g.us", "fromMe": false, "id": "FAKE-S11-P2", "participant": "62812000001@s.whatsapp.net"},
+        "pushName": "Teknisi Satu",
+        "message": {"imageMessage": {"url": "https://mmg.whatsapp.net/fake/p2", "mimetype": "image/jpeg", "caption": "#ktp"}},
+        "messageType": "imageMessage",
+        "messageTimestamp": "{{ts}}"
+      }
+    }
+  ]
+}
